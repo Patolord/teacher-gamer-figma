@@ -1,0 +1,44 @@
+body {
+  background: #eed028;
+}
+
+.testimonial-marquee {
+  display: flex;
+  gap: 20px;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  will-change: transform;
+  width: max-content;
+  transform: translate3d(0, 0, 0);
+  backface-visibility: hidden;
+  -webkit-transform: translate3d(0, 0, 0);
+}
+
+.testimonial-marquee-left {
+  animation-name: marquee-left;
+  animation-duration: var(--speed);
+}
+
+.testimonial-marquee-right {
+  animation-name: marquee-right;
+  animation-duration: var(--speed);
+}
+
+/* move exactly half the total width (we duplicate the content twice) for a seamless loop */
+@keyframes marquee-left {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+@keyframes marquee-right {
+  0% {
+    transform: translate3d(-50%, 0, 0);
+  }
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+}
