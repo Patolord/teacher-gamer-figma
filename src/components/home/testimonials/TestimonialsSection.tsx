@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useEffect, useRef, useState } from "react";
+import { useState } from "react";
 import "./Testimonials.css";
 
 type message = {
@@ -17,7 +17,7 @@ interface TestimonialsProps {
 
 const Testimonials = ({ sectionIndex }: TestimonialsProps) => {
   const [expandedMessages, setExpandedMessages] = useState<Set<number>>(
-    new Set()
+    new Set(),
   );
 
   const toggleExpanded = (id: number) => {
@@ -81,22 +81,16 @@ const Testimonials = ({ sectionIndex }: TestimonialsProps) => {
   const row1Messages = messages.slice(0, 5);
   const row2Messages = messages.slice(5, 9);
 
+  const imageCardClass =
+    "shrink-0 w-[380px] min-h-[120px] md:w-[320px] md:min-h-[110px] border border-yellow-500 rounded-2xl overflow-hidden cursor-pointer will-change-transform transition-transform duration-200 ease-in-out hover:border-yellow-500 hover:-translate-y-1 hover:shadow-[0_6px_18px_rgba(234,179,8,0.4)] relative";
+
+  const textCardClass =
+    "shrink-0 w-[380px] min-h-[120px] md:w-[320px] md:min-h-[110px] md:p-5 bg-yellow-100 border border-yellow-500 rounded-2xl p-6 cursor-pointer whitespace-normal will-change-transform transition-transform duration-200 ease-in-out hover:bg-yellow-500 hover:border-yellow-500 hover:-translate-y-1 hover:shadow-[0_6px_18px_yellow-500] disabled:cursor-default text-left";
+
   const MessageCard = ({ message }: { message: message }) => {
     if (message.image) {
       return (
-        <div
-          className="flex-shrink-0
-          w-[380px] min-h-[120px]
-          md:w-[320px] md:min-h-[110px]
-          border border-yellow-500
-          rounded-2xl overflow-hidden cursor-pointer
-          will-change-transform
-          transition-transform duration-200 ease-in-out
-          hover:border-yellow-500
-          hover:-translate-y-1
-          hover:shadow-[0_6px_18px_rgba(234,179,8,0.4)]
-          relative"
-        >
+        <div className={imageCardClass}>
           <Image
             src={message.image}
             alt="Testimonial"
@@ -112,42 +106,24 @@ const Testimonials = ({ sectionIndex }: TestimonialsProps) => {
     const needsTruncation = message.text && message.text.length > MAX_LENGTH;
     const displayText =
       needsTruncation && !isExpanded
-        ? message.text?.substring(0, MAX_LENGTH) + "..."
+        ? `${message.text?.substring(0, MAX_LENGTH)}...`
         : message.text;
-
-    const handleClick = () => {
-      if (needsTruncation) {
-        toggleExpanded(message.id);
-      }
-    };
-
-    const handleKeyDown = (e: React.KeyboardEvent) => {
-      if (needsTruncation && (e.key === "Enter" || e.key === " ")) {
-        e.preventDefault();
-        toggleExpanded(message.id);
-      }
-    };
 
     return (
       <button
         type="button"
-        onClick={handleClick}
-        onKeyDown={handleKeyDown}
+        onClick={() => needsTruncation && toggleExpanded(message.id)}
+        onKeyDown={(e) => {
+          if (needsTruncation && (e.key === "Enter" || e.key === " ")) {
+            e.preventDefault();
+            toggleExpanded(message.id);
+          }
+        }}
         disabled={!needsTruncation}
-        className="flex-shrink-0
-        w-[380px] min-h-[120px]
-        md:w-[320px] md:min-h-[110px] md:p-5
-        bg-yellow-100 border border-yellow-500
-        rounded-2xl p-6 cursor-pointer whitespace-normal
-        will-change-transform
-        transition-transform duration-200 ease-in-out
-        hover:bg-yellow-500 hover:border-yellow-500
-        hover:-translate-y-1
-        hover:shadow-[0_6px_18px_yellow-500]
-        disabled:cursor-default text-left"
+        className={textCardClass}
       >
         <div className="flex flex-col gap-4 h-full">
-          <p className="text-black text-[0.95rem] leading-[1.6] m-0 flex-grow whitespace-normal">
+          <p className="text-black text-[0.95rem] leading-[1.6] m-0 grow whitespace-normal">
             {displayText}
             {needsTruncation && (
               <span className="ml-2 text-yellow-600 hover:text-yellow-700 font-semibold">
@@ -189,37 +165,6 @@ const Testimonials = ({ sectionIndex }: TestimonialsProps) => {
       </div>
     );
   };
-
-  const marqueeContainerRef = useRef(null);
-
-  useEffect(() => {
-    const container = marqueeContainerRef.current as unknown as HTMLElement;
-    if (!container || typeof IntersectionObserver === "undefined") return;
-
-    const rows = Array.from(container.querySelectorAll(".testimonial-row"));
-    if (rows.length === 0) return;
-
-    const io = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          const marquee = entry.target.querySelector(
-            ".testimonial-marquee"
-          ) as HTMLElement;
-          if (marquee) {
-            marquee.style.animationPlayState = entry.isIntersecting
-              ? "running"
-              : "paused";
-          }
-        });
-      },
-      { root: null, threshold: 0.03 }
-    );
-
-    rows.forEach((r) => {
-      io.observe(r);
-    });
-    return () => io.disconnect();
-  }, []);
 
   return (
     <section
