@@ -8,7 +8,7 @@ export default function ShopSection({ sectionIndex }: ShopSectionProps) {
   return (
     <section
       data-scroll-section={sectionIndex}
-      className="py-40 flex justify-center items-center relative"
+      className="py-40 flex justify-center items-center relative bg-gray-900"
     >
       {/* Top horizontal transition element */}
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-yellow-500 to-transparent opacity-50" />

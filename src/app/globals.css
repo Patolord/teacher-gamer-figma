@@ -5,7 +5,8 @@
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: "Aladin", "Amarante", "Pirata One", cursive;
+  --font-sans: "Amarante";
+  --font-serif: "Amarante";
   --font-mono: "Pirata One", cursive;
   --font-aladin: "Aladin";
   --font-amarante: "Amarante";

@@ -38,23 +38,24 @@ const scrollToCourses = () => {
 
 export default function HeroSection() {
   return (
-    <section className="relative overflow-hidden">
-      <div className="container mx-auto px-4 py-16 md:py-24 lg:py-32 relative z-10">
+    <section className="relative overflow-hidden bg-[url('/main_room2.png')] bg-cover bg-center">
+      <div className="absolute inset-0 bg-black/60" />
+      <div className="container mx-auto px-4 py-16 md:py-24 lg:py-32 relative z-10 ">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           <div className="space-y-8">
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border ">
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-white/30 text-white">
               <Star className="w-4 h-4" />
               <span className="text-sm font-semibold">
                 Now enrolling for Fall 2025
               </span>
             </div>
 
-            <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl font-bold leading-tight text-balance text-gray-900">
+            <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl font-bold leading-tight text-balance text-white">
               A Safe Space for Kids to{" "}
-              <span className="text-green-600">Play & Learn</span>
+              <span className="text-green-400">Play & Learn</span>
             </h1>
 
-            <p className="text-lg md:text-xl text-gray-700 leading-relaxed max-w-xl">
+            <p className="text-lg md:text-xl text-white/80 leading-relaxed max-w-xl">
               Where education meets adventure in a secure, monitored
               environment. Our platform creates a nurturing space where children
               can explore, create, and grow through game-based learning—all
@@ -75,7 +76,7 @@ export default function HeroSection() {
               <Button
                 size="lg"
                 variant="outline"
-                className="font-semibold text-lg px-8 bg-transparent border-gray-300 text-gray-900 hover:bg-gray-100"
+                className="font-semibold text-lg px-8 bg-transparent border-white/30 text-white hover:bg-white/10"
               >
                 Watch How It Works
               </Button>
@@ -84,8 +85,8 @@ export default function HeroSection() {
             <div className="flex flex-wrap gap-6 pt-4">
               {features.map(({ icon: Icon, label }) => (
                 <div key={label} className="flex items-center gap-2">
-                  <Icon className="w-5 h-5 text-green-600" />
-                  <span className="text-sm font-medium text-gray-700">
+                  <Icon className="w-5 h-5 text-green-400" />
+                  <span className="text-sm font-medium text-white/80">
                     {label}
                   </span>
                 </div>
@@ -129,11 +130,11 @@ export default function HeroSection() {
 
       <div className="absolute bottom-12 sm:bottom-16 left-1/2 transform -translate-x-1/2 z-10">
         <div className="flex flex-col items-center gap-2 animate-bounce">
-          <span className="text-gray-700 text-sm uppercase tracking-wider">
+          <span className="text-white/70 text-sm uppercase tracking-wider">
             Scroll
           </span>
           <svg
-            className="w-6 h-6 text-gray-700"
+            className="w-6 h-6 text-white/70"
             fill="none"
             strokeLinecap="round"
             strokeLinejoin="round"

@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 
 type Props = { sectionIndex?: number };
 
@@ -16,8 +16,6 @@ export default function SubstackSection({ sectionIndex }: Props) {
   const [posts, setPosts] = useState<Post[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
-  const contentRef = useRef<HTMLDivElement>(null);
-  const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
     const fetchRSS = async () => {
@@ -28,7 +26,6 @@ export default function SubstackSection({ sectionIndex }: Props) {
         }
         const data = await response.json();
         if (data.posts && data.posts.length > 0) {
-          // Get the 3 latest posts
           setPosts(data.posts.slice(0, 3));
         } else {
           setError("No posts found");
@@ -42,34 +39,6 @@ export default function SubstackSection({ sectionIndex }: Props) {
     };
 
     fetchRSS();
-  }, []);
-
-  // Intersection Observer for fade-in on scroll
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setIsVisible(true);
-            observer.unobserve(entry.target);
-          }
-        });
-      },
-      {
-        threshold: 0.05,
-        rootMargin: "0px 0px 100px 0px",
-      },
-    );
-
-    if (contentRef.current) {
-      observer.observe(contentRef.current);
-    }
-
-    return () => {
-      if (contentRef.current) {
-        observer.unobserve(contentRef.current);
-      }
-    };
   }, []);
 
   return (
@@ -86,11 +55,8 @@ export default function SubstackSection({ sectionIndex }: Props) {
 
       {/* Content centered horizontally, starting from top */}
       <div
-        ref={contentRef}
         data-section-content
-        className={`relative z-10 w-full max-w-2xl px-8 md:px-12 transition-opacity duration-500 ease-in-out ${
-          isVisible ? "opacity-100" : "opacity-0"
-        }`}
+        className="relative z-10 w-full max-w-2xl px-8 md:px-12 animate-in fade-in duration-500"
       >
         <h2 className="text-4xl pb-8 text-white">Latest from Substack</h2>
 
