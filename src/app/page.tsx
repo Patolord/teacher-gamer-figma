@@ -22,7 +22,6 @@ export default function Home() {
         poster="/frame_001.png"
         className="absolute inset-0 w-full h-full object-cover"
       />
-      +--------++++++++++++++++++++++++++++++++++++++++++++++++++++++-+øø
       <div
         ref={headerRef}
         className="absolute inset-0 flex items-center justify-center"

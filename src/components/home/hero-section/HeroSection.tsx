@@ -1,5 +1,3 @@
-"use client";
-
 import { ArrowRight, Shield, Star, Users } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
@@ -28,19 +26,14 @@ const stats = [
   },
 ];
 
-const scrollToCourses = () => {
-  setTimeout(() => {
-    document
-      .querySelector('[data-scroll-section="3"]')
-      ?.scrollIntoView({ behavior: "smooth" });
-  }, 100);
-};
-
 export default function HeroSection() {
   return (
     <section className="relative overflow-hidden bg-[url('/main_room2.png')] bg-cover bg-center">
-      <div className="absolute inset-0 bg-black/60" />
-      <div className="container mx-auto px-4 py-16 md:py-24 lg:py-32 relative z-10 ">
+      {/* Overlay fades in with content to show pure background first */}
+      <div className="absolute inset-0 bg-black/60 animate-hero-fade-in" />
+
+      {/* Content wrapper with CSS fade-in animation */}
+      <div className="container mx-auto px-4 py-16 md:py-24 lg:py-32 relative z-10 animate-hero-fade-in">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           <div className="space-y-8">
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-white/30 text-white">
@@ -68,7 +61,7 @@ export default function HeroSection() {
                 className="font-semibold text-lg px-8 bg-green-600 hover:bg-green-700 text-white"
                 asChild
               >
-                <Link href="/home" onClick={scrollToCourses}>
+                <Link href="#courses">
                   Explore Courses
                   <ArrowRight className="w-5 h-5 ml-2" />
                 </Link>
@@ -95,7 +88,7 @@ export default function HeroSection() {
           </div>
 
           <div className="relative">
-            <div className="aspect-square overflow-hidden  rounded-4xl bg-muted border-4 border-gray-200 shadow-2xl">
+            <div className="aspect-square overflow-hidden rounded-4xl bg-muted border-4 border-gray-200 shadow-2xl">
               <Image
                 src="/teacher-kids-books.jpg"
                 alt="Children learning and playing safely in an educational environment"
@@ -128,7 +121,7 @@ export default function HeroSection() {
         </div>
       </div>
 
-      <div className="absolute bottom-12 sm:bottom-16 left-1/2 transform -translate-x-1/2 z-10">
+      <div className="absolute bottom-12 sm:bottom-16 left-1/2 transform -translate-x-1/2 z-10 animate-hero-fade-in">
         <div className="flex flex-col items-center gap-2 animate-bounce">
           <span className="text-white/70 text-sm uppercase tracking-wider">
             Scroll

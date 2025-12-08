@@ -107,26 +107,16 @@ export function useLandingAnimation() {
       const duration = video.duration / 0.9;
       const tl = gsap.timeline();
 
-      // Header zoom out and fade
+      // Header fade out
       if (header) {
         tl.to(
           header,
           {
-            transform: "translate(-50%, -50%) translateZ(-500px)",
+            opacity: 0,
             duration: duration * 0.15,
-            ease: "none",
+            ease: "power2.out",
           },
           0
-        );
-
-        tl.to(
-          header,
-          {
-            opacity: 0,
-            duration: duration * 0.03,
-            ease: "power2.in",
-          },
-          duration * 0.15
         );
       }
 
