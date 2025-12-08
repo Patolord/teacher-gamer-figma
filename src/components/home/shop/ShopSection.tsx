@@ -15,11 +15,17 @@ export default function ShopSection({ sectionIndex }: ShopSectionProps) {
       <div className="absolute top-0 left-0 right-0 h-24 bg-gradient-to-b from-yellow-500/10 to-transparent pointer-events-none" />
 
       <div className="flex flex-col md:flex-row items-center justify-center gap-8 md:gap-12 max-w-5xl w-full px-6 md:px-8 relative z-10">
-        <div className="flex justify-center flex-shrink-0 mb-6 md:mb-0">
+        <div
+          data-animate="slide-left"
+          className="flex justify-center flex-shrink-0 mb-6 md:mb-0"
+        >
           <ShopSectionCard image="/book-cover.png" />
         </div>
 
-        <div className="flex flex-col text-left space-y-6 md:space-y-4 w-full">
+        <div
+          data-animate="slide-right"
+          className="flex flex-col text-left space-y-6 md:space-y-4 w-full"
+        >
           <h1 className="text-white text-3xl md:text-4xl">
             The Teacher-Gamer Handbook
           </h1>

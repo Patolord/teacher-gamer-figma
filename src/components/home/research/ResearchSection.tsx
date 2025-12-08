@@ -91,7 +91,7 @@ export default function ResearchSection({
         className="container mx-auto px-8 md:px-8 max-w-6xl relative z-10"
       >
         {/* Header */}
-        <div className="text-center mb-12 md:mb-16">
+        <div data-animate className="text-center mb-12 md:mb-16">
           <h2 className="text-3xl md:text-4xl font-semibold tracking-tight mb-4 bg-[linear-gradient(135deg,#fff_0%,#c47020_20%,#d09a11_40%,#fff_100%)] bg-[length:200%_200%] bg-clip-text text-transparent inline-block whitespace-nowrap animate-gradientShift">
             Research & Publications
           </h2>
@@ -101,7 +101,10 @@ export default function ResearchSection({
         </div>
 
         {/* Grid de cartas */}
-        <div className="grid gap-8 md:gap-10 grid-cols-1 sm:grid-cols-2 xl:grid-cols-3">
+        <div
+          data-animate-stagger
+          className="grid gap-8 md:gap-10 grid-cols-1 sm:grid-cols-2 xl:grid-cols-3"
+        >
           {articles.map((article, index) => {
             const backgroundImage =
               index % 2 === 0 ? "/magic1.png" : "/magic2.png";

@@ -14,6 +14,7 @@ export default function ContactSection({ sectionIndex }: ContactSectionProps) {
 
       <div
         data-section-content
+        data-animate
         className="container mx-auto px-8 py-16 max-w-4xl relative z-10"
       >
         <h2 className="text-6xl font-bold text-white mb-8 text-center max-[1000px]:text-4xl font-aladin">

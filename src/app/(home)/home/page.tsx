@@ -10,8 +10,12 @@ import ResearchSection from "@/components/home/research/ResearchSection";
 import ShopSection from "@/components/home/shop/ShopSection";
 import SubstackSection from "@/components/home/substack/SubstackSection";
 import Testimonials from "@/components/home/testimonials/TestimonialsSection";
+import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 export default function HomePage() {
+  // Enable scroll-triggered animations
+  useScrollAnimation();
+
   useEffect(() => {
     // Check if we came from landing page transition
     if (sessionStorage.getItem("transitionOverlay") === "true") {

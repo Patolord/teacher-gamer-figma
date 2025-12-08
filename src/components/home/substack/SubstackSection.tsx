@@ -56,7 +56,8 @@ export default function SubstackSection({ sectionIndex }: Props) {
       {/* Content centered horizontally, starting from top */}
       <div
         data-section-content
-        className="relative z-10 w-full max-w-2xl px-8 md:px-12 animate-in fade-in duration-500"
+        data-animate
+        className="relative z-10 w-full max-w-2xl px-8 md:px-12"
       >
         <h2 className="text-4xl pb-8 text-white">Latest from Substack</h2>
 

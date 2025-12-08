@@ -34,6 +34,7 @@ export default function CalendarBookingSection({
 
       <div
         data-section-content
+        data-animate
         className="py-30 px-16 bg-black/60 bg-no-repeat bg-backdrop-none space-y-4 relative"
       >
         <h2 className="text-white text-3xl text-center font-pirata-one">
