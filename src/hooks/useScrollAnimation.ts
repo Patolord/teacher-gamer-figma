@@ -28,6 +28,12 @@ export function useScrollAnimation() {
       return;
     }
 
+    // Calculate responsive bottom margin (30% of viewport height)
+    // This adapts to different screen sizes automatically
+    const viewportHeight = window.innerHeight;
+    const bottomOffset = Math.round(viewportHeight * 0.3); // 30% of viewport
+    const rootMargin = `0px 0px -${bottomOffset}px 0px`;
+
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -39,8 +45,8 @@ export function useScrollAnimation() {
         });
       },
       {
-        threshold: 0.2, // Trigger when 20% of element is visible
-        rootMargin: "0px 0px -600px 0px", // Element needs to be 150px into viewport before triggering
+        threshold: 0.3, // Trigger when 15% of element is visible
+        rootMargin, // Dynamic margin based on viewport height
       }
     );
 
