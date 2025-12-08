@@ -107,3 +107,14 @@ body {
 .animate-hero-fade-in {
   animation: hero-fade-in 0.8s ease-out 1s both;
 }
+
+/* Fallback for h-dvh on older browsers */
+.h-dvh {
+  height: 100vh; /* Fallback for browsers without dvh support */
+}
+
+@supports (height: 100dvh) {
+  .h-dvh {
+    height: 100dvh;
+  }
+}
