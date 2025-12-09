@@ -84,7 +84,9 @@ export function useLandingAnimation() {
 
     if (!video) return;
 
-    video.src = "/landing-video.mp4";
+    // Use ImageKit URL if available, fallback to local
+    video.src =
+      process.env.NEXT_PUBLIC_LANDING_VIDEO_URL || "/landing-video.mp4";
     video.pause();
     video.currentTime = 0;
 
@@ -104,68 +106,85 @@ export function useLandingAnimation() {
 
       timelineRef.current?.kill();
 
-      const duration = video.duration / 0.9;
-      const tl = gsap.timeline();
+      const videoDuration = video.duration;
 
-      // Header fade out
+      // Header fade out animation (runs immediately)
       if (header) {
-        tl.to(
-          header,
-          {
-            opacity: 0,
-            duration: duration * 0.15,
-            ease: "power2.out",
-          },
-          0
-        );
+        gsap.to(header, {
+          opacity: 0,
+          duration: videoDuration * 0.15,
+          ease: "power2.out",
+        });
       }
 
-      // Video playback
-      tl.to(
-        video,
-        {
-          currentTime: video.duration,
-          duration: duration * 0.8,
-          ease: "none",
-        },
-        0
-      );
+      // Track video progress for floating text and overlay
+      let text1Created = false;
+      let text2Created = false;
+      let overlayAnimated = false;
 
-      // Floating text 1 (35-45%)
-      const text1 = createFloatingText("Welcome to the Revolution", 1000, true);
-      animateFloatingText(tl, text1, duration * 0.35, duration);
+      const handleTimeUpdate = () => {
+        const progress = video.currentTime / videoDuration;
 
-      // Floating text 2 (45-55%)
-      const text2 = createFloatingText("Join the Movement", 1001);
-      animateFloatingText(tl, text2, duration * 0.45, duration);
+        // Floating text 1 at ~35% progress
+        if (progress >= 0.35 && !text1Created) {
+          text1Created = true;
+          const text1 = createFloatingText(
+            "Welcome to the Revolution",
+            1000,
+            true
+          );
+          const tl = gsap.timeline();
+          animateFloatingText(tl, text1, 0, videoDuration);
+        }
 
-      // Create and fade in black overlay
-      let overlay = overlayRef.current;
-      if (!overlay) {
-        overlay = document.createElement("div");
-        overlay.style.cssText =
-          "position:fixed;inset:0;background:#000;z-index:99999;opacity:0;pointer-events:none";
-        document.body.appendChild(overlay);
-        overlayRef.current = overlay;
-      }
+        // Floating text 2 at ~45% progress
+        if (progress >= 0.45 && !text2Created) {
+          text2Created = true;
+          const text2 = createFloatingText("Join the Movement", 1001);
+          const tl = gsap.timeline();
+          animateFloatingText(tl, text2, 0, videoDuration);
+        }
 
-      tl.to(
-        overlay,
-        {
-          opacity: 1,
-          duration: duration * 0.1,
-          ease: "power2.in",
-          onComplete: () => {
-            sessionStorage.setItem("transitionOverlay", "true");
-            startTransition(() => router.push("/home"));
-          },
-        },
-        duration * 0.8
-      );
+        // Start overlay fade at ~80% progress
+        if (progress >= 0.8 && !overlayAnimated) {
+          overlayAnimated = true;
+          let overlay = overlayRef.current;
+          if (!overlay) {
+            overlay = document.createElement("div");
+            overlay.style.cssText =
+              "position:fixed;inset:0;background:#000;z-index:99999;opacity:0;pointer-events:none";
+            document.body.appendChild(overlay);
+            overlayRef.current = overlay;
+          }
 
-      timelineRef.current = tl;
+          gsap.to(overlay, {
+            opacity: 1,
+            duration: videoDuration * 0.1,
+            ease: "power2.in",
+          });
+        }
+      };
+
+      const handleVideoEnd = () => {
+        video.removeEventListener("timeupdate", handleTimeUpdate);
+        video.removeEventListener("ended", handleVideoEnd);
+        sessionStorage.setItem("transitionOverlay", "true");
+        startTransition(() => router.push("/home"));
+      };
+
+      video.addEventListener("timeupdate", handleTimeUpdate);
+      video.addEventListener("ended", handleVideoEnd);
+
+      // Start video playback - let it play naturally (works on iOS!)
       video.currentTime = 0;
-      video.play().catch(() => {});
+      video.play().catch((err) => {
+        console.warn("Video play failed:", err);
+        // Fallback: if video can't play, just navigate after a delay
+        setTimeout(() => {
+          sessionStorage.setItem("transitionOverlay", "true");
+          startTransition(() => router.push("/home"));
+        }, 2000);
+      });
     };
 
     if (video.readyState >= 2) {

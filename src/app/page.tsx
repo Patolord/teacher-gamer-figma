@@ -13,10 +13,12 @@ export default function Home() {
       className="relative w-full h-dvh overflow-hidden bg-black"
       style={{ perspective: "1000px" }}
     >
+      {/* eslint-disable-next-line jsx-a11y/media-has-caption */}
       <video
         ref={videoRef}
         muted
         playsInline
+        webkit-playsinline="true"
         preload="auto"
         disablePictureInPicture
         poster="/frame_001.png"
