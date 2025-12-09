@@ -1,4 +1,8 @@
+"use client";
+
+import { Menu, X } from "lucide-react";
 import Link from "next/link";
+import { useState } from "react";
 
 const menu = [
   { title: "Home", href: "/" },
@@ -10,63 +14,67 @@ const menu = [
 ];
 
 export function Header() {
-  return (
-    <div className="absolute inset-x-0 top-4 z-50 flex justify-center">
-      <div className="flex h-16 items-center gap-20 px-4 bg-white rounded-full border border-gray-200">
-        {/* Mobile Menu */}
-        <div className="md:hidden drawer">
-          <input
-            id="navigation-drawer"
-            type="checkbox"
-            className="drawer-toggle"
-          />
-          <div className="drawer-content">
-            <label
-              htmlFor="navigation-drawer"
-              className="btn btn-sm btn-ghost btn-square drawer-button"
-            >
-              <span className="iconify lucide--menu size-5" />
-            </label>
-          </div>
-          <div className="drawer-side">
-            <label
-              htmlFor="navigation-drawer"
-              aria-label="close sidebar"
-              className="drawer-overlay"
-            />
-            <div className="bg-base-100 flex h-screen w-60 flex-col px-3 py-4">
-              <p className="text-base-content/60 mx-3 text-sm font-medium">
-                Navigation
-              </p>
-              <ul className="menu mt-1 w-full p-0">
-                {menu.map(({ title, href }) => (
-                  <li key={href}>
-                    <Link
-                      href={href}
-                      className="hover:bg-base-200 rounded-box block px-3 py-1.5 text-sm"
-                    >
-                      {title}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </div>
-        </div>
+  const [isOpen, setIsOpen] = useState(false);
 
-        {/* Desktop Menu */}
-        <div className="hidden items-center gap-1 md:flex">
+  return (
+    <div className="absolute inset-x-0 top-3 md:top-4 z-50 flex justify-end md:justify-center px-3 md:px-4">
+      {/* Mobile Menu Button - Top Right, Smaller */}
+      <button
+        type="button"
+        onClick={() => setIsOpen(!isOpen)}
+        className="md:hidden flex items-center gap-1.5 h-10 px-3 bg-white/90 backdrop-blur-sm rounded-full border border-gray-200 shadow-md hover:bg-white transition-colors"
+        aria-label="Toggle menu"
+      >
+        {isOpen ? (
+          <X className="w-4 h-4 text-gray-700" />
+        ) : (
+          <Menu className="w-4 h-4 text-gray-700" />
+        )}
+        <span className="text-sm text-gray-700 font-medium">Menu</span>
+      </button>
+
+      {/* Desktop Menu - Centered */}
+      <div className="hidden md:flex h-16 items-center gap-20 px-6 bg-white rounded-full border border-gray-200 shadow-lg">
+        <div className="flex items-center gap-1">
           {menu.map(({ title, href }) => (
             <Link
               key={href}
               href={href}
-              className="hover:bg-base-200 rounded-box block px-3 py-1.5 text-xl"
+              className="hover:bg-gray-100 rounded-full px-4 py-2 text-lg text-gray-800 transition-colors"
             >
               {title}
             </Link>
           ))}
         </div>
       </div>
+
+      {/* Mobile Dropdown Menu - Top Right aligned */}
+      {isOpen && (
+        <div className="absolute top-14 right-3 w-48 md:hidden bg-white/95 backdrop-blur-sm rounded-xl border border-gray-200 shadow-xl overflow-hidden">
+          <nav className="py-1">
+            {menu.map(({ title, href }) => (
+              <Link
+                key={href}
+                href={href}
+                onClick={() => setIsOpen(false)}
+                className="block px-4 py-2.5 text-gray-800 hover:bg-gray-100 transition-colors text-sm font-medium"
+              >
+                {title}
+              </Link>
+            ))}
+          </nav>
+        </div>
+      )}
+
+      {/* Mobile Overlay */}
+      {isOpen && (
+        <button
+          type="button"
+          aria-label="Close menu"
+          className="fixed inset-0 bg-black/20 md:hidden -z-10 cursor-default"
+          onClick={() => setIsOpen(false)}
+        />
+      )}
     </div>
   );
 }
