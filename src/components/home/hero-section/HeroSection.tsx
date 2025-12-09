@@ -2,6 +2,7 @@ import { ArrowRight, Shield, Star, Users } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
+import { MEDIA } from "@/lib/media";
 
 const features = [
   { icon: Shield, label: "Safe & Inclusive" },
@@ -28,7 +29,10 @@ const stats = [
 
 export default function HeroSection() {
   return (
-    <section className="relative overflow-hidden bg-[url('/main_room2.png')] bg-cover bg-center">
+    <section
+      className="relative overflow-hidden bg-cover bg-center"
+      style={{ backgroundImage: `url('${MEDIA.backgrounds.hero}')` }}
+    >
       {/* Overlay fades in with content to show pure background first */}
       <div className="absolute inset-0 bg-black/60 animate-hero-fade-in" />
 
@@ -90,7 +94,7 @@ export default function HeroSection() {
           <div className="relative">
             <div className="aspect-square overflow-hidden rounded-4xl bg-muted border-4 border-gray-200 shadow-2xl">
               <Image
-                src="/teacher-kids-books.jpg"
+                src={MEDIA.hero.image}
                 alt="Children learning and playing safely in an educational environment"
                 fill
                 className="object-cover rounded-4xl transparent"

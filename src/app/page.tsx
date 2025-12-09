@@ -2,6 +2,7 @@
 
 import LandingContent from "@/components/landing/LandingContent";
 import { useLandingAnimation } from "@/hooks/useLandingAnimation";
+import { MEDIA } from "@/lib/media";
 
 export default function Home() {
   const { landingSectionRef, videoRef, headerRef, playAnimation } =
@@ -21,7 +22,7 @@ export default function Home() {
         webkit-playsinline="true"
         preload="auto"
         disablePictureInPicture
-        poster="/frame_001.png"
+        poster={MEDIA.poster.landingFrame}
         className="absolute inset-0 w-full h-full object-cover"
       />
       <div

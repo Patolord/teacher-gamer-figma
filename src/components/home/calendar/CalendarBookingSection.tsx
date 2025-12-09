@@ -2,6 +2,7 @@
 
 import Cal, { getCalApi } from "@calcom/embed-react";
 import { useEffect } from "react";
+import { MEDIA } from "@/lib/media";
 import Calendar from "./Calendar";
 import CalendarModal from "./CalendarModal";
 
@@ -26,7 +27,8 @@ export default function CalendarBookingSection({
   return (
     <section
       data-scroll-section={sectionIndex}
-      className="bg-[url(/workshop.png)] relative"
+      className="relative bg-cover bg-center"
+      style={{ backgroundImage: `url('${MEDIA.backgrounds.calendar}')` }}
     >
       {/* Top horizontal transition element */}
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-yellow-500 to-transparent opacity-50 z-20" />

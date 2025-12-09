@@ -1,3 +1,4 @@
+import { MEDIA } from "@/lib/media";
 import ShopSectionCard from "./ShopSectionCard";
 
 interface ShopSectionProps {
@@ -19,7 +20,7 @@ export default function ShopSection({ sectionIndex }: ShopSectionProps) {
           data-animate="slide-left"
           className="flex justify-center flex-shrink-0 mb-6 md:mb-0"
         >
-          <ShopSectionCard image="/book-cover.png" />
+          <ShopSectionCard image={MEDIA.assets.bookCover} />
         </div>
 
         <div

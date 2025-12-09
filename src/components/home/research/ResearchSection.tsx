@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { MEDIA } from "@/lib/media";
 
 interface ResearchSectionProps {
   sectionIndex?: number;
@@ -78,7 +79,10 @@ export default function ResearchSection({
       className="relative w-full flex items-center justify-center py-24"
     >
       {/* Background geral */}
-      <div className="absolute inset-0 bg-cover bg-no-repeat bg-center bg-[url('/0_0.jpeg')]" />
+      <div
+        className="absolute inset-0 bg-cover bg-no-repeat bg-center"
+        style={{ backgroundImage: `url('${MEDIA.backgrounds.research}')` }}
+      />
 
       {/* Transições top/bottom */}
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-yellow-500 to-transparent opacity-50 z-10" />
@@ -107,7 +111,9 @@ export default function ResearchSection({
         >
           {articles.map((article, index) => {
             const backgroundImage =
-              index % 2 === 0 ? "/magic1.png" : "/magic2.png";
+              index % 2 === 0
+                ? MEDIA.assets.magicCardBg
+                : MEDIA.assets.magicCardBgAlt;
 
             return (
               <article

@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import { MEDIA } from "@/lib/media";
 
 type Props = { sectionIndex?: number };
 
@@ -47,7 +48,10 @@ export default function SubstackSection({ sectionIndex }: Props) {
       className="flex justify-center min-h-screen pt-24 pb-40 bg-black relative"
     >
       {/* Background */}
-      <div className="absolute inset-0 bg-cover bg-center bg-[url('/paperwall.png')]" />
+      <div
+        className="absolute inset-0 bg-cover bg-center"
+        style={{ backgroundImage: `url('${MEDIA.backgrounds.substack}')` }}
+      />
 
       {/* Top gradient */}
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-yellow-500 to-transparent opacity-50 z-10" />

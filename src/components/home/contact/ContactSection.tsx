@@ -1,3 +1,5 @@
+import { MEDIA } from "@/lib/media";
+
 interface ContactSectionProps {
   sectionIndex?: number;
 }
@@ -6,7 +8,8 @@ export default function ContactSection({ sectionIndex }: ContactSectionProps) {
   return (
     <section
       data-scroll-section={sectionIndex}
-      className="relative w-full min-h-screen flex items-center justify-center bg-[url(/corridor.png)] bg-cover bg-center py-40"
+      className="relative w-full min-h-screen flex items-center justify-center bg-cover bg-center py-40"
+      style={{ backgroundImage: `url('${MEDIA.backgrounds.contact}')` }}
     >
       {/* Top horizontal transition element */}
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-yellow-500 to-transparent opacity-50" />

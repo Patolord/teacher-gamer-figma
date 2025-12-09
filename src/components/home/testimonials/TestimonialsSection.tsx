@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { useState } from "react";
+import { MEDIA } from "@/lib/media";
 import "./Testimonials.css";
 
 type message = {
@@ -46,7 +47,7 @@ const Testimonials = ({ sectionIndex }: TestimonialsProps) => {
     },
     {
       id: 3,
-      image: "/teacher-kids-books.jpg",
+      image: MEDIA.testimonials.testimonial1,
     },
     {
       id: 4,
@@ -60,7 +61,7 @@ const Testimonials = ({ sectionIndex }: TestimonialsProps) => {
     },
     {
       id: 6,
-      image: "/kids-at-green-school-making-game-rules.jpg",
+      image: MEDIA.testimonials.testimonial1,
     },
     {
       id: 7,
@@ -74,7 +75,7 @@ const Testimonials = ({ sectionIndex }: TestimonialsProps) => {
     },
     {
       id: 9,
-      image: "/kids-at-green-school-making-game-rules.jpg",
+      image: MEDIA.testimonials.testimonial1,
     },
   ];
 

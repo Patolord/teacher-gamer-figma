@@ -4,6 +4,7 @@ import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { useRouter } from "next/navigation";
 import { startTransition, useCallback, useRef } from "react";
+import { MEDIA } from "@/lib/media";
 
 const floatingTextStyle = `
   position: fixed;
@@ -84,9 +85,7 @@ export function useLandingAnimation() {
 
     if (!video) return;
 
-    // Use ImageKit URL if available, fallback to local
-    video.src =
-      process.env.NEXT_PUBLIC_LANDING_VIDEO_URL || "/landing-video.mp4";
+    video.src = MEDIA.video.landing;
     video.pause();
     video.currentTime = 0;
 

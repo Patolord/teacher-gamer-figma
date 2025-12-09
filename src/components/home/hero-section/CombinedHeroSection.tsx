@@ -5,6 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { forwardRef } from "react";
 import { Button } from "@/components/ui/button";
+import { MEDIA } from "@/lib/media";
 import ShopSectionCard from "../shop/ShopSectionCard";
 
 const CombinedHeroSection = forwardRef<HTMLElement>((_props, ref) => {
@@ -15,7 +16,7 @@ const CombinedHeroSection = forwardRef<HTMLElement>((_props, ref) => {
         <div
           className="absolute inset-0 w-full h-full bg-center bg-no-repeat"
           style={{
-            backgroundImage: "url('/main_room2.png')",
+            backgroundImage: `url('${MEDIA.backgrounds.hero}')`,
             backgroundSize: "auto 100%",
             backgroundPosition: "center center",
           }}
@@ -104,7 +105,7 @@ const CombinedHeroSection = forwardRef<HTMLElement>((_props, ref) => {
           <div className="relative">
             <div className="aspect-square overflow-hidden  rounded-4xl bg-muted border-4 border-gray-200 shadow-2xl">
               <Image
-                src="/teacher-kids-books.jpg"
+                src={MEDIA.hero.image}
                 alt="Children learning and playing safely in an educational environment"
                 fill
                 className="object-cover rounded-4xl transparent"
@@ -175,7 +176,7 @@ const CombinedHeroSection = forwardRef<HTMLElement>((_props, ref) => {
           className="flex flex-col md:flex-row items-center justify-center gap-8 md:gap-12 max-w-5xl w-full px-6 md:px-8 relative z-10"
         >
           <div className="flex justify-center flex-shrink-0 mb-6 md:mb-0">
-            <ShopSectionCard image="/book-cover.png" />
+            <ShopSectionCard image={MEDIA.assets.bookCover} />
           </div>
 
           <div className="flex flex-col text-left space-y-6 md:space-y-4 w-full">

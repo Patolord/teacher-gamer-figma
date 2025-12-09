@@ -1,5 +1,6 @@
 "use client";
 
+import { MEDIA } from "@/lib/media";
 import EletricCard from "./EletricCard";
 
 interface CoursesSectionProps {
@@ -39,7 +40,10 @@ export default function CoursesSection({
   ];
 
   return (
-    <section className="relative w-full min-h-screen flex items-center justify-center bg-[url(/cardsbg.png)] bg-cover bg-center py-40">
+    <section
+      className="relative w-full min-h-screen flex items-center justify-center bg-cover bg-center py-40"
+      style={{ backgroundImage: `url('${MEDIA.backgrounds.courses}')` }}
+    >
       {/* Top horizontal transition element */}
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-yellow-500 to-transparent opacity-50" />
       <div className="absolute top-0 left-0 right-0 h-24 bg-gradient-to-b from-yellow-500/10 to-transparent pointer-events-none" />

@@ -3,6 +3,7 @@
 import { gsap } from "gsap";
 import type React from "react";
 import { type ReactNode, useEffect, useRef } from "react";
+import { MEDIA } from "@/lib/media";
 
 interface ShopSectionCardProps {
   width?: number;
@@ -14,7 +15,7 @@ interface ShopSectionCardProps {
 const ShopSectionCard: React.FC<ShopSectionCardProps> = ({
   width = 300,
   height = 400,
-  image = "/kids-at-green-school-making-game-rules.jpg",
+  image = MEDIA.assets.bookCover,
   children,
 }) => {
   const svgRef = useRef<HTMLDivElement | null>(null);
