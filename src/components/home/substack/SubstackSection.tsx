@@ -87,16 +87,16 @@ export default function SubstackSection({ sectionIndex }: Props) {
                 rel="noopener noreferrer"
                 className="block group"
               >
-                <div className="bg-white/95 backdrop-blur-sm rounded-lg shadow-lg border border-yellow-500/20 p-6 md:p-8 hover:shadow-xl hover:border-yellow-500/40 transition-all">
-                  <h3 className="text-xl pb-4 text-gray-900 font-semibold group-hover:text-yellow-600 transition-colors">
+                <div className="backdrop-blur-sm rounded-lg shadow-lg border border-yellow-500/20 p-6 md:p-8 hover:shadow-xl hover:border-yellow-500/40 transition-all">
+                  <h3 className="text-xl pb-4 text-gray-900 font-semibold group-hover:text-yellow-600 transition-colors px-10">
                     {post.title}
                   </h3>
 
-                  <p className="pb-6 text-gray-700 leading-relaxed">
+                  <p className="pb-6 text-gray-700 leading-relaxed px-10">
                     {post.description}
                   </p>
 
-                  <div className="flex items-center gap-2 text-yellow-600 group-hover:text-yellow-700 transition-colors font-medium">
+                  <div className="flex items-center gap-2 text-yellow-600 group-hover:text-yellow-700 transition-colors font-medium px-10">
                     <span>Read more</span>
                     <svg
                       className="w-5 h-5"

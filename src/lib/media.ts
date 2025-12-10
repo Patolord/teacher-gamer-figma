@@ -41,6 +41,7 @@ export const MEDIA = {
     courses: `${IMAGEKIT_BASE_URL}/courses-section-bg.webp`,
     research: `${IMAGEKIT_BASE_URL}/research-section-bg.webp`,
     substack: `${IMAGEKIT_BASE_URL}/substack-section-bg.webp`,
+    testimonials: `${IMAGEKIT_BASE_URL}/testimonials-section-bg.webp`,
   },
 
   // ===========================================================================

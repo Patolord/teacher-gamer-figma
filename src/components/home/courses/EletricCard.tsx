@@ -31,7 +31,7 @@ export default function EletricCard({
       thickness={2}
       style={{ borderRadius: 16 }}
     >
-      <Card className="border-0 h-full min-h-[400px] bg-black/50 backdrop-blur-sm text-white flex flex-col">
+      <Card className="border-0 h-full min-h-[400px] bg-black/50 backdrop-blur-sm text-white flex flex-col rounded-2xl overflow-hidden">
         <CardHeader>
           <CardTitle className="text-3xl mb-4 font-pirata-one">
             {title}
@@ -40,10 +40,7 @@ export default function EletricCard({
             {description}
           </CardDescription>
         </CardHeader>
-        <CardContent className="text-gray-400 font-light text-base">
-          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Magnam ea
-          aliquam delectus? Alias dicta omnis ab repellendus quae magnam cum?
-        </CardContent>
+        <CardContent className="text-gray-400 font-light text-base"></CardContent>
         <CardFooter className="mt-auto px-6">
           <Button
             variant="outline"

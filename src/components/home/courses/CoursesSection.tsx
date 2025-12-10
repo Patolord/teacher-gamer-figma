@@ -12,30 +12,29 @@ export default function CoursesSection({
 }: CoursesSectionProps) {
   const courses = [
     {
-      title: "Beginner Course",
-      description: "Start your learning journey with our comprehensive program",
+      title: "Intro to Multiverse",
+      description:
+        "Get an introduction to how RPGs and the multiverse can drive adult readiness through PBL and SEL as we work through the 13 Phases of Character Building.",
       color: "#7df9ff",
     },
     {
-      title: "Intermediate Course",
-      description: "Build on your foundation with advanced concepts",
+      title: "Level 1 TG Space-Holder Certificate Course",
+      description:
+        "Learn to move from out-game character development to in-game role-playing and run a pilot to get teacher gamer level one certified.",
       color: "#ff6b9d",
       badge: "BEST VALUE",
     },
     {
-      title: "Advanced Course",
-      description: "Master advanced techniques and strategies",
+      title: "Level 2 TG World Builder Certificate",
+      description:
+        "Build & implement your own campaign world. Uncharted territory: New stories, creatures, magic & tech",
       color: "#489179",
     },
     {
-      title: "Expert Course",
-      description: "Become an expert in the field",
+      title: "Level 3 TG Planes Walker Certificate Course",
+      description:
+        "Integrate your own RPGs campaign into your local school system’s learning objectives with guidance",
       color: "#b8411f",
-    },
-    {
-      title: "Master Course",
-      description: "Become an expert in the field",
-      color: "#ffd700",
     },
   ];
 
@@ -56,20 +55,16 @@ export default function CoursesSection({
         </div>
         <div
           data-animate-stagger
-          className="flex flex-wrap justify-center gap-12 px-10"
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-7xl mx-auto"
         >
           {courses.map((course) => (
-            <div
+            <EletricCard
               key={course.title}
-              className="w-full md:w-[calc(50%-24px)] lg:w-[calc(33.333%-32px)]"
-            >
-              <EletricCard
-                title={course.title}
-                description={course.description}
-                color={course.color}
-                badge={course.badge}
-              />
-            </div>
+              title={course.title}
+              description={course.description}
+              color={course.color}
+              badge={course.badge}
+            />
           ))}
         </div>
       </div>

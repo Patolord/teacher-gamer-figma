@@ -5,6 +5,7 @@ import { useEffect } from "react";
 import CalendarBookingSection from "@/components/home/calendar/CalendarBookingSection";
 import ContactSection from "@/components/home/contact/ContactSection";
 import CoursesSection from "@/components/home/courses/CoursesSection";
+import CombinedHeroSection from "@/components/home/hero-section/CombinedHeroSection";
 import HeroSection from "@/components/home/hero-section/HeroSection";
 import ResearchSection from "@/components/home/research/ResearchSection";
 import ShopSection from "@/components/home/shop/ShopSection";
@@ -38,13 +39,17 @@ export default function HomePage() {
 
   return (
     <div>
-      <HeroSection />
-      <ShopSection />
-      <SubstackSection />
-      <CalendarBookingSection />
-      <CoursesSection />
-      <ResearchSection />
+      <CombinedHeroSection />
+      {/*       <HeroSection /> */}
+      {/*      <ShopSection /> */}
       <Testimonials />
+      <CoursesSection />
+
+      <CalendarBookingSection />
+      <SubstackSection />
+
+      <ResearchSection />
+
       <ContactSection />
     </div>
   );
