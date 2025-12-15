@@ -1,4 +1,5 @@
 import { MEDIA } from "@/lib/media";
+import { Facebook, Twitter, Instagram, Linkedin, Youtube, Mail } from "lucide-react";
 
 interface ContactSectionProps {
   sectionIndex?: number;
@@ -12,8 +13,8 @@ export default function ContactSection({ sectionIndex }: ContactSectionProps) {
       style={{ backgroundImage: `url('${MEDIA.backgrounds.contact}')` }}
     >
       {/* Top horizontal transition element */}
-      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-yellow-500 to-transparent opacity-50" />
-      <div className="absolute top-0 left-0 right-0 h-24 bg-gradient-to-b from-yellow-500/10 to-transparent pointer-events-none" />
+      <div className="absolute top-0 left-0 right-0 h-px bg-linear-to-r from-transparent via-yellow-500 to-transparent opacity-50" />
+      <div className="absolute top-0 left-0 right-0 h-24 bg-linear-to-b from-yellow-500/10 to-transparent pointer-events-none" />
 
       <div
         data-section-content
@@ -58,11 +59,72 @@ export default function ContactSection({ sectionIndex }: ContactSectionProps) {
             </button>
           </form>
         </div>
+
+        {/* Social Media Links */}
+        <div className="mt-12 text-center">
+          <h3 className="text-2xl font-bold text-white mb-6 font-aladin">
+            Connect With Us
+          </h3>
+          <div className="flex items-center justify-center gap-6 flex-wrap">
+            <a
+              href="https://facebook.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group flex items-center justify-center w-14 h-14 rounded-full bg-white/10 backdrop-blur-sm border border-white/30 hover:bg-white hover:border-white transition-all duration-300"
+              aria-label="Facebook"
+            >
+              <Facebook className="w-6 h-6 text-white group-hover:text-indigo-900 transition-colors" />
+            </a>
+            <a
+              href="https://twitter.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group flex items-center justify-center w-14 h-14 rounded-full bg-white/10 backdrop-blur-sm border border-white/30 hover:bg-white hover:border-white transition-all duration-300"
+              aria-label="Twitter"
+            >
+              <Twitter className="w-6 h-6 text-white group-hover:text-indigo-900 transition-colors" />
+            </a>
+            <a
+              href="https://instagram.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group flex items-center justify-center w-14 h-14 rounded-full bg-white/10 backdrop-blur-sm border border-white/30 hover:bg-white hover:border-white transition-all duration-300"
+              aria-label="Instagram"
+            >
+              <Instagram className="w-6 h-6 text-white group-hover:text-indigo-900 transition-colors" />
+            </a>
+            <a
+              href="https://linkedin.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group flex items-center justify-center w-14 h-14 rounded-full bg-white/10 backdrop-blur-sm border border-white/30 hover:bg-white hover:border-white transition-all duration-300"
+              aria-label="LinkedIn"
+            >
+              <Linkedin className="w-6 h-6 text-white group-hover:text-indigo-900 transition-colors" />
+            </a>
+            <a
+              href="https://youtube.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group flex items-center justify-center w-14 h-14 rounded-full bg-white/10 backdrop-blur-sm border border-white/30 hover:bg-white hover:border-white transition-all duration-300"
+              aria-label="YouTube"
+            >
+              <Youtube className="w-6 h-6 text-white group-hover:text-indigo-900 transition-colors" />
+            </a>
+            <a
+              href="mailto:contact@example.com"
+              className="group flex items-center justify-center w-14 h-14 rounded-full bg-white/10 backdrop-blur-sm border border-white/30 hover:bg-white hover:border-white transition-all duration-300"
+              aria-label="Email"
+            >
+              <Mail className="w-6 h-6 text-white group-hover:text-indigo-900 transition-colors" />
+            </a>
+          </div>
+        </div>
       </div>
 
       {/* Bottom horizontal transition element */}
-      <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-yellow-500/10 to-transparent pointer-events-none" />
-      <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-yellow-500 to-transparent opacity-50" />
+      <div className="absolute bottom-0 left-0 right-0 h-24 bg-linear-to-t from-yellow-500/10 to-transparent pointer-events-none" />
+      <div className="absolute bottom-0 left-0 right-0 h-px bg-linear-to-r from-transparent via-yellow-500 to-transparent opacity-50" />
     </section>
   );
 }
