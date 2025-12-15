@@ -1,5 +1,6 @@
+import Link from "next/link";
 import { MEDIA } from "@/lib/media";
-import { Facebook, Twitter, Instagram, Linkedin, Youtube, Mail } from "lucide-react";
+import { Facebook, Twitter, Instagram, Linkedin, Youtube, Mail, ArrowRight } from "lucide-react";
 
 interface ContactSectionProps {
   sectionIndex?: number;
@@ -8,6 +9,7 @@ interface ContactSectionProps {
 export default function ContactSection({ sectionIndex }: ContactSectionProps) {
   return (
     <section
+      id="contact-section"
       data-scroll-section={sectionIndex}
       className="relative w-full min-h-screen flex items-center justify-center bg-cover bg-center py-40"
       style={{ backgroundImage: `url('${MEDIA.backgrounds.contact}')` }}
@@ -24,10 +26,22 @@ export default function ContactSection({ sectionIndex }: ContactSectionProps) {
         <h2 className="text-6xl font-bold text-white mb-8 text-center max-[1000px]:text-4xl font-aladin">
           Get In Touch
         </h2>
-        <p className="text-white/90 text-xl mb-12 text-center max-w-2xl mx-auto">
+        <p className="text-white/90 text-xl mb-8 text-center max-w-2xl mx-auto">
           Have questions? We'd love to hear from you. Send us a message and
           we'll respond as soon as possible.
         </p>
+        
+        {/* CTA to Full Contact Page */}
+        <div className="text-center mb-12">
+          <Link
+            href="/contact"
+            className="inline-flex items-center gap-2 px-6 py-3 bg-indigo-600 hover:bg-indigo-700 text-white font-bold rounded-lg transition-all hover:gap-3"
+          >
+            Visit Our Full Contact Page
+            <ArrowRight className="w-5 h-5" />
+          </Link>
+        </div>
+
         <div className="bg-white/10 backdrop-blur-sm rounded-xl p-8 border border-white/90">
           <form className="space-y-6">
             <div>
