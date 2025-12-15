@@ -1,4 +1,5 @@
 import { ArrowRightIcon } from "lucide-react";
+import Link from "next/link";
 import ElectricBorder from "@/components/shared/ElectricBorder";
 import { Button } from "@/components/ui/button";
 import {
@@ -15,6 +16,7 @@ type EletricCardProps = {
   description: string;
   color: string;
   badge?: string;
+  href?: string;
 };
 
 export default function EletricCard({
@@ -22,6 +24,7 @@ export default function EletricCard({
   description,
   color,
   badge,
+  href,
 }: EletricCardProps) {
   return (
     <ElectricBorder
@@ -45,9 +48,12 @@ export default function EletricCard({
           <Button
             variant="outline"
             className="w-full text-black border rounded-xl py-6 flex items-center justify-center gap-2"
+            asChild
           >
-            Learn More
-            <ArrowRightIcon className="w-4 h-4" />
+            <Link href={href || "#"}>
+              Learn More
+              <ArrowRightIcon className="w-4 h-4" />
+            </Link>
           </Button>
         </CardFooter>
       </Card>
