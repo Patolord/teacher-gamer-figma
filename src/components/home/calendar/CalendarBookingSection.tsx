@@ -39,7 +39,7 @@ export default function CalendarBookingSection({
         data-animate
         className="py-30 px-16 bg-black/60 bg-no-repeat bg-backdrop-none space-y-4 relative"
       >
-        <h2 className="text-white text-3xl text-center font-pirata-one">
+        <h2 className="bg-[linear-gradient(135deg,#fff_0%,#c47020_20%,#d09a11_40%,#fff_100%)] bg-[length:200%_200%] bg-clip-text text-transparent animate-gradientShift text-3xl text-center font-pirata-one">
           Agende sua Sessão
         </h2>
         <p className="text-white text-xl text-center font-amarante">

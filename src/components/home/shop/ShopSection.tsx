@@ -53,7 +53,7 @@ export default function ShopSection({ sectionIndex }: ShopSectionProps) {
             type="button"
             className="self-start text-white border border-white rounded-md px-6 py-3 hover:bg-white hover:text-black transition font-medium"
           >
-            BUY THE BOOK
+            SHOP NOW
           </button>
         </div>
       </div>
