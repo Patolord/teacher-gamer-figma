@@ -2,16 +2,12 @@
 
 import {
   ArrowLeftIcon,
-  Facebook,
-  Instagram,
   Linkedin,
   MailIcon,
   MapPinIcon,
   MessageSquareIcon,
   PhoneIcon,
   SendIcon,
-  Twitter,
-  Youtube,
 } from "lucide-react";
 import Link from "next/link";
 import { useState } from "react";
@@ -44,31 +40,31 @@ const contactMethods = [
 
 const socialLinks = [
   {
-    icon: Facebook,
+    svg: "/svg/facebook.svg",
     name: "Facebook",
     href: "https://facebook.com",
     color: "#1877f2",
   },
   {
-    icon: Twitter,
-    name: "Twitter",
-    href: "https://twitter.com",
-    color: "#1da1f2",
+    svg: "/svg/x.svg",
+    name: "X",
+    href: "https://x.com",
+    color: "#000000",
   },
   {
-    icon: Instagram,
+    svg: "/svg/instagram.svg",
     name: "Instagram",
     href: "https://instagram.com",
     color: "#e4405f",
   },
   {
-    icon: Linkedin,
+    Icon: Linkedin,
     name: "LinkedIn",
     href: "https://linkedin.com",
     color: "#0077b5",
   },
   {
-    icon: Youtube,
+    svg: "/svg/youtube.svg",
     name: "YouTube",
     href: "https://youtube.com",
     color: "#ff0000",
@@ -324,7 +320,7 @@ export default function ContactPage() {
                     Connect With Us
                   </h3>
                   <div className="space-y-3">
-                    {socialLinks.map(({ icon: Icon, name, href, color }) => (
+                    {socialLinks.map(({ svg, Icon, name, href, color }) => (
                       <a
                         key={name}
                         href={href}
@@ -336,10 +332,27 @@ export default function ContactPage() {
                           className="w-10 h-10 rounded-full flex items-center justify-center"
                           style={{ backgroundColor: `${color}20` }}
                         >
-                          <Icon
-                            className="w-5 h-5 group-hover:scale-110 transition-transform"
-                            style={{ color }}
-                          />
+                          {Icon ? (
+                            <Icon
+                              className="w-5 h-5 group-hover:scale-110 transition-transform"
+                              style={{ color }}
+                            />
+                          ) : (
+                            <span
+                              className="block w-5 h-5 group-hover:scale-110 transition-transform"
+                              style={{
+                                backgroundColor: color,
+                                maskImage: `url(${svg})`,
+                                WebkitMaskImage: `url(${svg})`,
+                                maskSize: "contain",
+                                WebkitMaskSize: "contain",
+                                maskRepeat: "no-repeat",
+                                WebkitMaskRepeat: "no-repeat",
+                                maskPosition: "center",
+                                WebkitMaskPosition: "center",
+                              }}
+                            />
+                          )}
                         </div>
                         <span className="text-white font-medium">{name}</span>
                       </a>

@@ -1,8 +1,9 @@
 "use client";
 
-import { ArrowLeft, Book, CheckCircle, ShoppingCart, Star } from "lucide-react";
+import { ArrowLeft, Book, CheckCircle, Loader2, ShoppingCart, Star } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { MEDIA } from "@/lib/media";
 
@@ -36,6 +37,31 @@ const benefits = [
 ];
 
 export default function ShopPage() {
+  const [isLoading, setIsLoading] = useState(false);
+
+  const handleCheckout = async () => {
+    setIsLoading(true);
+    try {
+      const response = await fetch("/api/checkout", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({}),
+      });
+
+      const data = await response.json();
+
+      if (data.url) {
+        window.location.href = data.url;
+      } else {
+        console.error("Checkout error:", data.error);
+        setIsLoading(false);
+      }
+    } catch (error) {
+      console.error("Checkout error:", error);
+      setIsLoading(false);
+    }
+  };
+
   return (
     <main className="relative min-h-screen">
       {/* Background */}
@@ -130,16 +156,20 @@ export default function ShopPage() {
                 <Button
                   size="lg"
                   className="w-full text-lg font-bold bg-green-600 hover:bg-green-700 text-white py-6"
-                  asChild
+                  onClick={handleCheckout}
+                  disabled={isLoading}
                 >
-                  <a
-                    href="https://www.amazon.com"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <ShoppingCart className="w-5 h-5 mr-2" />
-                    Buy Now on Amazon
-                  </a>
+                  {isLoading ? (
+                    <>
+                      <Loader2 className="w-5 h-5 mr-2 animate-spin" />
+                      Processing...
+                    </>
+                  ) : (
+                    <>
+                      <ShoppingCart className="w-5 h-5 mr-2" />
+                      Buy Now
+                    </>
+                  )}
                 </Button>
 
                 {/* What's Inside */}
@@ -211,7 +241,7 @@ export default function ShopPage() {
                 <div className="bg-white/10 backdrop-blur-sm rounded-xl border border-white/20 overflow-hidden flex flex-col">
                   <div className="relative aspect-[3/4] w-full">
                     <Image
-                      src="https://ik.imagekit.io/your-path/teacher-gamer-handbook-pdf.jpg"
+                      src={MEDIA.assets.bookCover}
                       alt="Teacher Gamer Handbook (PDF)"
                       fill
                       className="object-cover"
@@ -227,11 +257,17 @@ export default function ShopPage() {
                     </p>
                     <Button
                       className="w-full bg-[#00D9FF] hover:bg-[#00B8D4] text-black font-bold mt-auto"
-                      asChild
+                      onClick={handleCheckout}
+                      disabled={isLoading}
                     >
-                      <a href="#" target="_blank" rel="noopener noreferrer">
-                        ADD TO CART
-                      </a>
+                      {isLoading ? (
+                        <>
+                          <Loader2 className="w-4 h-4 mr-2 animate-spin" />
+                          Processing...
+                        </>
+                      ) : (
+                        "ADD TO CART"
+                      )}
                     </Button>
                   </div>
                 </div>
@@ -240,7 +276,7 @@ export default function ShopPage() {
                 <div className="bg-white/10 backdrop-blur-sm rounded-xl border border-white/20 overflow-hidden flex flex-col">
                   <div className="relative aspect-[3/4] w-full">
                     <Image
-                      src="https://ik.imagekit.io/your-path/teacher-gamer-handbook-hardcover.jpg"
+                      src={MEDIA.assets.bookCover}
                       alt="Teacher Gamer Handbook (Softcover / Hardcover)"
                       fill
                       className="object-cover"
@@ -257,11 +293,17 @@ export default function ShopPage() {
                     </div>
                     <Button
                       className="w-full bg-[#00D9FF] hover:bg-[#00B8D4] text-black font-bold mt-auto"
-                      asChild
+                      onClick={handleCheckout}
+                      disabled={isLoading}
                     >
-                      <a href="#" target="_blank" rel="noopener noreferrer">
-                        BUY NOW
-                      </a>
+                      {isLoading ? (
+                        <>
+                          <Loader2 className="w-4 h-4 mr-2 animate-spin" />
+                          Processing...
+                        </>
+                      ) : (
+                        "BUY NOW"
+                      )}
                     </Button>
                   </div>
                 </div>
@@ -270,7 +312,7 @@ export default function ShopPage() {
                 <div className="bg-white/10 backdrop-blur-sm rounded-xl border border-white/20 overflow-hidden flex flex-col">
                   <div className="relative aspect-[3/4] w-full">
                     <Image
-                      src="https://ik.imagekit.io/your-path/teacher-gamer-screen-landscape.jpg"
+                      src={MEDIA.assets.bookCover}
                       alt="Teacher Gamer Screen (Landscape)"
                       fill
                       className="object-cover"
@@ -287,11 +329,17 @@ export default function ShopPage() {
                     </div>
                     <Button
                       className="w-full bg-[#00D9FF] hover:bg-[#00B8D4] text-black font-bold mt-auto"
-                      asChild
+                      onClick={handleCheckout}
+                      disabled={isLoading}
                     >
-                      <a href="#" target="_blank" rel="noopener noreferrer">
-                        BUY NOW
-                      </a>
+                      {isLoading ? (
+                        <>
+                          <Loader2 className="w-4 h-4 mr-2 animate-spin" />
+                          Processing...
+                        </>
+                      ) : (
+                        "BUY NOW"
+                      )}
                     </Button>
                   </div>
                 </div>
@@ -300,7 +348,7 @@ export default function ShopPage() {
                 <div className="bg-white/10 backdrop-blur-sm rounded-xl border border-white/20 overflow-hidden flex flex-col">
                   <div className="relative aspect-[3/4] w-full">
                     <Image
-                      src="https://ik.imagekit.io/your-path/teacher-gamer-screen-portrait.jpg"
+                      src={MEDIA.assets.bookCover}
                       alt="Teacher Gamer Screen (Portrait)"
                       fill
                       className="object-cover"
@@ -317,11 +365,17 @@ export default function ShopPage() {
                     </div>
                     <Button
                       className="w-full bg-[#00D9FF] hover:bg-[#00B8D4] text-black font-bold mt-auto"
-                      asChild
+                      onClick={handleCheckout}
+                      disabled={isLoading}
                     >
-                      <a href="#" target="_blank" rel="noopener noreferrer">
-                        BUY NOW
-                      </a>
+                      {isLoading ? (
+                        <>
+                          <Loader2 className="w-4 h-4 mr-2 animate-spin" />
+                          Processing...
+                        </>
+                      ) : (
+                        "BUY NOW"
+                      )}
                     </Button>
                   </div>
                 </div>
@@ -340,16 +394,20 @@ export default function ShopPage() {
               <Button
                 size="lg"
                 className="text-lg font-bold bg-green-600 hover:bg-green-700 text-white px-12 py-6"
-                asChild
+                onClick={handleCheckout}
+                disabled={isLoading}
               >
-                <a
-                  href="#"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <ShoppingCart className="w-5 h-5 mr-2" />
-                  Start Shopping
-                </a>
+                {isLoading ? (
+                  <>
+                    <Loader2 className="w-5 h-5 mr-2 animate-spin" />
+                    Processing...
+                  </>
+                ) : (
+                  <>
+                    <ShoppingCart className="w-5 h-5 mr-2" />
+                    Get Started - Buy PDF
+                  </>
+                )}
               </Button>
             </div>
           </div>
