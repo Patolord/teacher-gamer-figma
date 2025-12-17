@@ -31,8 +31,8 @@ export default function CalendarBookingSection({
       style={{ backgroundImage: `url('${MEDIA.backgrounds.calendar}')` }}
     >
       {/* Top horizontal transition element */}
-      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-yellow-500 to-transparent opacity-50 z-20" />
-      <div className="absolute top-0 left-0 right-0 h-24 bg-gradient-to-b from-yellow-500/10 to-transparent pointer-events-none z-20" />
+      <div className="absolute top-0 left-0 right-0 h-px bg-linear-to-r from-transparent via-yellow-500 to-transparent opacity-50 z-20" />
+      <div className="absolute top-0 left-0 right-0 h-24 bg-linear-to-b from-yellow-500/10 to-transparent pointer-events-none z-20" />
 
       <div
         data-section-content

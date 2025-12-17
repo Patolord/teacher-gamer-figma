@@ -1,15 +1,15 @@
 "use client";
 
 import {
-  ArrowLeft,
+  ArrowLeftIcon,
   Facebook,
   Instagram,
   Linkedin,
-  Mail,
-  MapPin,
-  MessageSquare,
-  Phone,
-  Send,
+  MailIcon,
+  MapPinIcon,
+  MessageSquareIcon,
+  PhoneIcon,
+  SendIcon,
   Twitter,
   Youtube,
 } from "lucide-react";
@@ -20,21 +20,21 @@ import { MEDIA } from "@/lib/media";
 
 const contactMethods = [
   {
-    icon: Mail,
+    icon: MailIcon,
     title: "Email Us",
     description: "Get in touch via email",
     value: "hello@teachergamer.com",
     link: "mailto:hello@teachergamer.com",
   },
   {
-    icon: Phone,
+    icon: PhoneIcon,
     title: "Call Us",
     description: "Mon-Fri from 9am to 5pm",
     value: "+1 (555) 123-4567",
     link: "tel:+15551234567",
   },
   {
-    icon: MapPin,
+    icon: MapPinIcon,
     title: "Visit Us",
     description: "Come say hello",
     value: "123 Learning St, Education City, EC 12345",
@@ -159,7 +159,7 @@ export default function ContactPage() {
             }}
             className="inline-flex items-center gap-2 text-white/80 hover:text-white transition-colors"
           >
-            <ArrowLeft className="w-5 h-5" />
+            <ArrowLeftIcon className="w-5 h-5" />
             Back to Home
           </Link>
         </div>
@@ -170,7 +170,7 @@ export default function ContactPage() {
             {/* Hero Section */}
             <div className="text-center space-y-6">
               <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-indigo-500/20 border border-indigo-500/30 text-indigo-300">
-                <MessageSquare className="w-4 h-4" />
+                <MessageSquareIcon className="w-4 h-4" />
                 <span className="text-sm font-semibold">We're Here to Help</span>
               </div>
 
@@ -307,7 +307,7 @@ export default function ContactPage() {
                         "Sending..."
                       ) : (
                         <>
-                          <Send className="w-5 h-5 mr-2" />
+                          <SendIcon className="w-5 h-5 mr-2" />
                           Send Message
                         </>
                       )}

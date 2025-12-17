@@ -40,16 +40,11 @@ export default function HomePage() {
   return (
     <div>
       <CombinedHeroSection />
-      {/*       <HeroSection /> */}
-      {/*      <ShopSection /> */}
       <Testimonials />
-      <CoursesSection />
-
-      <CalendarBookingSection />
+      <CoursesSection /> 
       <SubstackSection />
-
       <ResearchSection />
-
+      <CalendarBookingSection />
       <ContactSection />
     </div>
   );
