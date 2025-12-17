@@ -11,7 +11,7 @@
  * - tr=f-auto       : Auto format based on browser
  */
 
-const IMAGEKIT_BASE_URL = "https://ik.imagekit.io/llktt4wfj";
+const IMAGEKIT_BASE_URL = "https://ik.imagekit.io/TeacherGamer/Site/";
 
 // =============================================================================
 // MEDIA ASSETS
