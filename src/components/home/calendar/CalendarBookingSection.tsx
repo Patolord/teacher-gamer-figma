@@ -31,15 +31,15 @@ export default function CalendarBookingSection({
       style={{ backgroundImage: `url('${MEDIA.backgrounds.calendar}')` }}
     >
       {/* Top horizontal transition element */}
-      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-yellow-500 to-transparent opacity-50 z-20" />
-      <div className="absolute top-0 left-0 right-0 h-24 bg-gradient-to-b from-yellow-500/10 to-transparent pointer-events-none z-20" />
+      <div className="absolute top-0 left-0 right-0 h-px bg-linear-to-r from-transparent via-yellow-500 to-transparent opacity-50 z-20" />
+      <div className="absolute top-0 left-0 right-0 h-24 bg-linear-to-b from-yellow-500/10 to-transparent pointer-events-none z-20" />
 
       <div
         data-section-content
         data-animate
         className="py-30 px-16 bg-black/60 bg-no-repeat bg-backdrop-none space-y-4 relative"
       >
-        <h2 className="text-white text-3xl text-center font-pirata-one">
+        <h2 className="bg-[linear-gradient(135deg,#fff_0%,#c47020_20%,#d09a11_40%,#fff_100%)] bg-[length:200%_200%] bg-clip-text text-transparent animate-gradientShift text-3xl text-center font-pirata-one">
           Agende sua Sessão
         </h2>
         <p className="text-white text-xl text-center font-amarante">

@@ -23,7 +23,7 @@ export default function ContactSection({ sectionIndex }: ContactSectionProps) {
         data-animate
         className="container mx-auto px-8 py-16 max-w-4xl relative z-10"
       >
-        <h2 className="text-6xl font-bold text-white mb-8 text-center max-[1000px]:text-4xl font-aladin">
+        <h2 className="text-6xl font-bold bg-[linear-gradient(135deg,#fff_0%,#c47020_20%,#d09a11_40%,#fff_100%)] bg-[length:200%_200%] bg-clip-text text-transparent animate-gradientShift mb-8 text-center max-[1000px]:text-4xl font-aladin">
           Get In Touch
         </h2>
         <p className="text-white/90 text-xl mb-8 text-center max-w-2xl mx-auto">

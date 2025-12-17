@@ -52,7 +52,7 @@ const CombinedHeroSection = forwardRef<HTMLElement>((_props, ref) => {
               </span>
             </div>
 
-            <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl font-bold leading-tight text-balance text-white">
+            <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl font-bold leading-tight text-balance bg-[linear-gradient(135deg,#fff_0%,#c47020_20%,#d09a11_40%,#fff_100%)] bg-[length:200%_200%] bg-clip-text text-transparent animate-gradientShift">
               A Safe Space for Kids to{" "}
               <span className="text-green-400">Play & Learn</span>
             </h1>
@@ -179,7 +179,7 @@ const CombinedHeroSection = forwardRef<HTMLElement>((_props, ref) => {
           </div>
 
           <div className="flex flex-col text-left space-y-6 md:space-y-4 w-full">
-            <h1 className="text-white text-3xl md:text-4xl">
+            <h1 className="bg-[linear-gradient(135deg,#fff_0%,#c47020_20%,#d09a11_40%,#fff_100%)] bg-[length:200%_200%] bg-clip-text text-transparent animate-gradientShift text-3xl md:text-4xl">
               The Teacher-Gamer Handbook
             </h1>
 
@@ -201,12 +201,12 @@ const CombinedHeroSection = forwardRef<HTMLElement>((_props, ref) => {
               education.
             </h2>
 
-            <Link href="/buy-the-book">
+            <Link href="/shop">
               <button
                 type="button"
                 className="self-start text-white border border-white rounded-md px-6 py-3 hover:bg-white hover:text-black transition font-medium"
               >
-                BUY THE BOOK
+                SHOP NOW
               </button>
             </Link>
           </div>

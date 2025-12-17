@@ -35,7 +35,7 @@ const benefits = [
   },
 ];
 
-export default function BuyTheBookPage() {
+export default function ShopPage() {
   return (
     <main className="relative min-h-screen">
       {/* Background */}
@@ -162,7 +162,7 @@ export default function BuyTheBookPage() {
             {/* Benefits Section */}
             <div className="mt-20 space-y-8">
               <h2 className="text-3xl font-bold text-white text-center">
-                Why Educators Love This Book
+                Why Educators Love Our Resources
               </h2>
               <div className="grid md:grid-cols-3 gap-8">
                 {benefits.map(({ icon: Icon, title, description }) => (
@@ -199,14 +199,143 @@ export default function BuyTheBookPage() {
               </div>
             </div>
 
+            {/* Products Section */}
+            <div className="mt-20 space-y-8">
+              <h2 className="text-3xl font-bold text-white text-center">
+                Available Products
+              </h2>
+              
+              {/* Products Grid */}
+              <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                {/* Product 1: Teacher Gamer Handbook (PDF) */}
+                <div className="bg-white/10 backdrop-blur-sm rounded-xl border border-white/20 overflow-hidden flex flex-col">
+                  <div className="relative aspect-[3/4] w-full">
+                    <Image
+                      src="https://ik.imagekit.io/your-path/teacher-gamer-handbook-pdf.jpg"
+                      alt="Teacher Gamer Handbook (PDF)"
+                      fill
+                      className="object-cover"
+                      sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                    />
+                  </div>
+                  <div className="p-6 flex-1 flex flex-col">
+                    <h3 className="text-lg font-bold text-white mb-4 text-center">
+                      Teacher Gamer Handbook (PDF)
+                    </h3>
+                    <p className="text-2xl font-bold text-white text-center mb-4">
+                      £29.99
+                    </p>
+                    <Button
+                      className="w-full bg-[#00D9FF] hover:bg-[#00B8D4] text-black font-bold mt-auto"
+                      asChild
+                    >
+                      <a href="#" target="_blank" rel="noopener noreferrer">
+                        ADD TO CART
+                      </a>
+                    </Button>
+                  </div>
+                </div>
+
+                {/* Product 2: Teacher Gamer Handbook (Softcover / Hardcover) */}
+                <div className="bg-white/10 backdrop-blur-sm rounded-xl border border-white/20 overflow-hidden flex flex-col">
+                  <div className="relative aspect-[3/4] w-full">
+                    <Image
+                      src="https://ik.imagekit.io/your-path/teacher-gamer-handbook-hardcover.jpg"
+                      alt="Teacher Gamer Handbook (Softcover / Hardcover)"
+                      fill
+                      className="object-cover"
+                      sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                    />
+                  </div>
+                  <div className="p-6 flex-1 flex flex-col">
+                    <h3 className="text-lg font-bold text-white mb-2 text-center">
+                      Teacher Gamer Handbook (Softcover / Hardcover)
+                    </h3>
+                    <div className="text-center mb-4">
+                      <p className="text-sm text-white/70 mb-1">Starting From:</p>
+                      <p className="text-2xl font-bold text-white">£36.99</p>
+                    </div>
+                    <Button
+                      className="w-full bg-[#00D9FF] hover:bg-[#00B8D4] text-black font-bold mt-auto"
+                      asChild
+                    >
+                      <a href="#" target="_blank" rel="noopener noreferrer">
+                        BUY NOW
+                      </a>
+                    </Button>
+                  </div>
+                </div>
+
+                {/* Product 3: Teacher Gamer Screen (Landscape) */}
+                <div className="bg-white/10 backdrop-blur-sm rounded-xl border border-white/20 overflow-hidden flex flex-col">
+                  <div className="relative aspect-[3/4] w-full">
+                    <Image
+                      src="https://ik.imagekit.io/your-path/teacher-gamer-screen-landscape.jpg"
+                      alt="Teacher Gamer Screen (Landscape)"
+                      fill
+                      className="object-cover"
+                      sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                    />
+                  </div>
+                  <div className="p-6 flex-1 flex flex-col">
+                    <h3 className="text-lg font-bold text-white mb-2 text-center">
+                      Teacher Gamer Screen (Landscape)
+                    </h3>
+                    <div className="text-center mb-4">
+                      <p className="text-sm text-white/70 mb-1">Starting From:</p>
+                      <p className="text-2xl font-bold text-white">£4.99</p>
+                    </div>
+                    <Button
+                      className="w-full bg-[#00D9FF] hover:bg-[#00B8D4] text-black font-bold mt-auto"
+                      asChild
+                    >
+                      <a href="#" target="_blank" rel="noopener noreferrer">
+                        BUY NOW
+                      </a>
+                    </Button>
+                  </div>
+                </div>
+
+                {/* Product 4: Teacher Gamer Screen (Portrait) */}
+                <div className="bg-white/10 backdrop-blur-sm rounded-xl border border-white/20 overflow-hidden flex flex-col">
+                  <div className="relative aspect-[3/4] w-full">
+                    <Image
+                      src="https://ik.imagekit.io/your-path/teacher-gamer-screen-portrait.jpg"
+                      alt="Teacher Gamer Screen (Portrait)"
+                      fill
+                      className="object-cover"
+                      sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                    />
+                  </div>
+                  <div className="p-6 flex-1 flex flex-col">
+                    <h3 className="text-lg font-bold text-white mb-2 text-center">
+                      Teacher Gamer Screen (Portrait)
+                    </h3>
+                    <div className="text-center mb-4">
+                      <p className="text-sm text-white/70 mb-1">Starting From:</p>
+                      <p className="text-2xl font-bold text-white">£4.99</p>
+                    </div>
+                    <Button
+                      className="w-full bg-[#00D9FF] hover:bg-[#00B8D4] text-black font-bold mt-auto"
+                      asChild
+                    >
+                      <a href="#" target="_blank" rel="noopener noreferrer">
+                        BUY NOW
+                      </a>
+                    </Button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
             {/* CTA Section */}
             <div className="mt-20 text-center space-y-6">
               <h2 className="text-3xl font-bold text-white">
-                Ready to Transform Your Classroom?
+                Ready to Get Started?
               </h2>
               <p className="text-xl text-white/80 max-w-2xl mx-auto">
-                Join hundreds of educators who are using game-based learning to
-                create engaging, effective learning experiences.
+                Explore our collection of educational resources designed to transform
+                your classroom into an engaging learning adventure.
               </p>
               <Button
                 size="lg"
@@ -214,12 +343,12 @@ export default function BuyTheBookPage() {
                 asChild
               >
                 <a
-                  href="https://www.amazon.com"
+                  href="#"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
                   <ShoppingCart className="w-5 h-5 mr-2" />
-                  Get Your Copy Today
+                  Start Shopping
                 </a>
               </Button>
             </div>
@@ -232,4 +361,6 @@ export default function BuyTheBookPage() {
     </main>
   );
 }
+
+
 

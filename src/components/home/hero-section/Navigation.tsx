@@ -62,10 +62,10 @@ const Navigation = forwardRef<HTMLElement, NavigationProps>(
             </div>
             <div className="px-3 sm:px-4 md:px-6 py-2 sm:py-2.5 md:py-3 rounded bg-black border border-white">
               <a
-                href="#signup"
+                href="/shop"
                 className="text-[10px] sm:text-xs font-medium uppercase text-white whitespace-nowrap"
               >
-                Buy Book
+                Shop Now
               </a>
             </div>
           </div>

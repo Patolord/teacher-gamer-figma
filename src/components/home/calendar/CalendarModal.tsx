@@ -4,7 +4,7 @@ export default function MyApp() {
   useEffect(() => {
     (async () => {
       const cal = await getCalApi({ namespace: "training-session" });
-      cal("ui", { hideEventTypeDetails: false, layout: "month_view" });
+      cal("ui", { hideEventTypeDetails: false, layout: "month_view",  theme: "dark", });
     })();
   }, []);
   return (
