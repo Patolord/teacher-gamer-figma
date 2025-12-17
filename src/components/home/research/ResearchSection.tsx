@@ -96,7 +96,7 @@ export default function ResearchSection({
       >
         {/* Header */}
         <div data-animate className="text-center mb-12 md:mb-16">
-          <h2 className="text-3xl md:text-4xl font-semibold tracking-tight mb-4 bg-[linear-gradient(135deg,#fff_0%,#c47020_20%,#d09a11_40%,#fff_100%)] bg-[length:200%_200%] bg-clip-text text-transparent inline-block whitespace-nowrap animate-gradientShift">
+          <h2 className="text-3xl md:text-4xl font-semibold tracking-tight mb-4 bg-[linear-gradient(135deg,#D29E2D_16%,#E0C07B_37%,#E0C07B_60%,#D29E2D_100%)] bg-[length:200%_200%] bg-clip-text text-transparent inline-block whitespace-nowrap animate-gradientShift">
             Research & Publications
           </h2>
           <p className="text-white/80 text-base md:text-lg mt-4 max-w-3xl mx-auto">

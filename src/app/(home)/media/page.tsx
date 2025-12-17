@@ -134,7 +134,7 @@ export default function MediaPage() {
               </span>
             </div>
 
-            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 bg-[linear-gradient(135deg,#fff_0%,#fbbf24_25%,#f59e0b_50%,#fff_100%)] bg-size-[300%_300%] bg-clip-text text-transparent animate-[gradientShift_8s_ease-in-out_infinite]">
+            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 bg-[linear-gradient(135deg,#D29E2D_16%,#E0C07B_37%,#E0C07B_60%,#D29E2D_100%)] bg-size-[300%_300%] bg-clip-text text-transparent animate-[gradientShift_8s_ease-in-out_infinite]">
               Podcasts & Gallery
             </h1>
 

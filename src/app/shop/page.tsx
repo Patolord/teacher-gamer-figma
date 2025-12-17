@@ -60,7 +60,7 @@ export default function ShopPage() {
           <div className="max-w-7xl mx-auto">
             {/* Page Title */}
             <div className="text-center mb-12">
-              <h1 className="text-4xl md:text-5xl font-bold bg-[linear-gradient(135deg,#fff_0%,#c47020_20%,#d09a11_40%,#fff_100%)] bg-[length:200%_200%] bg-clip-text text-transparent animate-gradientShift mb-4">Shop</h1>
+              <h1 className="text-4xl md:text-5xl font-bold bg-[linear-gradient(135deg,#D29E2D_16%,#E0C07B_37%,#E0C07B_60%,#D29E2D_100%)] bg-[length:200%_200%] bg-clip-text text-transparent animate-gradientShift mb-4">Shop</h1>
               <p className="text-lg text-white/80">Showing all 4 results</p>
             </div>
 
@@ -275,7 +275,7 @@ export default function ShopPage() {
 
             {/* CTA Section */}
             <div className="mt-20 text-center space-y-6">
-              <h2 className="text-3xl font-bold bg-[linear-gradient(135deg,#fff_0%,#c47020_20%,#d09a11_40%,#fff_100%)] bg-[length:200%_200%] bg-clip-text text-transparent animate-gradientShift">
+              <h2 className="text-3xl font-bold bg-[linear-gradient(135deg,#D29E2D_16%,#E0C07B_37%,#E0C07B_60%,#D29E2D_100%)] bg-[length:200%_200%] bg-clip-text text-transparent animate-gradientShift">
                 Ready to Get Started?
               </h2>
               <p className="text-xl text-white/80 max-w-2xl mx-auto">
