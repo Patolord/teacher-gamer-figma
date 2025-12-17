@@ -8,7 +8,7 @@ interface CoursesSectionProps {
 }
 
 export default function CoursesSection({
-  sectionIndex: _sectionIndex,
+  sectionIndex,
 }: CoursesSectionProps) {
   const courses = [
     {
@@ -16,6 +16,7 @@ export default function CoursesSection({
       description:
         "Get an introduction to how RPGs and the multiverse can drive adult readiness through PBL and SEL as we work through the 13 Phases of Character Building.",
       color: "#7df9ff",
+      href: "/courses/intro-to-multiverse",
     },
     {
       title: "Level 1 TG Space-Holder Certificate Course",
@@ -23,23 +24,28 @@ export default function CoursesSection({
         "Learn to move from out-game character development to in-game role-playing and run a pilot to get teacher gamer level one certified.",
       color: "#ff6b9d",
       badge: "BEST VALUE",
+      href: "/courses/level-1-space-holder",
     },
     {
       title: "Level 2 TG World Builder Certificate",
       description:
         "Build & implement your own campaign world. Uncharted territory: New stories, creatures, magic & tech",
       color: "#489179",
+      href: "/courses/level-2-world-builder",
     },
     {
       title: "Level 3 TG Planes Walker Certificate Course",
       description:
-        "Integrate your own RPGs campaign into your local school system’s learning objectives with guidance",
+        "Integrate your own RPGs campaign into your local school system's learning objectives with guidance",
       color: "#b8411f",
+      href: "/courses/level-3-planes-walker",
     },
   ];
 
   return (
     <section
+      id="courses-section"
+      data-scroll-section={sectionIndex}
       className="relative w-full min-h-screen flex items-center justify-center bg-cover bg-center py-40"
       style={{ backgroundImage: `url('${MEDIA.backgrounds.courses}')` }}
     >
@@ -64,6 +70,7 @@ export default function CoursesSection({
               description={course.description}
               color={course.color}
               badge={course.badge}
+              href={course.href}
             />
           ))}
         </div>

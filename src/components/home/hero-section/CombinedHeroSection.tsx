@@ -52,7 +52,7 @@ const CombinedHeroSection = forwardRef<HTMLElement>((_props, ref) => {
               </span>
             </div>
 
-            <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl font-bold leading-tight text-balance text-white">
+            <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl font-bold leading-tight text-balance bg-[linear-gradient(135deg,#fff_0%,#c47020_20%,#d09a11_40%,#fff_100%)] bg-[length:200%_200%] bg-clip-text text-transparent animate-gradientShift">
               A Safe Space for Kids to{" "}
               <span className="text-green-400">Play & Learn</span>
             </h1>
@@ -174,12 +174,12 @@ const CombinedHeroSection = forwardRef<HTMLElement>((_props, ref) => {
           data-section-content
           className="flex flex-col md:flex-row items-center justify-center gap-8 md:gap-12 max-w-5xl w-full px-6 md:px-8 relative z-10"
         >
-          <div className="flex justify-center flex-shrink-0 mb-6 md:mb-0">
+          <div className="flex justify-center shrink-0 mb-6 md:mb-0">
             <ShopSectionCard image={MEDIA.assets.bookCover} />
           </div>
 
           <div className="flex flex-col text-left space-y-6 md:space-y-4 w-full">
-            <h1 className="text-white text-3xl md:text-4xl">
+            <h1 className="bg-[linear-gradient(135deg,#fff_0%,#c47020_20%,#d09a11_40%,#fff_100%)] bg-[length:200%_200%] bg-clip-text text-transparent animate-gradientShift text-3xl md:text-4xl">
               The Teacher-Gamer Handbook
             </h1>
 
@@ -201,18 +201,20 @@ const CombinedHeroSection = forwardRef<HTMLElement>((_props, ref) => {
               education.
             </h2>
 
-            <button
-              type="button"
-              className="self-start text-white border border-white rounded-md px-6 py-3 hover:bg-white hover:text-black transition font-medium"
-            >
-              BUY THE BOOK
-            </button>
+            <Link href="/shop">
+              <button
+                type="button"
+                className="self-start text-white border border-white rounded-md px-6 py-3 hover:bg-white hover:text-black transition font-medium"
+              >
+                SHOP NOW
+              </button>
+            </Link>
           </div>
         </div>
 
         {/* Bottom horizontal transition element */}
-        <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-yellow-500/10 to-transparent pointer-events-none" />
-        <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-yellow-500 to-transparent opacity-50" />
+        <div className="absolute bottom-0 left-0 right-0 h-24 bg-linear-to-t from-yellow-500/10 to-transparent pointer-events-none" />
+        <div className="absolute bottom-0 left-0 right-0 h-px bg-linear-to-r from-transparent via-yellow-500 to-transparent opacity-50" />
       </div>
     </section>
   );

@@ -1,20 +1,25 @@
-hero section.
+hero section buttons e navbar
 
-media
+media page rework, colocar secao de videos e podcats e galeria de fotos.
 
-buttons interactiv.
+substack card rework fundo transparente do card
 
-book shop page
+magic card views 04 - arrumar o numero de views do artigo
 
-testimonial bg
+arrumar links das imagens na conta do imagekit.
 
-courses page...
+@rick
+
+testimonial background, colocar um bg.
+
+shop page - colocar 4 items da loja com mesma hierarquia visual conforme teachgamer original
+destacar links externos
+remover testimonial e outras secoes. OPCIONAL.. (talvez deixar testimonial e uma foto )
+mas tirar blablaba de marketing
+arrumar copywright
 
 
-substack card
 
-magic card views 04
-
-contact page
-footer social media links
-
+------
+stripe - adicionar produto do livro no stripe....
+calendario - fica pra depois
