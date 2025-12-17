@@ -46,7 +46,7 @@ export default function SuccessPage() {
               className="w-full border-white/30 text-white hover:bg-white/10 font-bold"
               asChild
             >
-              <Link href="/">Back to Home</Link>
+              <Link href="/home">Back to Home</Link>
             </Button>
           </div>
         </div>

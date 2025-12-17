@@ -5,6 +5,7 @@ import {
   Headphones,
   Image as ImageIcon,
   Play,
+  Video,
   Volume2,
 } from "lucide-react";
 import Image from "next/image";
@@ -146,7 +147,43 @@ export default function MediaPage() {
           </div>
         </div>
 
-        {/* Bottom transition */}
+      </section>
+
+      {/* Video Section */}
+      <section className="relative py-16 lg:py-20">
+        {/* Section background */}
+        <div className="absolute inset-0 bg-linear-to-b from-zinc-950/80 to-zinc-900/50" />
+
+        <div className="container mx-auto px-4 relative z-10">
+
+          {/* Video Embed Container */}
+          <div data-animate className="max-w-4xl mx-auto">
+            <div className="relative group">
+              {/* Glow effect */}
+              <div className="absolute -inset-1 bg-linear-to-r from-amber-600 via-orange-500 to-amber-600 rounded-2xl opacity-30 blur-lg group-hover:opacity-50 transition-opacity duration-500" />
+
+              <div className="relative bg-zinc-900/90 backdrop-blur-sm border border-amber-500/30 rounded-2xl overflow-hidden">
+                {/* Video Container - 16:9 aspect ratio */}
+                <div className="aspect-video w-full bg-zinc-800 flex items-center justify-center">
+                  {/* Replace this iframe src with your actual video embed URL (YouTube, Vimeo, etc.) */}
+                  <iframe
+                    title="Teacher Gamer Introduction Video"
+                    src="https://www.youtube.com/embed/TOU90iP2VJY"
+                    width="100%"
+                    height="100%"
+                    className="absolute inset-0 w-full h-full"
+                    style={{ border: "none" }}
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowFullScreen
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Section transitions */}
+        <div className="absolute bottom-0 left-0 right-0 h-24 bg-linear-to-t from-amber-500/5 to-transparent pointer-events-none" />
         <div className="absolute bottom-0 left-0 right-0 h-px bg-linear-to-r from-transparent via-amber-500/50 to-transparent" />
       </section>
 
@@ -198,17 +235,18 @@ export default function MediaPage() {
                   </p>
 
                   {/* Podbean Embed - Replace src with your actual Podbean player URL */}
-                  <div className="aspect-3/1 min-h-[200px] rounded-xl overflow-hidden bg-zinc-800">
-                    <iframe
-                      title={podcastEpisodes[0].title}
-                      src={`https://www.podbean.com/player-v2/?i=${podcastEpisodes[0].embedId}&from=pb6admin&share=1&download=1&rtl=0&fonts=Georgia&skin=1&font-color=FFFFFF&logo_link=none&btn-skin=FFBF24&size=315`}
-                      width="100%"
-                      height="315"
-                      style={{ border: "none" }}
-                      scrolling="no"
-                      loading="lazy"
-                      allow="autoplay"
-                    />
+                  <div className="aspect-3/1 rounded-xl overflow-hidden bg-zinc-800">
+                  <iframe
+                        title="TGPC - The Power of Writing"
+                        width="100%"
+                        height="100%"
+                        style={{ border: "none", minWidth: "min(100%, 430px)", height: "100%" }}
+                        scrolling="no"
+                        data-name="pb-iframe-player"
+                        src="https://www.podbean.com/player-v2/?from=embed&i=c2a9e-18cbbb7-pb&square=1&share=1&download=1&fonts=Arial&skin=3267a3&font-color=ffffff&rtl=0&logo_link=episode_page&btn-skin=c73a3a&size=300"
+                        loading="lazy"
+                        allowFullScreen
+                      />
                   </div>
                 </div>
               </div>
