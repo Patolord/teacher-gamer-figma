@@ -10,7 +10,6 @@ import {
 } from "lucide-react";
 import Image from "next/image";
 import { useState } from "react";
-import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 // Podcast episodes - Replace with your actual Podbean episode IDs
 const podcastEpisodes = [
@@ -43,71 +42,106 @@ const podcastEpisodes = [
   },
 ];
 
-// Gallery items - Replace with your actual images
-const galleryItems = [
+// YouTube videos - Add more videos here
+const moreVideos = [
   {
-    id: 1,
-    src: "https://images.unsplash.com/photo-1610890716171-6b1bb98ffd09?w=600&q=80",
-    alt: "Tabletop gaming session",
-    category: "Sessions",
+    id: "5g2jO3NZAkU",
+    title: "Wild Mind Training: Teacher-Gamer Testimonials 1 (Kate and Patrick)",
   },
-  {
-    id: 2,
-    src: "https://images.unsplash.com/photo-1594652634010-275456c808d0?w=600&q=80",
-    alt: "Kids learning together",
-    category: "Learning",
-  },
-  {
-    id: 3,
-    src: "https://images.unsplash.com/photo-1551966775-a4ddc8df052b?w=600&q=80",
-    alt: "Dice and game pieces",
-    category: "Equipment",
-  },
-  {
-    id: 4,
-    src: "https://images.unsplash.com/photo-1606503153255-59d8b8b82176?w=600&q=80",
-    alt: "Creative storytelling",
-    category: "Sessions",
-  },
-  {
-    id: 5,
-    src: "https://images.unsplash.com/photo-1632501641765-e568d28b0015?w=600&q=80",
-    alt: "Character creation workshop",
-    category: "Workshops",
-  },
-  {
-    id: 6,
-    src: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=600&q=80",
-    alt: "Group collaboration",
-    category: "Learning",
-  },
-  {
-    id: 7,
-    src: "https://images.unsplash.com/photo-1560253023-3ec5d502959f?w=600&q=80",
-    alt: "Miniature painting session",
-    category: "Workshops",
-  },
-  {
-    id: 8,
-    src: "https://images.unsplash.com/photo-1604076913837-52ab5629fba9?w=600&q=80",
-    alt: "Adventure map creation",
-    category: "Equipment",
-  },
+  // Add more videos here:
+ { id: "TLzdJeYFwUI", title: "As if Authenticity Matters presentation [Re]Learn 2020" },
+
 ];
 
-const categories = ["All", "Sessions", "Learning", "Workshops", "Equipment"];
+// Gallery images from ImageKit
+const GALLERY_BASE_URL = "https://ik.imagekit.io/TeacherGamer/Gallery/";
+
+// All gallery images
+const galleryImages = [
+  { filename: "DSC01241.jpg", alt: "Gaming Session", category: "Sessions" },
+  { filename: "DSC01266.jpg", alt: "Group Activity", category: "Sessions" },
+  { filename: "D_D 024b.jpg", alt: "D&D Adventure", category: "Sessions" },
+  { filename: "D_D 055.jpg", alt: "Tabletop Gaming", category: "Sessions" },
+  { filename: "FVMV8019.JPG", alt: "Learning Moment", category: "Learning" },
+  { filename: "IMG_0186_2177x1633.jpg", alt: "Classroom Session", category: "Learning" },
+  { filename: "IMG_1332.JPG", alt: "Student Engagement", category: "Learning" },
+  { filename: "IMG_1782.JPG", alt: "Creative Play", category: "Sessions" },
+  { filename: "IMG_2452.JPG", alt: "Workshop Activity", category: "Workshops" },
+  { filename: "IMG_2461c.JPG", alt: "Game Master Teaching", category: "Workshops" },
+  { filename: "IMG_2510.JPG", alt: "Collaborative Learning", category: "Learning" },
+  { filename: "IMG_2553.JPG", alt: "RPG Session", category: "Sessions" },
+  { filename: "IMG_2936bb.jpg", alt: "Character Building", category: "Workshops" },
+  { filename: "IMG_2945b.jpg", alt: "Storytelling Session", category: "Sessions" },
+  { filename: "IMG_2956.JPG", alt: "Team Collaboration", category: "Learning" },
+  { filename: "IMG_2990.JPG", alt: "Adventure Planning", category: "Sessions" },
+  { filename: "IMG_3228b.jpg", alt: "Game Setup", category: "Sessions" },
+  { filename: "IMG_3301.JPG", alt: "Student Focus", category: "Learning" },
+  { filename: "IMG_3337b.jpg", alt: "Interactive Learning", category: "Learning" },
+  { filename: "IMG_3461.JPG", alt: "Group Discussion", category: "Workshops" },
+  { filename: "IMG_3758a.jpg", alt: "Creative Expression", category: "Workshops" },
+  { filename: "IMG_3768b.jpg", alt: "Problem Solving", category: "Learning" },
+  { filename: "IMG_4842.JPG", alt: "Gaming Fun", category: "Sessions" },
+  { filename: "IMG_5101.JPG", alt: "Classroom Adventure", category: "Learning" },
+  { filename: "IMG_5152b.JPG", alt: "Team Building", category: "Workshops" },
+  { filename: "IMG_5273.JPG", alt: "Imagination at Work", category: "Sessions" },
+  { filename: "IMG_5358.JPG", alt: "Learning Through Play", category: "Learning" },
+  { filename: "IMG_5394.JPG", alt: "Game Mastering", category: "Workshops" },
+  { filename: "IMG_5467.JPG", alt: "Student Creativity", category: "Learning" },
+  { filename: "IMG_5672.JPG", alt: "Adventure Time", category: "Sessions" },
+  { filename: "IMG_5888 (2).JPG", alt: "Collaborative Story", category: "Sessions" },
+  { filename: "IMG_5909n.jpg", alt: "Workshop Moment", category: "Workshops" },
+  { filename: "IMG_6022b.JPG", alt: "Teacher Gamer Session", category: "Sessions" },
+  { filename: "IMG_6082d.jpg", alt: "Engaged Learners", category: "Learning" },
+  { filename: "IMG_6123paint.JPG", alt: "Miniature Painting", category: "Workshops" },
+  { filename: "IMG_6515b.JPG", alt: "Role-Playing Fun", category: "Sessions" },
+  { filename: "IMG_6776bpan.jpg", alt: "Panoramic Session", category: "Sessions" },
+  { filename: "IMG_6781b.JPG", alt: "Gaming Group", category: "Sessions" },
+  { filename: "IMG_7477.JPG", alt: "Teaching Moment", category: "Learning" },
+  { filename: "IMG_7717.JPG", alt: "Student Achievement", category: "Learning" },
+  { filename: "IMG_9471b.JPG", alt: "Game Night", category: "Sessions" },
+  { filename: "LGVT5638b.jpg", alt: "Special Event", category: "Workshops" },
+  { filename: "ZachZoomTeach1.png", alt: "Online Teaching", category: "Learning" },
+  { filename: "_ZAR2710b.jpg", alt: "Behind the Scenes", category: "Workshops" },
+];
+
+// Generate gallery items from the image list
+const galleryItems = galleryImages.map((img, index) => ({
+  id: index + 1,
+  src: `${GALLERY_BASE_URL}${img.filename}`,
+  alt: img.alt,
+  category: img.category,
+}));
+
+// Get unique categories from gallery items
+const categories = ["All", ...Array.from(new Set(galleryImages.map(img => img.category)))];
+
+const IMAGES_PER_PAGE = 8;
 
 export default function MediaPage() {
-  useScrollAnimation();
   const [selectedCategory, setSelectedCategory] = useState("All");
   const [selectedImage, setSelectedImage] = useState<
     (typeof galleryItems)[0] | null
   >(null);
+  const [visibleCount, setVisibleCount] = useState(IMAGES_PER_PAGE);
 
   const filteredGallery =
     selectedCategory === "All"
       ? galleryItems
       : galleryItems.filter((item) => item.category === selectedCategory);
+
+  // Only show up to visibleCount images
+  const displayedGallery = filteredGallery.slice(0, visibleCount);
+  const hasMore = visibleCount < filteredGallery.length;
+
+  const loadMore = () => {
+    setVisibleCount((prev) => prev + IMAGES_PER_PAGE);
+  };
+
+  // Reset visible count when category changes
+  const handleCategoryChange = (category: string) => {
+    setSelectedCategory(category);
+    setVisibleCount(IMAGES_PER_PAGE);
+  };
 
   return (
     <div className="min-h-screen bg-linear-to-b from-zinc-950 via-zinc-900 to-zinc-950">
@@ -116,7 +150,7 @@ export default function MediaPage() {
         {/* Animated background pattern */}
         <div className="absolute inset-0">
           <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,var(--tw-gradient-stops))] from-amber-900/20 via-transparent to-transparent" />
-          <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiNmYmJmMjQiIGZpbGwtb3BhY2l0eT0iMC4wMyI+PHBhdGggZD0iTTM2IDM0djZoNnYtNmgtNnptMCAwdi02aC02djZoNnoiLz48L2c+PC9nPjwvc3ZnPg==')] opacity-50" />
+          
         </div>
 
         {/* Glowing orbs */}
@@ -127,7 +161,7 @@ export default function MediaPage() {
         />
 
         <div className="container mx-auto px-4 relative z-10">
-          <div data-animate className="text-center max-w-4xl mx-auto">
+          <div className="text-center max-w-4xl mx-auto">
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-amber-500/30 bg-amber-500/10 mb-8">
               <Headphones className="w-4 h-4 text-amber-400" />
               <span className="text-sm font-medium text-amber-300">
@@ -157,14 +191,14 @@ export default function MediaPage() {
         <div className="container mx-auto px-4 relative z-10">
 
           {/* Video Embed Container */}
-          <div data-animate className="max-w-4xl mx-auto">
+          <div className="max-w-4xl mx-auto">
             <div className="relative group">
               {/* Glow effect */}
               <div className="absolute -inset-1 bg-linear-to-r from-amber-600 via-orange-500 to-amber-600 rounded-2xl opacity-30 blur-lg group-hover:opacity-50 transition-opacity duration-500" />
 
               <div className="relative bg-zinc-900/90 backdrop-blur-sm border border-amber-500/30 rounded-2xl overflow-hidden">
                 {/* Video Container - 16:9 aspect ratio */}
-                <div className="aspect-video w-full bg-zinc-800 flex items-center justify-center">
+                <div className="aspect-video w-full  flex items-center justify-center">
                   {/* Replace this iframe src with your actual video embed URL (YouTube, Vimeo, etc.) */}
                   <iframe
                     title="Teacher Gamer Introduction Video"
@@ -180,6 +214,42 @@ export default function MediaPage() {
               </div>
             </div>
           </div>
+
+          {/* More Videos Grid */}
+          {moreVideos.length > 0 && (
+            <div className="mt-16">
+              <h3 className="text-2xl font-semibold text-white text-center mb-8">
+                More Videos
+              </h3>
+              <div className="grid md:grid-cols-2 gap-6">
+                {moreVideos.map((video) => (
+                  <div
+                    key={video.id}
+                    className="group relative bg-zinc-900/60 backdrop-blur-sm border border-zinc-800 hover:border-amber-500/40 rounded-xl overflow-hidden transition-all duration-300"
+                  >
+                    <div className="aspect-video w-full">
+                      <iframe
+                        title={video.title}
+                        src={`https://www.youtube.com/embed/${video.id}`}
+                        width="100%"
+                        height="100%"
+                        className="w-full h-full"
+                        style={{ border: "none" }}
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        loading="lazy"
+                        allowFullScreen
+                      />
+                    </div>
+                    <div className="p-4">
+                      <p className="text-white font-medium text-sm line-clamp-2">
+                        {video.title}
+                      </p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
         </div>
 
         {/* Section transitions */}
@@ -196,10 +266,7 @@ export default function MediaPage() {
         <div className="absolute top-0 left-0 right-0 h-24 bg-linear-to-b from-amber-500/5 to-transparent pointer-events-none" />
 
         <div className="container mx-auto px-4 relative z-10">
-          <div
-            data-animate
-            className="flex items-center justify-center gap-4 mb-12"
-          >
+          <div className="flex items-center justify-center gap-4 mb-12">
             <div className="h-px flex-1 max-w-32 bg-linear-to-r from-transparent to-amber-500/50" />
             <div className="flex items-center gap-3">
               <Volume2 className="w-6 h-6 text-amber-400" />
@@ -211,7 +278,7 @@ export default function MediaPage() {
           </div>
 
           {/* Featured Episode */}
-          <div data-animate className="max-w-4xl mx-auto mb-16">
+          <div className="max-w-4xl mx-auto mb-16">
             <div className="relative group">
               {/* Glow effect */}
               <div className="absolute -inset-1 bg-linear-to-r from-amber-600 via-orange-500 to-amber-600 rounded-2xl opacity-30 blur-lg group-hover:opacity-50 transition-opacity duration-500" />
@@ -254,9 +321,7 @@ export default function MediaPage() {
           </div>
 
           {/* Episode Grid */}
-          <div
-            data-animate-stagger
-            className="grid md:grid-cols-2 gap-6 max-w-5xl mx-auto"
+          <div className="grid md:grid-cols-2 gap-6 max-w-5xl mx-auto"
           >
             {podcastEpisodes.slice(1).map((episode) => (
               <div
@@ -293,7 +358,7 @@ export default function MediaPage() {
           </div>
 
           {/* Podbean Subscribe Link */}
-          <div data-animate className="text-center mt-12">
+          <div className="text-center mt-12">
             <a
               href="https://www.podbean.com"
               target="_blank"
@@ -319,9 +384,7 @@ export default function MediaPage() {
         <div className="absolute top-0 left-0 right-0 h-24 bg-linear-to-b from-amber-500/5 to-transparent pointer-events-none" />
 
         <div className="container mx-auto px-4 relative z-10">
-          <div
-            data-animate
-            className="flex items-center justify-center gap-4 mb-8"
+          <div className="flex items-center justify-center gap-4 mb-8"
           >
             <div className="h-px flex-1 max-w-32 bg-linear-to-r from-transparent to-amber-500/50" />
             <div className="flex items-center gap-3">
@@ -333,24 +396,20 @@ export default function MediaPage() {
             <div className="h-px flex-1 max-w-32 bg-linear-to-l from-transparent to-amber-500/50" />
           </div>
 
-          <p
-            data-animate
-            className="text-center text-zinc-400 mb-12 max-w-2xl mx-auto"
+          <p className="text-center text-zinc-400 mb-12 max-w-2xl mx-auto"
           >
             Explore moments from our sessions, workshops, and the creative world
             of game-based learning.
           </p>
 
           {/* Category Filter */}
-          <div
-            data-animate
-            className="flex flex-wrap justify-center gap-3 mb-12"
+          <div className="flex flex-wrap justify-center gap-3 mb-12"
           >
             {categories.map((category) => (
               <button
                 key={category}
                 type="button"
-                onClick={() => setSelectedCategory(category)}
+                onClick={() => handleCategoryChange(category)}
                 className={`px-5 py-2.5 rounded-full font-medium text-sm transition-all duration-300 ${
                   selectedCategory === category
                     ? "bg-amber-500 text-zinc-900 shadow-[0_4px_16px_rgba(251,191,36,0.4)]"
@@ -364,7 +423,7 @@ export default function MediaPage() {
 
           {/* Gallery Grid */}
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6">
-            {filteredGallery.map((item, index) => (
+            {displayedGallery.map((item, index) => (
               <button
                 type="button"
                 key={item.id}
@@ -379,6 +438,7 @@ export default function MediaPage() {
                   src={item.src}
                   alt={item.alt}
                   fill
+                  loading="lazy"
                   className="object-cover transition-transform duration-500 group-hover:scale-110"
                   sizes={
                     index === 0
@@ -407,6 +467,22 @@ export default function MediaPage() {
               </button>
             ))}
           </div>
+
+          {/* Load More Button */}
+          {hasMore && (
+            <div className="text-center mt-12">
+              <button
+                type="button"
+                onClick={loadMore}
+                className="inline-flex items-center gap-2 px-8 py-3 bg-zinc-800/80 text-zinc-300 hover:bg-zinc-700 hover:text-white border border-zinc-700 hover:border-amber-500/50 font-medium rounded-full transition-all duration-300 hover:shadow-[0_4px_24px_rgba(251,191,36,0.2)]"
+              >
+                Load More
+                <span className="text-zinc-500 text-sm">
+                  ({filteredGallery.length - visibleCount} remaining)
+                </span>
+              </button>
+            </div>
+          )}
         </div>
 
         {/* Bottom transition */}

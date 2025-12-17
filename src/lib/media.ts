@@ -12,6 +12,7 @@
  */
 
 const IMAGEKIT_BASE_URL = "https://ik.imagekit.io/TeacherGamer/Site/";
+const IMAGEKIT_GALLERY_URL = "https://ik.imagekit.io/TeacherGamer/Gallery/";
 
 // =============================================================================
 // MEDIA ASSETS
@@ -64,9 +65,29 @@ export const MEDIA = {
   // ROOT IMAGES
   // ===========================================================================
   hero: {
-    image: `${IMAGEKIT_BASE_URL}/hero-img.jpg`,
+    image: `${IMAGEKIT_BASE_URL}/hero-img`,
+  },
+
+  // ===========================================================================
+  // GALLERY IMAGES
+  // Add your gallery image filenames here
+  // ===========================================================================
+  gallery: {
+    baseUrl: IMAGEKIT_GALLERY_URL,
+    // List your gallery image filenames (add more as needed)
+    images: [
+      "IMG_6022b.JPG",
+      // Add more image filenames here:
+      // "IMG_6023.JPG",
+      // "IMG_6024.JPG",
+    ] as const,
   },
 } as const;
+
+// Helper to get full gallery image URL
+export function getGalleryImageUrl(filename: string): string {
+  return `${IMAGEKIT_GALLERY_URL}${filename}`;
+}
 
 // =============================================================================
 // HELPER: Add ImageKit transformations
