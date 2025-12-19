@@ -44,6 +44,7 @@ export default function SubstackSection({ sectionIndex }: Props) {
 
   return (
     <section
+      id="substack-section"
       data-scroll-section={sectionIndex}
       className="flex justify-center min-h-screen pt-24 pb-40 bg-black relative"
     >
