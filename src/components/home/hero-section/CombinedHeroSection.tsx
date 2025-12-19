@@ -68,31 +68,25 @@ const CombinedHeroSection = forwardRef<HTMLElement>((_props, ref) => {
               <Button
                 size="lg"
                 className="font-semibold text-lg px-8 bg-green-600 hover:bg-green-700 text-white"
-                asChild
+                onClick={() => {
+                  const coursesSection = document.getElementById("courses-section");
+                  if (coursesSection) {
+                    coursesSection.scrollIntoView({ behavior: "smooth" });
+                  }
+                }}
               >
-                <Link
-                  href="/home"
-                  onClick={() => {
-                    setTimeout(() => {
-                      const coursesSection = document.querySelector(
-                        '[data-scroll-section="3"]',
-                      );
-                      if (coursesSection) {
-                        coursesSection.scrollIntoView({ behavior: "smooth" });
-                      }
-                    }, 100);
-                  }}
-                >
-                  Explore Courses
-                  <ArrowRight className="w-5 h-5 ml-2" />
-                </Link>
+                Explore Courses
+                <ArrowRight className="w-5 h-5 ml-2" />
               </Button>
               <Button
                 size="lg"
                 variant="outline"
                 className="font-semibold text-lg px-8 bg-transparent border-white/30 text-white hover:bg-white/10"
+                asChild
               >
-                Watch How It Works
+                <Link href="/media">
+                  Watch How It Works
+                </Link>
               </Button>
             </div>
 

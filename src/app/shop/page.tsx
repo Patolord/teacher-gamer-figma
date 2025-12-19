@@ -47,7 +47,7 @@ export default function ShopPage() {
         {/* Header with Back Button */}
         <div className="container mx-auto px-4 py-8">
           <Link
-            href="/"
+            href="/home"
             className="inline-flex items-center gap-2 text-white/80 hover:text-white transition-colors"
           >
             <ArrowLeft className="w-5 h-5" />

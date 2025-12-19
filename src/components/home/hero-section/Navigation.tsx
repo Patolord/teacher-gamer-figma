@@ -20,7 +20,7 @@ const Navigation = forwardRef<HTMLElement, NavigationProps>(
         {/* Center Logo */}
         <div className="flex-1 min-[550px]:flex-none flex justify-center items-center">
           <a
-            href="/"
+            href="/home"
             className="text-base sm:text-xl md:text-2xl text-black font-normal whitespace-nowrap"
           >
             Teacher Gamer
