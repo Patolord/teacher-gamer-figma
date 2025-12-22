@@ -38,13 +38,13 @@ const Navigation = forwardRef<HTMLElement, NavigationProps>(
               Courses
             </a>
             <a
-              href="#shop"
+              href="/shop"
               className="text-black hover:opacity-70 transition-opacity text-[10px] sm:text-xs font-medium uppercase whitespace-nowrap"
             >
               Shop
             </a>
             <a
-              href="#about"
+              href="/about"
               className="text-black hover:opacity-70 transition-opacity text-[10px] sm:text-xs font-medium uppercase whitespace-nowrap"
             >
               About
@@ -54,7 +54,7 @@ const Navigation = forwardRef<HTMLElement, NavigationProps>(
           <div className="flex gap-2 sm:gap-4 md:gap-6">
             <div className="px-3 sm:px-4 md:px-6 py-2 sm:py-2.5 md:py-3 rounded bg-white">
               <a
-                href="#login"
+                href="#courses"
                 className="text-[10px] sm:text-xs font-medium uppercase text-black whitespace-nowrap"
               >
                 Training
