@@ -32,7 +32,7 @@ const Navigation = forwardRef<HTMLElement, NavigationProps>(
           {/* Menu Links */}
           <div className="hidden min-[550px]:flex gap-4 sm:gap-6 md:gap-8">
             <a
-              href="#courses"
+              href="#courses-section"
               className="text-black hover:opacity-70 transition-opacity text-[10px] sm:text-xs font-medium uppercase whitespace-nowrap"
             >
               Courses
@@ -54,7 +54,7 @@ const Navigation = forwardRef<HTMLElement, NavigationProps>(
           <div className="flex gap-2 sm:gap-4 md:gap-6">
             <div className="px-3 sm:px-4 md:px-6 py-2 sm:py-2.5 md:py-3 rounded bg-white">
               <a
-                href="#courses"
+                href="#courses-section"
                 className="text-[10px] sm:text-xs font-medium uppercase text-black whitespace-nowrap"
               >
                 Training
