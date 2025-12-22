@@ -38,6 +38,12 @@ const Navigation = forwardRef<HTMLElement, NavigationProps>(
               Courses
             </a>
             <a
+              href="#calendar-section"
+              className="text-black hover:opacity-70 transition-opacity text-[10px] sm:text-xs font-medium uppercase whitespace-nowrap"
+            >
+              Calendar
+            </a>
+            <a
               href="/shop"
               className="text-black hover:opacity-70 transition-opacity text-[10px] sm:text-xs font-medium uppercase whitespace-nowrap"
             >
