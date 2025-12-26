@@ -169,6 +169,7 @@ const Testimonials = ({ sectionIndex }: TestimonialsProps) => {
 
   return (
     <section
+      id="testimonials-section"
       data-scroll-section={sectionIndex}
       className="w-full py-40 relative overflow-x-hidden"
     >

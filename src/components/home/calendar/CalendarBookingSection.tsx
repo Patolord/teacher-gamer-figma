@@ -26,6 +26,7 @@ export default function CalendarBookingSection({
 
   return (
     <section
+      id="calendar-section"
       data-scroll-section={sectionIndex}
       className="relative bg-cover bg-center"
       style={{ backgroundImage: `url('${MEDIA.backgrounds.calendar}')` }}

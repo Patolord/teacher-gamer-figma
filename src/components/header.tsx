@@ -5,10 +5,9 @@ import Link from "next/link";
 import { useState } from "react";
 
 const menu = [
-  { title: "Home", href: "/" },
-  { title: "About", href: "/about" },
-  { title: "Training", href: "/training" },
-  { title: "Calendar", href: "/schedule" },
+  { title: "Home", href: "/home" },
+  { title: "Courses", href: "/home#courses-section" },
+  { title: "Contact", href: "/home#contact-section" },
   { title: "Media", href: "/media" },
   { title: "Shop", href: "/shop" },
 ];

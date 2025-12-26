@@ -34,6 +34,7 @@ const stats = [
 const CombinedHeroSection = forwardRef<HTMLElement>((_props, ref) => {
   return (
     <section
+      id="hero-section"
       ref={ref}
       className="relative w-full overflow-hidden bg-cover bg-center"
       style={{ backgroundImage: `url('${MEDIA.backgrounds.hero}')` }}
