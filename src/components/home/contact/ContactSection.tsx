@@ -79,7 +79,7 @@ export default function ContactSection({ sectionIndex }: ContactSectionProps) {
           <h3 className="text-2xl font-bold text-white mb-6 font-aladin">
             Connect With Us
           </h3>
-          <div className="flex items-center justify-center gap-6 flex-wrap">
+          <div className="flex items-center justify-center gap-6 flex-wrap mb-10">
             <a
               href="https://facebook.com"
               target="_blank"
@@ -133,6 +133,15 @@ export default function ContactSection({ sectionIndex }: ContactSectionProps) {
               <Mail className="w-6 h-6 text-white group-hover:text-indigo-900 transition-colors" />
             </a>
           </div>
+           {/* CTA to Full Contact Page */}
+        <div className="text-center mb-12">
+          <Link
+            href="/contact"
+            className="inline-flex items-center gap-2 px-6 py-3 bg-indigo-600 hover:bg-indigo-700 text-white font-bold rounded-lg transition-all hover:gap-3"
+          >
+            Donate!  
+          </Link>
+        </div>
         </div>
       </div>
 
