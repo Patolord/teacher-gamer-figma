@@ -11,6 +11,7 @@ const menu = [
   { title: "Calendar", href: "/schedule" },
   { title: "Media", href: "/media" },
   { title: "Shop", href: "/shop" },
+  { title: "FAQ", href: "/faq" },
 ];
 
 export function Header() {
