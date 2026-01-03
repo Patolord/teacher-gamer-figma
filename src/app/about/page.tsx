@@ -243,11 +243,20 @@ export default function AboutPage() {
                 <Button
                   size="lg"
                   variant="outline"
-                  className="border-white/30 text-white hover:bg-white/10 font-semibold px-8"
+                  className="border-white/30 text-Black hover:bg-white/10 font-semibold px-8"
                   asChild
                 >
                   <Link href="/contact">
                     Get in Touch
+                  </Link>
+                </Button>
+                <Button
+                  size="lg"
+                  className="bg-green-600 hover:bg-green-700 text-white font-semibold px-8"
+                  asChild
+                >
+                  <Link href="/shop">
+                    Buy the Book!
                   </Link>
                 </Button>
               </div>
