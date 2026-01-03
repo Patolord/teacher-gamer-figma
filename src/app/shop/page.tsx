@@ -141,8 +141,8 @@ export default function ShopPage() {
                 {/* Price */}
                 <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20">
                   <div className="flex items-baseline gap-3">
-                    <span className="text-4xl font-bold text-white">$39.99</span>
-                    <span className="text-lg text-white/60 line-through">$59.99</span>
+                    <span className="text-4xl font-bold text-white">$39.99 USD</span>
+                    <span className="text-lg text-white/60 line-through">$59.99 USD</span>
                     <span className="px-3 py-1 bg-green-500 text-white text-sm font-semibold rounded-full">
                       33% OFF
                     </span>
@@ -151,7 +151,7 @@ export default function ShopPage() {
                     Digital & Physical versions available
                   </p>
                 </div>
-
+                <div className="flex flex-col gap-4">
                 {/* Buy Button */}
                 <Button
                   size="lg"
@@ -171,6 +171,26 @@ export default function ShopPage() {
                     </>
                   )}
                 </Button>
+                {/* Buy the PDF Button */}
+                <Button
+                  size="lg"
+                  className="w-full text-lg font-bold bg-blue-500 hover:bg-blue-700 text-white py-6"
+                  onClick={handleCheckout}
+                  disabled={isLoading}
+                >
+                  {isLoading ? (
+                    <>
+                      <Loader2 className="w-5 h-5 mr-2 animate-spin" />
+                      Processing...
+                    </>
+                  ) : (
+                    <>
+                      <ShoppingCart className="w-5 h-5 mr-2" />
+                      Buy The PDF
+                    </>
+                  )}
+                </Button>
+                </div>
 
                 {/* What's Inside */}
                 <div className="space-y-4">
@@ -253,7 +273,7 @@ export default function ShopPage() {
                       Teacher Gamer Handbook (PDF)
                     </h3>
                     <p className="text-2xl font-bold text-white text-center mb-4">
-                      £29.99
+                      $29.99 USD
                     </p>
                     <Button
                       className="w-full bg-[#00D9FF] hover:bg-[#00B8D4] text-black font-bold mt-auto"
@@ -289,7 +309,7 @@ export default function ShopPage() {
                     </h3>
                     <div className="text-center mb-4">
                       <p className="text-sm text-white/70 mb-1">Starting From:</p>
-                      <p className="text-2xl font-bold text-white">£36.99</p>
+                      <p className="text-2xl font-bold text-white">$36.99 USD</p>
                     </div>
                     <Button
                       className="w-full bg-[#00D9FF] hover:bg-[#00B8D4] text-black font-bold mt-auto"
@@ -305,6 +325,7 @@ export default function ShopPage() {
                         "BUY NOW"
                       )}
                     </Button>
+                    
                   </div>
                 </div>
 
@@ -325,7 +346,7 @@ export default function ShopPage() {
                     </h3>
                     <div className="text-center mb-4">
                       <p className="text-sm text-white/70 mb-1">Starting From:</p>
-                      <p className="text-2xl font-bold text-white">£4.99</p>
+                      <p className="text-2xl font-bold text-white">$4.99 USD</p>
                     </div>
                     <Button
                       className="w-full bg-[#00D9FF] hover:bg-[#00B8D4] text-black font-bold mt-auto"
@@ -361,7 +382,7 @@ export default function ShopPage() {
                     </h3>
                     <div className="text-center mb-4">
                       <p className="text-sm text-white/70 mb-1">Starting From:</p>
-                      <p className="text-2xl font-bold text-white">£4.99</p>
+                      <p className="text-2xl font-bold text-white">$4.99 USD</p>
                     </div>
                     <Button
                       className="w-full bg-[#00D9FF] hover:bg-[#00B8D4] text-black font-bold mt-auto"
