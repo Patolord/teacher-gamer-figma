@@ -50,6 +50,7 @@ const moreVideos = [
   },
   // Add more videos here:
  { id: "TLzdJeYFwUI", title: "As if Authenticity Matters presentation [Re]Learn 2020" },
+ { id: "CfxFaytYC7E", title: "Teacher-Gamer Handbook (TGHB) Screen Tutorial - how to put the Teacher-Gamer Screen panels in order" },
 
 ];
 
@@ -251,6 +252,19 @@ export default function MediaPage() {
             </div>
           )}
         </div>
+          {/* Youtube Channel Subscribe Link */}
+          <div className="text-center mt-12">
+            <a
+              href="https://www.youtube.com/@TeacherGamer"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-6 py-3 bg-linear-to-r from-amber-500 to-orange-500 text-zinc-900 font-semibold rounded-full hover:from-amber-400 hover:to-orange-400 transition-all duration-300 hover:shadow-[0_4px_24px_rgba(251,191,36,0.4)]"
+            >
+              
+              Subscribe on Youtube
+              <ExternalLink className="w-4 h-4" />
+            </a>
+          </div>
 
         {/* Section transitions */}
         <div className="absolute bottom-0 left-0 right-0 h-24 bg-linear-to-t from-amber-500/5 to-transparent pointer-events-none" />
