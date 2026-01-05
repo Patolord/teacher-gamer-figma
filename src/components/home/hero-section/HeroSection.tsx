@@ -49,7 +49,7 @@ export default function HeroSection() {
 
             <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl font-bold leading-tight text-balance text-white">
               A Safe Space for Kids to{" "}
-              <span className="text-green-400">Play & Learn</span>
+              <span className="text-amber-400">Play & Learn</span>
             </h1>
 
             <p className="text-lg md:text-xl text-white/80 leading-relaxed max-w-xl">
@@ -62,7 +62,7 @@ export default function HeroSection() {
             <div className="flex flex-col sm:flex-row gap-4">
               <Button
                 size="lg"
-                className="font-semibold text-lg px-8 bg-green-600 hover:bg-green-700 text-white"
+                className="font-semibold text-lg px-8 bg-amber-400 hover:bg-amber-300 text-zinc-900"
                 asChild
               >
                 <Link href="#courses">
@@ -82,7 +82,7 @@ export default function HeroSection() {
             <div className="flex flex-wrap gap-6 pt-4">
               {features.map(({ icon: Icon, label }) => (
                 <div key={label} className="flex items-center gap-2">
-                  <Icon className="w-5 h-5 text-green-400" />
+                  <Icon className="w-5 h-5 text-amber-400" />
                   <span className="text-sm font-medium text-white/80">
                     {label}
                   </span>

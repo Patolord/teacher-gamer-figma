@@ -52,7 +52,7 @@ export default function ShopSection({ sectionIndex }: ShopSectionProps) {
 
           <button
             type="button"
-            className="self-start text-white border border-white rounded-md px-6 py-3 hover:bg-white hover:text-black transition font-medium"
+            className="self-start px-8 py-3 bg-linear-to-r from-amber-500 to-orange-500 hover:from-amber-400 hover:to-orange-400 text-zinc-900 font-semibold rounded-full transition-all duration-300 hover:shadow-[0_4px_24px_rgba(251,191,36,0.4)]"
           >
             SHOP NOW
           </button>
