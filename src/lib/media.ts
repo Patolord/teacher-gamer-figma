@@ -107,7 +107,7 @@ export function withTransform(
     height?: number;
     quality?: number;
     format?: "webp" | "jpg" | "png" | "auto";
-  }
+  },
 ): string {
   const transforms: string[] = [];
 

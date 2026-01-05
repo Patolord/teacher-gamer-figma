@@ -54,7 +54,8 @@ export default function IntroToMultiversePage() {
               e.preventDefault();
               window.location.href = "/home";
               setTimeout(() => {
-                const coursesSection = document.getElementById("courses-section");
+                const coursesSection =
+                  document.getElementById("courses-section");
                 if (coursesSection) {
                   coursesSection.scrollIntoView({ behavior: "smooth" });
                 }
@@ -72,7 +73,10 @@ export default function IntroToMultiversePage() {
           <div className="max-w-5xl mx-auto space-y-12">
             {/* Header Section */}
             <div className="space-y-6">
-              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#7df9ff]/20 border border-[#7df9ff]/30" style={{ color: "#7df9ff" }}>
+              <div
+                className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#7df9ff]/20 border border-[#7df9ff]/30"
+                style={{ color: "#7df9ff" }}
+              >
                 <Star className="w-4 h-4" />
                 <span className="text-sm font-semibold">Beginner Level</span>
               </div>
@@ -82,9 +86,9 @@ export default function IntroToMultiversePage() {
               </h1>
 
               <p className="text-xl text-white/90 leading-relaxed max-w-3xl">
-                Get an introduction to how RPGs and the multiverse can drive adult 
-                readiness through PBL and SEL as we work through the 13 Phases of 
-                Character Building.
+                Get an introduction to how RPGs and the multiverse can drive
+                adult readiness through PBL and SEL as we work through the 13
+                Phases of Character Building.
               </p>
 
               {/* Course Stats */}
@@ -123,7 +127,9 @@ export default function IntroToMultiversePage() {
 
             {/* What You'll Learn */}
             <div className="space-y-6">
-              <h2 className="text-3xl font-bold text-white">What You'll Learn</h2>
+              <h2 className="text-3xl font-bold text-white">
+                What You'll Learn
+              </h2>
               <div className="grid md:grid-cols-3 gap-6">
                 {whatYouWillLearn.map(({ icon: Icon, title, description }) => (
                   <div
@@ -133,7 +139,9 @@ export default function IntroToMultiversePage() {
                     <div className="w-12 h-12 mb-4 rounded-full flex items-center justify-center bg-[#7df9ff]/20">
                       <Icon className="w-6 h-6" style={{ color: "#7df9ff" }} />
                     </div>
-                    <h3 className="text-xl font-bold text-white mb-2">{title}</h3>
+                    <h3 className="text-xl font-bold text-white mb-2">
+                      {title}
+                    </h3>
                     <p className="text-white/80">{description}</p>
                   </div>
                 ))}
@@ -147,7 +155,10 @@ export default function IntroToMultiversePage() {
                 <ul className="grid md:grid-cols-2 gap-4">
                   {courseFeatures.map((feature, index) => (
                     <li key={index} className="flex items-start gap-3">
-                      <CheckCircle className="w-5 h-5 mt-0.5 shrink-0" style={{ color: "#7df9ff" }} />
+                      <CheckCircle
+                        className="w-5 h-5 mt-0.5 shrink-0"
+                        style={{ color: "#7df9ff" }}
+                      />
                       <span className="text-white/90">{feature}</span>
                     </li>
                   ))}
@@ -157,7 +168,9 @@ export default function IntroToMultiversePage() {
 
             {/* Course Curriculum */}
             <div className="space-y-6">
-              <h2 className="text-3xl font-bold text-white">Course Curriculum</h2>
+              <h2 className="text-3xl font-bold text-white">
+                Course Curriculum
+              </h2>
               <div className="space-y-4">
                 {[
                   {
@@ -187,7 +200,10 @@ export default function IntroToMultiversePage() {
                   >
                     <div className="flex items-center justify-between">
                       <div>
-                        <p className="text-sm font-semibold mb-1" style={{ color: "#7df9ff" }}>
+                        <p
+                          className="text-sm font-semibold mb-1"
+                          style={{ color: "#7df9ff" }}
+                        >
                           {module.module}
                         </p>
                         <h3 className="text-xl font-bold text-white">
@@ -209,7 +225,7 @@ export default function IntroToMultiversePage() {
                 Ready to Start Your Journey?
               </h2>
               <p className="text-xl text-white/80 max-w-2xl mx-auto">
-                Join hundreds of educators who are transforming their classrooms 
+                Join hundreds of educators who are transforming their classrooms
                 through game-based learning.
               </p>
               <Button
@@ -229,4 +245,3 @@ export default function IntroToMultiversePage() {
     </main>
   );
 }
-

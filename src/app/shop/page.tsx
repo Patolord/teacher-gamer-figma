@@ -1,6 +1,13 @@
 "use client";
 
-import { ArrowLeft, Book, CheckCircle, Loader2, ShoppingCart, Star } from "lucide-react";
+import {
+  ArrowLeft,
+  Book,
+  CheckCircle,
+  Loader2,
+  ShoppingCart,
+  Star,
+} from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
@@ -108,7 +115,10 @@ export default function ShopPage() {
                 <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20 max-w-md mx-auto">
                   <div className="flex items-center justify-center gap-2 mb-2">
                     {[...Array(5)].map((_, i) => (
-                      <Star key={i} className="w-5 h-5 text-yellow-400 fill-yellow-400" />
+                      <Star
+                        key={i}
+                        className="w-5 h-5 text-yellow-400 fill-yellow-400"
+                      />
                     ))}
                   </div>
                   <p className="text-white text-center text-lg font-semibold">
@@ -132,17 +142,21 @@ export default function ShopPage() {
                   </h1>
 
                   <p className="text-xl text-white/90 leading-relaxed">
-                    Build literacy. Spark imagination. Empower learners. Transform
-                    classrooms into immersive adventures where students learn by
-                    playing, failing, and growing together.
+                    Build literacy. Spark imagination. Empower learners.
+                    Transform classrooms into immersive adventures where
+                    students learn by playing, failing, and growing together.
                   </p>
                 </div>
 
                 {/* Price */}
                 <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20">
                   <div className="flex items-baseline gap-3">
-                    <span className="text-4xl font-bold text-white">$39.99 USD</span>
-                    <span className="text-lg text-white/60 line-through">$59.99 USD</span>
+                    <span className="text-4xl font-bold text-white">
+                      $39.99 USD
+                    </span>
+                    <span className="text-lg text-white/60 line-through">
+                      $59.99 USD
+                    </span>
                     <span className="px-3 py-1 bg-amber-400 text-zinc-900 text-sm font-semibold rounded-full">
                       33% OFF
                     </span>
@@ -152,49 +166,51 @@ export default function ShopPage() {
                   </p>
                 </div>
                 <div className="flex flex-col gap-4">
-                {/* Buy Button */}
-                <Button
-                  size="lg"
-                  className="w-full text-lg font-bold bg-amber-400 hover:bg-amber-300 text-zinc-900 py-6"
-                  onClick={handleCheckout}
-                  disabled={isLoading}
-                >
-                  {isLoading ? (
-                    <>
-                      <Loader2 className="w-5 h-5 mr-2 animate-spin" />
-                      Processing...
-                    </>
-                  ) : (
-                    <>
-                      <ShoppingCart className="w-5 h-5 mr-2" />
-                      Buy Now
-                    </>
-                  )}
-                </Button>
-                {/* Buy the PDF Button */}
-                <Button
-                  size="lg"
-                  className="w-full text-lg font-bold bg-from bg-blue-500 hover:bg-blue-700 text-white py-6"
-                  onClick={handleCheckout}
-                  disabled={isLoading}
-                >
-                  {isLoading ? (
-                    <>
-                      <Loader2 className="w-5 h-5 mr-2 animate-spin" />
-                      Processing...
-                    </>
-                  ) : (
-                    <>
-                      <ShoppingCart className="w-5 h-5 mr-2" />
-                      Buy The PDF
-                    </>
-                  )}
-                </Button>
+                  {/* Buy Button */}
+                  <Button
+                    size="lg"
+                    className="w-full text-lg font-bold bg-amber-400 hover:bg-amber-300 text-zinc-900 py-6"
+                    onClick={handleCheckout}
+                    disabled={isLoading}
+                  >
+                    {isLoading ? (
+                      <>
+                        <Loader2 className="w-5 h-5 mr-2 animate-spin" />
+                        Processing...
+                      </>
+                    ) : (
+                      <>
+                        <ShoppingCart className="w-5 h-5 mr-2" />
+                        Buy Now
+                      </>
+                    )}
+                  </Button>
+                  {/* Buy the PDF Button */}
+                  <Button
+                    size="lg"
+                    className="w-full text-lg font-bold bg-from bg-blue-500 hover:bg-blue-700 text-white py-6"
+                    onClick={handleCheckout}
+                    disabled={isLoading}
+                  >
+                    {isLoading ? (
+                      <>
+                        <Loader2 className="w-5 h-5 mr-2 animate-spin" />
+                        Processing...
+                      </>
+                    ) : (
+                      <>
+                        <ShoppingCart className="w-5 h-5 mr-2" />
+                        Buy The PDF
+                      </>
+                    )}
+                  </Button>
                 </div>
 
                 {/* What's Inside */}
                 <div className="space-y-4">
-                  <h2 className="text-2xl font-bold text-white">What's Inside</h2>
+                  <h2 className="text-2xl font-bold text-white">
+                    What's Inside
+                  </h2>
                   <ul className="space-y-3">
                     {bookFeatures.map((feature, index) => (
                       <li
@@ -235,7 +251,10 @@ export default function ShopPage() {
               <div className="bg-white/10 backdrop-blur-sm rounded-xl p-8 border border-white/20">
                 <div className="flex items-center gap-2 mb-4">
                   {[...Array(5)].map((_, i) => (
-                    <Star key={i} className="w-5 h-5 text-yellow-400 fill-yellow-400" />
+                    <Star
+                      key={i}
+                      className="w-5 h-5 text-yellow-400 fill-yellow-400"
+                    />
                   ))}
                 </div>
                 <p className="text-white/90 text-lg italic mb-4">
@@ -254,7 +273,7 @@ export default function ShopPage() {
               <h2 className="text-3xl font-bold text-white text-center">
                 Available Products
               </h2>
-              
+
               {/* Products Grid */}
               <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
                 {/* Product 1: Teacher Gamer Handbook (PDF) */}
@@ -308,8 +327,12 @@ export default function ShopPage() {
                       Teacher Gamer Handbook (Softcover / Hardcover)
                     </h3>
                     <div className="text-center mb-4">
-                      <p className="text-sm text-white/70 mb-1">Starting From:</p>
-                      <p className="text-2xl font-bold text-white">$36.99 USD</p>
+                      <p className="text-sm text-white/70 mb-1">
+                        Starting From:
+                      </p>
+                      <p className="text-2xl font-bold text-white">
+                        $36.99 USD
+                      </p>
                     </div>
                     <Button
                       className="w-full bg-amber-400 hover:bg-amber-300 text-zinc-900 font-bold mt-auto"
@@ -325,7 +348,6 @@ export default function ShopPage() {
                         "BUY NOW"
                       )}
                     </Button>
-                    
                   </div>
                 </div>
 
@@ -345,7 +367,9 @@ export default function ShopPage() {
                       Teacher Gamer Screen (Landscape)
                     </h3>
                     <div className="text-center mb-4">
-                      <p className="text-sm text-white/70 mb-1">Starting From:</p>
+                      <p className="text-sm text-white/70 mb-1">
+                        Starting From:
+                      </p>
                       <p className="text-2xl font-bold text-white">$4.99 USD</p>
                     </div>
                     <Button
@@ -381,7 +405,9 @@ export default function ShopPage() {
                       Teacher Gamer Screen (Portrait)
                     </h3>
                     <div className="text-center mb-4">
-                      <p className="text-sm text-white/70 mb-1">Starting From:</p>
+                      <p className="text-sm text-white/70 mb-1">
+                        Starting From:
+                      </p>
                       <p className="text-2xl font-bold text-white">$4.99 USD</p>
                     </div>
                     <Button
@@ -409,8 +435,8 @@ export default function ShopPage() {
                 Ready to Get Started?
               </h2>
               <p className="text-xl text-white/80 max-w-2xl mx-auto">
-                Explore our collection of educational resources designed to transform
-                your classroom into an engaging learning adventure.
+                Explore our collection of educational resources designed to
+                transform your classroom into an engaging learning adventure.
               </p>
               <Button
                 size="lg"
@@ -440,6 +466,3 @@ export default function ShopPage() {
     </main>
   );
 }
-
-
-

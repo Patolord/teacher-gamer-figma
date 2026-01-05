@@ -82,7 +82,8 @@ const CombinedHeroSection = forwardRef<HTMLElement>((_props, ref) => {
                 size="lg"
                 className="font-semibold text-lg px-8 bg-linear-to-r from-amber-400 to-amber-400 hover:from-amber-300 hover:to-amber-300 text-zinc-900 transition-all duration-300 hover:shadow-[0_4px_24px_rgba(251,191,36,0.4)]"
                 onClick={() => {
-                  const coursesSection = document.getElementById("courses-section");
+                  const coursesSection =
+                    document.getElementById("courses-section");
                   if (coursesSection) {
                     coursesSection.scrollIntoView({ behavior: "smooth" });
                   }
@@ -97,9 +98,7 @@ const CombinedHeroSection = forwardRef<HTMLElement>((_props, ref) => {
                 className="font-semibold text-lg px-8 bg-transparent border-white/30 text-white hover:bg-white/10"
                 asChild
               >
-                <Link href="/media">
-                  Watch How It Works
-                </Link>
+                <Link href="/media">Watch How It Works</Link>
               </Button>
             </div>
 

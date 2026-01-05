@@ -2,8 +2,8 @@
 
 import {
   ArrowLeftIcon,
-  ChevronDownIcon,
   BookOpenIcon,
+  ChevronDownIcon,
   CreditCardIcon,
   GraduationCapIcon,
   HelpCircleIcon,
@@ -206,7 +206,7 @@ export default function FAQPage() {
   const toggleItem = (categoryTitle: string, question: string) => {
     const key = `${categoryTitle}-${question}`;
     setOpenItems((prev) =>
-      prev.includes(key) ? prev.filter((item) => item !== key) : [...prev, key]
+      prev.includes(key) ? prev.filter((item) => item !== key) : [...prev, key],
     );
   };
 
@@ -253,8 +253,9 @@ export default function FAQPage() {
               </h1>
 
               <p className="text-xl text-white/90 leading-relaxed max-w-3xl mx-auto">
-                Find answers to common questions about our courses, products, and
-                game-based learning methodology. Can't find what you're looking for?{" "}
+                Find answers to common questions about our courses, products,
+                and game-based learning methodology. Can't find what you're
+                looking for?{" "}
                 <Link
                   href="/contact"
                   className="text-amber-400 hover:text-amber-300 underline"
@@ -308,7 +309,9 @@ export default function FAQPage() {
                       >
                         <button
                           type="button"
-                          onClick={() => toggleItem(category.title, faq.question)}
+                          onClick={() =>
+                            toggleItem(category.title, faq.question)
+                          }
                           className="w-full flex items-center justify-between p-6 text-left hover:bg-white/5 transition-colors"
                         >
                           <span className="text-lg font-semibold text-white pr-4">
@@ -346,8 +349,9 @@ export default function FAQPage() {
                 Still Have Questions?
               </h2>
               <p className="text-xl text-white/80 max-w-2xl mx-auto">
-                Can't find the answer you're looking for? Our support team is here
-                to help. Reach out and we'll get back to you as soon as possible.
+                Can't find the answer you're looking for? Our support team is
+                here to help. Reach out and we'll get back to you as soon as
+                possible.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
                 <Button
@@ -404,7 +408,9 @@ export default function FAQPage() {
 
               <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20">
                 <GraduationCapIcon className="w-10 h-10 text-amber-400 mb-4" />
-                <h3 className="text-xl font-bold text-white mb-3">Free Trial</h3>
+                <h3 className="text-xl font-bold text-white mb-3">
+                  Free Trial
+                </h3>
                 <p className="text-white/80 mb-4">
                   Try our intro course for free before committing.
                 </p>
@@ -425,6 +431,3 @@ export default function FAQPage() {
     </main>
   );
 }
-
-
-

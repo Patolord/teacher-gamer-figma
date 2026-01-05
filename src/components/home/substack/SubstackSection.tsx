@@ -64,7 +64,9 @@ export default function SubstackSection({ sectionIndex }: Props) {
         data-animate
         className="relative z-10 w-full max-w-2xl px-8 md:px-12"
       >
-        <h2 className="text-4xl pb-8 bg-[linear-gradient(135deg,#fff_0%,#c47020_20%,#d09a11_40%,#fff_100%)] bg-[length:200%_200%] bg-clip-text text-transparent animate-gradientShift">Latest from Substack</h2>
+        <h2 className="text-4xl pb-8 bg-[linear-gradient(135deg,#fff_0%,#c47020_20%,#d09a11_40%,#fff_100%)] bg-[length:200%_200%] bg-clip-text text-transparent animate-gradientShift">
+          Latest from Substack
+        </h2>
 
         {loading && (
           <div className="text-yellow-500/70 py-8 text-center">

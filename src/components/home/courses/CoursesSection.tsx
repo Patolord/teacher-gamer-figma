@@ -7,9 +7,7 @@ interface CoursesSectionProps {
   sectionIndex?: number;
 }
 
-export default function CoursesSection({
-  sectionIndex,
-}: CoursesSectionProps) {
+export default function CoursesSection({ sectionIndex }: CoursesSectionProps) {
   const courses = [
     {
       title: "Intro to Multiverse",

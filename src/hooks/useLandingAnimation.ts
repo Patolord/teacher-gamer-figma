@@ -1,10 +1,10 @@
 "use client";
 
 import { useGSAP } from "@gsap/react";
+import { buildSrc } from "@imagekit/next";
 import gsap from "gsap";
 import { useRouter } from "next/navigation";
-import { startTransition, useCallback, useRef } from "react";
-import { MEDIA } from "@/lib/media";
+import { startTransition, useCallback, useRef, useState } from "react";
 
 const floatingTextStyle = `
   position: fixed;
@@ -35,7 +35,7 @@ function animateFloatingText(
   tl: gsap.core.Timeline,
   el: HTMLElement,
   startAt: number,
-  duration: number
+  duration: number,
 ) {
   // Fade in and float up
   tl.to(
@@ -47,13 +47,13 @@ function animateFloatingText(
       duration: duration * 0.03,
       ease: "power2.out",
     },
-    startAt
+    startAt,
   );
   // Hold visible
   tl.to(
     el,
     { opacity: 1, duration: duration * 0.04, ease: "none" },
-    startAt + duration * 0.03
+    startAt + duration * 0.03,
   );
   // Fade out
   tl.to(
@@ -65,7 +65,7 @@ function animateFloatingText(
       duration: duration * 0.03,
       ease: "power2.in",
     },
-    startAt + duration * 0.07
+    startAt + duration * 0.07,
   );
   // Remove element
   tl.call(() => el.remove(), [], startAt + duration * 0.1);
@@ -78,6 +78,8 @@ export function useLandingAnimation() {
   const timelineRef = useRef<gsap.core.Timeline | null>(null);
   const overlayRef = useRef<HTMLDivElement | null>(null);
   const router = useRouter();
+  const [isLoading, setIsLoading] = useState(false);
+  const [isVideoLoading, setIsVideoLoading] = useState(true);
 
   useGSAP(() => {
     const video = videoRef.current;
@@ -85,9 +87,40 @@ export function useLandingAnimation() {
 
     if (!video) return;
 
-    video.src = MEDIA.video.landing;
+    // Set video source and start loading immediately so it's ready when user clicks
+    // Build ImageKit URL using buildSrc
+    const imageKitVideoUrl = buildSrc({
+      urlEndpoint: "https://ik.imagekit.io/TeacherGamer/Site/",
+      src: "/landing-video.mp4",
+    });
+    video.src = imageKitVideoUrl;
+    video.preload = "auto";
     video.pause();
     video.currentTime = 0;
+
+    // Track video loading state
+    const handleCanPlay = () => {
+      setIsVideoLoading(false);
+      video.removeEventListener("canplay", handleCanPlay);
+      video.removeEventListener("error", handleError);
+    };
+
+    const handleError = () => {
+      setIsVideoLoading(false);
+      video.removeEventListener("canplay", handleCanPlay);
+      video.removeEventListener("error", handleError);
+    };
+
+    // If video is already ready, don't show loading
+    if (video.readyState >= 2 && video.duration) {
+      setIsVideoLoading(false);
+    } else {
+      video.addEventListener("canplay", handleCanPlay, { once: true });
+      video.addEventListener("error", handleError, { once: true });
+    }
+
+    // Start loading the video immediately
+    video.load();
 
     if (header) {
       gsap.set(header, { opacity: 1 });
@@ -98,16 +131,25 @@ export function useLandingAnimation() {
     const header = headerRef.current;
     const video = videoRef.current;
 
-    if (!video) return;
+    if (!video || isLoading) return;
+
+    // Set loading state immediately for visual feedback
+    setIsLoading(true);
 
     const startAnimation = () => {
-      if (!video.duration) return;
+      if (!video.duration) {
+        setIsLoading(false);
+        return;
+      }
 
       timelineRef.current?.kill();
 
       const videoDuration = video.duration;
 
-      // Header fade out animation (runs immediately)
+      // Show video and fade out header (runs immediately)
+      if (video) {
+        gsap.set(video, { opacity: 1 });
+      }
       if (header) {
         gsap.to(header, {
           opacity: 0,
@@ -130,7 +172,7 @@ export function useLandingAnimation() {
           const text1 = createFloatingText(
             "Welcome to the Revolution",
             1000,
-            true
+            true,
           );
           const tl = gsap.timeline();
           animateFloatingText(tl, text1, 0, videoDuration);
@@ -176,23 +218,60 @@ export function useLandingAnimation() {
 
       // Start video playback - let it play naturally (works on iOS!)
       video.currentTime = 0;
-      video.play().catch((err) => {
-        console.warn("Video play failed:", err);
-        // Fallback: if video can't play, just navigate after a delay
-        setTimeout(() => {
-          sessionStorage.setItem("transitionOverlay", "true");
-          startTransition(() => router.push("/home"));
-        }, 2000);
-      });
+      video
+        .play()
+        .then(() => {
+          // Clear loading state once video starts playing
+          setIsLoading(false);
+        })
+        .catch((err) => {
+          console.warn("Video play failed:", err);
+          setIsLoading(false);
+          // Fallback: if video can't play, just navigate after a delay
+          setTimeout(() => {
+            sessionStorage.setItem("transitionOverlay", "true");
+            startTransition(() => router.push("/home"));
+          }, 2000);
+        });
     };
 
-    if (video.readyState >= 2) {
+    // Video should already be loading from useGSAP, but check if it's ready
+    if (video.readyState >= 2 && video.duration) {
+      // Video is ready, start immediately (most common case)
       startAnimation();
     } else {
-      video.addEventListener("loadeddata", startAnimation, { once: true });
-      video.load();
-    }
-  }, [router]);
+      // Video is still loading, wait for it (should be rare since we preload)
+      const handleCanPlay = () => {
+        video.removeEventListener("canplay", handleCanPlay);
+        video.removeEventListener("error", handleError);
+        if (video.duration) {
+          startAnimation();
+        } else {
+          setIsLoading(false);
+        }
+      };
 
-  return { landingSectionRef, videoRef, headerRef, playAnimation };
+      const handleError = () => {
+        video.removeEventListener("canplay", handleCanPlay);
+        video.removeEventListener("error", handleError);
+        setIsLoading(false);
+      };
+
+      video.addEventListener("canplay", handleCanPlay, { once: true });
+      video.addEventListener("error", handleError, { once: true });
+
+      // Ensure video is loading (in case it wasn't already)
+      if (video.readyState === 0) {
+        video.load();
+      }
+    }
+  }, [router, isLoading]);
+
+  return {
+    landingSectionRef,
+    videoRef,
+    headerRef,
+    playAnimation,
+    isLoading: isLoading || isVideoLoading,
+  };
 }
