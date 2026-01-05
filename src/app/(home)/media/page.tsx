@@ -157,7 +157,7 @@ export default function MediaPage() {
         {/* Glowing orbs */}
         <div className="absolute top-20 left-1/4 w-96 h-96 bg-amber-500/10 rounded-full blur-[128px] animate-pulse" />
         <div
-          className="absolute bottom-20 right-1/4 w-80 h-80 bg-orange-500/10 rounded-full blur-[100px] animate-pulse"
+          className="absolute bottom-20 right-1/4 w-80 h-80 bg-amber-400/10 rounded-full blur-[100px] animate-pulse"
           style={{ animationDelay: "1s" }}
         />
 
@@ -195,7 +195,7 @@ export default function MediaPage() {
           <div className="max-w-4xl mx-auto">
             <div className="relative group">
               {/* Glow effect */}
-              <div className="absolute -inset-1 bg-linear-to-r from-amber-600 via-orange-500 to-amber-600 rounded-2xl opacity-30 blur-lg group-hover:opacity-50 transition-opacity duration-500" />
+              <div className="absolute -inset-1 bg-linear-to-r from-amber-600 via-amber-400 to-amber-600 rounded-2xl opacity-30 blur-lg group-hover:opacity-50 transition-opacity duration-500" />
 
               <div className="relative bg-zinc-900/90 backdrop-blur-sm border border-amber-500/30 rounded-2xl overflow-hidden">
                 {/* Video Container - 16:9 aspect ratio */}
@@ -258,7 +258,7 @@ export default function MediaPage() {
               href="https://www.youtube.com/@TeacherGamer"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-6 py-3 bg-linear-to-r from-amber-500 to-orange-500 text-zinc-900 font-semibold rounded-full hover:from-amber-400 hover:to-orange-400 transition-all duration-300 hover:shadow-[0_4px_24px_rgba(251,191,36,0.4)]"
+              className="inline-flex items-center gap-2 px-6 py-3 bg-linear-to-r from-amber-400 to-amber-400 text-zinc-900 font-semibold rounded-full hover:from-amber-300 hover:to-amber-300 transition-all duration-300 hover:shadow-[0_4px_24px_rgba(251,191,36,0.4)]"
             >
               
               Subscribe on Youtube
@@ -295,7 +295,7 @@ export default function MediaPage() {
           <div className="max-w-4xl mx-auto mb-16">
             <div className="relative group">
               {/* Glow effect */}
-              <div className="absolute -inset-1 bg-linear-to-r from-amber-600 via-orange-500 to-amber-600 rounded-2xl opacity-30 blur-lg group-hover:opacity-50 transition-opacity duration-500" />
+              <div className="absolute -inset-1 bg-linear-to-r from-amber-600 via-amber-400 to-amber-600 rounded-2xl opacity-30 blur-lg group-hover:opacity-50 transition-opacity duration-500" />
 
               <div className="relative bg-zinc-900/90 backdrop-blur-sm border border-amber-500/30 rounded-2xl overflow-hidden">
                 <div className="p-6 md:p-8">
@@ -377,7 +377,7 @@ export default function MediaPage() {
               href="https://www.podbean.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-6 py-3 bg-linear-to-r from-amber-500 to-orange-500 text-zinc-900 font-semibold rounded-full hover:from-amber-400 hover:to-orange-400 transition-all duration-300 hover:shadow-[0_4px_24px_rgba(251,191,36,0.4)]"
+              className="inline-flex items-center gap-2 px-6 py-3 bg-linear-to-r from-amber-400 to-amber-400 text-zinc-900 font-semibold rounded-full hover:from-amber-300 hover:to-amber-300 transition-all duration-300 hover:shadow-[0_4px_24px_rgba(251,191,36,0.4)]"
             >
               <Headphones className="w-5 h-5" />
               Subscribe on Podbean

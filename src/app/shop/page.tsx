@@ -91,7 +91,7 @@ export default function ShopPage() {
               {/* Book Image Section */}
               <div className="space-y-6">
                 <div className="relative aspect-[3/4] w-full max-w-md mx-auto">
-                  <div className="absolute inset-0 bg-gradient-to-br from-yellow-500/20 to-green-500/20 rounded-2xl blur-3xl" />
+                  <div className="absolute inset-0 bg-gradient-to-br from-amber-400/20 to-amber-400/20 rounded-2xl blur-3xl" />
                   <div className="relative w-full h-full rounded-2xl overflow-hidden shadow-2xl border-4 border-white/10">
                     <Image
                       src={MEDIA.assets.bookCover}
@@ -120,7 +120,7 @@ export default function ShopPage() {
               {/* Book Details Section */}
               <div className="space-y-8">
                 <div className="space-y-4">
-                  <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-green-500/20 border border-green-500/30 text-green-400">
+                  <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-amber-400/20 border border-amber-400/30 text-amber-400">
                     <Book className="w-4 h-4" />
                     <span className="text-sm font-semibold">
                       Educational Resource
@@ -143,7 +143,7 @@ export default function ShopPage() {
                   <div className="flex items-baseline gap-3">
                     <span className="text-4xl font-bold text-white">$39.99 USD</span>
                     <span className="text-lg text-white/60 line-through">$59.99 USD</span>
-                    <span className="px-3 py-1 bg-green-500 text-white text-sm font-semibold rounded-full">
+                    <span className="px-3 py-1 bg-amber-400 text-zinc-900 text-sm font-semibold rounded-full">
                       33% OFF
                     </span>
                   </div>
@@ -155,7 +155,7 @@ export default function ShopPage() {
                 {/* Buy Button */}
                 <Button
                   size="lg"
-                  className="w-full text-lg font-bold bg-green-600 hover:bg-green-700 text-white py-6"
+                  className="w-full text-lg font-bold bg-amber-400 hover:bg-amber-300 text-zinc-900 py-6"
                   onClick={handleCheckout}
                   disabled={isLoading}
                 >
@@ -220,8 +220,8 @@ export default function ShopPage() {
                     key={title}
                     className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20 text-center space-y-4"
                   >
-                    <div className="w-16 h-16 mx-auto bg-green-500/20 rounded-full flex items-center justify-center">
-                      <Icon className="w-8 h-8 text-green-400" />
+                    <div className="w-16 h-16 mx-auto bg-amber-400/20 rounded-full flex items-center justify-center">
+                      <Icon className="w-8 h-8 text-amber-400" />
                     </div>
                     <h3 className="text-xl font-bold text-white">{title}</h3>
                     <p className="text-white/80">{description}</p>
@@ -276,7 +276,7 @@ export default function ShopPage() {
                       $29.99 USD
                     </p>
                     <Button
-                      className="w-full bg-[#00D9FF] hover:bg-[#00B8D4] text-black font-bold mt-auto"
+                      className="w-full bg-amber-400 hover:bg-amber-300 text-zinc-900 font-bold mt-auto"
                       onClick={handleCheckout}
                       disabled={isLoading}
                     >
@@ -312,7 +312,7 @@ export default function ShopPage() {
                       <p className="text-2xl font-bold text-white">$36.99 USD</p>
                     </div>
                     <Button
-                      className="w-full bg-[#00D9FF] hover:bg-[#00B8D4] text-black font-bold mt-auto"
+                      className="w-full bg-amber-400 hover:bg-amber-300 text-zinc-900 font-bold mt-auto"
                       onClick={handleCheckout}
                       disabled={isLoading}
                     >
@@ -349,7 +349,7 @@ export default function ShopPage() {
                       <p className="text-2xl font-bold text-white">$4.99 USD</p>
                     </div>
                     <Button
-                      className="w-full bg-[#00D9FF] hover:bg-[#00B8D4] text-black font-bold mt-auto"
+                      className="w-full bg-amber-400 hover:bg-amber-300 text-zinc-900 font-bold mt-auto"
                       onClick={handleCheckout}
                       disabled={isLoading}
                     >
@@ -385,7 +385,7 @@ export default function ShopPage() {
                       <p className="text-2xl font-bold text-white">$4.99 USD</p>
                     </div>
                     <Button
-                      className="w-full bg-[#00D9FF] hover:bg-[#00B8D4] text-black font-bold mt-auto"
+                      className="w-full bg-amber-400 hover:bg-amber-300 text-zinc-900 font-bold mt-auto"
                       onClick={handleCheckout}
                       disabled={isLoading}
                     >
@@ -414,7 +414,7 @@ export default function ShopPage() {
               </p>
               <Button
                 size="lg"
-                className="text-lg font-bold bg-green-600 hover:bg-green-700 text-white px-12 py-6"
+                className="text-lg font-bold bg-amber-400 hover:bg-amber-300 text-zinc-900 px-12 py-6"
                 onClick={handleCheckout}
                 disabled={isLoading}
               >

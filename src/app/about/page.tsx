@@ -61,7 +61,7 @@ export default function AboutPage() {
               <h1 className="text-5xl md:text-7xl font-bold text-white mb-4">
                 About
               </h1>
-              <div className="h-1 w-24 bg-gradient-to-r from-transparent via-yellow-500 to-transparent mx-auto" />
+              <div className="h-1 w-24 bg-gradient-to-r from-transparent via-amber-400 to-transparent mx-auto" />
             </div>
 
             {/* Zach Reznichek Section */}
@@ -114,7 +114,7 @@ export default function AboutPage() {
 
                 <Button
                   size="lg"
-                  className="bg-indigo-600 hover:bg-indigo-700 text-white font-semibold px-8"
+                  className="bg-amber-400 hover:bg-amber-300 text-zinc-900 font-semibold px-8"
                   asChild
                 >
                   <Link href="/contact">
@@ -201,8 +201,8 @@ export default function AboutPage() {
                     className="bg-white/10 backdrop-blur-sm rounded-xl p-8 border border-white/20 hover:bg-white/15 transition-all"
                   >
                     <div className="flex items-start gap-4">
-                      <div className="w-12 h-12 rounded-full bg-indigo-600/30 flex items-center justify-center flex-shrink-0">
-                        <Icon className="w-6 h-6 text-indigo-300" />
+                      <div className="w-12 h-12 rounded-full bg-amber-400/30 flex items-center justify-center flex-shrink-0">
+                        <Icon className="w-6 h-6 text-amber-400" />
                       </div>
                       <div>
                         <h3 className="text-xl font-bold text-white mb-2">{title}</h3>
@@ -215,8 +215,8 @@ export default function AboutPage() {
             </div>
 
             {/* CTA Section */}
-            <div className="bg-gradient-to-br from-indigo-600/20 to-purple-600/20 rounded-2xl p-12 border border-indigo-500/30 text-center space-y-6">
-              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-indigo-500/20 border border-indigo-400/30 text-indigo-200">
+            <div className="bg-gradient-to-br from-amber-400/20 to-amber-500/20 rounded-2xl p-12 border border-amber-400/30 text-center space-y-6">
+              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-amber-400/20 border border-amber-400/30 text-amber-200">
                 <Award className="w-5 h-5" />
                 <span className="font-semibold">Join Our Community</span>
               </div>
@@ -233,7 +233,7 @@ export default function AboutPage() {
               <div className="flex flex-col sm:flex-row gap-4 justify-center pt-4">
                 <Button
                   size="lg"
-                  className="bg-indigo-600 hover:bg-indigo-700 text-white font-semibold px-8"
+                  className="bg-amber-400 hover:bg-amber-300 text-zinc-900 font-semibold px-8"
                   asChild
                 >
                   <Link href="/home#courses-section">
@@ -252,7 +252,7 @@ export default function AboutPage() {
                 </Button>
                 <Button
                   size="lg"
-                  className="bg-green-600 hover:bg-green-700 text-white font-semibold px-8"
+                  className="bg-amber-400 hover:bg-amber-300 text-zinc-900 font-semibold px-8"
                   asChild
                 >
                   <Link href="/shop">

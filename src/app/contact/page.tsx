@@ -208,8 +208,8 @@ export default function ContactPage() {
                   </h2>
 
                   {submitStatus === "success" && (
-                    <div className="mb-6 p-4 bg-green-500/20 border border-green-500/30 rounded-lg">
-                      <p className="text-green-300 font-semibold">
+                    <div className="mb-6 p-4 bg-amber-400/20 border border-amber-400/30 rounded-lg">
+                      <p className="text-amber-300 font-semibold">
                         ✓ Message sent successfully! We'll get back to you soon.
                       </p>
                     </div>
@@ -407,7 +407,7 @@ export default function ContactPage() {
               </p>
               <Button
                 size="lg"
-                className="text-lg font-bold bg-indigo-600 hover:bg-indigo-700 text-white px-12 py-6"
+                className="text-lg font-bold bg-amber-400 hover:bg-amber-300 text-zinc-900 px-12 py-6"
                 asChild
               >
                 <Link href="/home">
@@ -424,5 +424,7 @@ export default function ContactPage() {
     </main>
   );
 }
+
+
 
 

@@ -241,7 +241,7 @@ export default function FAQPage() {
           <div className="max-w-6xl mx-auto space-y-16">
             {/* Hero Section */}
             <div className="text-center space-y-6">
-              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-indigo-500/20 border border-indigo-500/30 text-indigo-300">
+              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-amber-400/20 border border-amber-400/30 text-amber-300">
                 <HelpCircleIcon className="w-4 h-4" />
                 <span className="text-sm font-semibold">
                   Frequently Asked Questions
@@ -257,7 +257,7 @@ export default function FAQPage() {
                 game-based learning methodology. Can't find what you're looking for?{" "}
                 <Link
                   href="/contact"
-                  className="text-indigo-400 hover:text-indigo-300 underline"
+                  className="text-amber-400 hover:text-amber-300 underline"
                 >
                   Contact us
                 </Link>
@@ -291,8 +291,8 @@ export default function FAQPage() {
                 <div key={category.title} className="space-y-4">
                   {/* Category Header */}
                   <div className="flex items-center gap-3">
-                    <div className="w-12 h-12 rounded-full bg-indigo-500/20 flex items-center justify-center">
-                      <category.icon className="w-6 h-6 text-indigo-300" />
+                    <div className="w-12 h-12 rounded-full bg-amber-400/20 flex items-center justify-center">
+                      <category.icon className="w-6 h-6 text-amber-400" />
                     </div>
                     <h2 className="text-3xl font-bold text-white">
                       {category.title}
@@ -315,7 +315,7 @@ export default function FAQPage() {
                             {faq.question}
                           </span>
                           <ChevronDownIcon
-                            className={`w-6 h-6 text-indigo-300 flex-shrink-0 transition-transform ${
+                            className={`w-6 h-6 text-amber-400 flex-shrink-0 transition-transform ${
                               isOpen(category.title, faq.question)
                                 ? "rotate-180"
                                 : ""
@@ -341,7 +341,7 @@ export default function FAQPage() {
             </div>
 
             {/* Still Have Questions? */}
-            <div className="bg-gradient-to-br from-indigo-500/20 to-transparent rounded-xl p-8 md:p-12 border border-indigo-500/30 text-center space-y-6">
+            <div className="bg-gradient-to-br from-amber-400/20 to-transparent rounded-xl p-8 md:p-12 border border-amber-400/30 text-center space-y-6">
               <h2 className="text-3xl md:text-4xl font-bold text-white">
                 Still Have Questions?
               </h2>
@@ -352,7 +352,7 @@ export default function FAQPage() {
               <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
                 <Button
                   size="lg"
-                  className="text-lg font-bold bg-indigo-600 hover:bg-indigo-700 text-white px-8 py-6"
+                  className="text-lg font-bold bg-amber-400 hover:bg-amber-300 text-zinc-900 px-8 py-6"
                   asChild
                 >
                   <Link href="/contact">Contact Support</Link>
@@ -360,7 +360,7 @@ export default function FAQPage() {
                 <Button
                   size="lg"
                   variant="outline"
-                  className="text-lg font-bold border-white/30 text-white hover:bg-white/10 px-8 py-6"
+                  className="text-lg font-bold bg-amber-400 text-zinc-900 px-8 py-6"
                   asChild
                 >
                   <Link href="/home">Browse Courses</Link>
@@ -371,7 +371,7 @@ export default function FAQPage() {
             {/* Additional Resources */}
             <div className="grid md:grid-cols-3 gap-6">
               <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20">
-                <BookOpenIcon className="w-10 h-10 text-indigo-300 mb-4" />
+                <BookOpenIcon className="w-10 h-10 text-amber-400 mb-4" />
                 <h3 className="text-xl font-bold text-white mb-3">
                   Documentation
                 </h3>
@@ -380,14 +380,14 @@ export default function FAQPage() {
                 </p>
                 <Link
                   href="/home"
-                  className="text-indigo-400 hover:text-indigo-300 font-semibold"
+                  className="text-amber-400 hover:text-amber-300 font-semibold"
                 >
                   Read Docs →
                 </Link>
               </div>
 
               <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20">
-                <UsersIcon className="w-10 h-10 text-indigo-300 mb-4" />
+                <UsersIcon className="w-10 h-10 text-amber-400 mb-4" />
                 <h3 className="text-xl font-bold text-white mb-3">Community</h3>
                 <p className="text-white/80 mb-4">
                   Join our Discord to connect with other educators.
@@ -396,21 +396,21 @@ export default function FAQPage() {
                   href="https://discord.com"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-indigo-400 hover:text-indigo-300 font-semibold"
+                  className="text-amber-400 hover:text-amber-300 font-semibold"
                 >
                   Join Discord →
                 </a>
               </div>
 
               <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20">
-                <GraduationCapIcon className="w-10 h-10 text-indigo-300 mb-4" />
+                <GraduationCapIcon className="w-10 h-10 text-amber-400 mb-4" />
                 <h3 className="text-xl font-bold text-white mb-3">Free Trial</h3>
                 <p className="text-white/80 mb-4">
                   Try our intro course for free before committing.
                 </p>
                 <Link
                   href="/home"
-                  className="text-indigo-400 hover:text-indigo-300 font-semibold"
+                  className="text-amber-400 hover:text-amber-300 font-semibold"
                 >
                   Start Free Trial →
                 </Link>
@@ -425,4 +425,6 @@ export default function FAQPage() {
     </main>
   );
 }
+
+
 

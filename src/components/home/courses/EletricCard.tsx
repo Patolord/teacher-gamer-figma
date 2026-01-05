@@ -47,7 +47,7 @@ export default function EletricCard({
         <CardFooter className="mt-auto px-6">
           <Button
             variant="outline"
-            className="w-full text-black border rounded-xl py-6 flex items-center justify-center gap-2"
+            className="w-full bg-linear-to-r from-amber-400 to-amber-400 hover:from-amber-300 hover:to-amber-300 text-zinc-900 border-0 rounded-xl py-6 flex items-center justify-center gap-2 font-semibold transition-all duration-300 hover:shadow-[0_4px_24px_rgba(251,191,36,0.4)]"
             asChild
           >
             <Link href={href || "#"}>

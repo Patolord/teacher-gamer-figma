@@ -23,7 +23,7 @@ export default function ContactSection({ sectionIndex }: ContactSectionProps) {
         data-animate
         className="container mx-auto px-8 py-16 max-w-4xl relative z-10"
       >
-        <h2 className="text-6xl font-bold bg-[linear-gradient(135deg,#fff_0%,#c47020_20%,#d09a11_40%,#fff_100%)] bg-[length:200%_200%] bg-clip-text text-transparent animate-gradientShift mb-8 text-center max-[1000px]:text-4xl font-aladin">
+        <h2 className="text-6xl font-bold bg-[linear-gradient(135deg,#fff_0%,#c47020_20%,#d09a11_40%,#fff_100%)] bg-size-[200%_200%] bg-clip-text text-transparent animate-gradientShift mb-8 text-center max-[1000px]:text-4xl font-aladin">
           Get In Touch
         </h2>
         <p className="text-white/90 text-xl mb-8 text-center max-w-2xl mx-auto">
@@ -35,7 +35,7 @@ export default function ContactSection({ sectionIndex }: ContactSectionProps) {
         <div className="text-center mb-12">
           <Link
             href="/contact"
-            className="inline-flex items-center gap-2 px-6 py-3 bg-indigo-600 hover:bg-indigo-700 text-white font-bold rounded-lg transition-all hover:gap-3"
+            className="inline-flex items-center gap-2 px-6 py-3 bg-linear-to-r from-amber-400 to-amber-400 hover:from-amber-300 hover:to-amber-300 text-zinc-900 font-bold rounded-full transition-all hover:gap-3 hover:shadow-[0_4px_24px_rgba(251,191,36,0.4)]"
           >
             Visit Our Full Contact Page
             <ArrowRight className="w-5 h-5" />
@@ -67,7 +67,7 @@ export default function ContactSection({ sectionIndex }: ContactSectionProps) {
             </div>
             <button
               type="submit"
-              className="w-full px-8 py-4 bg-white text-indigo-900 rounded-lg font-bold text-xl hover:bg-white/90 transition"
+              className="w-full px-8 py-4 bg-linear-to-r from-amber-400 to-amber-400 hover:from-amber-300 hover:to-amber-300 text-zinc-900 rounded-full font-bold text-xl transition-all duration-300 hover:shadow-[0_4px_24px_rgba(251,191,36,0.4)]"
             >
               Send Message
             </button>
@@ -137,7 +137,7 @@ export default function ContactSection({ sectionIndex }: ContactSectionProps) {
         <div className="text-center mb-12">
           <Link
             href="/contact"
-            className="inline-flex items-center gap-2 px-6 py-3 bg-indigo-600 hover:bg-indigo-700 text-white font-bold rounded-lg transition-all hover:gap-3"
+            className="inline-flex items-center gap-2 px-6 py-3 bg-linear-to-r from-amber-400 to-amber-400 hover:from-amber-300 hover:to-amber-300 text-zinc-900 font-bold rounded-full transition-all hover:gap-3 hover:shadow-[0_4px_24px_rgba(251,191,36,0.4)]"
           >
             Donate!  
           </Link>
