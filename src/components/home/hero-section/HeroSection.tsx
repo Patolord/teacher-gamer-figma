@@ -3,6 +3,9 @@ import Image from "next/image";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { MEDIA } from "@/lib/media";
+import ShinyText from './ShinyText';
+
+
 
 const features = [
   { icon: Shield, label: "Safe & Inclusive" },
@@ -48,8 +51,9 @@ export default function HeroSection() {
             </div>
 
             <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl font-bold leading-tight text-balance text-white">
+              
               A Safe Space for Kids to{" "}
-              <span className="text-amber-400">Play & Learn</span>
+              <span className="text-red-500">Play & Learn</span>
             </h1>
 
             <p className="text-lg md:text-xl text-white/80 leading-relaxed max-w-xl">
