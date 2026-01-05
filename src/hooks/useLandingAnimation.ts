@@ -5,7 +5,6 @@ import { buildSrc } from "@imagekit/next";
 import gsap from "gsap";
 import { useRouter } from "next/navigation";
 import { startTransition, useCallback, useRef, useState } from "react";
-import { MEDIA } from "@/lib/media";
 
 const floatingTextStyle = `
   position: fixed;
@@ -36,7 +35,7 @@ function animateFloatingText(
   tl: gsap.core.Timeline,
   el: HTMLElement,
   startAt: number,
-  duration: number
+  duration: number,
 ) {
   // Fade in and float up
   tl.to(
@@ -48,13 +47,13 @@ function animateFloatingText(
       duration: duration * 0.03,
       ease: "power2.out",
     },
-    startAt
+    startAt,
   );
   // Hold visible
   tl.to(
     el,
     { opacity: 1, duration: duration * 0.04, ease: "none" },
-    startAt + duration * 0.03
+    startAt + duration * 0.03,
   );
   // Fade out
   tl.to(
@@ -66,7 +65,7 @@ function animateFloatingText(
       duration: duration * 0.03,
       ease: "power2.in",
     },
-    startAt + duration * 0.07
+    startAt + duration * 0.07,
   );
   // Remove element
   tl.call(() => el.remove(), [], startAt + duration * 0.1);
@@ -98,20 +97,20 @@ export function useLandingAnimation() {
     video.preload = "auto";
     video.pause();
     video.currentTime = 0;
-    
+
     // Track video loading state
     const handleCanPlay = () => {
       setIsVideoLoading(false);
       video.removeEventListener("canplay", handleCanPlay);
       video.removeEventListener("error", handleError);
     };
-    
+
     const handleError = () => {
       setIsVideoLoading(false);
       video.removeEventListener("canplay", handleCanPlay);
       video.removeEventListener("error", handleError);
     };
-    
+
     // If video is already ready, don't show loading
     if (video.readyState >= 2 && video.duration) {
       setIsVideoLoading(false);
@@ -119,7 +118,7 @@ export function useLandingAnimation() {
       video.addEventListener("canplay", handleCanPlay, { once: true });
       video.addEventListener("error", handleError, { once: true });
     }
-    
+
     // Start loading the video immediately
     video.load();
 
@@ -173,7 +172,7 @@ export function useLandingAnimation() {
           const text1 = createFloatingText(
             "Welcome to the Revolution",
             1000,
-            true
+            true,
           );
           const tl = gsap.timeline();
           animateFloatingText(tl, text1, 0, videoDuration);
@@ -219,7 +218,8 @@ export function useLandingAnimation() {
 
       // Start video playback - let it play naturally (works on iOS!)
       video.currentTime = 0;
-      video.play()
+      video
+        .play()
         .then(() => {
           // Clear loading state once video starts playing
           setIsLoading(false);
@@ -250,16 +250,16 @@ export function useLandingAnimation() {
           setIsLoading(false);
         }
       };
-      
+
       const handleError = () => {
         video.removeEventListener("canplay", handleCanPlay);
         video.removeEventListener("error", handleError);
         setIsLoading(false);
       };
-      
+
       video.addEventListener("canplay", handleCanPlay, { once: true });
       video.addEventListener("error", handleError, { once: true });
-      
+
       // Ensure video is loading (in case it wasn't already)
       if (video.readyState === 0) {
         video.load();
@@ -267,5 +267,11 @@ export function useLandingAnimation() {
     }
   }, [router, isLoading]);
 
-  return { landingSectionRef, videoRef, headerRef, playAnimation, isLoading: isLoading || isVideoLoading };
+  return {
+    landingSectionRef,
+    videoRef,
+    headerRef,
+    playAnimation,
+    isLoading: isLoading || isVideoLoading,
+  };
 }

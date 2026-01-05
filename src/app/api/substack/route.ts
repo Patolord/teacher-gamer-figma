@@ -6,7 +6,7 @@ const parser = new Parser();
 export async function GET() {
   try {
     const feed = await parser.parseURL(
-      "https://zacharyreznichek.substack.com/feed"
+      "https://zacharyreznichek.substack.com/feed",
     );
 
     // Extract posts from feed items
@@ -22,7 +22,7 @@ export async function GET() {
     console.error("Error fetching RSS feed:", error);
     return NextResponse.json(
       { error: "Failed to fetch RSS feed" },
-      { status: 500 }
+      { status: 500 },
     );
   }
 }

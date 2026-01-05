@@ -1,6 +1,6 @@
 "use client";
 
-import Cal, { getCalApi } from "@calcom/embed-react";
+import { getCalApi } from "@calcom/embed-react";
 import { useEffect } from "react";
 import { MEDIA } from "@/lib/media";
 import Calendar from "./Calendar";

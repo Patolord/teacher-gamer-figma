@@ -11,7 +11,7 @@ export default function Home() {
     >
       {/* Preload video for faster loading */}
       <VideoPreloader />
-      
+
       {/* Server-rendered poster image for better LCP */}
       <div className="absolute inset-0 w-full h-full">
         <Image
@@ -24,7 +24,7 @@ export default function Home() {
           quality={75}
         />
       </div>
-      
+
       {/* Client component for interactive video and content */}
       <LandingPageClient />
     </section>

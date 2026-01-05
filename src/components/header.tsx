@@ -19,17 +19,20 @@ export function Header() {
   const [isOpen, setIsOpen] = useState(false);
   const pathname = usePathname();
 
-  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+  const handleNavClick = (
+    e: React.MouseEvent<HTMLAnchorElement>,
+    href: string,
+  ) => {
     // Check if link has a hash (section anchor)
-    if (href.includes('#')) {
-      const [path, hash] = href.split('#');
-      
+    if (href.includes("#")) {
+      const [path, hash] = href.split("#");
+
       // If we're already on the target page (or home page)
-      if (pathname === path || (pathname === '/' && path === '/home')) {
+      if (pathname === path || (pathname === "/" && path === "/home")) {
         e.preventDefault();
         const element = document.getElementById(hash);
         if (element) {
-          element.scrollIntoView({ behavior: 'smooth' });
+          element.scrollIntoView({ behavior: "smooth" });
         }
         setIsOpen(false);
       }

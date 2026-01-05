@@ -2,7 +2,6 @@
 
 import { buildSrc } from "@imagekit/next";
 import { useEffect } from "react";
-import { MEDIA } from "@/lib/media";
 
 export default function VideoPreloader() {
   useEffect(() => {
@@ -31,4 +30,3 @@ export default function VideoPreloader() {
 
   return null;
 }
-

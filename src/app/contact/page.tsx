@@ -102,7 +102,9 @@ export default function ContactPage() {
     message: "",
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitStatus, setSubmitStatus] = useState<"idle" | "success" | "error">("idle");
+  const [submitStatus, setSubmitStatus] = useState<
+    "idle" | "success" | "error"
+  >("idle");
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -120,7 +122,7 @@ export default function ContactPage() {
   };
 
   const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
   ) => {
     setFormData((prev) => ({
       ...prev,
@@ -147,7 +149,8 @@ export default function ContactPage() {
               e.preventDefault();
               window.location.href = "/home";
               setTimeout(() => {
-                const contactSection = document.getElementById("contact-section");
+                const contactSection =
+                  document.getElementById("contact-section");
                 if (contactSection) {
                   contactSection.scrollIntoView({ behavior: "smooth" });
                 }
@@ -167,7 +170,9 @@ export default function ContactPage() {
             <div className="text-center space-y-6">
               <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-indigo-500/20 border border-indigo-500/30 text-indigo-300">
                 <MessageSquareIcon className="w-4 h-4" />
-                <span className="text-sm font-semibold">We're Here to Help</span>
+                <span className="text-sm font-semibold">
+                  We're Here to Help
+                </span>
               </div>
 
               <h1 className="text-4xl md:text-6xl font-bold text-white leading-tight">
@@ -175,27 +180,31 @@ export default function ContactPage() {
               </h1>
 
               <p className="text-xl text-white/90 leading-relaxed max-w-3xl mx-auto">
-                Have questions about our courses or methodology? Want to bring 
+                Have questions about our courses or methodology? Want to bring
                 game-based learning to your school? We'd love to hear from you.
               </p>
             </div>
 
             {/* Contact Methods */}
             <div className="grid md:grid-cols-3 gap-6">
-              {contactMethods.map(({ icon: Icon, title, description, value, link }) => (
-                <a
-                  key={title}
-                  href={link}
-                  className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20 hover:bg-white/15 transition-all group"
-                >
-                  <div className="w-12 h-12 mb-4 rounded-full bg-indigo-500/20 flex items-center justify-center group-hover:bg-indigo-500/30 transition-colors">
-                    <Icon className="w-6 h-6 text-indigo-300" />
-                  </div>
-                  <h3 className="text-xl font-bold text-white mb-2">{title}</h3>
-                  <p className="text-white/60 text-sm mb-2">{description}</p>
-                  <p className="text-white/90">{value}</p>
-                </a>
-              ))}
+              {contactMethods.map(
+                ({ icon: Icon, title, description, value, link }) => (
+                  <a
+                    key={title}
+                    href={link}
+                    className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20 hover:bg-white/15 transition-all group"
+                  >
+                    <div className="w-12 h-12 mb-4 rounded-full bg-indigo-500/20 flex items-center justify-center group-hover:bg-indigo-500/30 transition-colors">
+                      <Icon className="w-6 h-6 text-indigo-300" />
+                    </div>
+                    <h3 className="text-xl font-bold text-white mb-2">
+                      {title}
+                    </h3>
+                    <p className="text-white/60 text-sm mb-2">{description}</p>
+                    <p className="text-white/90">{value}</p>
+                  </a>
+                ),
+              )}
             </div>
 
             {/* Contact Form & Info Grid */}
@@ -403,16 +412,15 @@ export default function ContactPage() {
                 Ready to Transform Your Teaching?
               </h2>
               <p className="text-xl text-white/80 max-w-2xl mx-auto">
-                Explore our courses and start your journey into game-based learning today.
+                Explore our courses and start your journey into game-based
+                learning today.
               </p>
               <Button
                 size="lg"
                 className="text-lg font-bold bg-amber-400 hover:bg-amber-300 text-zinc-900 px-12 py-6"
                 asChild
               >
-                <Link href="/home">
-                  View Our Courses
-                </Link>
+                <Link href="/home">View Our Courses</Link>
               </Button>
             </div>
           </div>
@@ -424,12 +432,3 @@ export default function ContactPage() {
     </main>
   );
 }
-
-
-
-
-
-
-
-
-

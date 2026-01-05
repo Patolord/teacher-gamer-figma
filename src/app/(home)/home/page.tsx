@@ -6,9 +6,7 @@ import CalendarBookingSection from "@/components/home/calendar/CalendarBookingSe
 import ContactSection from "@/components/home/contact/ContactSection";
 import CoursesSection from "@/components/home/courses/CoursesSection";
 import CombinedHeroSection from "@/components/home/hero-section/CombinedHeroSection";
-import HeroSection from "@/components/home/hero-section/HeroSection";
 import ResearchSection from "@/components/home/research/ResearchSection";
-import ShopSection from "@/components/home/shop/ShopSection";
 import SubstackSection from "@/components/home/substack/SubstackSection";
 import Testimonials from "@/components/home/testimonials/TestimonialsSection";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
@@ -41,7 +39,7 @@ export default function HomePage() {
     <div>
       <CombinedHeroSection />
       <Testimonials />
-      <CoursesSection /> 
+      <CoursesSection />
       <SubstackSection />
       <ResearchSection />
       <CalendarBookingSection />

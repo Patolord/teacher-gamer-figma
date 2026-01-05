@@ -3,17 +3,23 @@ import dynamic from "next/dynamic";
 import ScrambledText from "@/components/shared/ScrambledText";
 
 // Lazy load SocialProof to reduce initial bundle size
-const SocialProof = dynamic(() => import("@/components/home/hero-section/SocialProof"), {
-  ssr: false,
-  loading: () => null,
-});
+const SocialProof = dynamic(
+  () => import("@/components/home/hero-section/SocialProof"),
+  {
+    ssr: false,
+    loading: () => null,
+  },
+);
 
 type Props = {
   onButtonClick?: () => void;
   isLoading?: boolean;
 };
 
-export default function LandingContent({ onButtonClick, isLoading = false }: Props) {
+export default function LandingContent({
+  onButtonClick,
+  isLoading = false,
+}: Props) {
   return (
     <div className="relative z-20 flex flex-col items-center justify-center gap-6 px-4 w-full max-w-4xl mx-auto">
       <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-center text-white px-2 sm:px-5 leading-tight">

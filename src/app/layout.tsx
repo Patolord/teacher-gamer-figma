@@ -1,5 +1,5 @@
-import type { Metadata } from "next";
 import { ImageKitProvider } from "@imagekit/next";
+import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
 
@@ -26,11 +26,19 @@ const pirataOne = localFont({
 
 export const metadata: Metadata = {
   title: "Teacher Gamer Revolution - Game-Based Learning for Education",
-  description: "The future of education is here. Join the Teacher Gamer Revolution and revolutionize the way you learn through safe and fun game-based learning.",
-  keywords: ["game-based learning", "education", "teacher gamer", "RPG education", "educational games"],
+  description:
+    "The future of education is here. Join the Teacher Gamer Revolution and revolutionize the way you learn through safe and fun game-based learning.",
+  keywords: [
+    "game-based learning",
+    "education",
+    "teacher gamer",
+    "RPG education",
+    "educational games",
+  ],
   openGraph: {
     title: "Teacher Gamer Revolution",
-    description: "The future of education is here. Join the Teacher Gamer Revolution and revolutionize the way you learn.",
+    description:
+      "The future of education is here. Join the Teacher Gamer Revolution and revolutionize the way you learn.",
     type: "website",
   },
 };
@@ -47,7 +55,11 @@ export default function RootLayout({
     >
       <head>
         {/* Preconnect to external resources for faster loading */}
-        <link rel="preconnect" href="https://ik.imagekit.io" crossOrigin="anonymous" />
+        <link
+          rel="preconnect"
+          href="https://ik.imagekit.io"
+          crossOrigin="anonymous"
+        />
         <link rel="dns-prefetch" href="https://api.dicebear.com" />
         {/* Prefetch ImageKit resources */}
         <link rel="dns-prefetch" href="https://ik.imagekit.io" />
