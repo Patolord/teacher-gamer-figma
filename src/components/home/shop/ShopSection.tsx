@@ -8,6 +8,7 @@ interface ShopSectionProps {
 export default function ShopSection({ sectionIndex }: ShopSectionProps) {
   return (
     <section
+      id="shop-section"
       data-scroll-section={sectionIndex}
       className="py-40 flex justify-center items-center relative bg-gray-900"
     >
