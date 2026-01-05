@@ -66,7 +66,7 @@ export default function ResearchSection({
       authors: "Reznichek, Z.",
       journal: "Education Thesis",
       year: "2010",
-      views: "3 Views",
+      views: "2,625 Views",
       abstract:
         "As a corrupted byproduct of socioeconomic politics, curriculum philosophy is unsuitable to solve educational challenges. This defended thesis examines the decline of contemplative practices in education and the emergence of social constructivism as the dominant educational paradigm, questioning whether authenticity still matters in modern pedagogy.",
       link: "https://www.academia.edu/",
@@ -75,6 +75,7 @@ export default function ResearchSection({
 
   return (
     <section
+      id="research-section"
       data-scroll-section={sectionIndex}
       className="relative w-full flex items-center justify-center py-24"
     >
