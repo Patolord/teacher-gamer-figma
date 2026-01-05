@@ -27,7 +27,7 @@ export default function LandingContent({ onButtonClick }: Props) {
       <button
         type="button"
         onClick={onButtonClick}
-        className="text-lg sm:text-xl md:text-2xl lg:text-3xl py-6 sm:py-8 md:py-10 px-8 sm:px-12 md:px-16 uppercase tracking-wider font-bold flex items-center gap-3 cursor-pointer hover:scale-110 transition-all duration-300 rounded-xl shadow-2xl border-2 border-white/20 bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-500 hover:to-emerald-500 text-white animate-pulse hover:animate-none"
+        className="text-lg sm:text-xl md:text-2xl lg:text-3xl py-6 sm:py-8 md:py-10 px-8 sm:px-12 md:px-16 uppercase tracking-wider font-bold flex items-center gap-3 cursor-pointer hover:scale-110 transition-all duration-300 rounded-xl shadow-2xl border-2 border-white/20 bg-gradient-to-r from-amber-400 to-amber-400 hover:from-amber-300 hover:to-amber-300 text-zinc-900 animate-pulse hover:animate-none"
       >
         <Swords className="w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8" />
         <span>Get Started Now</span>

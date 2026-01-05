@@ -9,12 +9,12 @@ const avatars = [
   {
     seed: "2",
     fallback: "JD",
-    gradient: "from-green-500 to-teal-600",
+    gradient: "from-amber-400 to-amber-500",
   },
   {
     seed: "3",
     fallback: "SK",
-    gradient: "from-orange-500 to-red-600",
+    gradient: "from-amber-400 to-amber-500",
   },
   {
     seed: "4",

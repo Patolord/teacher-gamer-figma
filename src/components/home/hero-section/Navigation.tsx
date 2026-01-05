@@ -32,29 +32,35 @@ const Navigation = forwardRef<HTMLElement, NavigationProps>(
           {/* Menu Links */}
           <div className="hidden min-[550px]:flex gap-4 sm:gap-6 md:gap-8">
             <a
-              href="#courses"
+              href="#courses-section"
               className="text-black hover:opacity-70 transition-opacity text-[10px] sm:text-xs font-medium uppercase whitespace-nowrap"
             >
               Courses
             </a>
             <a
-              href="#shop"
+              href="#calendar-section"
+              className="text-black hover:opacity-70 transition-opacity text-[10px] sm:text-xs font-medium uppercase whitespace-nowrap"
+            >
+              Calendar
+            </a>
+            <a
+              href="/shop"
               className="text-black hover:opacity-70 transition-opacity text-[10px] sm:text-xs font-medium uppercase whitespace-nowrap"
             >
               Shop
             </a>
             <a
-              href="#about"
+              href="/about"
               className="text-black hover:opacity-70 transition-opacity text-[10px] sm:text-xs font-medium uppercase whitespace-nowrap"
             >
-              About
+              Contact
             </a>
           </div>
           {/* Buttons */}
           <div className="flex gap-2 sm:gap-4 md:gap-6">
             <div className="px-3 sm:px-4 md:px-6 py-2 sm:py-2.5 md:py-3 rounded bg-white">
               <a
-                href="#login"
+                href="#courses-section"
                 className="text-[10px] sm:text-xs font-medium uppercase text-black whitespace-nowrap"
               >
                 Training
@@ -62,7 +68,7 @@ const Navigation = forwardRef<HTMLElement, NavigationProps>(
             </div>
             <div className="px-3 sm:px-4 md:px-6 py-2 sm:py-2.5 md:py-3 rounded bg-black border border-white">
               <a
-                href="/shop"
+                href="#shop-section"
                 className="text-[10px] sm:text-xs font-medium uppercase text-white whitespace-nowrap"
               >
                 Shop Now

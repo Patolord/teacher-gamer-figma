@@ -75,6 +75,7 @@ export default function ResearchSection({
 
   return (
     <section
+      id="research-section"
       data-scroll-section={sectionIndex}
       className="relative w-full flex items-center justify-center py-24"
     >

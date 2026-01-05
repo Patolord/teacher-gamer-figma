@@ -34,6 +34,7 @@ const stats = [
 const CombinedHeroSection = forwardRef<HTMLElement>((_props, ref) => {
   return (
     <section
+      id="hero-section"
       ref={ref}
       className="relative w-full overflow-hidden bg-cover bg-center"
       style={{ backgroundImage: `url('${MEDIA.backgrounds.hero}')` }}
@@ -54,7 +55,7 @@ const CombinedHeroSection = forwardRef<HTMLElement>((_props, ref) => {
 
             <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl font-bold leading-tight text-balance bg-[linear-gradient(135deg,#fff_0%,#c47020_20%,#d09a11_40%,#fff_100%)] bg-[length:200%_200%] bg-clip-text text-transparent animate-gradientShift">
               A Safe Space for Kids to{" "}
-              <span className="text-green-400">Play & Learn</span>
+              <span className="text-amber-400">Play & Learn</span>
             </h1>
 
             <p className="text-lg md:text-xl text-white/80 leading-relaxed max-w-xl">
@@ -67,7 +68,7 @@ const CombinedHeroSection = forwardRef<HTMLElement>((_props, ref) => {
             <div className="flex flex-col sm:flex-row gap-4">
               <Button
                 size="lg"
-                className="font-semibold text-lg px-8 bg-green-600 hover:bg-green-700 text-white"
+                className="font-semibold text-lg px-8 bg-linear-to-r from-amber-400 to-amber-400 hover:from-amber-300 hover:to-amber-300 text-zinc-900 transition-all duration-300 hover:shadow-[0_4px_24px_rgba(251,191,36,0.4)]"
                 onClick={() => {
                   const coursesSection = document.getElementById("courses-section");
                   if (coursesSection) {
@@ -93,7 +94,7 @@ const CombinedHeroSection = forwardRef<HTMLElement>((_props, ref) => {
             <div className="flex flex-wrap gap-6 pt-4">
               {features.map(({ icon: Icon, label }) => (
                 <div key={label} className="flex items-center gap-2">
-                  <Icon className="w-5 h-5 text-green-400" />
+                  <Icon className="w-5 h-5 text-amber-400" />
                   <span className="text-sm font-medium text-white/80">
                     {label}
                   </span>
@@ -198,7 +199,7 @@ const CombinedHeroSection = forwardRef<HTMLElement>((_props, ref) => {
             <Link href="/shop">
               <button
                 type="button"
-                className="self-start text-white border border-white rounded-md px-6 py-3 hover:bg-white hover:text-black transition font-medium"
+                className="self-start px-8 py-3 bg-linear-to-r from-amber-400 to-amber-400 hover:from-amber-300 hover:to-amber-300 text-zinc-900 font-semibold rounded-full transition-all duration-300 hover:shadow-[0_4px_24px_rgba(251,191,36,0.4)]"
               >
                 SHOP NOW
               </button>

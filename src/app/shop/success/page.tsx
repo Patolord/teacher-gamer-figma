@@ -18,8 +18,8 @@ export default function SuccessPage() {
       {/* Content */}
       <div className="relative z-10 text-center px-4 max-w-xl">
         <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-10 border border-white/20 space-y-6">
-          <div className="w-20 h-20 mx-auto bg-green-500/20 rounded-full flex items-center justify-center">
-            <CheckCircle className="w-10 h-10 text-green-400" />
+          <div className="w-20 h-20 mx-auto bg-amber-400/20 rounded-full flex items-center justify-center">
+            <CheckCircle className="w-10 h-10 text-amber-400" />
           </div>
 
           <h1 className="text-3xl md:text-4xl font-bold text-white">
@@ -34,7 +34,7 @@ export default function SuccessPage() {
           <div className="pt-4 space-y-3">
             <Button
               size="lg"
-              className="w-full bg-green-600 hover:bg-green-700 text-white font-bold"
+              className="w-full bg-amber-400 hover:bg-amber-300 text-zinc-900 font-bold"
               asChild
             >
               <Link href="/shop">Continue Shopping</Link>
