@@ -9,39 +9,46 @@ import { MEDIA } from "@/lib/media";
 import ShopSectionCard from "../shop/ShopSectionCard";
 import ShinyText from "@/components/ui/shinytext";
 
-// Split-Complementary Color Harmony - Magical Fantasy Theme
+// Refined Split-Complementary Color Harmony - Magical Fantasy Theme
 const theme = {
-  // Primary - Magic Purple (30%)
+  // Primary - Deep Purple (30%)
   primary: {
-    base: "#6D4FFF",
-    light: "#9B7FFF",
-    lighter: "#C4B5FF",
-    dark: "#5538E6",
-    subtle: "rgba(109, 79, 255, 0.1)",
+    base: "#6A4BCF",
+    light: "#B9A7FF", // Soft Lavender
+    lighter: "#D4C9FF",
+    dark: "#5538B5",
+    subtle: "rgba(106, 75, 207, 0.1)",
+    glow: "rgba(106, 75, 207, 0.3)",
   },
   
-  // Accent - Gold (10% for CTAs, badges, highlights)
+  // Accent - Lime Yellow (10% for CTAs, badges, highlights)
   accent: {
-    gold: "#FFD54F",
-    goldLight: "#FFE699",
-    goldDark: "#E6BC2F",
+    lime: "#DAFF0D",
+    limeLight: "#E5FF4D",
+    limeDark: "#C5E600",
+    limeGlow: "rgba(218, 255, 13, 0.2)",
   },
   
-  // Highlight - Soft Yellow (accent use only)
+  // Highlight - Warm Yellow (secondary accent use)
   highlight: {
-    yellow: "#FEFF4F",
-    yellowSoft: "rgba(254, 255, 79, 0.2)",
+    yellow: "#FFD85A",
+    yellowLight: "#FFE699",
+    yellowDark: "#E6C040",
+    yellowSoft: "rgba(255, 216, 90, 0.2)",
   },
   
-  // Neutral - Stone Gray (60% background/base)
+  // Neutral - Refined Grays & Blacks (60% background/base)
   neutral: {
-    dark: "#6B6780",
-    medium: "#8A8599",
+    darkBg: "#1A1A1F", // Dark Background
+    dark: "#2A2A32",
+    medium: "#6B6780",
     light: "#B8B5C4",
     lighter: "#E5E4E8",
+    white: "#F9F9F9", // Neutral White
     subtle: "rgba(107, 103, 128, 0.1)",
-    black60: "rgba(0, 0, 0, 0.6)", // 60% black overlay for background
-    black80: "rgba(0, 0, 0, 0.8)", // Alternative: 80% black for deeper contrast
+    black60: "rgba(26, 26, 31, 0.6)", // 60% dark overlay
+    black80: "rgba(26, 26, 31, 0.8)", // 80% dark overlay
+    black90: "rgba(26, 26, 31, 0.9)", // 90% dark overlay
   },
   
   // Secondary - Moss/Sage (decorative accent)
@@ -70,7 +77,7 @@ const stats = [
     value: "4.9/5",
     label: "Parent Rating",
     position: "-top-4 -right-4",
-    accentColor: theme.accent.gold,
+    accentColor: theme.accent.lime,
   },
 ];
 
@@ -97,12 +104,12 @@ const CombinedHeroSection = forwardRef<HTMLElement>((_props, ref) => {
               style={{ 
                 backgroundColor: theme.primary.subtle,
                 border: `2px solid ${theme.primary.light}`,
-                boxShadow: `0 0 20px ${theme.primary.base}30`
+                boxShadow: `0 0 20px ${theme.primary.glow}`
               }}
             >
               <Star 
                 className="w-4 h-4" 
-                style={{ color: theme.accent.gold, fill: theme.accent.gold }}
+                style={{ color: theme.accent.lime, fill: theme.accent.lime }}
               />
               <span className="text-sm font-semibold">
                 Now enrolling for Fall 2025
@@ -122,7 +129,7 @@ const CombinedHeroSection = forwardRef<HTMLElement>((_props, ref) => {
                 <span 
                   className="bg-clip-text text-transparent"
                   style={{ 
-                    backgroundImage: `linear-gradient(135deg, ${theme.accent.gold} 0%, ${theme.highlight.yellow} 50%, ${theme.accent.gold} 100%)`
+                    backgroundImage: `linear-gradient(135deg, ${theme.accent.lime} 0%, ${theme.highlight.yellow} 50%, ${theme.accent.lime} 100%)`
                   }}
                 >
                   Play & Learn
@@ -145,9 +152,9 @@ const CombinedHeroSection = forwardRef<HTMLElement>((_props, ref) => {
                 size="lg"
                 className="font-semibold text-lg px-8 transition-all duration-300"
                 style={{
-                  backgroundColor: theme.accent.gold,
-                  color: theme.neutral.dark,
-                  boxShadow: `0 4px 20px ${theme.accent.gold}50, 0 0 40px ${theme.highlight.yellow}20`,
+                  backgroundColor: theme.accent.lime,
+                  color: theme.neutral.darkBg,
+                  boxShadow: `0 4px 20px ${theme.accent.limeGlow}, 0 0 40px ${theme.highlight.yellowSoft}`,
                 }}
                 onClick={() => {
                   const coursesSection = document.getElementById("courses-section");
@@ -156,12 +163,12 @@ const CombinedHeroSection = forwardRef<HTMLElement>((_props, ref) => {
                   }
                 }}
                 onMouseEnter={(e) => {
-                  e.currentTarget.style.backgroundColor = theme.accent.goldLight;
-                  e.currentTarget.style.boxShadow = `0 6px 30px ${theme.accent.gold}70, 0 0 50px ${theme.highlight.yellow}30`;
+                  e.currentTarget.style.backgroundColor = theme.accent.limeLight;
+                  e.currentTarget.style.boxShadow = `0 6px 30px ${theme.accent.lime}70, 0 0 50px ${theme.highlight.yellow}40`;
                 }}
                 onMouseLeave={(e) => {
-                  e.currentTarget.style.backgroundColor = theme.accent.gold;
-                  e.currentTarget.style.boxShadow = `0 4px 20px ${theme.accent.gold}50, 0 0 40px ${theme.highlight.yellow}20`;
+                  e.currentTarget.style.backgroundColor = theme.accent.lime;
+                  e.currentTarget.style.boxShadow = `0 4px 20px ${theme.accent.limeGlow}, 0 0 40px ${theme.highlight.yellowSoft}`;
                 }}
               >
                 Explore Courses
@@ -195,7 +202,7 @@ const CombinedHeroSection = forwardRef<HTMLElement>((_props, ref) => {
                 <div key={label} className="flex items-center gap-2">
                   <Icon 
                     className="w-5 h-5" 
-                    style={{ color: theme.accent.gold }}
+                    style={{ color: theme.accent.lime }}
                   />
                   <span 
                     className="text-sm font-medium"
@@ -212,9 +219,9 @@ const CombinedHeroSection = forwardRef<HTMLElement>((_props, ref) => {
             <div 
               className="aspect-square overflow-hidden rounded-4xl shadow-2xl"
               style={{ 
-                backgroundColor: theme.neutral.lighter,
+                backgroundColor: theme.neutral.white,
                 border: `4px solid ${theme.primary.base}`,
-                boxShadow: `0 25px 50px -12px ${theme.primary.base}60, 0 0 60px ${theme.primary.base}30`
+                boxShadow: `0 25px 50px -12px ${theme.primary.glow}, 0 0 60px ${theme.primary.subtle}`
               }}
             >
               <Image
@@ -232,9 +239,9 @@ const CombinedHeroSection = forwardRef<HTMLElement>((_props, ref) => {
                 key={label}
                 className={`absolute ${position} p-4 rounded-2xl shadow-lg backdrop-blur-sm`}
                 style={{
-                  backgroundColor: 'rgba(255, 255, 255, 0.95)',
+                  backgroundColor: theme.neutral.white,
                   border: `2px solid ${accentColor}40`,
-                  boxShadow: `0 10px 30px ${theme.neutral.dark}30, 0 0 20px ${accentColor}20`
+                  boxShadow: `0 10px 30px ${theme.neutral.darkBg}40, 0 0 20px ${accentColor}30`
                 }}
               >
                 <div className="flex items-center gap-3">
@@ -247,7 +254,7 @@ const CombinedHeroSection = forwardRef<HTMLElement>((_props, ref) => {
                   <div>
                     <p 
                       className="font-bold"
-                      style={{ color: theme.neutral.dark }}
+                      style={{ color: theme.neutral.darkBg }}
                     >
                       {value}
                     </p>
@@ -282,7 +289,7 @@ const CombinedHeroSection = forwardRef<HTMLElement>((_props, ref) => {
             strokeWidth="2"
             viewBox="0 0 24 24"
             stroke="currentColor"
-            style={{ color: theme.accent.gold }}
+            style={{ color: theme.accent.lime }}
             aria-label="Scroll down indicator"
             role="img"
           >
@@ -309,7 +316,7 @@ const CombinedHeroSection = forwardRef<HTMLElement>((_props, ref) => {
             <h1 
               className="bg-clip-text text-transparent animate-gradientShift text-3xl md:text-4xl"
               style={{
-                backgroundImage: `linear-gradient(135deg, ${theme.accent.gold} 0%, ${theme.highlight.yellow} 30%, ${theme.accent.gold} 60%, ${theme.accent.goldLight} 100%)`,
+                backgroundImage: `linear-gradient(135deg, ${theme.accent.lime} 0%, ${theme.highlight.yellow} 30%, ${theme.accent.lime} 60%, ${theme.accent.limeLight} 100%)`,
                 backgroundSize: '200% 200%'
               }}
             >
@@ -348,17 +355,17 @@ const CombinedHeroSection = forwardRef<HTMLElement>((_props, ref) => {
                 type="button"
                 className="self-start px-8 py-3 font-semibold rounded-full transition-all duration-300"
                 style={{
-                  backgroundColor: theme.accent.gold,
-                  color: theme.neutral.dark,
-                  boxShadow: `0 4px 20px ${theme.accent.gold}50, 0 0 40px ${theme.highlight.yellow}20`,
+                  backgroundColor: theme.accent.lime,
+                  color: theme.neutral.darkBg,
+                  boxShadow: `0 4px 20px ${theme.accent.limeGlow}, 0 0 40px ${theme.highlight.yellowSoft}`,
                 }}
                 onMouseEnter={(e) => {
-                  e.currentTarget.style.backgroundColor = theme.accent.goldLight;
-                  e.currentTarget.style.boxShadow = `0 6px 30px ${theme.accent.gold}70, 0 0 50px ${theme.highlight.yellow}30`;
+                  e.currentTarget.style.backgroundColor = theme.accent.limeLight;
+                  e.currentTarget.style.boxShadow = `0 6px 30px ${theme.accent.lime}70, 0 0 50px ${theme.highlight.yellow}40`;
                 }}
                 onMouseLeave={(e) => {
-                  e.currentTarget.style.backgroundColor = theme.accent.gold;
-                  e.currentTarget.style.boxShadow = `0 4px 20px ${theme.accent.gold}50, 0 0 40px ${theme.highlight.yellow}20`;
+                  e.currentTarget.style.backgroundColor = theme.accent.lime;
+                  e.currentTarget.style.boxShadow = `0 4px 20px ${theme.accent.limeGlow}, 0 0 40px ${theme.highlight.yellowSoft}`;
                 }}
               >
                 SHOP NOW
@@ -377,7 +384,7 @@ const CombinedHeroSection = forwardRef<HTMLElement>((_props, ref) => {
         <div 
           className="absolute bottom-0 left-0 right-0 h-px opacity-60"
           style={{
-            background: `linear-gradient(to right, transparent, ${theme.accent.gold}, ${theme.highlight.yellow}, ${theme.accent.gold}, transparent)`
+            background: `linear-gradient(to right, transparent, ${theme.accent.lime}, ${theme.highlight.yellow}, ${theme.accent.lime}, transparent)`
           }}
         />
       </div>
