@@ -2,13 +2,14 @@
 
 import { Menu, X } from "lucide-react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useState } from "react";
 
 const menu = [
   { title: "Home", href: "/" },
   { title: "About", href: "/about" },
-  { title: "Training", href: "/training" },
-  { title: "Calendar", href: "/schedule" },
+  { title: "Training", href: "/home#courses-section" },
+  { title: "Calendar", href: "/home#calendar-section" },
   { title: "Media", href: "/media" },
   { title: "Shop", href: "/shop" },
   { title: "FAQ", href: "/faq" },
@@ -16,6 +17,24 @@ const menu = [
 
 export function Header() {
   const [isOpen, setIsOpen] = useState(false);
+  const pathname = usePathname();
+
+  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    // Check if link has a hash (section anchor)
+    if (href.includes('#')) {
+      const [path, hash] = href.split('#');
+      
+      // If we're already on the target page (or home page)
+      if (pathname === path || (pathname === '/' && path === '/home')) {
+        e.preventDefault();
+        const element = document.getElementById(hash);
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth' });
+        }
+        setIsOpen(false);
+      }
+    }
+  };
 
   return (
     <div className="absolute inset-x-0 top-3 md:top-4 z-50 flex justify-end md:justify-center px-3 md:px-4">
@@ -41,6 +60,7 @@ export function Header() {
             <Link
               key={href}
               href={href}
+              onClick={(e) => handleNavClick(e, href)}
               className="hover:bg-gray-100 rounded-full px-4 py-2 text-lg text-gray-800 transition-colors"
             >
               {title}
@@ -57,7 +77,7 @@ export function Header() {
               <Link
                 key={href}
                 href={href}
-                onClick={() => setIsOpen(false)}
+                onClick={(e) => handleNavClick(e, href)}
                 className="block px-4 py-2.5 text-gray-800 hover:bg-gray-100 transition-colors text-sm font-medium"
               >
                 {title}

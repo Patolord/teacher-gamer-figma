@@ -51,7 +51,7 @@ const moreVideos = [
   // Add more videos here:
  { id: "TLzdJeYFwUI", title: "As if Authenticity Matters presentation [Re]Learn 2020" },
  { id: "CfxFaytYC7E", title: "Teacher-Gamer Handbook (TGHB) Screen Tutorial - how to put the Teacher-Gamer Screen panels in order" },
-
+ { id: "NOdnQMx74Kg", title: "Teacher-Gamer Handbook (TGHB) Screen Tutorial - how to put the Teacher-Gamer Screen panels in order" },
 ];
 
 // Gallery images from ImageKit
@@ -223,7 +223,46 @@ export default function MediaPage() {
                 More Videos
               </h3>
               <div className="grid md:grid-cols-2 gap-6">
-                {moreVideos.map((video) => (
+                {moreVideos.slice(0, 2).map((video) => (
+                  <div
+                    key={video.id}
+                    className="group relative bg-zinc-900/60 backdrop-blur-sm border border-zinc-800 hover:border-amber-500/40 rounded-xl overflow-hidden transition-all duration-300"
+                  >
+                    <div className="aspect-video w-full">
+                      <iframe
+                        title={video.title}
+                        src={`https://www.youtube.com/embed/${video.id}`}
+                        width="100%"
+                        height="100%"
+                        className="w-full h-full"
+                        style={{ border: "none" }}
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        loading="lazy"
+                        allowFullScreen
+                      />
+                    </div>
+                    <div className="p-4">
+                      <p className="text-white font-medium text-sm line-clamp-2">
+                        {video.title}
+                      </p>
+                    </div>
+                  </div>
+                ))}
+                
+                {/* Youtube Channel Subscribe Link - In Grid */}
+                <div className="md:col-span-2 flex items-center justify-center py-8">
+                  <a
+                    href="https://www.youtube.com/@TeacherGamer"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 px-6 py-3 bg-linear-to-r from-red-500 to-red-500 text-zinc-900 font-semibold rounded-full hover:from-amber-300 hover:to-amber-300 transition-all duration-300 hover:shadow-[0_4px_24px_rgba(251,191,36,0.4)]"
+                  >
+                    Subscribe on Youtube
+                    <ExternalLink className="w-4 h-4" />
+                  </a>
+                </div>
+
+                {moreVideos.slice(2).map((video) => (
                   <div
                     key={video.id}
                     className="group relative bg-zinc-900/60 backdrop-blur-sm border border-zinc-800 hover:border-amber-500/40 rounded-xl overflow-hidden transition-all duration-300"
@@ -252,19 +291,6 @@ export default function MediaPage() {
             </div>
           )}
         </div>
-          {/* Youtube Channel Subscribe Link */}
-          <div className="text-center mt-12">
-            <a
-              href="https://www.youtube.com/@TeacherGamer"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-6 py-3 bg-linear-to-r from-amber-400 to-amber-400 text-zinc-900 font-semibold rounded-full hover:from-amber-300 hover:to-amber-300 transition-all duration-300 hover:shadow-[0_4px_24px_rgba(251,191,36,0.4)]"
-            >
-              
-              Subscribe on Youtube
-              <ExternalLink className="w-4 h-4" />
-            </a>
-          </div>
 
         {/* Section transitions */}
         <div className="absolute bottom-0 left-0 right-0 h-24 bg-linear-to-t from-amber-500/5 to-transparent pointer-events-none" />
@@ -285,7 +311,7 @@ export default function MediaPage() {
             <div className="flex items-center gap-3">
               <Volume2 className="w-6 h-6 text-amber-400" />
               <h2 className="text-3xl md:text-4xl font-semibold text-white">
-                Latest Episodes
+                Latest <span className="text-amber-400">Teacher Gamer Podcast</span> Episodes
               </h2>
             </div>
             <div className="h-px flex-1 max-w-32 bg-linear-to-l from-transparent to-amber-500/50" />
