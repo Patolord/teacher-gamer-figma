@@ -46,6 +46,8 @@ export default function SocialProof({ align = "center", variant = "dark" }: Soci
             <AvatarImage
               src={`https://api.dicebear.com/7.x/avataaars/svg?seed=${avatar.seed}`}
               alt={`User ${index + 1}`}
+              loading="lazy"
+              fetchPriority="low"
             />
             <AvatarFallback
               className={`bg-gradient-to-br ${avatar.gradient} text-white font-semibold`}
