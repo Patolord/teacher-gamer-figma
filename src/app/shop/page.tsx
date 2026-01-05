@@ -174,7 +174,7 @@ export default function ShopPage() {
                 {/* Buy the PDF Button */}
                 <Button
                   size="lg"
-                  className="w-full text-lg font-bold bg-blue-500 hover:bg-blue-700 text-white py-6"
+                  className="w-full text-lg font-bold bg-from bg-blue-500 hover:bg-blue-700 text-white py-6"
                   onClick={handleCheckout}
                   disabled={isLoading}
                 >
