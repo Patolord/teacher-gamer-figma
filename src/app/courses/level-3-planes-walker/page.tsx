@@ -178,8 +178,8 @@ export default function Level3PlanesWalkerPage() {
               <h2 className="text-3xl font-bold text-white">Course Includes</h2>
               <div className="bg-white/10 backdrop-blur-sm rounded-xl p-8 border border-white/20">
                 <ul className="grid md:grid-cols-2 gap-4">
-                  {courseFeatures.map((feature, index) => (
-                    <li key={index} className="flex items-start gap-3">
+                  {courseFeatures.map((feature) => (
+                    <li key={feature} className="flex items-start gap-3">
                       <CheckCircle
                         className="w-5 h-5 mt-0.5 shrink-0"
                         style={{ color: "#b8411f" }}

@@ -114,9 +114,9 @@ export default function ShopPage() {
                 {/* Rating/Reviews */}
                 <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20 max-w-md mx-auto">
                   <div className="flex items-center justify-center gap-2 mb-2">
-                    {[...Array(5)].map((_, i) => (
+                    {[1, 2, 3, 4, 5].map((n) => (
                       <Star
-                        key={i}
+                        key={n}
                         className="w-5 h-5 text-yellow-400 fill-yellow-400"
                       />
                     ))}
@@ -212,9 +212,9 @@ export default function ShopPage() {
                     What's Inside
                   </h2>
                   <ul className="space-y-3">
-                    {bookFeatures.map((feature, index) => (
+                    {bookFeatures.map((feature) => (
                       <li
-                        key={index}
+                        key={feature}
                         className="flex items-start gap-3 text-white/90"
                       >
                         <span className="text-lg">{feature}</span>
@@ -250,9 +250,9 @@ export default function ShopPage() {
             <div className="mt-20 max-w-3xl mx-auto">
               <div className="bg-white/10 backdrop-blur-sm rounded-xl p-8 border border-white/20">
                 <div className="flex items-center gap-2 mb-4">
-                  {[...Array(5)].map((_, i) => (
+                  {[1, 2, 3, 4, 5].map((n) => (
                     <Star
-                      key={i}
+                      key={n}
                       className="w-5 h-5 text-yellow-400 fill-yellow-400"
                     />
                   ))}

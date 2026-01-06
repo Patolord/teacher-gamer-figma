@@ -1,5 +1,5 @@
 "use client";
-import React, { useEffect, useRef } from "react";
+import { useEffect, useRef } from "react";
 
 interface ColorRGB {
   r: number;
@@ -77,18 +77,18 @@ export default function SplashCursor({
     const pointers: Pointer[] = [pointerPrototype()];
 
     const config = {
-      SIM_RESOLUTION: SIM_RESOLUTION!,
-      DYE_RESOLUTION: DYE_RESOLUTION!,
-      CAPTURE_RESOLUTION: CAPTURE_RESOLUTION!,
-      DENSITY_DISSIPATION: DENSITY_DISSIPATION!,
-      VELOCITY_DISSIPATION: VELOCITY_DISSIPATION!,
-      PRESSURE: PRESSURE!,
-      PRESSURE_ITERATIONS: PRESSURE_ITERATIONS!,
-      CURL: CURL!,
-      SPLAT_RADIUS: SPLAT_RADIUS!,
-      SPLAT_FORCE: SPLAT_FORCE!,
+      SIM_RESOLUTION: SIM_RESOLUTION,
+      DYE_RESOLUTION: DYE_RESOLUTION,
+      CAPTURE_RESOLUTION: CAPTURE_RESOLUTION,
+      DENSITY_DISSIPATION: DENSITY_DISSIPATION,
+      VELOCITY_DISSIPATION: VELOCITY_DISSIPATION,
+      PRESSURE: PRESSURE,
+      PRESSURE_ITERATIONS: PRESSURE_ITERATIONS,
+      CURL: CURL,
+      SPLAT_RADIUS: SPLAT_RADIUS,
+      SPLAT_FORCE: SPLAT_FORCE,
       SHADING,
-      COLOR_UPDATE_SPEED: COLOR_UPDATE_SPEED!,
+      COLOR_UPDATE_SPEED: COLOR_UPDATE_SPEED,
       PAUSED: false,
       BACK_COLOR,
       TRANSPARENT,
@@ -149,11 +149,13 @@ export default function SplashCursor({
 
       const halfFloatTexType = isWebGL2
         ? (gl as WebGL2RenderingContext).HALF_FLOAT
-        : (halfFloat && (halfFloat as any).HALF_FLOAT_OES) || 0;
+        : (halfFloat &&
+            (halfFloat as { HALF_FLOAT_OES?: number }).HALF_FLOAT_OES) ||
+          0;
 
-      let formatRGBA: any;
-      let formatRG: any;
-      let formatR: any;
+      let formatRGBA: number;
+      let formatRG: number;
+      let formatR: number;
 
       if (isWebGL2) {
         formatRGBA = getSupportedFormat(
@@ -684,14 +686,16 @@ export default function SplashCursor({
     );
 
     const blit = (() => {
-      const buffer = gl.createBuffer()!;
+      const buffer = gl.createBuffer();
+      if (!buffer) throw new Error("Failed to create buffer");
       gl.bindBuffer(gl.ARRAY_BUFFER, buffer);
       gl.bufferData(
         gl.ARRAY_BUFFER,
         new Float32Array([-1, -1, -1, 1, 1, 1, 1, -1]),
         gl.STATIC_DRAW,
       );
-      const elemBuffer = gl.createBuffer()!;
+      const elemBuffer = gl.createBuffer();
+      if (!elemBuffer) throw new Error("Failed to create element buffer");
       gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER, elemBuffer);
       gl.bufferData(
         gl.ELEMENT_ARRAY_BUFFER,
@@ -767,7 +771,8 @@ export default function SplashCursor({
       param: number,
     ): FBO {
       gl.activeTexture(gl.TEXTURE0);
-      const texture = gl.createTexture()!;
+      const texture = gl.createTexture();
+      if (!texture) throw new Error("Failed to create texture");
       gl.bindTexture(gl.TEXTURE_2D, texture);
       gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, param);
       gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MAG_FILTER, param);
@@ -784,7 +789,8 @@ export default function SplashCursor({
         type,
         null,
       );
-      const fbo = gl.createFramebuffer()!;
+      const fbo = gl.createFramebuffer();
+      if (!fbo) throw new Error("Failed to create framebuffer");
       gl.bindFramebuffer(gl.FRAMEBUFFER, fbo);
       gl.framebufferTexture2D(
         gl.FRAMEBUFFER,
@@ -884,8 +890,8 @@ export default function SplashCursor({
     }
 
     function initFramebuffers() {
-      const simRes = getResolution(config.SIM_RESOLUTION!);
-      const dyeRes = getResolution(config.DYE_RESOLUTION!);
+      const simRes = getResolution(config.SIM_RESOLUTION);
+      const dyeRes = getResolution(config.DYE_RESOLUTION);
 
       const texType = ext.halfFloatTexType;
       const rgba = ext.formatRGBA;
@@ -1011,11 +1017,12 @@ export default function SplashCursor({
     }
 
     function resizeCanvas() {
-      const width = scaleByPixelRatio(canvas!.clientWidth);
-      const height = scaleByPixelRatio(canvas!.clientHeight);
-      if (canvas!.width !== width || canvas!.height !== height) {
-        canvas!.width = width;
-        canvas!.height = height;
+      const width = scaleByPixelRatio(canvas?.clientWidth);
+      const height = scaleByPixelRatio(canvas?.clientHeight);
+      if (canvas?.width !== width || canvas?.height !== height) {
+        if (!canvas) return false;
+        canvas.width = width;
+        canvas.height = height;
         return true;
       }
       return false;
@@ -1271,7 +1278,7 @@ export default function SplashCursor({
       if (splatProgram.uniforms.aspectRatio) {
         gl.uniform1f(
           splatProgram.uniforms.aspectRatio,
-          canvas!.width / canvas!.height,
+          canvas?.width / canvas?.height,
         );
       }
       if (splatProgram.uniforms.point) {
@@ -1283,7 +1290,7 @@ export default function SplashCursor({
       if (splatProgram.uniforms.radius) {
         gl.uniform1f(
           splatProgram.uniforms.radius,
-          correctRadius(config.SPLAT_RADIUS / 100)!,
+          correctRadius(config.SPLAT_RADIUS / 100),
         );
       }
       blit(velocity.write);
@@ -1300,7 +1307,7 @@ export default function SplashCursor({
     }
 
     function correctRadius(radius: number) {
-      const aspectRatio = canvas!.width / canvas!.height;
+      const aspectRatio = canvas?.width / canvas?.height;
       if (aspectRatio > 1) radius *= aspectRatio;
       return radius;
     }
@@ -1314,8 +1321,8 @@ export default function SplashCursor({
       pointer.id = id;
       pointer.down = true;
       pointer.moved = false;
-      pointer.texcoordX = posX / canvas!.width;
-      pointer.texcoordY = 1 - posY / canvas!.height;
+      pointer.texcoordX = posX / canvas?.width;
+      pointer.texcoordY = 1 - posY / canvas?.height;
       pointer.prevTexcoordX = pointer.texcoordX;
       pointer.prevTexcoordY = pointer.texcoordY;
       pointer.deltaX = 0;
@@ -1331,14 +1338,10 @@ export default function SplashCursor({
     ) {
       pointer.prevTexcoordX = pointer.texcoordX;
       pointer.prevTexcoordY = pointer.texcoordY;
-      pointer.texcoordX = posX / canvas!.width;
-      pointer.texcoordY = 1 - posY / canvas!.height;
-      pointer.deltaX = correctDeltaX(
-        pointer.texcoordX - pointer.prevTexcoordX,
-      )!;
-      pointer.deltaY = correctDeltaY(
-        pointer.texcoordY - pointer.prevTexcoordY,
-      )!;
+      pointer.texcoordX = posX / canvas?.width;
+      pointer.texcoordY = 1 - posY / canvas?.height;
+      pointer.deltaX = correctDeltaX(pointer.texcoordX - pointer.prevTexcoordX);
+      pointer.deltaY = correctDeltaY(pointer.texcoordY - pointer.prevTexcoordY);
       pointer.moved =
         Math.abs(pointer.deltaX) > 0 || Math.abs(pointer.deltaY) > 0;
       pointer.color = color;
@@ -1349,13 +1352,13 @@ export default function SplashCursor({
     }
 
     function correctDeltaX(delta: number) {
-      const aspectRatio = canvas!.width / canvas!.height;
+      const aspectRatio = canvas?.width / canvas?.height;
       if (aspectRatio < 1) delta *= aspectRatio;
       return delta;
     }
 
     function correctDeltaY(delta: number) {
-      const aspectRatio = canvas!.width / canvas!.height;
+      const aspectRatio = canvas?.width / canvas?.height;
       if (aspectRatio > 1) delta /= aspectRatio;
       return delta;
     }

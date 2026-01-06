@@ -5,7 +5,7 @@ type HeroBackgroundProps = {
   imageUrl: string;
 };
 
-const HeroBackground = forwardRef<HTMLDivElement, HeroBackgroundProps>(
+const _HeroBackground = forwardRef<HTMLDivElement, HeroBackgroundProps>(
   ({ imageUrl }, ref) => {
     return (
       <div

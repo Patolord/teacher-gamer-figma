@@ -74,7 +74,7 @@ function animateFloatingText(
 export function useLandingAnimation() {
   const headerRef = useRef<HTMLDivElement>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
-  const landingSectionRef = useRef<HTMLElement>(null);
+  const landingSectionRef = useRef<HTMLDivElement>(null);
   const timelineRef = useRef<gsap.core.Timeline | null>(null);
   const overlayRef = useRef<HTMLDivElement | null>(null);
   const router = useRouter();
