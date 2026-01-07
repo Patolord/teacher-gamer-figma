@@ -3,8 +3,24 @@
 import Cal, { getCalApi } from "@calcom/embed-react";
 import { useEffect } from "react";
 import { MEDIA } from "@/lib/media";
+import ShinyText from "@/components/ui/shinytext";
 import Calendar from "./Calendar";
 import CalendarModal from "./CalendarModal";
+
+// Refined Split-Complementary Color Harmony - Magical Fantasy Theme
+const theme = {
+  accent: {
+    lime: "#DAFF0D",
+    limeLight: "#E5FF4D",
+  },
+  highlight: {
+    yellow: "#FFD85A",
+    yellowSoft: "rgba(255, 216, 90, 0.2)",
+  },
+  neutral: {
+    lighter: "#E5E4E8",
+  },
+};
 
 interface CalendarBookingSectionProps {
   sectionIndex?: number;
@@ -31,19 +47,48 @@ export default function CalendarBookingSection({
       className="relative bg-cover bg-center"
       style={{ backgroundImage: `url('${MEDIA.backgrounds.calendar}')` }}
     >
+      {/* 40% black overlay */}
+      <div 
+        className="absolute inset-0" 
+        style={{ backgroundColor: "rgba(26, 26, 31, 0.4)" }}
+      />
+
       {/* Top horizontal transition element */}
-      <div className="absolute top-0 left-0 right-0 h-px bg-linear-to-r from-transparent via-yellow-500 to-transparent opacity-50 z-20" />
-      <div className="absolute top-0 left-0 right-0 h-24 bg-linear-to-b from-yellow-500/10 to-transparent pointer-events-none z-20" />
+      <div 
+        className="absolute top-0 left-0 right-0 h-px opacity-60 z-20"
+        style={{
+          background: `linear-gradient(to right, transparent, ${theme.accent.lime}, ${theme.highlight.yellow}, ${theme.accent.lime}, transparent)`
+        }}
+      />
+      <div 
+        className="absolute top-0 left-0 right-0 h-24 pointer-events-none z-20"
+        style={{
+          background: `linear-gradient(to bottom, ${theme.highlight.yellowSoft}, transparent)`
+        }}
+      />
 
       <div
         data-section-content
         data-animate
-        className="py-30 px-16 bg-black/60 bg-no-repeat bg-backdrop-none space-y-4 relative"
+        className="py-30 px-16 bg-no-repeat bg-backdrop-none space-y-4 relative"
+        style={{ zIndex: 20 }}
       >
-        <h2 className="bg-[linear-gradient(135deg,#fff_0%,#c47020_20%,#d09a11_40%,#fff_100%)] bg-[length:200%_200%] bg-clip-text text-transparent animate-gradientShift text-3xl text-center font-pirata-one">
-          Agende sua Sessão
+        <h2 className="text-3xl text-center font-pirata-one">
+          <ShinyText
+            speed={3}
+            delay={1}
+            color={theme.accent.lime}
+            shineColor="#fff"
+            spread={30}
+            yoyo
+          >
+            Agende sua Sessão
+          </ShinyText>
         </h2>
-        <p className="text-white text-xl text-center font-amarante">
+        <p 
+          className="text-xl text-center font-amarante"
+          style={{ color: theme.neutral.lighter }}
+        >
           Escolha a melhor data e horário para sua aventura
         </p>
 
@@ -56,8 +101,18 @@ export default function CalendarBookingSection({
       </div>
 
       {/* Bottom horizontal transition element */}
-      <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-yellow-500/10 to-transparent pointer-events-none z-20" />
-      <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-yellow-500 to-transparent opacity-50 z-20" />
+      <div 
+        className="absolute bottom-0 left-0 right-0 h-24 pointer-events-none z-20"
+        style={{
+          background: `linear-gradient(to top, ${theme.highlight.yellowSoft}, transparent)`
+        }}
+      />
+      <div 
+        className="absolute bottom-0 left-0 right-0 h-px opacity-60 z-20"
+        style={{
+          background: `linear-gradient(to right, transparent, ${theme.accent.lime}, ${theme.highlight.yellow}, ${theme.accent.lime}, transparent)`
+        }}
+      />
     </section>
   );
 }

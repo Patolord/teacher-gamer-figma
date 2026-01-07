@@ -3,6 +3,29 @@
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { MEDIA } from "@/lib/media";
+import ShinyText from "@/components/ui/shinytext";
+
+// Refined Split-Complementary Color Harmony - Magical Fantasy Theme
+const theme = {
+  primary: {
+    base: "#6A4BCF",
+    light: "#B9A7FF",
+    subtle: "rgba(106, 75, 207, 0.1)",
+    glow: "rgba(106, 75, 207, 0.3)",
+  },
+  accent: {
+    lime: "#DAFF0D",
+    limeLight: "#E5FF4D",
+  },
+  highlight: {
+    yellow: "#FFD85A",
+    yellowSoft: "rgba(255, 216, 90, 0.2)",
+  },
+  neutral: {
+    darkBg: "#1A1A1F",
+    lighter: "#E5E4E8",
+  },
+};
 
 type Props = { sectionIndex?: number };
 
@@ -53,10 +76,25 @@ export default function SubstackSection({ sectionIndex }: Props) {
         className="absolute inset-0 bg-cover bg-center"
         style={{ backgroundImage: `url('${MEDIA.backgrounds.substack}')` }}
       />
+      {/* 40% black overlay */}
+      <div 
+        className="absolute inset-0" 
+        style={{ backgroundColor: "rgba(26, 26, 31, 0.4)" }}
+      />
 
       {/* Top gradient */}
-      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-yellow-500 to-transparent opacity-50 z-10" />
-      <div className="absolute top-0 left-0 right-0 h-24 bg-gradient-to-b from-yellow-500/10 to-transparent pointer-events-none z-10" />
+      <div 
+        className="absolute top-0 left-0 right-0 h-px opacity-60 z-10"
+        style={{
+          background: `linear-gradient(to right, transparent, ${theme.accent.lime}, ${theme.highlight.yellow}, ${theme.accent.lime}, transparent)`
+        }}
+      />
+      <div 
+        className="absolute top-0 left-0 right-0 h-24 pointer-events-none z-10"
+        style={{
+          background: `linear-gradient(to bottom, ${theme.highlight.yellowSoft}, transparent)`
+        }}
+      />
 
       {/* Content centered horizontally, starting from top */}
       <div
@@ -64,10 +102,24 @@ export default function SubstackSection({ sectionIndex }: Props) {
         data-animate
         className="relative z-10 w-full max-w-2xl px-8 md:px-12"
       >
-        <h2 className="text-4xl pb-8 bg-[linear-gradient(135deg,#fff_0%,#c47020_20%,#d09a11_40%,#fff_100%)] bg-[length:200%_200%] bg-clip-text text-transparent animate-gradientShift">Latest from Substack</h2>
+        <h2 className="text-4xl pb-8">
+          <ShinyText
+            speed={3}
+            delay={1}
+            color={theme.accent.lime}
+            shineColor="#fff"
+            spread={30}
+            yoyo
+          >
+            Latest from Substack
+          </ShinyText>
+        </h2>
 
         {loading && (
-          <div className="text-yellow-500/70 py-8 text-center">
+          <div 
+            className="py-8 text-center"
+            style={{ color: theme.accent.lime }}
+          >
             Loading latest posts...
           </div>
         )}
@@ -88,16 +140,42 @@ export default function SubstackSection({ sectionIndex }: Props) {
                 rel="noopener noreferrer"
                 className="block group"
               >
-                <div className="backdrop-blur-sm rounded-lg shadow-lg border border-yellow-500/20 p-6 md:p-8 hover:shadow-xl hover:border-yellow-500/40 transition-all">
-                  <h3 className="text-xl pb-4 text-gray-900 font-semibold group-hover:text-yellow-600 transition-colors px-10">
+                <div 
+                  className="backdrop-blur-sm rounded-lg shadow-lg border-2 p-6 md:p-8 transition-all"
+                  style={{
+                    backgroundColor: 'rgba(0, 0, 0, 0.3)',
+                    borderColor: `${theme.primary.light}80`,
+                    boxShadow: `0 10px 30px ${theme.primary.glow}`
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.backgroundColor = 'rgba(0, 0, 0, 0.5)';
+                    e.currentTarget.style.borderColor = theme.accent.lime;
+                    e.currentTarget.style.boxShadow = `0 10px 40px ${theme.accent.limeGlow}, 0 0 30px ${theme.primary.glow}`;
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.backgroundColor = 'rgba(0, 0, 0, 0.3)';
+                    e.currentTarget.style.borderColor = `${theme.primary.light}80`;
+                    e.currentTarget.style.boxShadow = `0 10px 30px ${theme.primary.glow}`;
+                  }}
+                >
+                  <h3 
+                    className="text-xl pb-4 font-semibold transition-colors px-10"
+                    style={{ color: theme.neutral.lighter }}
+                  >
                     {post.title}
                   </h3>
 
-                  <p className="pb-6 text-gray-700 leading-relaxed px-10">
+                  <p 
+                    className="pb-6 leading-relaxed px-10"
+                    style={{ color: theme.neutral.lighter }}
+                  >
                     {post.description}
                   </p>
 
-                  <div className="flex items-center gap-2 text-yellow-600 group-hover:text-yellow-700 transition-colors font-medium px-10">
+                  <div 
+                    className="flex items-center gap-2 transition-colors font-medium px-10"
+                    style={{ color: theme.accent.lime }}
+                  >
                     <span>Read more</span>
                     <svg
                       className="w-5 h-5"
@@ -122,8 +200,18 @@ export default function SubstackSection({ sectionIndex }: Props) {
       </div>
 
       {/* Bottom gradient */}
-      <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-yellow-500/10 to-transparent pointer-events-none z-10" />
-      <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-yellow-500 to-transparent opacity-50 z-10" />
+      <div 
+        className="absolute bottom-0 left-0 right-0 h-24 pointer-events-none z-10"
+        style={{
+          background: `linear-gradient(to top, ${theme.highlight.yellowSoft}, transparent)`
+        }}
+      />
+      <div 
+        className="absolute bottom-0 left-0 right-0 h-px opacity-60 z-10"
+        style={{
+          background: `linear-gradient(to right, transparent, ${theme.accent.lime}, ${theme.highlight.yellow}, ${theme.accent.lime}, transparent)`
+        }}
+      />
     </section>
   );
 }

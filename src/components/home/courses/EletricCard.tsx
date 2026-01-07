@@ -11,6 +11,23 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 
+// Refined Split-Complementary Color Harmony - Magical Fantasy Theme
+const theme = {
+  primary: {
+    base: "#6A4BCF",
+    subtle: "rgba(106, 75, 207, 0.1)",
+  },
+  accent: {
+    lime: "#DAFF0D",
+    limeLight: "#E5FF4D",
+  },
+  neutral: {
+    darkBg: "#1A1A1F",
+    lighter: "#E5E4E8",
+    medium: "#6B6780",
+  },
+};
+
 type EletricCardProps = {
   title: string;
   description: string;
@@ -34,20 +51,48 @@ export default function EletricCard({
       thickness={2}
       style={{ borderRadius: 16 }}
     >
-      <Card className="border-0 h-full min-h-[400px] bg-black/50 backdrop-blur-sm text-white flex flex-col rounded-2xl overflow-hidden">
+      <Card 
+        className="border-0 h-full min-h-[400px] bg-black/50 backdrop-blur-sm flex flex-col rounded-2xl overflow-hidden"
+        style={{
+          color: theme.neutral.lighter
+        }}
+      >
         <CardHeader>
-          <CardTitle className="text-3xl mb-4 font-pirata-one">
+          <CardTitle 
+            className="text-3xl mb-4 font-pirata-one"
+            style={{ color: theme.neutral.lighter }}
+          >
             {title}
           </CardTitle>
-          <CardDescription className="text-gray-400 font-light text-base">
+          <CardDescription 
+            className="font-light text-base"
+            style={{ color: theme.neutral.lighter }}
+          >
             {description}
           </CardDescription>
         </CardHeader>
-        <CardContent className="text-gray-400 font-light text-base"></CardContent>
+        <CardContent 
+          className="font-light text-base"
+          style={{ color: theme.neutral.medium }}
+        >
+        </CardContent>
         <CardFooter className="mt-auto px-6">
           <Button
             variant="outline"
-            className="w-full bg-linear-to-r from-amber-400 to-amber-400 hover:from-amber-300 hover:to-amber-300 text-zinc-900 border-0 rounded-xl py-6 flex items-center justify-center gap-2 font-semibold transition-all duration-300 hover:shadow-[0_4px_24px_rgba(251,191,36,0.4)]"
+            className="w-full border-0 rounded-xl py-6 flex items-center justify-center gap-2 font-semibold transition-all duration-300"
+            style={{
+              backgroundColor: theme.accent.lime,
+              color: theme.neutral.darkBg,
+              boxShadow: `0 4px 20px ${theme.accent.lime}40`
+            }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.backgroundColor = theme.accent.limeLight;
+              e.currentTarget.style.boxShadow = `0 4px 24px ${theme.accent.lime}70`;
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.backgroundColor = theme.accent.lime;
+              e.currentTarget.style.boxShadow = `0 4px 20px ${theme.accent.lime}40`;
+            }}
             asChild
           >
             <Link href={href || "#"}>

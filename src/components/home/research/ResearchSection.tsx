@@ -1,5 +1,26 @@
 import Link from "next/link";
 import { MEDIA } from "@/lib/media";
+import ShinyText from "@/components/ui/shinytext";
+
+// Refined Split-Complementary Color Harmony - Magical Fantasy Theme
+const theme = {
+  primary: {
+    base: "#6A4BCF",
+    light: "#B9A7FF",
+    glow: "rgba(106, 75, 207, 0.3)",
+  },
+  accent: {
+    lime: "#DAFF0D",
+    limeLight: "#E5FF4D",
+  },
+  highlight: {
+    yellow: "#FFD85A",
+    yellowSoft: "rgba(255, 216, 90, 0.2)",
+  },
+  neutral: {
+    lighter: "#E5E4E8",
+  },
+};
 
 interface ResearchSectionProps {
   sectionIndex?: number;
@@ -84,12 +105,37 @@ export default function ResearchSection({
         className="absolute inset-0 bg-cover bg-no-repeat bg-center"
         style={{ backgroundImage: `url('${MEDIA.backgrounds.research}')` }}
       />
+      {/* 40% black overlay */}
+      <div 
+        className="absolute inset-0" 
+        style={{ backgroundColor: "rgba(26, 26, 31, 0.4)" }}
+      />
 
       {/* Transições top/bottom */}
-      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-yellow-500 to-transparent opacity-50 z-10" />
-      <div className="absolute top-0 left-0 right-0 h-24 bg-gradient-to-b from-yellow-500/10 to-transparent pointer-events-none z-10" />
-      <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-yellow-500/10 to-transparent pointer-events-none z-10" />
-      <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-yellow-500 to-transparent opacity-50 z-10" />
+      <div 
+        className="absolute top-0 left-0 right-0 h-px opacity-60 z-10"
+        style={{
+          background: `linear-gradient(to right, transparent, ${theme.accent.lime}, ${theme.highlight.yellow}, ${theme.accent.lime}, transparent)`
+        }}
+      />
+      <div 
+        className="absolute top-0 left-0 right-0 h-24 pointer-events-none z-10"
+        style={{
+          background: `linear-gradient(to bottom, ${theme.highlight.yellowSoft}, transparent)`
+        }}
+      />
+      <div 
+        className="absolute bottom-0 left-0 right-0 h-24 pointer-events-none z-10"
+        style={{
+          background: `linear-gradient(to top, ${theme.highlight.yellowSoft}, transparent)`
+        }}
+      />
+      <div 
+        className="absolute bottom-0 left-0 right-0 h-px opacity-60 z-10"
+        style={{
+          background: `linear-gradient(to right, transparent, ${theme.accent.lime}, ${theme.highlight.yellow}, ${theme.accent.lime}, transparent)`
+        }}
+      />
 
       <div
         data-section-content
@@ -97,10 +143,22 @@ export default function ResearchSection({
       >
         {/* Header */}
         <div data-animate className="text-center mb-12 md:mb-16">
-          <h2 className="text-3xl md:text-4xl font-semibold tracking-tight mb-4 bg-[linear-gradient(135deg,#fff_0%,#c47020_20%,#d09a11_40%,#fff_100%)] bg-[length:200%_200%] bg-clip-text text-transparent inline-block whitespace-nowrap animate-gradientShift">
-            Research & Publications
+          <h2 className="text-3xl md:text-4xl font-semibold tracking-tight mb-4 inline-block whitespace-nowrap">
+            <ShinyText
+              speed={3}
+              delay={1}
+              color={theme.accent.lime}
+              shineColor="#fff"
+              spread={30}
+              yoyo
+            >
+              Research & Publications
+            </ShinyText>
           </h2>
-          <p className="text-white/80 text-base md:text-lg mt-4 max-w-3xl mx-auto">
+          <p 
+            className="text-base md:text-lg mt-4 max-w-3xl mx-auto"
+            style={{ color: theme.neutral.lighter }}
+          >
             Evidence-based research supporting the Teacher-Gamer methodology
           </p>
         </div>
@@ -150,16 +208,29 @@ export default function ResearchSection({
                     </div>
 
                     {/* Barra "tipo" / autores / ano */}
-                    <div className="mt-3 bg-black/70 border border-amber-500/40 rounded px-2 mb-6 py-1 flex flex-col gap-1 text-xs text-amber-100 cursor-pointer mx-1">
+                    <div 
+                      className="mt-3 border-2 rounded px-2 mb-6 py-1 flex flex-col gap-1 text-xs cursor-pointer mx-1 backdrop-blur-sm"
+                      style={{
+                        backgroundColor: 'rgba(0, 0, 0, 0.5)',
+                        borderColor: theme.accent.lime,
+                        color: theme.neutral.lighter
+                      }}
+                    >
                       <div className="flex justify-between gap-2">
                         <span className="font-semibold truncate cursor-pointer">
                           {article.authors}
                         </span>
-                        <span className="italic text-amber-200/80 truncate cursor-pointer">
+                        <span 
+                          className="italic truncate cursor-pointer"
+                          style={{ color: theme.accent.lime }}
+                        >
                           {article.journal}
                         </span>
                       </div>
-                      <div className="flex justify-between gap-2 text-sm text-amber-200/80">
+                      <div 
+                        className="flex justify-between gap-2 text-sm"
+                        style={{ color: theme.accent.lime }}
+                      >
                         <span>{article.year}</span>
                         <span className="truncate cursor-pointer">
                           {article.views}

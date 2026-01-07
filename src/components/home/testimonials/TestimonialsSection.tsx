@@ -3,7 +3,32 @@
 import Image from "next/image";
 import { useState } from "react";
 import { MEDIA } from "@/lib/media";
+import ShinyText from "@/components/ui/shinytext";
 import "./Testimonials.css";
+
+// Refined Split-Complementary Color Harmony - Magical Fantasy Theme
+const theme = {
+  primary: {
+    base: "#6A4BCF",
+    light: "#B9A7FF",
+    lighter: "#D4C9FF",
+    subtle: "rgba(106, 75, 207, 0.1)",
+    glow: "rgba(106, 75, 207, 0.3)",
+  },
+  accent: {
+    lime: "#DAFF0D",
+    limeLight: "#E5FF4D",
+    limeGlow: "rgba(218, 255, 13, 0.2)",
+  },
+  highlight: {
+    yellow: "#FFD85A",
+    yellowSoft: "rgba(255, 216, 90, 0.2)",
+  },
+  neutral: {
+    darkBg: "#1A1A1F",
+    lighter: "#E5E4E8",
+  },
+};
 
 type message = {
   id: number;
@@ -83,15 +108,27 @@ const Testimonials = ({ sectionIndex }: TestimonialsProps) => {
   const row2Messages = messages.slice(5, 9);
 
   const imageCardClass =
-    "shrink-0 w-[380px] min-h-[120px] md:w-[320px] md:min-h-[110px] border border-yellow-500 rounded-2xl overflow-hidden cursor-pointer will-change-transform transition-transform duration-200 ease-in-out hover:border-yellow-500 hover:-translate-y-1 hover:shadow-[0_6px_18px_rgba(234,179,8,0.4)] relative";
+    "shrink-0 w-[380px] min-h-[120px] md:w-[320px] md:min-h-[110px] border-2 rounded-2xl overflow-hidden cursor-pointer will-change-transform transition-all duration-200 ease-in-out hover:-translate-y-1 relative";
 
   const textCardClass =
-    "shrink-0 w-[380px] min-h-[120px] md:w-[320px] md:min-h-[110px] md:p-5 bg-yellow-100 border border-yellow-500 rounded-2xl p-6 cursor-pointer whitespace-normal will-change-transform transition-transform duration-200 ease-in-out hover:bg-yellow-500 hover:border-yellow-500 hover:-translate-y-1 hover:shadow-[0_6px_18px_yellow-500] disabled:cursor-default text-left";
+    "shrink-0 w-[380px] min-h-[120px] md:w-[320px] md:min-h-[110px] md:p-5 rounded-2xl p-6 cursor-pointer whitespace-normal will-change-transform transition-all duration-200 ease-in-out hover:-translate-y-1 disabled:cursor-default text-left backdrop-blur-sm";
 
   const MessageCard = ({ message }: { message: message }) => {
     if (message.image) {
       return (
-        <div className={imageCardClass}>
+        <div 
+          className={imageCardClass}
+          style={{
+            borderColor: theme.accent.lime,
+            boxShadow: `0 4px 12px ${theme.primary.glow}`,
+          }}
+          onMouseEnter={(e) => {
+            e.currentTarget.style.boxShadow = `0 6px 20px ${theme.accent.limeGlow}, 0 0 30px ${theme.primary.glow}`;
+          }}
+          onMouseLeave={(e) => {
+            e.currentTarget.style.boxShadow = `0 4px 12px ${theme.primary.glow}`;
+          }}
+        >
           <Image
             src={message.image}
             alt="Testimonial"
@@ -122,18 +159,43 @@ const Testimonials = ({ sectionIndex }: TestimonialsProps) => {
         }}
         disabled={!needsTruncation}
         className={textCardClass}
+        style={{
+          backgroundColor: 'rgba(0, 0, 0, 0.3)',
+          borderColor: theme.primary.light,
+          borderWidth: '2px',
+          boxShadow: `0 4px 12px ${theme.primary.glow}`,
+        }}
+        onMouseEnter={(e) => {
+          e.currentTarget.style.backgroundColor = 'rgba(0, 0, 0, 0.5)';
+          e.currentTarget.style.borderColor = theme.accent.lime;
+          e.currentTarget.style.boxShadow = `0 6px 20px ${theme.accent.limeGlow}, 0 0 30px ${theme.primary.glow}`;
+        }}
+        onMouseLeave={(e) => {
+          e.currentTarget.style.backgroundColor = 'rgba(0, 0, 0, 0.3)';
+          e.currentTarget.style.borderColor = theme.primary.light;
+          e.currentTarget.style.boxShadow = `0 4px 12px ${theme.primary.glow}`;
+        }}
       >
         <div className="flex flex-col gap-4 h-full">
-          <p className="text-black text-[0.95rem] leading-[1.6] m-0 grow whitespace-normal">
+          <p 
+            className="text-[0.95rem] leading-[1.6] m-0 grow whitespace-normal"
+            style={{ color: theme.neutral.lighter }}
+          >
             {displayText}
             {needsTruncation && (
-              <span className="ml-2 text-yellow-600 hover:text-yellow-700 font-semibold">
+              <span 
+                className="ml-2 font-semibold"
+                style={{ color: theme.accent.lime }}
+              >
                 {isExpanded ? "Show less" : "Read more"}
               </span>
             )}
           </p>
           <div className="flex items-center gap-3">
-            <span className="text-black text-sm font-medium">
+            <span 
+              className="text-sm font-medium"
+              style={{ color: theme.neutral.lighter }}
+            >
               {message.handle}
             </span>
           </div>
@@ -178,16 +240,40 @@ const Testimonials = ({ sectionIndex }: TestimonialsProps) => {
         className="absolute inset-0 bg-cover bg-no-repeat bg-center"
         style={{ backgroundImage: `url('${MEDIA.backgrounds.testimonials}')` }}
       />
+      {/* 40% black overlay */}
+      <div 
+        className="absolute inset-0" 
+        style={{ backgroundColor: "rgba(26, 26, 31, 0.4)" }}
+      />
 
       {/* Top horizontal transition element */}
-      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-yellow-500 to-transparent opacity-50 z-10" />
-      <div className="absolute top-0 left-0 right-0 h-24 bg-gradient-to-b from-yellow-500/10 to-transparent pointer-events-none z-10" />
+      <div 
+        className="absolute top-0 left-0 right-0 h-px opacity-60 z-10"
+        style={{
+          background: `linear-gradient(to right, transparent, ${theme.accent.lime}, ${theme.highlight.yellow}, ${theme.accent.lime}, transparent)`
+        }}
+      />
+      <div 
+        className="absolute top-0 left-0 right-0 h-24 pointer-events-none z-10"
+        style={{
+          background: `linear-gradient(to bottom, ${theme.highlight.yellowSoft}, transparent)`
+        }}
+      />
 
       {/* Content */}
       <div data-section-content className="max-w-7xl mx-auto relative z-10">
         <div data-animate className="text-center mb-16">
-          <h3 className="text-4xl font-semibold tracking-tight mb-4 bg-[linear-gradient(135deg,#fff_0%,#c47020_20%,#d09a11_40%,#fff_100%)] bg-[length:200%_200%] bg-clip-text text-transparent text-center inline-block whitespace-nowrap animate-gradientShift">
-            Testimonials
+          <h3 className="text-4xl font-semibold tracking-tight mb-4 text-center inline-block whitespace-nowrap">
+            <ShinyText
+              speed={3}
+              delay={1}
+              color={theme.accent.lime}
+              shineColor="#fff"
+              spread={30}
+              yoyo
+            >
+              Testimonials
+            </ShinyText>
           </h3>
         </div>
 
@@ -198,8 +284,18 @@ const Testimonials = ({ sectionIndex }: TestimonialsProps) => {
       </div>
 
       {/* Bottom horizontal transition element */}
-      <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-yellow-500/10 to-transparent pointer-events-none z-10" />
-      <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-yellow-500 to-transparent opacity-50 z-10" />
+      <div 
+        className="absolute bottom-0 left-0 right-0 h-24 pointer-events-none z-10"
+        style={{
+          background: `linear-gradient(to top, ${theme.highlight.yellowSoft}, transparent)`
+        }}
+      />
+      <div 
+        className="absolute bottom-0 left-0 right-0 h-px opacity-60 z-10"
+        style={{
+          background: `linear-gradient(to right, transparent, ${theme.accent.lime}, ${theme.highlight.yellow}, ${theme.accent.lime}, transparent)`
+        }}
+      />
     </section>
   );
 };

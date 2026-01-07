@@ -89,10 +89,10 @@ const CombinedHeroSection = forwardRef<HTMLElement>((_props, ref) => {
       className="relative w-full overflow-hidden bg-cover bg-center"
       style={{ backgroundImage: `url('${MEDIA.backgrounds.hero}')` }}
     >
-      {/* 60% black overlay - provides contrast while maintaining magical atmosphere */}
+      {/* 40% black overlay - provides contrast while maintaining magical atmosphere */}
       <div 
         className="absolute inset-0 animate-hero-fade-in" 
-        style={{ backgroundColor: theme.neutral.black60 }}
+        style={{ backgroundColor: "rgba(26, 26, 31, 0.4)" }}
       />
 
       {/* Hero Section Content with CSS fade-in animation */}
@@ -313,14 +313,17 @@ const CombinedHeroSection = forwardRef<HTMLElement>((_props, ref) => {
           </div>
 
           <div className="flex flex-col text-left space-y-6 md:space-y-4 w-full">
-            <h1 
-              className="bg-clip-text text-transparent animate-gradientShift text-3xl md:text-4xl"
-              style={{
-                backgroundImage: `linear-gradient(135deg, ${theme.accent.lime} 0%, ${theme.highlight.yellow} 30%, ${theme.accent.lime} 60%, ${theme.accent.limeLight} 100%)`,
-                backgroundSize: '200% 200%'
-              }}
-            >
-              The Teacher-Gamer Handbook
+            <h1 className="text-3xl md:text-4xl">
+              <ShinyText
+                speed={3}
+                delay={1}
+                color={theme.accent.lime}
+                shineColor="#fff"
+                spread={30}
+                yoyo
+              >
+                The Teacher-Gamer Handbook
+              </ShinyText>
             </h1>
 
             <h2 

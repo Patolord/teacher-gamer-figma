@@ -1,7 +1,25 @@
 "use client";
 
 import { MEDIA } from "@/lib/media";
+import ShinyText from "@/components/ui/shinytext";
 import EletricCard from "./EletricCard";
+
+// Refined Split-Complementary Color Harmony - Magical Fantasy Theme
+const theme = {
+  primary: {
+    base: "#6A4BCF",
+    light: "#B9A7FF",
+    glow: "rgba(106, 75, 207, 0.3)",
+  },
+  accent: {
+    lime: "#DAFF0D",
+    limeLight: "#E5FF4D",
+  },
+  highlight: {
+    yellow: "#FFD85A",
+    yellowSoft: "rgba(255, 216, 90, 0.2)",
+  },
+};
 
 interface CoursesSectionProps {
   sectionIndex?: number;
@@ -49,14 +67,39 @@ export default function CoursesSection({
       className="relative w-full min-h-screen flex items-center justify-center bg-cover bg-center py-40"
       style={{ backgroundImage: `url('${MEDIA.backgrounds.courses}')` }}
     >
-      {/* Top horizontal transition element */}
-      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-yellow-500 to-transparent opacity-50" />
-      <div className="absolute top-0 left-0 right-0 h-24 bg-gradient-to-b from-yellow-500/10 to-transparent pointer-events-none" />
+      {/* 40% black overlay */}
+      <div 
+        className="absolute inset-0" 
+        style={{ backgroundColor: "rgba(26, 26, 31, 0.4)" }}
+      />
 
-      <div className="container mx-auto px-8 relative z-10">
+      {/* Top horizontal transition element */}
+      <div 
+        className="absolute top-0 left-0 right-0 h-px opacity-60"
+        style={{
+          background: `linear-gradient(to right, transparent, ${theme.accent.lime}, ${theme.highlight.yellow}, ${theme.accent.lime}, transparent)`
+        }}
+      />
+      <div 
+        className="absolute top-0 left-0 right-0 h-24 pointer-events-none"
+        style={{
+          background: `linear-gradient(to bottom, ${theme.highlight.yellowSoft}, transparent)`
+        }}
+      />
+
+      <div className="container mx-auto px-8 relative" style={{ zIndex: 10 }}>
         <div data-animate className="text-center mb-16">
-          <h2 className="text-4xl font-semibold tracking-tight mb-4 bg-[linear-gradient(135deg,#fff_0%,#c47020_20%,#d09a11_40%,#fff_100%)] bg-[length:200%_200%] bg-clip-text text-transparent text-center inline-block animate-gradientShift">
-            Choose your next Adventure!
+          <h2 className="text-4xl font-semibold tracking-tight mb-4 text-center inline-block">
+            <ShinyText
+              speed={3}
+              delay={1}
+              color={theme.accent.lime}
+              shineColor="#fff"
+              spread={30}
+              yoyo
+            >
+              Choose your next Adventure!
+            </ShinyText>
           </h2>
         </div>
         <div
@@ -77,8 +120,18 @@ export default function CoursesSection({
       </div>
 
       {/* Bottom horizontal transition element */}
-      <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-yellow-500/10 to-transparent pointer-events-none" />
-      <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-yellow-500 to-transparent opacity-50" />
+      <div 
+        className="absolute bottom-0 left-0 right-0 h-24 pointer-events-none"
+        style={{
+          background: `linear-gradient(to top, ${theme.highlight.yellowSoft}, transparent)`
+        }}
+      />
+      <div 
+        className="absolute bottom-0 left-0 right-0 h-px opacity-60"
+        style={{
+          background: `linear-gradient(to right, transparent, ${theme.accent.lime}, ${theme.highlight.yellow}, ${theme.accent.lime}, transparent)`
+        }}
+      />
     </section>
   );
 }
