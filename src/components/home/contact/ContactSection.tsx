@@ -308,10 +308,12 @@ export default function ContactSection({ sectionIndex }: ContactSectionProps) {
               <Mail className="w-6 h-6 transition-colors" style={{ color: theme.neutral.lighter }} />
             </a>
           </div>
-           {/* CTA to Full Contact Page */}
+           {/* CTA to Donate via PayPal */}
         <div className="text-center mb-12">
-          <Link
-            href="/contact"
+          <a
+            href="https://www.paypal.com/paypalme/teachergamer"
+            target="_blank"
+            rel="noopener noreferrer"
             className="inline-flex items-center gap-2 px-6 py-3 font-bold rounded-full transition-all hover:gap-3"
             style={{
               backgroundColor: theme.accent.lime,
@@ -328,7 +330,7 @@ export default function ContactSection({ sectionIndex }: ContactSectionProps) {
             }}
           >
             Donate!  
-          </Link>
+          </a>
         </div>
           {/* CTA to Full Contact Page */}
           <div className="text-center mb-12">
