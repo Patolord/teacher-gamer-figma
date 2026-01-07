@@ -14,49 +14,6 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { MEDIA } from "@/lib/media";
 
-// Refined Split-Complementary Color Harmony - Magical Fantasy Theme
-const theme = {
-  // Primary - Deep Purple (30%)
-  primary: {
-    base: "#6A4BCF",
-    light: "#B9A7FF", // Soft Lavender
-    lighter: "#D4C9FF",
-    dark: "#5538B5",
-    subtle: "rgba(106, 75, 207, 0.1)",
-    glow: "rgba(106, 75, 207, 0.3)",
-  },
-  
-  // Accent - Lime Yellow (10% for CTAs, badges, highlights)
-  accent: {
-    lime: "#DAFF0D",
-    limeLight: "#E5FF4D",
-    limeDark: "#C5E600",
-    limeGlow: "rgba(218, 255, 13, 0.2)",
-  },
-  
-  // Highlight - Warm Yellow (secondary accent use)
-  highlight: {
-    yellow: "#FFD85A",
-    yellowLight: "#FFE699",
-    yellowDark: "#E6C040",
-    yellowSoft: "rgba(255, 216, 90, 0.2)",
-  },
-  
-  // Neutral - Refined Grays & Blacks (60% background/base)
-  neutral: {
-    darkBg: "#1A1A1F", // Dark Background
-    dark: "#2A2A32",
-    medium: "#6B6780",
-    light: "#B8B5C4",
-    lighter: "#E5E4E8",
-    white: "#F9F9F9", // Neutral White
-    subtle: "rgba(107, 103, 128, 0.1)",
-    black60: "rgba(26, 26, 31, 0.6)", // 60% dark overlay
-    black80: "rgba(26, 26, 31, 0.8)", // 80% dark overlay
-    black90: "rgba(26, 26, 31, 0.9)", // 90% dark overlay
-  },
-};
-
 const bookFeatures = [
   "📘 300 pages of creative strategies and lesson plans",
   "🎲 36 life skills through collaborative RPG experiences",
@@ -119,10 +76,7 @@ export default function ShopPage() {
         className="fixed inset-0 bg-cover bg-center"
         style={{ backgroundImage: `url('${MEDIA.backgrounds.hero}')` }}
       />
-      <div 
-        className="fixed inset-0" 
-        style={{ backgroundColor: theme.neutral.black80 }}
-      />
+      <div className="fixed inset-0 bg-shop-neutral-black-80" />
 
       {/* Content */}
       <div className="relative z-10">
@@ -130,16 +84,7 @@ export default function ShopPage() {
         <div className="container mx-auto px-4 pt-6 pb-2">
           <Link
             href="/home"
-            className="inline-flex items-center gap-2 transition-colors"
-            style={{ 
-              color: theme.neutral.lighter,
-            }}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.color = theme.accent.lime;
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.color = theme.neutral.lighter;
-            }}
+            className="inline-flex items-center gap-2 text-shop-neutral-lighter hover:text-shop-accent-lime transition-colors"
           >
             <ArrowLeft className="w-5 h-5" />
             Back to Home
@@ -152,20 +97,9 @@ export default function ShopPage() {
             <div className="grid lg:grid-cols-2 gap-12 items-start">
               {/* Book Image Section */}
               <div className="space-y-6">
-                <div className="relative aspect-[3/4] w-full max-w-md mx-auto">
-                  <div 
-                    className="absolute inset-0 rounded-2xl blur-3xl"
-                    style={{ 
-                      background: `radial-gradient(circle, ${theme.accent.limeGlow}, ${theme.highlight.yellowSoft})` 
-                    }}
-                  />
-                  <div 
-                    className="relative w-full h-full rounded-2xl overflow-hidden shadow-2xl"
-                    style={{
-                      border: `4px solid ${theme.primary.base}`,
-                      boxShadow: `0 25px 50px -12px ${theme.primary.glow}, 0 0 60px ${theme.primary.subtle}`
-                    }}
-                  >
+                <div className="relative aspect-3/4 w-full max-w-md mx-auto">
+                  <div className="absolute inset-0 rounded-2xl blur-3xl bg-gradient-to-br from-shop-accent-lime-glow to-shop-highlight-yellow-soft" />
+                  <div className="relative w-full h-full rounded-2xl overflow-hidden border-4 border-shop-primary-base shadow-[0_25px_50px_-12px_var(--color-shop-primary-glow),0_0_60px_var(--color-shop-primary-subtle)]">
                     <Image
                       src={MEDIA.assets.bookCover}
                       alt="The Teacher-Gamer Handbook Cover"
@@ -178,34 +112,13 @@ export default function ShopPage() {
                 </div>
 
                 {/* Rating/Reviews */}
-                <div 
-                  className="backdrop-blur-sm rounded-xl p-6 max-w-md mx-auto"
-                  style={{
-                    backgroundColor: theme.primary.subtle,
-                    border: `2px solid ${theme.primary.light}40`,
-                    boxShadow: `0 10px 30px ${theme.primary.glow}`
-                  }}
-                >
+                <div className="backdrop-blur-sm rounded-xl p-6 max-w-md mx-auto bg-shop-primary-subtle border-2 border-shop-primary-light/25 shadow-[0_10px_30px_var(--color-shop-primary-glow)]">
                   <div className="flex items-center justify-center gap-2 mb-2">
                     {[...Array(5)].map((_, i) => (
-                      <Star 
-                        key={i} 
-                        className="w-5 h-5" 
-                        style={{ 
-                          color: theme.accent.lime, 
-                          fill: theme.accent.lime 
-                        }} 
-                    {[1, 2, 3, 4, 5].map((n) => (
-                      <Star
-                        key={n}
-                        className="w-5 h-5 text-yellow-400 fill-yellow-400"
-                      />
+                      <Star key={i} className="w-5 h-5 text-shop-accent-lime fill-shop-accent-lime" />
                     ))}
                   </div>
-                  <p 
-                    className="text-center text-lg font-semibold"
-                    style={{ color: theme.neutral.lighter }}
-                  >
+                  <p className="text-center text-lg font-semibold text-shop-neutral-lighter">
                     4.9/5 from 200+ Educators
                   </p>
                 </div>
@@ -214,168 +127,47 @@ export default function ShopPage() {
               {/* Book Details Section */}
               <div className="space-y-8">
                 <div className="space-y-4">
-                  <div 
-                    className="inline-flex items-center gap-2 px-4 py-2 rounded-full backdrop-blur-sm"
-                    style={{
-                      backgroundColor: theme.primary.subtle,
-                      border: `2px solid ${theme.primary.light}`,
-                      boxShadow: `0 0 20px ${theme.primary.glow}`
-                    }}
-                  >
-                    <Book 
-                      className="w-4 h-4" 
-                      style={{ color: theme.accent.lime }}
-                    />
-                    <span 
-                      className="text-sm font-semibold"
-                      style={{ color: theme.neutral.lighter }}
-                    >
+                  <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full backdrop-blur-sm bg-shop-primary-subtle border-2 border-shop-primary-light shadow-[0_0_20px_var(--color-shop-primary-glow)]">
+                    <Book className="w-4 h-4 text-shop-accent-lime" />
+                    <span className="text-sm font-semibold text-shop-neutral-lighter">
                       Educational Resource
                     </span>
                   </div>
 
-                  <h1 
-                    className="text-4xl md:text-5xl font-bold leading-tight"
-                    style={{ color: theme.neutral.lighter }}
-                  >
+                  <h1 className="text-4xl md:text-5xl font-bold leading-tight text-shop-neutral-lighter">
                     The Teacher-Gamer Handbook
                   </h1>
 
-                  <p 
-                    className="text-xl leading-relaxed"
-                    style={{ color: theme.neutral.lighter }}
-                  >
+                  <p className="text-xl leading-relaxed text-shop-neutral-lighter">
                     Build literacy. Spark imagination. Empower learners. Transform
                     classrooms into immersive adventures where students learn by
                     playing, failing, and growing together.
-                  <p className="text-xl text-white/90 leading-relaxed">
-                    Build literacy. Spark imagination. Empower learners.
-                    Transform classrooms into immersive adventures where
-                    students learn by playing, failing, and growing together.
                   </p>
                 </div>
 
                 {/* Price */}
-                <div 
-                  className="backdrop-blur-sm rounded-xl p-6"
-                  style={{
-                    backgroundColor: theme.primary.subtle,
-                    border: `2px solid ${theme.primary.light}40`,
-                    boxShadow: `0 10px 30px ${theme.primary.glow}`
-                  }}
-                >
+                <div className="backdrop-blur-sm rounded-xl p-6 bg-shop-primary-subtle border-2 border-shop-primary-light/25 shadow-[0_10px_30px_var(--color-shop-primary-glow)]">
                   <div className="flex items-baseline gap-3 flex-wrap">
-                    <span 
-                      className="text-4xl font-bold"
-                      style={{ color: theme.neutral.lighter }}
-                    >
+                    <span className="text-4xl font-bold text-shop-neutral-lighter">
                       $39.99 USD
                     </span>
-                    <span 
-                      className="text-lg line-through"
-                      style={{ color: theme.neutral.light }}
-                    >
+                    <span className="text-lg line-through text-shop-neutral-light">
                       $59.99 USD
                     </span>
-                    <span 
-                      className="px-3 py-1 text-sm font-semibold rounded-full"
-                      style={{
-                        backgroundColor: theme.accent.lime,
-                        color: theme.neutral.darkBg
-                      }}
-                    >
-                <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20">
-                  <div className="flex items-baseline gap-3">
-                    <span className="text-4xl font-bold text-white">
-                      $39.99 USD
-                    </span>
-                    <span className="text-lg text-white/60 line-through">
-                      $59.99 USD
-                    </span>
-                    <span className="px-3 py-1 bg-amber-400 text-zinc-900 text-sm font-semibold rounded-full">
+                    <span className="px-3 py-1 text-sm font-semibold rounded-full bg-shop-accent-lime text-shop-neutral-dark-bg">
                       33% OFF
                     </span>
                   </div>
-                  <p 
-                    className="mt-2"
-                    style={{ color: theme.neutral.lighter }}
-                  >
+                  <p className="mt-2 text-shop-neutral-lighter">
                     Digital & Physical versions available
                   </p>
                 </div>
+
                 <div className="flex flex-col gap-4">
-                {/* Buy Button */}
-                <Button
-                  size="lg"
-                  className="w-full text-lg font-bold py-6 transition-all duration-300"
-                  style={{
-                    backgroundColor: theme.accent.lime,
-                    color: theme.neutral.darkBg,
-                    boxShadow: `0 4px 20px ${theme.accent.limeGlow}, 0 0 40px ${theme.highlight.yellowSoft}`,
-                  }}
-                  onClick={handleCheckout}
-                  disabled={isLoading}
-                  onMouseEnter={(e) => {
-                    if (!isLoading) {
-                      e.currentTarget.style.backgroundColor = theme.accent.limeLight;
-                      e.currentTarget.style.boxShadow = `0 6px 30px ${theme.accent.lime}70, 0 0 50px ${theme.highlight.yellow}40`;
-                    }
-                  }}
-                  onMouseLeave={(e) => {
-                    e.currentTarget.style.backgroundColor = theme.accent.lime;
-                    e.currentTarget.style.boxShadow = `0 4px 20px ${theme.accent.limeGlow}, 0 0 40px ${theme.highlight.yellowSoft}`;
-                  }}
-                >
-                  {isLoading ? (
-                    <>
-                      <Loader2 className="w-5 h-5 mr-2 animate-spin" />
-                      Processing...
-                    </>
-                  ) : (
-                    <>
-                      <ShoppingCart className="w-5 h-5 mr-2" />
-                      Buy Now
-                    </>
-                  )}
-                </Button>
-                {/* Buy the PDF Button */}
-                <Button
-                  size="lg"
-                  className="w-full text-lg font-bold py-6 transition-all duration-300"
-                  style={{
-                    backgroundColor: theme.primary.base,
-                    color: theme.neutral.white,
-                    boxShadow: `0 4px 20px ${theme.primary.glow}`,
-                  }}
-                  onClick={handleCheckout}
-                  disabled={isLoading}
-                  onMouseEnter={(e) => {
-                    if (!isLoading) {
-                      e.currentTarget.style.backgroundColor = theme.primary.light;
-                      e.currentTarget.style.boxShadow = `0 6px 30px ${theme.primary.glow}`;
-                    }
-                  }}
-                  onMouseLeave={(e) => {
-                    e.currentTarget.style.backgroundColor = theme.primary.base;
-                    e.currentTarget.style.boxShadow = `0 4px 20px ${theme.primary.glow}`;
-                  }}
-                >
-                  {isLoading ? (
-                    <>
-                      <Loader2 className="w-5 h-5 mr-2 animate-spin" />
-                      Processing...
-                    </>
-                  ) : (
-                    <>
-                      <ShoppingCart className="w-5 h-5 mr-2" />
-                      Buy The PDF
-                    </>
-                  )}
-                </Button>
                   {/* Buy Button */}
                   <Button
                     size="lg"
-                    className="w-full text-lg font-bold bg-amber-400 hover:bg-amber-300 text-zinc-900 py-6"
+                    className="w-full text-lg font-bold py-6 transition-all duration-300 bg-shop-accent-lime text-shop-neutral-dark-bg hover:bg-shop-accent-lime-light shadow-[0_4px_20px_var(--color-shop-accent-lime-glow),0_0_40px_var(--color-shop-highlight-yellow-soft)] hover:shadow-[0_6px_30px_rgba(218,255,13,0.45),0_0_50px_rgba(255,216,90,0.25)]"
                     onClick={handleCheckout}
                     disabled={isLoading}
                   >
@@ -391,10 +183,11 @@ export default function ShopPage() {
                       </>
                     )}
                   </Button>
+
                   {/* Buy the PDF Button */}
                   <Button
                     size="lg"
-                    className="w-full text-lg font-bold bg-from bg-blue-500 hover:bg-blue-700 text-white py-6"
+                    className="w-full text-lg font-bold py-6 transition-all duration-300 bg-shop-primary-base text-shop-neutral-white hover:bg-shop-primary-light shadow-[0_4px_20px_var(--color-shop-primary-glow)] hover:shadow-[0_6px_30px_var(--color-shop-primary-glow)]"
                     onClick={handleCheckout}
                     disabled={isLoading}
                   >
@@ -414,21 +207,14 @@ export default function ShopPage() {
 
                 {/* What's Inside */}
                 <div className="space-y-4">
-                  <h2 
-                    className="text-2xl font-bold"
-                    style={{ color: theme.neutral.lighter }}
-                  >
-                  <h2 className="text-2xl font-bold text-white">
+                  <h2 className="text-2xl font-bold text-shop-neutral-lighter">
                     What's Inside
                   </h2>
                   <ul className="space-y-3">
-                    {bookFeatures.map((feature) => (
+                    {bookFeatures.map((feature, index) => (
                       <li
                         key={index}
-                        className="flex items-start gap-3 text-lg"
-                        style={{ color: theme.neutral.lighter }}
-                        key={feature}
-                        className="flex items-start gap-3 text-white/90"
+                        className="flex items-start gap-3 text-lg text-shop-neutral-lighter"
                       >
                         <span>{feature}</span>
                       </li>
@@ -440,41 +226,22 @@ export default function ShopPage() {
 
             {/* Benefits Section */}
             <div className="mt-20 space-y-8">
-              <h2 
-                className="text-3xl font-bold text-center"
-                style={{ color: theme.neutral.lighter }}
-              >
+              <h2 className="text-3xl font-bold text-center text-shop-neutral-lighter">
                 Why Educators Love Our Resources
               </h2>
               <div className="grid md:grid-cols-3 gap-8">
                 {benefits.map(({ icon: Icon, title, description }) => (
                   <div
                     key={title}
-                    className="backdrop-blur-sm rounded-xl p-6 text-center space-y-4"
-                    style={{
-                      backgroundColor: theme.primary.subtle,
-                      border: `2px solid ${theme.primary.light}40`,
-                      boxShadow: `0 10px 30px ${theme.primary.glow}`
-                    }}
+                    className="backdrop-blur-sm rounded-xl p-6 text-center space-y-4 bg-shop-primary-subtle border-2 border-shop-primary-light/25 shadow-[0_10px_30px_var(--color-shop-primary-glow)]"
                   >
-                    <div 
-                      className="w-16 h-16 mx-auto rounded-full flex items-center justify-center"
-                      style={{ backgroundColor: `${theme.accent.lime}20` }}
-                    >
-                      <Icon 
-                        className="w-8 h-8" 
-                        style={{ color: theme.accent.lime }}
-                      />
+                    <div className="w-16 h-16 mx-auto rounded-full flex items-center justify-center bg-shop-accent-lime-glow">
+                      <Icon className="w-8 h-8 text-shop-accent-lime" />
                     </div>
-                    <h3 
-                      className="text-xl font-bold"
-                      style={{ color: theme.neutral.lighter }}
-                    >
+                    <h3 className="text-xl font-bold text-shop-neutral-lighter">
                       {title}
                     </h3>
-                    <p style={{ color: theme.neutral.light }}>
-                      {description}
-                    </p>
+                    <p className="text-shop-neutral-light">{description}</p>
                   </div>
                 ))}
               </div>
@@ -482,42 +249,18 @@ export default function ShopPage() {
 
             {/* Testimonial */}
             <div className="mt-20 max-w-3xl mx-auto">
-              <div 
-                className="backdrop-blur-sm rounded-xl p-8"
-                style={{
-                  backgroundColor: theme.primary.subtle,
-                  border: `2px solid ${theme.primary.light}40`,
-                  boxShadow: `0 10px 30px ${theme.primary.glow}`
-                }}
-              >
+              <div className="backdrop-blur-sm rounded-xl p-8 bg-shop-primary-subtle border-2 border-shop-primary-light/25 shadow-[0_10px_30px_var(--color-shop-primary-glow)]">
                 <div className="flex items-center gap-2 mb-4">
                   {[...Array(5)].map((_, i) => (
-                    <Star 
-                      key={i} 
-                      className="w-5 h-5" 
-                      style={{ 
-                        color: theme.accent.lime, 
-                        fill: theme.accent.lime 
-                      }}
-                  {[1, 2, 3, 4, 5].map((n) => (
-                    <Star
-                      key={n}
-                      className="w-5 h-5 text-yellow-400 fill-yellow-400"
-                    />
+                    <Star key={i} className="w-5 h-5 text-shop-accent-lime fill-shop-accent-lime" />
                   ))}
                 </div>
-                <p 
-                  className="text-lg italic mb-4"
-                  style={{ color: theme.neutral.light }}
-                >
+                <p className="text-lg italic mb-4 text-shop-neutral-light">
                   "This handbook transformed my classroom! My students are more
                   engaged, collaborative, and excited to learn. The practical
                   strategies are easy to implement and the results are amazing."
                 </p>
-                <p 
-                  className="font-semibold"
-                  style={{ color: theme.neutral.lighter }}
-                >
+                <p className="font-semibold text-shop-neutral-lighter">
                   - Sarah Johnson, 5th Grade Teacher
                 </p>
               </div>
@@ -525,25 +268,15 @@ export default function ShopPage() {
 
             {/* Products Section */}
             <div className="mt-20 space-y-8">
-              <h2 
-                className="text-3xl font-bold text-center"
-                style={{ color: theme.neutral.lighter }}
-              >
+              <h2 className="text-3xl font-bold text-center text-shop-neutral-lighter">
                 Available Products
               </h2>
 
               {/* Products Grid */}
               <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
                 {/* Product 1: Teacher Gamer Handbook (PDF) */}
-                <div 
-                  className="backdrop-blur-sm rounded-xl overflow-hidden flex flex-col"
-                  style={{
-                    backgroundColor: theme.primary.subtle,
-                    border: `2px solid ${theme.primary.light}40`,
-                    boxShadow: `0 10px 30px ${theme.primary.glow}`
-                  }}
-                >
-                  <div className="relative aspect-[3/4] w-full">
+                <div className="backdrop-blur-sm rounded-xl overflow-hidden flex flex-col bg-shop-primary-subtle border-2 border-shop-primary-light/25 shadow-[0_10px_30px_var(--color-shop-primary-glow)]">
+                  <div className="relative aspect-3/4 w-full">
                     <Image
                       src={MEDIA.assets.bookCover}
                       alt="Teacher Gamer Handbook (PDF)"
@@ -553,32 +286,16 @@ export default function ShopPage() {
                     />
                   </div>
                   <div className="p-6 flex-1 flex flex-col">
-                    <h3 
-                      className="text-lg font-bold mb-4 text-center"
-                      style={{ color: theme.neutral.lighter }}
-                    >
+                    <h3 className="text-lg font-bold mb-4 text-center text-shop-neutral-lighter">
                       Teacher Gamer Handbook (PDF)
                     </h3>
-                    <p 
-                      className="text-2xl font-bold text-center mb-4"
-                      style={{ color: theme.neutral.lighter }}
-                    >
+                    <p className="text-2xl font-bold text-center mb-4 text-shop-neutral-lighter">
                       $29.99 USD
                     </p>
                     <Button
-                      className="w-full font-bold mt-auto transition-all duration-300"
-                      style={{
-                        backgroundColor: theme.accent.lime,
-                        color: theme.neutral.darkBg,
-                      }}
+                      className="w-full font-bold mt-auto transition-all duration-300 bg-shop-accent-lime text-shop-neutral-dark-bg hover:bg-shop-accent-lime-light"
                       onClick={handleCheckout}
                       disabled={isLoading}
-                      onMouseEnter={(e) => {
-                        if (!isLoading) e.currentTarget.style.backgroundColor = theme.accent.limeLight;
-                      }}
-                      onMouseLeave={(e) => {
-                        e.currentTarget.style.backgroundColor = theme.accent.lime;
-                      }}
                     >
                       {isLoading ? (
                         <>
@@ -593,15 +310,8 @@ export default function ShopPage() {
                 </div>
 
                 {/* Product 2: Teacher Gamer Handbook (Softcover / Hardcover) */}
-                <div 
-                  className="backdrop-blur-sm rounded-xl overflow-hidden flex flex-col"
-                  style={{
-                    backgroundColor: theme.primary.subtle,
-                    border: `2px solid ${theme.primary.light}40`,
-                    boxShadow: `0 10px 30px ${theme.primary.glow}`
-                  }}
-                >
-                  <div className="relative aspect-[3/4] w-full">
+                <div className="backdrop-blur-sm rounded-xl overflow-hidden flex flex-col bg-shop-primary-subtle border-2 border-shop-primary-light/25 shadow-[0_10px_30px_var(--color-shop-primary-glow)]">
+                  <div className="relative aspect-3/4 w-full">
                     <Image
                       src={MEDIA.assets.bookCover}
                       alt="Teacher Gamer Handbook (Softcover / Hardcover)"
@@ -611,44 +321,21 @@ export default function ShopPage() {
                     />
                   </div>
                   <div className="p-6 flex-1 flex flex-col">
-                    <h3 
-                      className="text-lg font-bold mb-2 text-center"
-                      style={{ color: theme.neutral.lighter }}
-                    >
+                    <h3 className="text-lg font-bold mb-2 text-center text-shop-neutral-lighter">
                       Teacher Gamer Handbook (Softcover / Hardcover)
                     </h3>
                     <div className="text-center mb-4">
-                      <p 
-                        className="text-sm mb-1"
-                        style={{ color: theme.neutral.light }}
-                      >
+                      <p className="text-sm mb-1 text-shop-neutral-light">
                         Starting From:
                       </p>
-                      <p 
-                        className="text-2xl font-bold"
-                        style={{ color: theme.neutral.lighter }}
-                      >
-                      <p className="text-sm text-white/70 mb-1">
-                        Starting From:
-                      </p>
-                      <p className="text-2xl font-bold text-white">
+                      <p className="text-2xl font-bold text-shop-neutral-lighter">
                         $36.99 USD
                       </p>
                     </div>
                     <Button
-                      className="w-full font-bold mt-auto transition-all duration-300"
-                      style={{
-                        backgroundColor: theme.accent.lime,
-                        color: theme.neutral.darkBg,
-                      }}
+                      className="w-full font-bold mt-auto transition-all duration-300 bg-shop-accent-lime text-shop-neutral-dark-bg hover:bg-shop-accent-lime-light"
                       onClick={handleCheckout}
                       disabled={isLoading}
-                      onMouseEnter={(e) => {
-                        if (!isLoading) e.currentTarget.style.backgroundColor = theme.accent.limeLight;
-                      }}
-                      onMouseLeave={(e) => {
-                        e.currentTarget.style.backgroundColor = theme.accent.lime;
-                      }}
                     >
                       {isLoading ? (
                         <>
@@ -663,15 +350,8 @@ export default function ShopPage() {
                 </div>
 
                 {/* Product 3: Teacher Gamer Screen (Landscape) */}
-                <div 
-                  className="backdrop-blur-sm rounded-xl overflow-hidden flex flex-col"
-                  style={{
-                    backgroundColor: theme.primary.subtle,
-                    border: `2px solid ${theme.primary.light}40`,
-                    boxShadow: `0 10px 30px ${theme.primary.glow}`
-                  }}
-                >
-                  <div className="relative aspect-[3/4] w-full">
+                <div className="backdrop-blur-sm rounded-xl overflow-hidden flex flex-col bg-shop-primary-subtle border-2 border-shop-primary-light/25 shadow-[0_10px_30px_var(--color-shop-primary-glow)]">
+                  <div className="relative aspect-3/4 w-full">
                     <Image
                       src={MEDIA.assets.bookCover}
                       alt="Teacher Gamer Screen (Landscape)"
@@ -681,44 +361,21 @@ export default function ShopPage() {
                     />
                   </div>
                   <div className="p-6 flex-1 flex flex-col">
-                    <h3 
-                      className="text-lg font-bold mb-2 text-center"
-                      style={{ color: theme.neutral.lighter }}
-                    >
+                    <h3 className="text-lg font-bold mb-2 text-center text-shop-neutral-lighter">
                       Teacher Gamer Screen (Landscape)
                     </h3>
                     <div className="text-center mb-4">
-                      <p 
-                        className="text-sm mb-1"
-                        style={{ color: theme.neutral.light }}
-                      >
+                      <p className="text-sm mb-1 text-shop-neutral-light">
                         Starting From:
                       </p>
-                      <p 
-                        className="text-2xl font-bold"
-                        style={{ color: theme.neutral.lighter }}
-                      >
+                      <p className="text-2xl font-bold text-shop-neutral-lighter">
                         $4.99 USD
                       </p>
-                      <p className="text-sm text-white/70 mb-1">
-                        Starting From:
-                      </p>
-                      <p className="text-2xl font-bold text-white">$4.99 USD</p>
                     </div>
                     <Button
-                      className="w-full font-bold mt-auto transition-all duration-300"
-                      style={{
-                        backgroundColor: theme.accent.lime,
-                        color: theme.neutral.darkBg,
-                      }}
+                      className="w-full font-bold mt-auto transition-all duration-300 bg-shop-accent-lime text-shop-neutral-dark-bg hover:bg-shop-accent-lime-light"
                       onClick={handleCheckout}
                       disabled={isLoading}
-                      onMouseEnter={(e) => {
-                        if (!isLoading) e.currentTarget.style.backgroundColor = theme.accent.limeLight;
-                      }}
-                      onMouseLeave={(e) => {
-                        e.currentTarget.style.backgroundColor = theme.accent.lime;
-                      }}
                     >
                       {isLoading ? (
                         <>
@@ -733,15 +390,8 @@ export default function ShopPage() {
                 </div>
 
                 {/* Product 4: Teacher Gamer Screen (Portrait) */}
-                <div 
-                  className="backdrop-blur-sm rounded-xl overflow-hidden flex flex-col"
-                  style={{
-                    backgroundColor: theme.primary.subtle,
-                    border: `2px solid ${theme.primary.light}40`,
-                    boxShadow: `0 10px 30px ${theme.primary.glow}`
-                  }}
-                >
-                  <div className="relative aspect-[3/4] w-full">
+                <div className="backdrop-blur-sm rounded-xl overflow-hidden flex flex-col bg-shop-primary-subtle border-2 border-shop-primary-light/25 shadow-[0_10px_30px_var(--color-shop-primary-glow)]">
+                  <div className="relative aspect-3/4 w-full">
                     <Image
                       src={MEDIA.assets.bookCover}
                       alt="Teacher Gamer Screen (Portrait)"
@@ -751,44 +401,21 @@ export default function ShopPage() {
                     />
                   </div>
                   <div className="p-6 flex-1 flex flex-col">
-                    <h3 
-                      className="text-lg font-bold mb-2 text-center"
-                      style={{ color: theme.neutral.lighter }}
-                    >
+                    <h3 className="text-lg font-bold mb-2 text-center text-shop-neutral-lighter">
                       Teacher Gamer Screen (Portrait)
                     </h3>
                     <div className="text-center mb-4">
-                      <p 
-                        className="text-sm mb-1"
-                        style={{ color: theme.neutral.light }}
-                      >
+                      <p className="text-sm mb-1 text-shop-neutral-light">
                         Starting From:
                       </p>
-                      <p 
-                        className="text-2xl font-bold"
-                        style={{ color: theme.neutral.lighter }}
-                      >
+                      <p className="text-2xl font-bold text-shop-neutral-lighter">
                         $4.99 USD
                       </p>
-                      <p className="text-sm text-white/70 mb-1">
-                        Starting From:
-                      </p>
-                      <p className="text-2xl font-bold text-white">$4.99 USD</p>
                     </div>
                     <Button
-                      className="w-full font-bold mt-auto transition-all duration-300"
-                      style={{
-                        backgroundColor: theme.accent.lime,
-                        color: theme.neutral.darkBg,
-                      }}
+                      className="w-full font-bold mt-auto transition-all duration-300 bg-shop-accent-lime text-shop-neutral-dark-bg hover:bg-shop-accent-lime-light"
                       onClick={handleCheckout}
                       disabled={isLoading}
-                      onMouseEnter={(e) => {
-                        if (!isLoading) e.currentTarget.style.backgroundColor = theme.accent.limeLight;
-                      }}
-                      onMouseLeave={(e) => {
-                        e.currentTarget.style.backgroundColor = theme.accent.lime;
-                      }}
                     >
                       {isLoading ? (
                         <>
@@ -806,42 +433,18 @@ export default function ShopPage() {
 
             {/* CTA Section */}
             <div className="mt-20 text-center space-y-6">
-              <h2 
-                className="text-3xl font-bold"
-                style={{ color: theme.neutral.lighter }}
-              >
+              <h2 className="text-3xl font-bold text-shop-neutral-lighter">
                 Ready to Get Started?
               </h2>
-              <p 
-                className="text-xl max-w-2xl mx-auto"
-                style={{ color: theme.neutral.lighter }}
-              >
+              <p className="text-xl max-w-2xl mx-auto text-shop-neutral-lighter">
                 Explore our collection of educational resources designed to transform
                 your classroom into an engaging learning adventure.
-              <p className="text-xl text-white/80 max-w-2xl mx-auto">
-                Explore our collection of educational resources designed to
-                transform your classroom into an engaging learning adventure.
               </p>
               <Button
                 size="lg"
-                className="text-lg font-bold px-12 py-6 transition-all duration-300"
-                style={{
-                  backgroundColor: theme.accent.lime,
-                  color: theme.neutral.darkBg,
-                  boxShadow: `0 4px 20px ${theme.accent.limeGlow}, 0 0 40px ${theme.highlight.yellowSoft}`,
-                }}
+                className="text-lg font-bold px-12 py-6 transition-all duration-300 bg-shop-accent-lime text-shop-neutral-dark-bg hover:bg-shop-accent-lime-light shadow-[0_4px_20px_var(--color-shop-accent-lime-glow),0_0_40px_var(--color-shop-highlight-yellow-soft)] hover:shadow-[0_6px_30px_rgba(218,255,13,0.45),0_0_50px_rgba(255,216,90,0.25)]"
                 onClick={handleCheckout}
                 disabled={isLoading}
-                onMouseEnter={(e) => {
-                  if (!isLoading) {
-                    e.currentTarget.style.backgroundColor = theme.accent.limeLight;
-                    e.currentTarget.style.boxShadow = `0 6px 30px ${theme.accent.lime}70, 0 0 50px ${theme.highlight.yellow}40`;
-                  }
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.backgroundColor = theme.accent.lime;
-                  e.currentTarget.style.boxShadow = `0 4px 20px ${theme.accent.limeGlow}, 0 0 40px ${theme.highlight.yellowSoft}`;
-                }}
               >
                 {isLoading ? (
                   <>
