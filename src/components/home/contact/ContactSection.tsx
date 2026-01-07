@@ -1,3 +1,4 @@
+
 import Link from "next/link";
 import { MEDIA } from "@/lib/media";
 import ShinyText from "@/components/ui/shinytext";
@@ -299,38 +300,30 @@ export default function ContactSection({ sectionIndex }: ContactSectionProps) {
               <Mail className="w-6 h-6 transition-colors" style={{ color: theme.neutral.lighter }} />
             </a>
           </div>
-           {/* CTA to Donate via PayPal */}
-        <div className="text-center mb-12">
-          <a
-            href="https://www.paypal.com/paypalme/teachergamer"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-6 py-3 font-bold rounded-full transition-all hover:gap-3"
-            style={{
-              backgroundColor: theme.accent.lime,
-              color: theme.neutral.darkBg,
-              boxShadow: `0 4px 24px ${theme.accent.limeLight}40`
-            }}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.backgroundColor = theme.accent.limeLight;
-              e.currentTarget.style.boxShadow = `0 4px 24px ${theme.accent.lime}70`;
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.backgroundColor = theme.accent.lime;
-              e.currentTarget.style.boxShadow = `0 4px 24px ${theme.accent.limeLight}40`;
-            }}
-          >
-            Donate!  
-          </a>
-        </div>
-          {/* CTA to Full Contact Page */}
-          <div className="text-center mb-12">
-            <Link
-              href="/contact"
-              className="inline-flex items-center gap-2 px-6 py-3 bg-linear-to-r from-amber-400 to-amber-400 hover:from-amber-300 hover:to-amber-300 text-zinc-900 font-bold rounded-full transition-all hover:gap-3 hover:shadow-[0_4px_24px_rgba(251,191,36,0.4)]"
+
+          {/* CTA to Donate via PayPal */}
+          <div className="text-center mt-8">
+            <a
+              href="https://www.paypal.com/paypalme/teachergamer"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-6 py-3 font-bold rounded-full transition-all hover:gap-3"
+              style={{
+                backgroundColor: theme.accent.lime,
+                color: theme.neutral.darkBg,
+                boxShadow: `0 4px 24px ${theme.accent.limeLight}40`
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.backgroundColor = theme.accent.limeLight;
+                e.currentTarget.style.boxShadow = `0 4px 24px ${theme.accent.lime}70`;
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.backgroundColor = theme.accent.lime;
+                e.currentTarget.style.boxShadow = `0 4px 24px ${theme.accent.limeLight}40`;
+              }}
             >
-              Donate!
-            </Link>
+              Support the Project
+            </a>
           </div>
         </div>
       </div>
