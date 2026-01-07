@@ -412,3 +412,5 @@ const theme = {
 **Last Updated:** January 5, 2026  
 **Implementation File:** `src/components/home/hero-section/CombinedHeroSection.tsx`
 
+
+

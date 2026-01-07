@@ -120,7 +120,7 @@ export default function ShopPage() {
       {/* Content */}
       <div className="relative z-10">
         {/* Header with Back Button */}
-        <div className="container mx-auto px-4 py-8">
+        <div className="container mx-auto px-4 pt-6 pb-2">
           <Link
             href="/home"
             className="inline-flex items-center gap-2 transition-colors"
@@ -140,7 +140,7 @@ export default function ShopPage() {
         </div>
 
         {/* Main Content */}
-        <div className="container mx-auto px-4 py-12 md:py-20">
+        <div className="container mx-auto px-4 py-6 md:py-10">
           <div className="max-w-6xl mx-auto">
             <div className="grid lg:grid-cols-2 gap-12 items-start">
               {/* Book Image Section */}
