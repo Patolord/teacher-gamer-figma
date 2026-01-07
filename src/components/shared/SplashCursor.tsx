@@ -1361,11 +1361,25 @@ export default function SplashCursor({
     }
 
     function generateColor(): ColorRGB {
-      const c = HSVtoRGB(Math.random(), 1.0, 1.0);
-      c.r *= 0.15;
-      c.g *= 0.15;
-      c.b *= 0.15;
-      return c;
+      // Our theme colors - Magical Fantasy Theme
+      const themeColors = [
+        { r: 0.416, g: 0.294, b: 0.812 }, // Deep Purple #6A4BCF
+        { r: 0.725, g: 0.655, b: 1.0 },   // Soft Lavender #B9A7FF
+        { r: 0.855, g: 1.0, b: 0.051 },   // Lime Yellow #DAFF0D
+        { r: 0.898, g: 1.0, b: 0.302 },   // Lime Light #E5FF4D
+        { r: 1.0, g: 0.847, b: 0.353 },   // Warm Yellow #FFD85A
+        { r: 1.0, g: 0.902, b: 0.6 },     // Yellow Light #FFE699
+      ];
+      
+      // Pick a random color from our theme
+      const color = themeColors[Math.floor(Math.random() * themeColors.length)];
+      
+      // Apply intensity multiplier for subtle effect
+      return {
+        r: color.r * 0.15,
+        g: color.g * 0.15,
+        b: color.b * 0.15,
+      };
     }
 
     function HSVtoRGB(h: number, s: number, v: number): ColorRGB {
