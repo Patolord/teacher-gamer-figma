@@ -41,6 +41,39 @@
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
   --radius-xl: calc(var(--radius) + 4px);
+
+  /* Shop Theme Colors - Magical Fantasy Theme */
+  /* Primary - Deep Purple (30%) */
+  --color-shop-primary-base: #6A4BCF;
+  --color-shop-primary-light: #B9A7FF;
+  --color-shop-primary-lighter: #D4C9FF;
+  --color-shop-primary-dark: #5538B5;
+  --color-shop-primary-subtle: rgba(106, 75, 207, 0.1);
+  --color-shop-primary-glow: rgba(106, 75, 207, 0.3);
+
+  /* Accent - Lime Yellow (10% for CTAs, badges, highlights) */
+  --color-shop-accent-lime: #DAFF0D;
+  --color-shop-accent-lime-light: #E5FF4D;
+  --color-shop-accent-lime-dark: #C5E600;
+  --color-shop-accent-lime-glow: rgba(218, 255, 13, 0.2);
+
+  /* Highlight - Warm Yellow (secondary accent use) */
+  --color-shop-highlight-yellow: #FFD85A;
+  --color-shop-highlight-yellow-light: #FFE699;
+  --color-shop-highlight-yellow-dark: #E6C040;
+  --color-shop-highlight-yellow-soft: rgba(255, 216, 90, 0.2);
+
+  /* Neutral - Refined Grays & Blacks (60% background/base) */
+  --color-shop-neutral-dark-bg: #1A1A1F;
+  --color-shop-neutral-dark: #2A2A32;
+  --color-shop-neutral-medium: #6B6780;
+  --color-shop-neutral-light: #B8B5C4;
+  --color-shop-neutral-lighter: #E5E4E8;
+  --color-shop-neutral-white: #F9F9F9;
+  --color-shop-neutral-subtle: rgba(107, 103, 128, 0.1);
+  --color-shop-neutral-black-60: rgba(26, 26, 31, 0.6);
+  --color-shop-neutral-black-80: rgba(26, 26, 31, 0.8);
+  --color-shop-neutral-black-90: rgba(26, 26, 31, 0.9);
 }
 
 body {
