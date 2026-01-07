@@ -1,6 +1,14 @@
 "use client";
 
-import { ArrowLeft, Award, Book, CheckCircle, Clock, Sparkles, Users } from "lucide-react";
+import {
+  ArrowLeft,
+  Award,
+  Book,
+  CheckCircle,
+  Clock,
+  Sparkles,
+  Users,
+} from "lucide-react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { MEDIA } from "@/lib/media";
@@ -54,7 +62,8 @@ export default function Level2WorldBuilderPage() {
               e.preventDefault();
               window.location.href = "/home";
               setTimeout(() => {
-                const coursesSection = document.getElementById("courses-section");
+                const coursesSection =
+                  document.getElementById("courses-section");
                 if (coursesSection) {
                   coursesSection.scrollIntoView({ behavior: "smooth" });
                 }
@@ -73,13 +82,18 @@ export default function Level2WorldBuilderPage() {
             {/* Header Section */}
             <div className="space-y-6">
               <div className="flex gap-3 flex-wrap">
-                <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#489179]/20 border border-[#489179]/30" style={{ color: "#489179" }}>
+                <div
+                  className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#489179]/20 border border-[#489179]/30"
+                  style={{ color: "#489179" }}
+                >
                   <Sparkles className="w-4 h-4" />
                   <span className="text-sm font-semibold">Advanced Level</span>
                 </div>
                 <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#489179]/10 border border-[#489179]/20 text-white">
                   <Award className="w-4 h-4" />
-                  <span className="text-sm font-semibold">Certification Course</span>
+                  <span className="text-sm font-semibold">
+                    Certification Course
+                  </span>
                 </div>
               </div>
 
@@ -88,7 +102,7 @@ export default function Level2WorldBuilderPage() {
               </h1>
 
               <p className="text-xl text-white/90 leading-relaxed max-w-3xl">
-                Build & implement your own campaign world. Uncharted territory: 
+                Build & implement your own campaign world. Uncharted territory:
                 New stories, creatures, magic & tech.
               </p>
 
@@ -112,8 +126,8 @@ export default function Level2WorldBuilderPage() {
             {/* Prerequisites */}
             <div className="bg-[#489179]/10 backdrop-blur-sm rounded-xl p-6 border border-[#489179]/30">
               <p className="text-white/90">
-                <strong style={{ color: "#489179" }}>Prerequisite:</strong> Level 1 TG 
-                Space-Holder Certificate or equivalent experience
+                <strong style={{ color: "#489179" }}>Prerequisite:</strong>{" "}
+                Level 1 TG Space-Holder Certificate or equivalent experience
               </p>
             </div>
 
@@ -122,7 +136,9 @@ export default function Level2WorldBuilderPage() {
               <div className="flex flex-col md:flex-row items-center justify-between gap-6">
                 <div>
                   <p className="text-3xl font-bold text-white mb-2">$899</p>
-                  <p className="text-white/70">Includes certification project review</p>
+                  <p className="text-white/70">
+                    Includes certification project review
+                  </p>
                 </div>
                 <Button
                   size="lg"
@@ -136,7 +152,9 @@ export default function Level2WorldBuilderPage() {
 
             {/* What You'll Learn */}
             <div className="space-y-6">
-              <h2 className="text-3xl font-bold text-white">What You'll Learn</h2>
+              <h2 className="text-3xl font-bold text-white">
+                What You'll Learn
+              </h2>
               <div className="grid md:grid-cols-3 gap-6">
                 {whatYouWillLearn.map(({ icon: Icon, title, description }) => (
                   <div
@@ -146,7 +164,9 @@ export default function Level2WorldBuilderPage() {
                     <div className="w-12 h-12 mb-4 rounded-full flex items-center justify-center bg-[#489179]/20">
                       <Icon className="w-6 h-6" style={{ color: "#489179" }} />
                     </div>
-                    <h3 className="text-xl font-bold text-white mb-2">{title}</h3>
+                    <h3 className="text-xl font-bold text-white mb-2">
+                      {title}
+                    </h3>
                     <p className="text-white/80">{description}</p>
                   </div>
                 ))}
@@ -158,9 +178,12 @@ export default function Level2WorldBuilderPage() {
               <h2 className="text-3xl font-bold text-white">Course Includes</h2>
               <div className="bg-white/10 backdrop-blur-sm rounded-xl p-8 border border-white/20">
                 <ul className="grid md:grid-cols-2 gap-4">
-                  {courseFeatures.map((feature, index) => (
-                    <li key={index} className="flex items-start gap-3">
-                      <CheckCircle className="w-5 h-5 mt-0.5 shrink-0" style={{ color: "#489179" }} />
+                  {courseFeatures.map((feature) => (
+                    <li key={feature} className="flex items-start gap-3">
+                      <CheckCircle
+                        className="w-5 h-5 mt-0.5 shrink-0"
+                        style={{ color: "#489179" }}
+                      />
                       <span className="text-white/90">{feature}</span>
                     </li>
                   ))}
@@ -170,7 +193,9 @@ export default function Level2WorldBuilderPage() {
 
             {/* Course Curriculum */}
             <div className="space-y-6">
-              <h2 className="text-3xl font-bold text-white">Course Curriculum</h2>
+              <h2 className="text-3xl font-bold text-white">
+                Course Curriculum
+              </h2>
               <div className="space-y-4">
                 {[
                   {
@@ -210,7 +235,10 @@ export default function Level2WorldBuilderPage() {
                   >
                     <div className="flex items-center justify-between">
                       <div>
-                        <p className="text-sm font-semibold mb-1" style={{ color: "#489179" }}>
+                        <p
+                          className="text-sm font-semibold mb-1"
+                          style={{ color: "#489179" }}
+                        >
                           {module.module}
                         </p>
                         <h3 className="text-xl font-bold text-white">
@@ -232,7 +260,8 @@ export default function Level2WorldBuilderPage() {
                 Ready to Build Your World?
               </h2>
               <p className="text-xl text-white/80 max-w-2xl mx-auto">
-                Create an unforgettable campaign that will engage and inspire your students.
+                Create an unforgettable campaign that will engage and inspire
+                your students.
               </p>
               <Button
                 size="lg"
@@ -251,4 +280,3 @@ export default function Level2WorldBuilderPage() {
     </main>
   );
 }
-

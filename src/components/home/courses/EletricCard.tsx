@@ -40,7 +40,7 @@ export default function EletricCard({
   title,
   description,
   color,
-  badge,
+  badge: _badge,
   href,
 }: EletricCardProps) {
   return (

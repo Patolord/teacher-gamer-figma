@@ -1,6 +1,13 @@
 "use client";
 
-import { ArrowLeft, Award, Book, CheckCircle, Clock, GraduationCap, Users } from "lucide-react";
+import {
+  ArrowLeft,
+  Award,
+  CheckCircle,
+  Clock,
+  GraduationCap,
+  Users,
+} from "lucide-react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { MEDIA } from "@/lib/media";
@@ -54,7 +61,8 @@ export default function Level3PlanesWalkerPage() {
               e.preventDefault();
               window.location.href = "/home";
               setTimeout(() => {
-                const coursesSection = document.getElementById("courses-section");
+                const coursesSection =
+                  document.getElementById("courses-section");
                 if (coursesSection) {
                   coursesSection.scrollIntoView({ behavior: "smooth" });
                 }
@@ -73,13 +81,18 @@ export default function Level3PlanesWalkerPage() {
             {/* Header Section */}
             <div className="space-y-6">
               <div className="flex gap-3 flex-wrap">
-                <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#b8411f]/20 border border-[#b8411f]/30" style={{ color: "#b8411f" }}>
+                <div
+                  className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#b8411f]/20 border border-[#b8411f]/30"
+                  style={{ color: "#b8411f" }}
+                >
                   <GraduationCap className="w-4 h-4" />
                   <span className="text-sm font-semibold">Master Level</span>
                 </div>
                 <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#b8411f]/10 border border-[#b8411f]/20 text-white">
                   <Award className="w-4 h-4" />
-                  <span className="text-sm font-semibold">Master Certification</span>
+                  <span className="text-sm font-semibold">
+                    Master Certification
+                  </span>
                 </div>
               </div>
 
@@ -88,7 +101,7 @@ export default function Level3PlanesWalkerPage() {
               </h1>
 
               <p className="text-xl text-white/90 leading-relaxed max-w-3xl">
-                Integrate your own RPGs campaign into your local school system's 
+                Integrate your own RPGs campaign into your local school system's
                 learning objectives with guidance.
               </p>
 
@@ -112,8 +125,9 @@ export default function Level3PlanesWalkerPage() {
             {/* Prerequisites */}
             <div className="bg-[#b8411f]/10 backdrop-blur-sm rounded-xl p-6 border border-[#b8411f]/30">
               <p className="text-white/90">
-                <strong style={{ color: "#b8411f" }}>Prerequisite:</strong> Level 2 TG 
-                World Builder Certificate and at least one year of campaign experience
+                <strong style={{ color: "#b8411f" }}>Prerequisite:</strong>{" "}
+                Level 2 TG World Builder Certificate and at least one year of
+                campaign experience
               </p>
             </div>
 
@@ -122,7 +136,9 @@ export default function Level3PlanesWalkerPage() {
               <div className="flex flex-col md:flex-row items-center justify-between gap-6">
                 <div>
                   <p className="text-3xl font-bold text-white mb-2">$1,299</p>
-                  <p className="text-white/70">Includes 1-on-1 mentorship & consultation</p>
+                  <p className="text-white/70">
+                    Includes 1-on-1 mentorship & consultation
+                  </p>
                 </div>
                 <Button
                   size="lg"
@@ -136,7 +152,9 @@ export default function Level3PlanesWalkerPage() {
 
             {/* What You'll Learn */}
             <div className="space-y-6">
-              <h2 className="text-3xl font-bold text-white">What You'll Learn</h2>
+              <h2 className="text-3xl font-bold text-white">
+                What You'll Learn
+              </h2>
               <div className="grid md:grid-cols-3 gap-6">
                 {whatYouWillLearn.map(({ icon: Icon, title, description }) => (
                   <div
@@ -146,7 +164,9 @@ export default function Level3PlanesWalkerPage() {
                     <div className="w-12 h-12 mb-4 rounded-full flex items-center justify-center bg-[#b8411f]/20">
                       <Icon className="w-6 h-6" style={{ color: "#b8411f" }} />
                     </div>
-                    <h3 className="text-xl font-bold text-white mb-2">{title}</h3>
+                    <h3 className="text-xl font-bold text-white mb-2">
+                      {title}
+                    </h3>
                     <p className="text-white/80">{description}</p>
                   </div>
                 ))}
@@ -158,9 +178,12 @@ export default function Level3PlanesWalkerPage() {
               <h2 className="text-3xl font-bold text-white">Course Includes</h2>
               <div className="bg-white/10 backdrop-blur-sm rounded-xl p-8 border border-white/20">
                 <ul className="grid md:grid-cols-2 gap-4">
-                  {courseFeatures.map((feature, index) => (
-                    <li key={index} className="flex items-start gap-3">
-                      <CheckCircle className="w-5 h-5 mt-0.5 shrink-0" style={{ color: "#b8411f" }} />
+                  {courseFeatures.map((feature) => (
+                    <li key={feature} className="flex items-start gap-3">
+                      <CheckCircle
+                        className="w-5 h-5 mt-0.5 shrink-0"
+                        style={{ color: "#b8411f" }}
+                      />
                       <span className="text-white/90">{feature}</span>
                     </li>
                   ))}
@@ -170,7 +193,9 @@ export default function Level3PlanesWalkerPage() {
 
             {/* Course Curriculum */}
             <div className="space-y-6">
-              <h2 className="text-3xl font-bold text-white">Course Curriculum</h2>
+              <h2 className="text-3xl font-bold text-white">
+                Course Curriculum
+              </h2>
               <div className="space-y-4">
                 {[
                   {
@@ -215,7 +240,10 @@ export default function Level3PlanesWalkerPage() {
                   >
                     <div className="flex items-center justify-between">
                       <div>
-                        <p className="text-sm font-semibold mb-1" style={{ color: "#b8411f" }}>
+                        <p
+                          className="text-sm font-semibold mb-1"
+                          style={{ color: "#b8411f" }}
+                        >
                           {module.module}
                         </p>
                         <h3 className="text-xl font-bold text-white">
@@ -237,8 +265,8 @@ export default function Level3PlanesWalkerPage() {
                 Ready to Become a Master Teacher Gamer?
               </h2>
               <p className="text-xl text-white/80 max-w-2xl mx-auto">
-                Lead the transformation of education in your school district through 
-                game-based learning.
+                Lead the transformation of education in your school district
+                through game-based learning.
               </p>
               <Button
                 size="lg"
@@ -257,4 +285,3 @@ export default function Level3PlanesWalkerPage() {
     </main>
   );
 }
-

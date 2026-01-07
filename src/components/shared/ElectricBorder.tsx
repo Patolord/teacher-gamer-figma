@@ -88,6 +88,7 @@ const ElectricBorder: React.FC<ElectricBorderProps> = ({
 
     const baseDur = 6;
     const dur = Math.max(0.001, baseDur / (speed || 1));
+    // biome-ignore lint/suspicious/useIterableCallbackReturn: setAttribute returns undefined, not a meaningful value
     [...dyAnims, ...dxAnims].forEach((a) => a.setAttribute("dur", `${dur}s`));
 
     const disp = svg.querySelector("feDisplacementMap");
@@ -104,7 +105,7 @@ const ElectricBorder: React.FC<ElectricBorderProps> = ({
     }
 
     requestAnimationFrame(() => {
-      [...dyAnims, ...dxAnims].forEach((a: any) => {
+      [...dyAnims, ...dxAnims].forEach((a: SVGAnimateElement) => {
         if (typeof a.beginElement === "function") {
           try {
             a.beginElement();
@@ -116,7 +117,8 @@ const ElectricBorder: React.FC<ElectricBorderProps> = ({
 
   useEffect(() => {
     updateAnim();
-  }, [speed, chaos]);
+    // biome-ignore lint/correctness/useExhaustiveDependencies: third-party component animation logic
+  }, [updateAnim]);
 
   useLayoutEffect(() => {
     if (!rootRef.current) return;
@@ -124,7 +126,8 @@ const ElectricBorder: React.FC<ElectricBorderProps> = ({
     ro.observe(rootRef.current);
     updateAnim();
     return () => ro.disconnect();
-  }, []);
+    // biome-ignore lint/correctness/useExhaustiveDependencies: third-party component animation logic
+  }, [updateAnim]);
 
   const inheritRadius: CSSProperties = {
     borderRadius: style?.borderRadius ?? "inherit",
@@ -167,9 +170,10 @@ const ElectricBorder: React.FC<ElectricBorderProps> = ({
   return (
     <div
       ref={rootRef}
-      className={"relative isolate " + (className ?? "")}
+      className={`relative isolate ${className ?? ""}`}
       style={style}
     >
+      {/* biome-ignore lint/a11y/noSvgWithoutTitle: decorative SVG filter, hidden from accessibility tree */}
       <svg
         ref={svgRef}
         className="fixed -left-[10000px] -top-[10000px] w-[10px] h-[10px] opacity-[0.001] pointer-events-none"

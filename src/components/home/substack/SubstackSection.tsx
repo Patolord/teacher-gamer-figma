@@ -113,6 +113,8 @@ export default function SubstackSection({ sectionIndex }: Props) {
           >
             Latest from Substack
           </ShinyText>
+        <h2 className="text-4xl pb-8 bg-[linear-gradient(135deg,#fff_0%,#c47020_20%,#d09a11_40%,#fff_100%)] bg-[length:200%_200%] bg-clip-text text-transparent animate-gradientShift">
+          Latest from Substack
         </h2>
 
         {loading && (

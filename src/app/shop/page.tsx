@@ -1,6 +1,13 @@
 "use client";
 
-import { ArrowLeft, Book, CheckCircle, Loader2, ShoppingCart, Star } from "lucide-react";
+import {
+  ArrowLeft,
+  Book,
+  CheckCircle,
+  Loader2,
+  ShoppingCart,
+  Star,
+} from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
@@ -188,6 +195,10 @@ export default function ShopPage() {
                           color: theme.accent.lime, 
                           fill: theme.accent.lime 
                         }} 
+                    {[1, 2, 3, 4, 5].map((n) => (
+                      <Star
+                        key={n}
+                        className="w-5 h-5 text-yellow-400 fill-yellow-400"
                       />
                     ))}
                   </div>
@@ -237,6 +248,10 @@ export default function ShopPage() {
                     Build literacy. Spark imagination. Empower learners. Transform
                     classrooms into immersive adventures where students learn by
                     playing, failing, and growing together.
+                  <p className="text-xl text-white/90 leading-relaxed">
+                    Build literacy. Spark imagination. Empower learners.
+                    Transform classrooms into immersive adventures where
+                    students learn by playing, failing, and growing together.
                   </p>
                 </div>
 
@@ -269,6 +284,15 @@ export default function ShopPage() {
                         color: theme.neutral.darkBg
                       }}
                     >
+                <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20">
+                  <div className="flex items-baseline gap-3">
+                    <span className="text-4xl font-bold text-white">
+                      $39.99 USD
+                    </span>
+                    <span className="text-lg text-white/60 line-through">
+                      $59.99 USD
+                    </span>
+                    <span className="px-3 py-1 bg-amber-400 text-zinc-900 text-sm font-semibold rounded-full">
                       33% OFF
                     </span>
                   </div>
@@ -348,6 +372,44 @@ export default function ShopPage() {
                     </>
                   )}
                 </Button>
+                  {/* Buy Button */}
+                  <Button
+                    size="lg"
+                    className="w-full text-lg font-bold bg-amber-400 hover:bg-amber-300 text-zinc-900 py-6"
+                    onClick={handleCheckout}
+                    disabled={isLoading}
+                  >
+                    {isLoading ? (
+                      <>
+                        <Loader2 className="w-5 h-5 mr-2 animate-spin" />
+                        Processing...
+                      </>
+                    ) : (
+                      <>
+                        <ShoppingCart className="w-5 h-5 mr-2" />
+                        Buy Now
+                      </>
+                    )}
+                  </Button>
+                  {/* Buy the PDF Button */}
+                  <Button
+                    size="lg"
+                    className="w-full text-lg font-bold bg-from bg-blue-500 hover:bg-blue-700 text-white py-6"
+                    onClick={handleCheckout}
+                    disabled={isLoading}
+                  >
+                    {isLoading ? (
+                      <>
+                        <Loader2 className="w-5 h-5 mr-2 animate-spin" />
+                        Processing...
+                      </>
+                    ) : (
+                      <>
+                        <ShoppingCart className="w-5 h-5 mr-2" />
+                        Buy The PDF
+                      </>
+                    )}
+                  </Button>
                 </div>
 
                 {/* What's Inside */}
@@ -356,14 +418,17 @@ export default function ShopPage() {
                     className="text-2xl font-bold"
                     style={{ color: theme.neutral.lighter }}
                   >
+                  <h2 className="text-2xl font-bold text-white">
                     What's Inside
                   </h2>
                   <ul className="space-y-3">
-                    {bookFeatures.map((feature, index) => (
+                    {bookFeatures.map((feature) => (
                       <li
                         key={index}
                         className="flex items-start gap-3 text-lg"
                         style={{ color: theme.neutral.lighter }}
+                        key={feature}
+                        className="flex items-start gap-3 text-white/90"
                       >
                         <span>{feature}</span>
                       </li>
@@ -434,6 +499,10 @@ export default function ShopPage() {
                         color: theme.accent.lime, 
                         fill: theme.accent.lime 
                       }}
+                  {[1, 2, 3, 4, 5].map((n) => (
+                    <Star
+                      key={n}
+                      className="w-5 h-5 text-yellow-400 fill-yellow-400"
                     />
                   ))}
                 </div>
@@ -462,7 +531,7 @@ export default function ShopPage() {
               >
                 Available Products
               </h2>
-              
+
               {/* Products Grid */}
               <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
                 {/* Product 1: Teacher Gamer Handbook (PDF) */}
@@ -559,6 +628,10 @@ export default function ShopPage() {
                         className="text-2xl font-bold"
                         style={{ color: theme.neutral.lighter }}
                       >
+                      <p className="text-sm text-white/70 mb-1">
+                        Starting From:
+                      </p>
+                      <p className="text-2xl font-bold text-white">
                         $36.99 USD
                       </p>
                     </div>
@@ -586,7 +659,6 @@ export default function ShopPage() {
                         "BUY NOW"
                       )}
                     </Button>
-                    
                   </div>
                 </div>
 
@@ -628,6 +700,10 @@ export default function ShopPage() {
                       >
                         $4.99 USD
                       </p>
+                      <p className="text-sm text-white/70 mb-1">
+                        Starting From:
+                      </p>
+                      <p className="text-2xl font-bold text-white">$4.99 USD</p>
                     </div>
                     <Button
                       className="w-full font-bold mt-auto transition-all duration-300"
@@ -694,6 +770,10 @@ export default function ShopPage() {
                       >
                         $4.99 USD
                       </p>
+                      <p className="text-sm text-white/70 mb-1">
+                        Starting From:
+                      </p>
+                      <p className="text-2xl font-bold text-white">$4.99 USD</p>
                     </div>
                     <Button
                       className="w-full font-bold mt-auto transition-all duration-300"
@@ -738,6 +818,9 @@ export default function ShopPage() {
               >
                 Explore our collection of educational resources designed to transform
                 your classroom into an engaging learning adventure.
+              <p className="text-xl text-white/80 max-w-2xl mx-auto">
+                Explore our collection of educational resources designed to
+                transform your classroom into an engaging learning adventure.
               </p>
               <Button
                 size="lg"
@@ -782,6 +865,3 @@ export default function ShopPage() {
     </main>
   );
 }
-
-
-

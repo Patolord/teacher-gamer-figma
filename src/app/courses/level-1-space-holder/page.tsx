@@ -1,6 +1,14 @@
 "use client";
 
-import { ArrowLeft, Award, Book, CheckCircle, Clock, Star, Users } from "lucide-react";
+import {
+  ArrowLeft,
+  Award,
+  Book,
+  CheckCircle,
+  Clock,
+  Star,
+  Users,
+} from "lucide-react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { MEDIA } from "@/lib/media";
@@ -54,7 +62,8 @@ export default function Level1SpaceHolderPage() {
               e.preventDefault();
               window.location.href = "/home";
               setTimeout(() => {
-                const coursesSection = document.getElementById("courses-section");
+                const coursesSection =
+                  document.getElementById("courses-section");
                 if (coursesSection) {
                   coursesSection.scrollIntoView({ behavior: "smooth" });
                 }
@@ -73,13 +82,18 @@ export default function Level1SpaceHolderPage() {
             {/* Header Section */}
             <div className="space-y-6">
               <div className="flex gap-3 flex-wrap">
-                <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#ff6b9d]/20 border border-[#ff6b9d]/30" style={{ color: "#ff6b9d" }}>
+                <div
+                  className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#ff6b9d]/20 border border-[#ff6b9d]/30"
+                  style={{ color: "#ff6b9d" }}
+                >
                   <Star className="w-4 h-4" />
                   <span className="text-sm font-semibold">BEST VALUE</span>
                 </div>
                 <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#ff6b9d]/10 border border-[#ff6b9d]/20 text-white">
                   <Award className="w-4 h-4" />
-                  <span className="text-sm font-semibold">Certification Course</span>
+                  <span className="text-sm font-semibold">
+                    Certification Course
+                  </span>
                 </div>
               </div>
 
@@ -88,8 +102,9 @@ export default function Level1SpaceHolderPage() {
               </h1>
 
               <p className="text-xl text-white/90 leading-relaxed max-w-3xl">
-                Learn to move from out-game character development to in-game 
-                role-playing and run a pilot to get teacher gamer level one certified.
+                Learn to move from out-game character development to in-game
+                role-playing and run a pilot to get teacher gamer level one
+                certified.
               </p>
 
               {/* Course Stats */}
@@ -128,7 +143,9 @@ export default function Level1SpaceHolderPage() {
 
             {/* What You'll Learn */}
             <div className="space-y-6">
-              <h2 className="text-3xl font-bold text-white">What You'll Learn</h2>
+              <h2 className="text-3xl font-bold text-white">
+                What You'll Learn
+              </h2>
               <div className="grid md:grid-cols-3 gap-6">
                 {whatYouWillLearn.map(({ icon: Icon, title, description }) => (
                   <div
@@ -138,7 +155,9 @@ export default function Level1SpaceHolderPage() {
                     <div className="w-12 h-12 mb-4 rounded-full flex items-center justify-center bg-[#ff6b9d]/20">
                       <Icon className="w-6 h-6" style={{ color: "#ff6b9d" }} />
                     </div>
-                    <h3 className="text-xl font-bold text-white mb-2">{title}</h3>
+                    <h3 className="text-xl font-bold text-white mb-2">
+                      {title}
+                    </h3>
                     <p className="text-white/80">{description}</p>
                   </div>
                 ))}
@@ -150,9 +169,12 @@ export default function Level1SpaceHolderPage() {
               <h2 className="text-3xl font-bold text-white">Course Includes</h2>
               <div className="bg-white/10 backdrop-blur-sm rounded-xl p-8 border border-white/20">
                 <ul className="grid md:grid-cols-2 gap-4">
-                  {courseFeatures.map((feature, index) => (
-                    <li key={index} className="flex items-start gap-3">
-                      <CheckCircle className="w-5 h-5 mt-0.5 shrink-0" style={{ color: "#ff6b9d" }} />
+                  {courseFeatures.map((feature) => (
+                    <li key={feature} className="flex items-start gap-3">
+                      <CheckCircle
+                        className="w-5 h-5 mt-0.5 shrink-0"
+                        style={{ color: "#ff6b9d" }}
+                      />
                       <span className="text-white/90">{feature}</span>
                     </li>
                   ))}
@@ -162,7 +184,9 @@ export default function Level1SpaceHolderPage() {
 
             {/* Course Curriculum */}
             <div className="space-y-6">
-              <h2 className="text-3xl font-bold text-white">Course Curriculum</h2>
+              <h2 className="text-3xl font-bold text-white">
+                Course Curriculum
+              </h2>
               <div className="space-y-4">
                 {[
                   {
@@ -197,7 +221,10 @@ export default function Level1SpaceHolderPage() {
                   >
                     <div className="flex items-center justify-between">
                       <div>
-                        <p className="text-sm font-semibold mb-1" style={{ color: "#ff6b9d" }}>
+                        <p
+                          className="text-sm font-semibold mb-1"
+                          style={{ color: "#ff6b9d" }}
+                        >
                           {module.module}
                         </p>
                         <h3 className="text-xl font-bold text-white">
@@ -219,7 +246,8 @@ export default function Level1SpaceHolderPage() {
                 Ready to Get Certified?
               </h2>
               <p className="text-xl text-white/80 max-w-2xl mx-auto">
-                Join the next cohort and earn your Level 1 Teacher Gamer Certification.
+                Join the next cohort and earn your Level 1 Teacher Gamer
+                Certification.
               </p>
               <Button
                 size="lg"
@@ -238,4 +266,3 @@ export default function Level1SpaceHolderPage() {
     </main>
   );
 }
-
