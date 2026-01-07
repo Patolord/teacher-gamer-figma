@@ -150,7 +150,7 @@ export default function SubstackSection({ sectionIndex }: Props) {
                   onMouseEnter={(e) => {
                     e.currentTarget.style.backgroundColor = 'rgba(0, 0, 0, 0.5)';
                     e.currentTarget.style.borderColor = theme.accent.lime;
-                    e.currentTarget.style.boxShadow = `0 10px 40px ${theme.accent.limeGlow}, 0 0 30px ${theme.primary.glow}`;
+                    e.currentTarget.style.boxShadow = `0 10px 40px ${theme.accent.limeLight}, 0 0 30px ${theme.primary.glow}`;
                   }}
                   onMouseLeave={(e) => {
                     e.currentTarget.style.backgroundColor = 'rgba(0, 0, 0, 0.3)';
