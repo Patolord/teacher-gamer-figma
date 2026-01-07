@@ -1,6 +1,14 @@
+import {
+  ArrowRight,
+  Facebook,
+  Instagram,
+  Linkedin,
+  Mail,
+  Twitter,
+  Youtube,
+} from "lucide-react";
 import Link from "next/link";
 import { MEDIA } from "@/lib/media";
-import { Facebook, Twitter, Instagram, Linkedin, Youtube, Mail, ArrowRight } from "lucide-react";
 
 interface ContactSectionProps {
   sectionIndex?: number;
@@ -30,7 +38,7 @@ export default function ContactSection({ sectionIndex }: ContactSectionProps) {
           Have questions? We'd love to hear from you. Send us a message and
           we'll respond as soon as possible.
         </p>
-        
+
         {/* CTA to Full Contact Page */}
         <div className="text-center mb-12">
           <Link
@@ -133,15 +141,15 @@ export default function ContactSection({ sectionIndex }: ContactSectionProps) {
               <Mail className="w-6 h-6 text-white group-hover:text-indigo-900 transition-colors" />
             </a>
           </div>
-           {/* CTA to Full Contact Page */}
-        <div className="text-center mb-12">
-          <Link
-            href="/contact"
-            className="inline-flex items-center gap-2 px-6 py-3 bg-linear-to-r from-amber-400 to-amber-400 hover:from-amber-300 hover:to-amber-300 text-zinc-900 font-bold rounded-full transition-all hover:gap-3 hover:shadow-[0_4px_24px_rgba(251,191,36,0.4)]"
-          >
-            Donate!  
-          </Link>
-        </div>
+          {/* CTA to Full Contact Page */}
+          <div className="text-center mb-12">
+            <Link
+              href="/contact"
+              className="inline-flex items-center gap-2 px-6 py-3 bg-linear-to-r from-amber-400 to-amber-400 hover:from-amber-300 hover:to-amber-300 text-zinc-900 font-bold rounded-full transition-all hover:gap-3 hover:shadow-[0_4px_24px_rgba(251,191,36,0.4)]"
+            >
+              Donate!
+            </Link>
+          </div>
         </div>
       </div>
 

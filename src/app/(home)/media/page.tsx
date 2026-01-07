@@ -5,7 +5,6 @@ import {
   Headphones,
   Image as ImageIcon,
   Play,
-  Video,
   Volume2,
 } from "lucide-react";
 import Image from "next/image";
@@ -46,12 +45,24 @@ const podcastEpisodes = [
 const moreVideos = [
   {
     id: "5g2jO3NZAkU",
-    title: "Wild Mind Training: Teacher-Gamer Testimonials 1 (Kate and Patrick)",
+    title:
+      "Wild Mind Training: Teacher-Gamer Testimonials 1 (Kate and Patrick)",
   },
   // Add more videos here:
- { id: "TLzdJeYFwUI", title: "As if Authenticity Matters presentation [Re]Learn 2020" },
- { id: "CfxFaytYC7E", title: "Teacher-Gamer Handbook (TGHB) Screen Tutorial - how to put the Teacher-Gamer Screen panels in order" },
- { id: "NOdnQMx74Kg", title: "Teacher-Gamer Handbook (TGHB) Screen Tutorial - how to put the Teacher-Gamer Screen panels in order" },
+  {
+    id: "TLzdJeYFwUI",
+    title: "As if Authenticity Matters presentation [Re]Learn 2020",
+  },
+  {
+    id: "CfxFaytYC7E",
+    title:
+      "Teacher-Gamer Handbook (TGHB) Screen Tutorial - how to put the Teacher-Gamer Screen panels in order",
+  },
+  {
+    id: "NOdnQMx74Kg",
+    title:
+      "Teacher-Gamer Handbook (TGHB) Screen Tutorial - how to put the Teacher-Gamer Screen panels in order",
+  },
 ];
 
 // Gallery images from ImageKit
@@ -64,45 +75,113 @@ const galleryImages = [
   { filename: "D_D 024b.jpg", alt: "D&D Adventure", category: "Sessions" },
   { filename: "D_D 055.jpg", alt: "Tabletop Gaming", category: "Sessions" },
   { filename: "FVMV8019.JPG", alt: "Learning Moment", category: "Learning" },
-  { filename: "IMG_0186_2177x1633.jpg", alt: "Classroom Session", category: "Learning" },
+  {
+    filename: "IMG_0186_2177x1633.jpg",
+    alt: "Classroom Session",
+    category: "Learning",
+  },
   { filename: "IMG_1332.JPG", alt: "Student Engagement", category: "Learning" },
   { filename: "IMG_1782.JPG", alt: "Creative Play", category: "Sessions" },
   { filename: "IMG_2452.JPG", alt: "Workshop Activity", category: "Workshops" },
-  { filename: "IMG_2461c.JPG", alt: "Game Master Teaching", category: "Workshops" },
-  { filename: "IMG_2510.JPG", alt: "Collaborative Learning", category: "Learning" },
+  {
+    filename: "IMG_2461c.JPG",
+    alt: "Game Master Teaching",
+    category: "Workshops",
+  },
+  {
+    filename: "IMG_2510.JPG",
+    alt: "Collaborative Learning",
+    category: "Learning",
+  },
   { filename: "IMG_2553.JPG", alt: "RPG Session", category: "Sessions" },
-  { filename: "IMG_2936bb.jpg", alt: "Character Building", category: "Workshops" },
-  { filename: "IMG_2945b.jpg", alt: "Storytelling Session", category: "Sessions" },
+  {
+    filename: "IMG_2936bb.jpg",
+    alt: "Character Building",
+    category: "Workshops",
+  },
+  {
+    filename: "IMG_2945b.jpg",
+    alt: "Storytelling Session",
+    category: "Sessions",
+  },
   { filename: "IMG_2956.JPG", alt: "Team Collaboration", category: "Learning" },
   { filename: "IMG_2990.JPG", alt: "Adventure Planning", category: "Sessions" },
   { filename: "IMG_3228b.jpg", alt: "Game Setup", category: "Sessions" },
   { filename: "IMG_3301.JPG", alt: "Student Focus", category: "Learning" },
-  { filename: "IMG_3337b.jpg", alt: "Interactive Learning", category: "Learning" },
+  {
+    filename: "IMG_3337b.jpg",
+    alt: "Interactive Learning",
+    category: "Learning",
+  },
   { filename: "IMG_3461.JPG", alt: "Group Discussion", category: "Workshops" },
-  { filename: "IMG_3758a.jpg", alt: "Creative Expression", category: "Workshops" },
+  {
+    filename: "IMG_3758a.jpg",
+    alt: "Creative Expression",
+    category: "Workshops",
+  },
   { filename: "IMG_3768b.jpg", alt: "Problem Solving", category: "Learning" },
   { filename: "IMG_4842.JPG", alt: "Gaming Fun", category: "Sessions" },
-  { filename: "IMG_5101.JPG", alt: "Classroom Adventure", category: "Learning" },
+  {
+    filename: "IMG_5101.JPG",
+    alt: "Classroom Adventure",
+    category: "Learning",
+  },
   { filename: "IMG_5152b.JPG", alt: "Team Building", category: "Workshops" },
-  { filename: "IMG_5273.JPG", alt: "Imagination at Work", category: "Sessions" },
-  { filename: "IMG_5358.JPG", alt: "Learning Through Play", category: "Learning" },
+  {
+    filename: "IMG_5273.JPG",
+    alt: "Imagination at Work",
+    category: "Sessions",
+  },
+  {
+    filename: "IMG_5358.JPG",
+    alt: "Learning Through Play",
+    category: "Learning",
+  },
   { filename: "IMG_5394.JPG", alt: "Game Mastering", category: "Workshops" },
   { filename: "IMG_5467.JPG", alt: "Student Creativity", category: "Learning" },
   { filename: "IMG_5672.JPG", alt: "Adventure Time", category: "Sessions" },
-  { filename: "IMG_5888 (2).JPG", alt: "Collaborative Story", category: "Sessions" },
+  {
+    filename: "IMG_5888 (2).JPG",
+    alt: "Collaborative Story",
+    category: "Sessions",
+  },
   { filename: "IMG_5909n.jpg", alt: "Workshop Moment", category: "Workshops" },
-  { filename: "IMG_6022b.JPG", alt: "Teacher Gamer Session", category: "Sessions" },
+  {
+    filename: "IMG_6022b.JPG",
+    alt: "Teacher Gamer Session",
+    category: "Sessions",
+  },
   { filename: "IMG_6082d.jpg", alt: "Engaged Learners", category: "Learning" },
-  { filename: "IMG_6123paint.JPG", alt: "Miniature Painting", category: "Workshops" },
+  {
+    filename: "IMG_6123paint.JPG",
+    alt: "Miniature Painting",
+    category: "Workshops",
+  },
   { filename: "IMG_6515b.JPG", alt: "Role-Playing Fun", category: "Sessions" },
-  { filename: "IMG_6776bpan.jpg", alt: "Panoramic Session", category: "Sessions" },
+  {
+    filename: "IMG_6776bpan.jpg",
+    alt: "Panoramic Session",
+    category: "Sessions",
+  },
   { filename: "IMG_6781b.JPG", alt: "Gaming Group", category: "Sessions" },
   { filename: "IMG_7477.JPG", alt: "Teaching Moment", category: "Learning" },
-  { filename: "IMG_7717.JPG", alt: "Student Achievement", category: "Learning" },
+  {
+    filename: "IMG_7717.JPG",
+    alt: "Student Achievement",
+    category: "Learning",
+  },
   { filename: "IMG_9471b.JPG", alt: "Game Night", category: "Sessions" },
   { filename: "LGVT5638b.jpg", alt: "Special Event", category: "Workshops" },
-  { filename: "ZachZoomTeach1.png", alt: "Online Teaching", category: "Learning" },
-  { filename: "_ZAR2710b.jpg", alt: "Behind the Scenes", category: "Workshops" },
+  {
+    filename: "ZachZoomTeach1.png",
+    alt: "Online Teaching",
+    category: "Learning",
+  },
+  {
+    filename: "_ZAR2710b.jpg",
+    alt: "Behind the Scenes",
+    category: "Workshops",
+  },
 ];
 
 // Generate gallery items from the image list
@@ -114,7 +193,10 @@ const galleryItems = galleryImages.map((img, index) => ({
 }));
 
 // Get unique categories from gallery items
-const categories = ["All", ...Array.from(new Set(galleryImages.map(img => img.category)))];
+const categories = [
+  "All",
+  ...Array.from(new Set(galleryImages.map((img) => img.category))),
+];
 
 const IMAGES_PER_PAGE = 8;
 
@@ -151,7 +233,6 @@ export default function MediaPage() {
         {/* Animated background pattern */}
         <div className="absolute inset-0">
           <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,var(--tw-gradient-stops))] from-amber-900/20 via-transparent to-transparent" />
-          
         </div>
 
         {/* Glowing orbs */}
@@ -181,7 +262,6 @@ export default function MediaPage() {
             </p>
           </div>
         </div>
-
       </section>
 
       {/* Video Section */}
@@ -190,7 +270,6 @@ export default function MediaPage() {
         <div className="absolute inset-0 bg-linear-to-b from-zinc-950/80 to-zinc-900/50" />
 
         <div className="container mx-auto px-4 relative z-10">
-
           {/* Video Embed Container */}
           <div className="max-w-4xl mx-auto">
             <div className="relative group">
@@ -248,7 +327,7 @@ export default function MediaPage() {
                     </div>
                   </div>
                 ))}
-                
+
                 {/* Youtube Channel Subscribe Link - In Grid */}
                 <div className="md:col-span-2 flex items-center justify-center py-8">
                   <a
@@ -311,7 +390,9 @@ export default function MediaPage() {
             <div className="flex items-center gap-3">
               <Volume2 className="w-6 h-6 text-amber-400" />
               <h2 className="text-3xl md:text-4xl font-semibold text-white">
-                Latest <span className="text-amber-400">Teacher Gamer Podcast</span> Episodes
+                Latest{" "}
+                <span className="text-amber-400">Teacher Gamer Podcast</span>{" "}
+                Episodes
               </h2>
             </div>
             <div className="h-px flex-1 max-w-32 bg-linear-to-l from-transparent to-amber-500/50" />
@@ -343,17 +424,21 @@ export default function MediaPage() {
 
                   {/* Podbean Embed - Replace src with your actual Podbean player URL */}
                   <div className="aspect-3/1 rounded-xl overflow-hidden bg-zinc-800">
-                  <iframe
-                        title="TGPC - The Power of Writing"
-                        width="100%"
-                        height="100%"
-                        style={{ border: "none", minWidth: "min(100%, 430px)", height: "100%" }}
-                        scrolling="no"
-                        data-name="pb-iframe-player"
-                        src="https://www.podbean.com/player-v2/?from=embed&i=c2a9e-18cbbb7-pb&square=1&share=1&download=1&fonts=Arial&skin=3267a3&font-color=ffffff&rtl=0&logo_link=episode_page&btn-skin=c73a3a&size=300"
-                        loading="lazy"
-                        allowFullScreen
-                      />
+                    <iframe
+                      title="TGPC - The Power of Writing"
+                      width="100%"
+                      height="100%"
+                      style={{
+                        border: "none",
+                        minWidth: "min(100%, 430px)",
+                        height: "100%",
+                      }}
+                      scrolling="no"
+                      data-name="pb-iframe-player"
+                      src="https://www.podbean.com/player-v2/?from=embed&i=c2a9e-18cbbb7-pb&square=1&share=1&download=1&fonts=Arial&skin=3267a3&font-color=ffffff&rtl=0&logo_link=episode_page&btn-skin=c73a3a&size=300"
+                      loading="lazy"
+                      allowFullScreen
+                    />
                   </div>
                 </div>
               </div>
@@ -361,8 +446,7 @@ export default function MediaPage() {
           </div>
 
           {/* Episode Grid */}
-          <div className="grid md:grid-cols-2 gap-6 max-w-5xl mx-auto"
-          >
+          <div className="grid md:grid-cols-2 gap-6 max-w-5xl mx-auto">
             {podcastEpisodes.slice(1).map((episode) => (
               <div
                 key={episode.id}
@@ -424,8 +508,7 @@ export default function MediaPage() {
         <div className="absolute top-0 left-0 right-0 h-24 bg-linear-to-b from-amber-500/5 to-transparent pointer-events-none" />
 
         <div className="container mx-auto px-4 relative z-10">
-          <div className="flex items-center justify-center gap-4 mb-8"
-          >
+          <div className="flex items-center justify-center gap-4 mb-8">
             <div className="h-px flex-1 max-w-32 bg-linear-to-r from-transparent to-amber-500/50" />
             <div className="flex items-center gap-3">
               <ImageIcon className="w-6 h-6 text-amber-400" />
@@ -436,15 +519,13 @@ export default function MediaPage() {
             <div className="h-px flex-1 max-w-32 bg-linear-to-l from-transparent to-amber-500/50" />
           </div>
 
-          <p className="text-center text-zinc-400 mb-12 max-w-2xl mx-auto"
-          >
+          <p className="text-center text-zinc-400 mb-12 max-w-2xl mx-auto">
             Explore moments from our sessions, workshops, and the creative world
             of game-based learning.
           </p>
 
           {/* Category Filter */}
-          <div className="flex flex-wrap justify-center gap-3 mb-12"
-          >
+          <div className="flex flex-wrap justify-center gap-3 mb-12">
             {categories.map((category) => (
               <button
                 key={category}

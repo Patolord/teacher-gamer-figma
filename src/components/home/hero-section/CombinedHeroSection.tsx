@@ -157,7 +157,8 @@ const CombinedHeroSection = forwardRef<HTMLElement>((_props, ref) => {
                   boxShadow: `0 4px 20px ${theme.accent.limeGlow}, 0 0 40px ${theme.highlight.yellowSoft}`,
                 }}
                 onClick={() => {
-                  const coursesSection = document.getElementById("courses-section");
+                  const coursesSection =
+                    document.getElementById("courses-section");
                   if (coursesSection) {
                     coursesSection.scrollIntoView({ behavior: "smooth" });
                   }
@@ -191,9 +192,7 @@ const CombinedHeroSection = forwardRef<HTMLElement>((_props, ref) => {
                 }}
                 asChild
               >
-                <Link href="/media">
-                  Watch How It Works
-                </Link>
+                <Link href="/media">Watch How It Works</Link>
               </Button>
             </div>
 

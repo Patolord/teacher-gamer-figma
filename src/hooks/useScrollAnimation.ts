@@ -47,12 +47,12 @@ export function useScrollAnimation() {
       {
         threshold: 0.3, // Trigger when 15% of element is visible
         rootMargin, // Dynamic margin based on viewport height
-      }
+      },
     );
 
     // Observe all elements with animation attributes
     const animatedElements = document.querySelectorAll(
-      "[data-animate], [data-animate-stagger]"
+      "[data-animate], [data-animate-stagger]",
     );
 
     animatedElements.forEach((el) => {

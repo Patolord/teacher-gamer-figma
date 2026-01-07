@@ -1,8 +1,8 @@
 "use client";
 
-import { ArrowLeft, Award, BookOpen, Users, Target, Heart } from "lucide-react";
-import Link from "next/link";
+import { ArrowLeft, Award, BookOpen, Heart, Target, Users } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { MEDIA } from "@/lib/media";
 
@@ -10,22 +10,26 @@ const values = [
   {
     icon: Heart,
     title: "Student-Centered",
-    description: "Youth success is our primary focus, creating safe spaces for growth and discovery",
+    description:
+      "Youth success is our primary focus, creating safe spaces for growth and discovery",
   },
   {
     icon: BookOpen,
     title: "Narrative Learning",
-    description: "Teaching critical thinking through storytelling and collaborative role-play",
+    description:
+      "Teaching critical thinking through storytelling and collaborative role-play",
   },
   {
     icon: Users,
     title: "Social-Emotional Growth",
-    description: "Building life skills, empathy, and emotional intelligence through gaming",
+    description:
+      "Building life skills, empathy, and emotional intelligence through gaming",
   },
   {
     icon: Target,
     title: "Purposeful Play",
-    description: "Transforming education through intentional, meaningful game experiences",
+    description:
+      "Transforming education through intentional, meaningful game experiences",
   },
 ];
 
@@ -55,7 +59,6 @@ export default function AboutPage() {
         {/* Main Content */}
         <div className="container mx-auto px-4 py-12 md:py-20">
           <div className="max-w-6xl mx-auto space-y-20">
-            
             {/* Page Title */}
             <div className="text-center">
               <h1 className="text-5xl md:text-7xl font-bold text-white mb-4">
@@ -90,25 +93,28 @@ export default function AboutPage() {
 
                 <div className="space-y-4 text-white/90 leading-relaxed">
                   <p>
-                    Life-skills innovator, mindfulness coach, teacher-gamer. Zach has
-                    figured out how to combine game theory, literary criticism into social
-                    emotional learning through role-playing games with his Masters in
-                    Education, teacher training and producing artists.
+                    Life-skills innovator, mindfulness coach, teacher-gamer.
+                    Zach has figured out how to combine game theory, literary
+                    criticism into social emotional learning through
+                    role-playing games with his Masters in Education, teacher
+                    training and producing artists.
                   </p>
 
                   <p>
-                    "The satisfaction of youth success is second to none. I shared my love
-                    of role-playing games with kids in schools, homeschools, summer
-                    camps and youth workshops to glowing success. For the last 5 years, I
-                    have been honing this socio-emotional life-skills curriculum to be
-                    ready to share with the world."
+                    "The satisfaction of youth success is second to none. I
+                    shared my love of role-playing games with kids in schools,
+                    homeschools, summer camps and youth workshops to glowing
+                    success. For the last 5 years, I have been honing this
+                    socio-emotional life-skills curriculum to be ready to share
+                    with the world."
                   </p>
 
                   <p>
                     "We are all in this journey together to make the world more
-                    sustainable, conscious and connected. Bringing RPGs into education is
-                    teaching narrative and critical thinking, while refereeing collaboration
-                    and risk taking. Boom! It is so fun!"
+                    sustainable, conscious and connected. Bringing RPGs into
+                    education is teaching narrative and critical thinking, while
+                    refereeing collaboration and risk taking. Boom! It is so
+                    fun!"
                   </p>
                 </div>
 
@@ -117,9 +123,7 @@ export default function AboutPage() {
                   className="bg-amber-400 hover:bg-amber-300 text-zinc-900 font-semibold px-8"
                   asChild
                 >
-                  <Link href="/contact">
-                    More About Zach
-                  </Link>
+                  <Link href="/contact">More About Zach</Link>
                 </Button>
               </div>
             </div>
@@ -135,27 +139,31 @@ export default function AboutPage() {
 
                   <div className="space-y-4 text-white/90 leading-relaxed">
                     <p>
-                      Although millions of people have played role-playing games, to put them into
-                      cognitive, psychological, social, mindful and educational terms is to begin to
-                      run along the cutting edge of transformative opportunities that are, as yet,
-                      barely measured.
+                      Although millions of people have played role-playing
+                      games, to put them into cognitive, psychological, social,
+                      mindful and educational terms is to begin to run along the
+                      cutting edge of transformative opportunities that are, as
+                      yet, barely measured.
                     </p>
 
                     <p>
-                      For the last 10 years, Zach has spent countless hours with students and
-                      observed the need for more offscreen learning opportunities. What he found
-                      with role playing games, is that students have the freedom to propose ideas,
-                      disagree, and take a stand when they wouldn't normally feel comfortable,
-                      because, as their character, they do not have to uphold the social dictates of
-                      their friends – in fact the rules of role-playing require they uphold their
+                      For the last 10 years, Zach has spent countless hours with
+                      students and observed the need for more offscreen learning
+                      opportunities. What he found with role playing games, is
+                      that students have the freedom to propose ideas, disagree,
+                      and take a stand when they wouldn't normally feel
+                      comfortable, because, as their character, they do not have
+                      to uphold the social dictates of their friends – in fact
+                      the rules of role-playing require they uphold their
                       character's values and motivations.
                     </p>
 
                     <p>
-                      Students can literally try out what it feels like to go against everything they
-                      stand for as a person, because they have aligned their character's personality
-                      arc to be completely different from their own. And why? Just to see what
-                      happens, or how it feels!
+                      Students can literally try out what it feels like to go
+                      against everything they stand for as a person, because
+                      they have aligned their character's personality arc to be
+                      completely different from their own. And why? Just to see
+                      what happens, or how it feels!
                     </p>
                   </div>
                 </div>
@@ -174,11 +182,12 @@ export default function AboutPage() {
               {/* Additional Content */}
               <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/20">
                 <p className="text-white/90 leading-relaxed text-lg">
-                  This is teaching role-playing games as a skillset where students can learn to
-                  accept, process and move on from defeat and be gracious winners socially.
-                  Without telling their classmates or teacher how they should feel, or hiding it in a
-                  container, teachers can facilitate this implicit learning through careful observation
-                  and space holding.
+                  This is teaching role-playing games as a skillset where
+                  students can learn to accept, process and move on from defeat
+                  and be gracious winners socially. Without telling their
+                  classmates or teacher how they should feel, or hiding it in a
+                  container, teachers can facilitate this implicit learning
+                  through careful observation and space holding.
                 </p>
               </div>
             </div>
@@ -190,7 +199,8 @@ export default function AboutPage() {
                   Our Core Values
                 </h2>
                 <p className="text-xl text-white/70 max-w-3xl mx-auto">
-                  The principles that guide our approach to transformative education
+                  The principles that guide our approach to transformative
+                  education
                 </p>
               </div>
 
@@ -205,7 +215,9 @@ export default function AboutPage() {
                         <Icon className="w-6 h-6 text-amber-400" />
                       </div>
                       <div>
-                        <h3 className="text-xl font-bold text-white mb-2">{title}</h3>
+                        <h3 className="text-xl font-bold text-white mb-2">
+                          {title}
+                        </h3>
                         <p className="text-white/80">{description}</p>
                       </div>
                     </div>
@@ -220,14 +232,14 @@ export default function AboutPage() {
                 <Award className="w-5 h-5" />
                 <span className="font-semibold">Join Our Community</span>
               </div>
-              
+
               <h2 className="text-4xl font-bold text-white">
                 Ready to Transform Education?
               </h2>
-              
+
               <p className="text-xl text-white/80 max-w-2xl mx-auto">
-                Discover how role-playing games can revolutionize learning in your classroom
-                or educational setting.
+                Discover how role-playing games can revolutionize learning in
+                your classroom or educational setting.
               </p>
 
               <div className="flex flex-col sm:flex-row gap-4 justify-center pt-4">
@@ -236,9 +248,7 @@ export default function AboutPage() {
                   className="bg-amber-400 hover:bg-amber-300 text-zinc-900 font-semibold px-8"
                   asChild
                 >
-                  <Link href="/home#courses-section">
-                    Explore Our Courses
-                  </Link>
+                  <Link href="/home#courses-section">Explore Our Courses</Link>
                 </Button>
                 <Button
                   size="lg"
@@ -246,18 +256,14 @@ export default function AboutPage() {
                   className="border-white/30 text-Black hover:bg-white/10 font-semibold px-8"
                   asChild
                 >
-                  <Link href="/contact">
-                    Get in Touch
-                  </Link>
+                  <Link href="/contact">Get in Touch</Link>
                 </Button>
                 <Button
                   size="lg"
                   className="bg-amber-400 hover:bg-amber-300 text-zinc-900 font-semibold px-8"
                   asChild
                 >
-                  <Link href="/shop">
-                    Buy the Book!
-                  </Link>
+                  <Link href="/shop">Buy the Book!</Link>
                 </Button>
               </div>
             </div>
@@ -270,4 +276,3 @@ export default function AboutPage() {
     </main>
   );
 }
-
