@@ -6,7 +6,7 @@ import { usePathname } from "next/navigation";
 import { useState } from "react";
 
 const menu = [
-  { title: "Home", href: "/" },
+  { title: "Home", href: "/home" },
   { title: "About", href: "/about" },
   { title: "Training", href: "/home#courses-section" },
   { title: "Calendar", href: "/home#calendar-section" },
