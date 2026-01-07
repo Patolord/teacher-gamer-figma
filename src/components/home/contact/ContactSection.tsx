@@ -1,12 +1,3 @@
-import {
-  ArrowRight,
-  Facebook,
-  Instagram,
-  Linkedin,
-  Mail,
-  Twitter,
-  Youtube,
-} from "lucide-react";
 import Link from "next/link";
 import { MEDIA } from "@/lib/media";
 import ShinyText from "@/components/ui/shinytext";
