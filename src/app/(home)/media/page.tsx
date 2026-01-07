@@ -229,7 +229,7 @@ export default function MediaPage() {
   return (
     <div className="min-h-screen bg-linear-to-b from-zinc-950 via-zinc-900 to-zinc-950">
       {/* Hero Section */}
-      <section className="relative py-24 lg:py-32 overflow-hidden">
+      <section className="relative pt-12 pb-8 lg:pt-30 lg:pb-12 overflow-hidden">
         {/* Animated background pattern */}
         <div className="absolute inset-0">
           <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,var(--tw-gradient-stops))] from-amber-900/20 via-transparent to-transparent" />
@@ -244,13 +244,6 @@ export default function MediaPage() {
 
         <div className="container mx-auto px-4 relative z-10">
           <div className="text-center max-w-4xl mx-auto">
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-amber-500/30 bg-amber-500/10 mb-8">
-              <Headphones className="w-4 h-4 text-amber-400" />
-              <span className="text-sm font-medium text-amber-300">
-                Media Hub
-              </span>
-            </div>
-
             <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 bg-[linear-gradient(135deg,#fff_0%,#fbbf24_25%,#f59e0b_50%,#fff_100%)] bg-size-[300%_300%] bg-clip-text text-transparent animate-[gradientShift_8s_ease-in-out_infinite]">
               Podcasts & Gallery
             </h1>

@@ -46,7 +46,7 @@ export default function AboutPage() {
       {/* Content */}
       <div className="relative z-10">
         {/* Header */}
-        <div className="container mx-auto px-4 py-8">
+        <div className="container mx-auto px-4 pt-6 pb-2">
           <Link
             href="/home"
             className="inline-flex items-center gap-2 text-white/80 hover:text-white transition-colors"
@@ -57,7 +57,7 @@ export default function AboutPage() {
         </div>
 
         {/* Main Content */}
-        <div className="container mx-auto px-4 py-12 md:py-20">
+        <div className="container mx-auto px-4 py-6 md:py-10">
           <div className="max-w-6xl mx-auto space-y-20">
             {/* Page Title */}
             <div className="text-center">
