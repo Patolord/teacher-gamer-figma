@@ -7,6 +7,7 @@ import { forwardRef } from "react";
 import { Button } from "@/components/ui/button";
 import { MEDIA } from "@/lib/media";
 import ShopSectionCard from "../shop/ShopSectionCard";
+import ShinyText from "@/components/ui/shinytext";
 
 const features = [
   { icon: Shield, label: "Safe & Inclusive" },
@@ -53,9 +54,20 @@ const CombinedHeroSection = forwardRef<HTMLElement>((_props, ref) => {
               </span>
             </div>
 
-            <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl font-bold leading-tight text-balance bg-[linear-gradient(135deg,#fff_0%,#c47020_20%,#d09a11_40%,#fff_100%)] bg-[length:200%_200%] bg-clip-text text-transparent animate-gradientShift">
-              A Safe Space for Kids to{" "}
-              <span className="text-amber-400">Play & Learn</span>
+            <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl font-bold leading-tight text-balance">
+              <ShinyText
+                speed={3}
+                delay={1}
+                color="#d09a11"
+                shineColor="#fff"
+                spread={30}
+                yoyo
+              >
+                A Safe Space for Kids to{" "}
+                <span className="bg-[linear-gradient(135deg,#fbbf24_0%,#f59e0b_50%,#fbbf24_100%)] bg-clip-text text-transparent">
+                  Play & Learn
+                </span>
+              </ShinyText>
             </h1>
 
             <p className="text-lg md:text-xl text-white/80 leading-relaxed max-w-xl">

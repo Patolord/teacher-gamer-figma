@@ -8,7 +8,6 @@ interface ShopSectionProps {
 export default function ShopSection({ sectionIndex }: ShopSectionProps) {
   return (
     <section
-      id="shop-section"
       data-scroll-section={sectionIndex}
       className="py-40 flex justify-center items-center relative bg-gray-900"
     >
@@ -52,7 +51,7 @@ export default function ShopSection({ sectionIndex }: ShopSectionProps) {
 
           <button
             type="button"
-            className="self-start px-8 py-3 bg-linear-to-r from-amber-500 to-orange-500 hover:from-amber-400 hover:to-orange-400 text-zinc-900 font-semibold rounded-full transition-all duration-300 hover:shadow-[0_4px_24px_rgba(251,191,36,0.4)]"
+            className="self-start px-8 py-3 bg-linear-to-r from-amber-400 to-amber-400 hover:from-amber-300 hover:to-amber-300 text-zinc-900 font-semibold rounded-full transition-all duration-300 hover:shadow-[0_4px_24px_rgba(251,191,36,0.4)]"
           >
             SHOP NOW
           </button>
