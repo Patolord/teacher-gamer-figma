@@ -465,16 +465,98 @@ export default function MediaPage() {
             ))}
           </div>
 
-          {/* Podbean Subscribe Link */}
-          <div className="text-center mt-12">
+          {/* Listen On Platforms */}
+          <div className="mt-16 max-w-4xl mx-auto">
+            <h3 className="text-xl font-semibold text-white text-center mb-6">
+              Listen on your favorite platform
+            </h3>
+            <div className="flex flex-wrap justify-center gap-4 md:gap-6">
+              {[
+                {
+                  name: "Apple Podcasts",
+                  url: "https://podcasts.apple.com/us/podcast/teacher-gamer-revolution-podcast/id1599936351",
+                  icon: "https://pbcdn1.podbean.com/fs1/site/images/admin5/apple-podcast.png",
+                },
+                {
+                  name: "Podbean App",
+                  url: "https://www.podbean.com/pw/pbblog-azivr-7341b3?from=usersite",
+                  icon: "https://pbcdn1.podbean.com/fs1/site/images/admin5/podbean-app.png",
+                },
+                {
+                  name: "Spotify",
+                  url: "https://open.spotify.com/show/6KNqulWYuAG205kEXsYYX1",
+                  icon: "https://pbcdn1.podbean.com/fs1/site/images/admin5/spotify.png",
+                },
+                {
+                  name: "Amazon Music",
+                  url: "https://music.amazon.com/podcasts/dd6a036a-12d5-4e0d-912e-a21204a7b9ee",
+                  icon: "https://pbcdn1.podbean.com/fs1/site/images/admin5/AmazonMusic.png",
+                },
+                {
+                  name: "iHeartRadio",
+                  url: "https://iheart.com/podcast/90514051/",
+                  icon: "https://pbcdn1.podbean.com/fs1/site/images/admin5/iHeartRadio.png",
+                },
+                {
+                  name: "PlayerFM",
+                  url: "https://player.fm/series/3517249",
+                  icon: "https://pbcdn1.podbean.com/fs1/site/images/admin5/PlayerFM.png",
+                },
+                {
+                  name: "Podchaser",
+                  url: "https://www.podchaser.com/podcasts/teacher-gamer-4370797",
+                  icon: "https://pbcdn1.podbean.com/fs1/site/images/admin5/Podchaser.webp",
+                },
+                {
+                  name: "BoomPlay",
+                  url: "https://www.boomplaymusic.com/podcasts/79564",
+                  icon: "https://pbcdn1.podbean.com/fs1/site/images/admin5/BoomPlay.png",
+                },
+              ].map((platform) => (
+                <a
+                  key={platform.name}
+                  href={platform.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={platform.name}
+                  className="group relative"
+                >
+                  <div className="w-14 h-14 md:w-16 md:h-16 rounded-full overflow-hidden border-2 border-zinc-700 group-hover:border-amber-500 transition-all duration-300 group-hover:shadow-[0_0_20px_rgba(251,191,36,0.4)] group-hover:scale-110">
+                    <Image
+                      src={platform.icon}
+                      alt={platform.name}
+                      width={64}
+                      height={64}
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                  <span className="absolute -bottom-6 left-1/2 -translate-x-1/2 whitespace-nowrap text-xs text-zinc-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    {platform.name}
+                  </span>
+                </a>
+              ))}
+            </div>
+          </div>
+
+          {/* Podbean Subscribe & Affiliate Links */}
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mt-16">
             <a
-              href="https://www.podbean.com"
+              href="https://teachergamer.podbean.com/page/2/"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 px-6 py-3 bg-linear-to-r from-amber-400 to-amber-400 text-zinc-900 font-semibold rounded-full hover:from-amber-300 hover:to-amber-300 transition-all duration-300 hover:shadow-[0_4px_24px_rgba(251,191,36,0.4)]"
             >
               <Headphones className="w-5 h-5" />
               Subscribe on Podbean
+              <ExternalLink className="w-4 h-4" />
+            </a>
+            <a
+              href="https://www.podbean.com/teachergamer"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-6 py-3 bg-zinc-800/80 text-zinc-300 hover:text-white border border-zinc-700 hover:border-amber-500/50 font-medium rounded-full transition-all duration-300 hover:shadow-[0_4px_24px_rgba(251,191,36,0.2)]"
+            >
+              🎙️ Start your own podcast
               <ExternalLink className="w-4 h-4" />
             </a>
           </div>
