@@ -22,6 +22,8 @@ interface SplashCursorProps {
   COLOR_UPDATE_SPEED?: number;
   BACK_COLOR?: ColorRGB;
   TRANSPARENT?: boolean;
+  /** Pause rendering when mouse is idle for this many ms (0 = never pause) */
+  IDLE_PAUSE_MS?: number;
 }
 
 interface Pointer {
@@ -53,28 +55,45 @@ function pointerPrototype(): Pointer {
 }
 
 export default function SplashCursor({
-  SIM_RESOLUTION = 128,
-  DYE_RESOLUTION = 1440,
-  CAPTURE_RESOLUTION = 512,
-  DENSITY_DISSIPATION = 3.5,
-  VELOCITY_DISSIPATION = 2,
+  // OPTIMIZED: Reduced simulation resolution (was 128)
+  SIM_RESOLUTION = 64,
+  // OPTIMIZED: Reduced dye resolution significantly (was 1440!) - biggest GPU saver
+  DYE_RESOLUTION = 512,
+  CAPTURE_RESOLUTION = 256,
+  // OPTIMIZED: Increased dissipation for faster fade = less GPU work over time
+  DENSITY_DISSIPATION = 4.0,
+  VELOCITY_DISSIPATION = 2.5,
   PRESSURE = 0.1,
-  PRESSURE_ITERATIONS = 20,
+  // OPTIMIZED: Reduced pressure iterations (was 20) - significant GPU savings
+  PRESSURE_ITERATIONS = 8,
   CURL = 3,
-  SPLAT_RADIUS = 0.2,
+  SPLAT_RADIUS = 0.02,
   SPLAT_FORCE = 6000,
-  SHADING = true,
+  // OPTIMIZED: Disabled shading by default - removes extra texture lookups
+  SHADING = false,
   COLOR_UPDATE_SPEED = 10,
   BACK_COLOR = { r: 0.5, g: 0, b: 0 },
-  TRANSPARENT = true
+  TRANSPARENT = true,
+  // OPTIMIZED: Pause after 2 seconds of idle
+  IDLE_PAUSE_MS = 2000
 }: SplashCursorProps) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
 
   useEffect(() => {
+    // Respect reduced motion preference
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (prefersReducedMotion) {
+      return; // Don't run the effect at all
+    }
+
     const canvas = canvasRef.current;
     if (!canvas) return;
 
     let pointers: Pointer[] = [pointerPrototype()];
+    let animationId: number | null = null;
+    let isRunning = false;
+    let lastActivityTime = Date.now();
+    let isPaused = false;
 
     let config = {
       SIM_RESOLUTION: SIM_RESOLUTION!,
@@ -853,20 +872,58 @@ export default function SplashCursor({
     let lastUpdateTime = Date.now();
     let colorUpdateTimer = 0.0;
 
+    function startAnimation() {
+      if (isRunning) return;
+      isRunning = true;
+      isPaused = false;
+      lastUpdateTime = Date.now();
+      animationId = requestAnimationFrame(updateFrame);
+    }
+
+    function stopAnimation() {
+      if (!isRunning) return;
+      isRunning = false;
+      if (animationId !== null) {
+        cancelAnimationFrame(animationId);
+        animationId = null;
+      }
+    }
+
+    function markActivity() {
+      lastActivityTime = Date.now();
+      if (isPaused) {
+        isPaused = false;
+        startAnimation();
+      }
+    }
+
     function updateFrame() {
+      if (!isRunning) return;
+      
       const dt = calcDeltaTime();
       if (resizeCanvas()) initFramebuffers();
       updateColors(dt);
       applyInputs();
       step(dt);
       render(null);
-      requestAnimationFrame(updateFrame);
+      
+      // Check if we should pause due to inactivity
+      if (IDLE_PAUSE_MS > 0 && Date.now() - lastActivityTime > IDLE_PAUSE_MS) {
+        // Do one final render then pause
+        isPaused = true;
+        isRunning = false;
+        animationId = null;
+        return;
+      }
+      
+      animationId = requestAnimationFrame(updateFrame);
     }
 
     function calcDeltaTime() {
       const now = Date.now();
       let dt = (now - lastUpdateTime) / 1000;
-      dt = Math.min(dt, 0.016666);
+      // OPTIMIZED: Cap at 30fps equivalent for smoother performance on slower devices
+      dt = Math.min(dt, 0.033);
       lastUpdateTime = now;
       return dt;
     }
@@ -1202,81 +1259,119 @@ export default function SplashCursor({
       return ((value - min) % range) + min;
     }
 
-    window.addEventListener('mousedown', e => {
+    // Event handlers with activity tracking
+    function handleMouseDown(e: MouseEvent) {
+      markActivity();
       const pointer = pointers[0];
       const posX = scaleByPixelRatio(e.clientX);
       const posY = scaleByPixelRatio(e.clientY);
       updatePointerDownData(pointer, -1, posX, posY);
       clickSplat(pointer);
-    });
-
-    function handleFirstMouseMove(e: MouseEvent) {
-      const pointer = pointers[0];
-      const posX = scaleByPixelRatio(e.clientX);
-      const posY = scaleByPixelRatio(e.clientY);
-      const color = generateColor();
-      updateFrame();
-      updatePointerMoveData(pointer, posX, posY, color);
-      document.body.removeEventListener('mousemove', handleFirstMouseMove);
     }
-    document.body.addEventListener('mousemove', handleFirstMouseMove);
 
-    window.addEventListener('mousemove', e => {
+    function handleMouseMove(e: MouseEvent) {
+      markActivity();
       const pointer = pointers[0];
       const posX = scaleByPixelRatio(e.clientX);
       const posY = scaleByPixelRatio(e.clientY);
       const color = pointer.color;
       updatePointerMoveData(pointer, posX, posY, color);
-    });
+    }
+
+    function handleFirstMouseMove(e: MouseEvent) {
+      markActivity();
+      const pointer = pointers[0];
+      const posX = scaleByPixelRatio(e.clientX);
+      const posY = scaleByPixelRatio(e.clientY);
+      const color = generateColor();
+      startAnimation();
+      updatePointerMoveData(pointer, posX, posY, color);
+      document.body.removeEventListener('mousemove', handleFirstMouseMove);
+    }
 
     function handleFirstTouchStart(e: TouchEvent) {
+      markActivity();
       const touches = e.targetTouches;
       const pointer = pointers[0];
       for (let i = 0; i < touches.length; i++) {
         const posX = scaleByPixelRatio(touches[i].clientX);
         const posY = scaleByPixelRatio(touches[i].clientY);
-        updateFrame();
+        startAnimation();
         updatePointerDownData(pointer, touches[i].identifier, posX, posY);
       }
       document.body.removeEventListener('touchstart', handleFirstTouchStart);
     }
-    document.body.addEventListener('touchstart', handleFirstTouchStart);
 
-    window.addEventListener(
-      'touchstart',
-      e => {
-        const touches = e.targetTouches;
-        const pointer = pointers[0];
-        for (let i = 0; i < touches.length; i++) {
-          const posX = scaleByPixelRatio(touches[i].clientX);
-          const posY = scaleByPixelRatio(touches[i].clientY);
-          updatePointerDownData(pointer, touches[i].identifier, posX, posY);
-        }
-      },
-      false
-    );
+    function handleTouchStart(e: TouchEvent) {
+      markActivity();
+      const touches = e.targetTouches;
+      const pointer = pointers[0];
+      for (let i = 0; i < touches.length; i++) {
+        const posX = scaleByPixelRatio(touches[i].clientX);
+        const posY = scaleByPixelRatio(touches[i].clientY);
+        updatePointerDownData(pointer, touches[i].identifier, posX, posY);
+      }
+    }
 
-    window.addEventListener(
-      'touchmove',
-      e => {
-        const touches = e.targetTouches;
-        const pointer = pointers[0];
-        for (let i = 0; i < touches.length; i++) {
-          const posX = scaleByPixelRatio(touches[i].clientX);
-          const posY = scaleByPixelRatio(touches[i].clientY);
-          updatePointerMoveData(pointer, posX, posY, pointer.color);
-        }
-      },
-      false
-    );
+    function handleTouchMove(e: TouchEvent) {
+      markActivity();
+      const touches = e.targetTouches;
+      const pointer = pointers[0];
+      for (let i = 0; i < touches.length; i++) {
+        const posX = scaleByPixelRatio(touches[i].clientX);
+        const posY = scaleByPixelRatio(touches[i].clientY);
+        updatePointerMoveData(pointer, posX, posY, pointer.color);
+      }
+    }
 
-    window.addEventListener('touchend', e => {
+    function handleTouchEnd(e: TouchEvent) {
       const touches = e.changedTouches;
       const pointer = pointers[0];
       for (let i = 0; i < touches.length; i++) {
         updatePointerUpData(pointer);
       }
-    });
+    }
+
+    // Visibility change handler - pause when tab is hidden
+    function handleVisibilityChange() {
+      if (document.hidden) {
+        stopAnimation();
+      } else {
+        markActivity();
+        startAnimation();
+      }
+    }
+
+    // Add event listeners
+    window.addEventListener('mousedown', handleMouseDown);
+    window.addEventListener('mousemove', handleMouseMove);
+    document.body.addEventListener('mousemove', handleFirstMouseMove);
+    document.body.addEventListener('touchstart', handleFirstTouchStart);
+    window.addEventListener('touchstart', handleTouchStart, false);
+    window.addEventListener('touchmove', handleTouchMove, false);
+    window.addEventListener('touchend', handleTouchEnd);
+    document.addEventListener('visibilitychange', handleVisibilityChange);
+
+    // Cleanup function - IMPORTANT: removes all event listeners
+    return () => {
+      stopAnimation();
+      window.removeEventListener('mousedown', handleMouseDown);
+      window.removeEventListener('mousemove', handleMouseMove);
+      document.body.removeEventListener('mousemove', handleFirstMouseMove);
+      document.body.removeEventListener('touchstart', handleFirstTouchStart);
+      window.removeEventListener('touchstart', handleTouchStart);
+      window.removeEventListener('touchmove', handleTouchMove);
+      window.removeEventListener('touchend', handleTouchEnd);
+      document.removeEventListener('visibilitychange', handleVisibilityChange);
+      
+      // Clean up WebGL resources
+      if (gl) {
+        const loseContext = gl.getExtension('WEBGL_lose_context');
+        if (loseContext) {
+          loseContext.loseContext();
+        }
+      }
+    };
   }, [
     SIM_RESOLUTION,
     DYE_RESOLUTION,
@@ -1291,7 +1386,8 @@ export default function SplashCursor({
     SHADING,
     COLOR_UPDATE_SPEED,
     BACK_COLOR,
-    TRANSPARENT
+    TRANSPARENT,
+    IDLE_PAUSE_MS
   ]);
 
   return (
