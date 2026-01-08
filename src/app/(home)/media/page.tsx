@@ -17,27 +17,32 @@ const podcastEpisodes = [
     title: "The Power of Game-Based Learning",
     description:
       "Exploring how tabletop RPGs transform education and build critical thinking skills in young minds.",
-    embedId: "pb-fudp4-17a3ee4", // Replace with your actual Podbean embed ID
+    embedId: "pb-fudp4-17a3ee4",
     duration: "45 min",
     date: "Dec 2024",
+    link: "https://teachergamer.podbean.com/",
   },
   {
     id: "episode-2",
-    title: "Building Confidence Through Role-Play",
+    title:
+      "TGPC - Ep 2 - (part 1 of the) Teacher-Gamer Revolution 2021 MeetUp with Aaron Vanek and Mark Hoge",
     description:
-      "How imaginative play helps children develop social skills and self-expression.",
-    embedId: "pb-fudp4-17a3ee4", // Replace with your actual Podbean embed ID
-    duration: "38 min",
-    date: "Nov 2024",
+      "We talk about the past, present and future of RPGs with a thematic focus on Challenges and Accomplishments. Joining us Aaron Vanek, Mark Hoge and Peter Jung - three professional Teacher-Gamers who develop RPGs with great care to heighten empathy, expand social emotional life-skills and champion neural diversity in their thriving communities and beyond.",
+    embedId: "pb-9wkvj-1166d8e",
+    duration: "60 min",
+    date: "Dec 29, 2021",
+    link: "https://teachergamer.podbean.com/e/tgpc-ep-2-part-1-of-the-teacher-gamer-revolution-2021-meetup-with-aaron-vanek-and-mark-hoge/",
   },
   {
     id: "episode-3",
-    title: "The Teacher-Gamer Methodology",
+    title:
+      "TGPC - ep 1 - Jesse Driver - International Teacher-Gamer at Green School Bali",
     description:
-      "An in-depth look at our unique approach to combining teaching with gaming.",
-    embedId: "pb-fudp4-17a3ee4", // Replace with your actual Podbean embed ID
-    duration: "52 min",
-    date: "Oct 2024",
+      "Our opening episode highlights different styles of teacher-gaming. We talk 'Make Play', Mantic Games, cheap materials, MS hobby & craft time, TT vs digital culture, mini-war gaming, homebrewing.",
+    embedId: "pb-3sjs3-1152d97",
+    duration: "45 min",
+    date: "Dec 12, 2021",
+    link: "https://teachergamer.podbean.com/e/tgpc-episode-1-jesse-driver-international-teacher-gamer-at-green-school-bali/",
   },
 ];
 
@@ -453,13 +458,16 @@ export default function MediaPage() {
                     {episode.description}
                   </p>
 
-                  <button
-                    type="button"
+                  <a
+                    href={episode.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="flex items-center gap-2 text-amber-400 hover:text-amber-300 font-medium transition-colors"
                   >
                     <Play className="w-4 h-4 fill-current" />
                     <span>Listen Now</span>
-                  </button>
+                    <ExternalLink className="w-3 h-3" />
+                  </a>
                 </div>
               </div>
             ))}
