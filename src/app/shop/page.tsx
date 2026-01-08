@@ -278,7 +278,7 @@ export default function ShopPage() {
                 <div className="backdrop-blur-sm rounded-xl overflow-hidden flex flex-col bg-shop-primary-subtle border-2 border-shop-primary-light/25 shadow-[0_10px_30px_var(--color-shop-primary-glow)]">
                   <div className="relative aspect-3/4 w-full">
                     <Image
-                      src={MEDIA.assets.bookCover}
+                      src={MEDIA.assets.bookCover1}
                       alt="Teacher Gamer Handbook (PDF)"
                       fill
                       className="object-cover"
@@ -313,7 +313,7 @@ export default function ShopPage() {
                 <div className="backdrop-blur-sm rounded-xl overflow-hidden flex flex-col bg-shop-primary-subtle border-2 border-shop-primary-light/25 shadow-[0_10px_30px_var(--color-shop-primary-glow)]">
                   <div className="relative aspect-3/4 w-full">
                     <Image
-                      src={MEDIA.assets.bookCover}
+                      src={MEDIA.assets.bookCover2}
                       alt="Teacher Gamer Handbook (Softcover / Hardcover)"
                       fill
                       className="object-cover"
@@ -353,7 +353,7 @@ export default function ShopPage() {
                 <div className="backdrop-blur-sm rounded-xl overflow-hidden flex flex-col bg-shop-primary-subtle border-2 border-shop-primary-light/25 shadow-[0_10px_30px_var(--color-shop-primary-glow)]">
                   <div className="relative aspect-3/4 w-full">
                     <Image
-                      src={MEDIA.assets.bookCover}
+                      src={MEDIA.assets.bookCover3}
                       alt="Teacher Gamer Screen (Landscape)"
                       fill
                       className="object-cover"
@@ -393,7 +393,7 @@ export default function ShopPage() {
                 <div className="backdrop-blur-sm rounded-xl overflow-hidden flex flex-col bg-shop-primary-subtle border-2 border-shop-primary-light/25 shadow-[0_10px_30px_var(--color-shop-primary-glow)]">
                   <div className="relative aspect-3/4 w-full">
                     <Image
-                      src={MEDIA.assets.bookCover}
+                      src={MEDIA.assets.bookCover4}
                       alt="Teacher Gamer Screen (Portrait)"
                       fill
                       className="object-cover"

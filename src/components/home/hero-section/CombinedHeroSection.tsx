@@ -301,7 +301,7 @@ const CombinedHeroSection = forwardRef<HTMLElement>((_props, ref) => {
       {/* Shop Section Content */}
       <div
         data-scroll-section={0}
-        className="py-40 flex justify-center items-center relative"
+        className="py-20 flex justify-center items-center relative"
       >
         <div
           data-section-content

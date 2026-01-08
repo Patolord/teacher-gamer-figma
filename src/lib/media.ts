@@ -52,6 +52,10 @@ export const MEDIA = {
     bookCover: `${IMAGEKIT_BASE_URL}/book-cover.webp`,
     magicCardBg: `${IMAGEKIT_BASE_URL}/magic-card-bg.webp`,
     magicCardBgAlt: `${IMAGEKIT_BASE_URL}/magic-card-bg-alt.webp`,
+    bookCover1: `${IMAGEKIT_BASE_URL}/book-cover.webp`,
+    bookCover2: `${IMAGEKIT_BASE_URL}/book-cover-2.webp`,
+    bookCover3: `${IMAGEKIT_BASE_URL}/book-cover-3.webp`,
+    bookCover4: `${IMAGEKIT_BASE_URL}/book-cover-4.webp`,
   },
 
   // ===========================================================================
