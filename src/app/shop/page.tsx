@@ -332,20 +332,18 @@ export default function ShopPage() {
                         $36.99 USD
                       </p>
                     </div>
-                    <Button
-                      className="w-full font-bold mt-auto transition-all duration-300 bg-shop-accent-lime text-shop-neutral-dark-bg hover:bg-shop-accent-lime-light"
-                      onClick={handleCheckout}
-                      disabled={isLoading}
+                    <a
+                      href="https://www.drivethrurpg.com/en/product/354223/teacher-gamer-handbook"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="w-full"
                     >
-                      {isLoading ? (
-                        <>
-                          <Loader2 className="w-4 h-4 mr-2 animate-spin" />
-                          Processing...
-                        </>
-                      ) : (
-                        "BUY NOW"
-                      )}
-                    </Button>
+                      <Button
+                        className="w-full font-bold mt-auto transition-all duration-300 bg-shop-accent-lime text-shop-neutral-dark-bg hover:bg-shop-accent-lime-light"
+                      >
+                        BUY NOW
+                      </Button>
+                    </a>
                   </div>
                 </div>
 
@@ -372,20 +370,18 @@ export default function ShopPage() {
                         $4.99 USD
                       </p>
                     </div>
-                    <Button
-                      className="w-full font-bold mt-auto transition-all duration-300 bg-shop-accent-lime text-shop-neutral-dark-bg hover:bg-shop-accent-lime-light"
-                      onClick={handleCheckout}
-                      disabled={isLoading}
+                    <a
+                      href="https://www.drivethrurpg.com/en/product/364211/teacher-gamer-screen-landscape"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="w-full"
                     >
-                      {isLoading ? (
-                        <>
-                          <Loader2 className="w-4 h-4 mr-2 animate-spin" />
-                          Processing...
-                        </>
-                      ) : (
-                        "BUY NOW"
-                      )}
-                    </Button>
+                      <Button
+                        className="w-full font-bold mt-auto transition-all duration-300 bg-shop-accent-lime text-shop-neutral-dark-bg hover:bg-shop-accent-lime-light"
+                      >
+                        BUY NOW
+                      </Button>
+                    </a>
                   </div>
                 </div>
 
@@ -412,20 +408,18 @@ export default function ShopPage() {
                         $4.99 USD
                       </p>
                     </div>
-                    <Button
-                      className="w-full font-bold mt-auto transition-all duration-300 bg-shop-accent-lime text-shop-neutral-dark-bg hover:bg-shop-accent-lime-light"
-                      onClick={handleCheckout}
-                      disabled={isLoading}
+                    <a
+                      href="https://www.drivethrurpg.com/en/product/364214/teacher-gamer-screen-portrait"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="w-full"
                     >
-                      {isLoading ? (
-                        <>
-                          <Loader2 className="w-4 h-4 mr-2 animate-spin" />
-                          Processing...
-                        </>
-                      ) : (
-                        "BUY NOW"
-                      )}
-                    </Button>
+                      <Button
+                        className="w-full font-bold mt-auto transition-all duration-300 bg-shop-accent-lime text-shop-neutral-dark-bg hover:bg-shop-accent-lime-light"
+                      >
+                        BUY NOW
+                      </Button>
+                    </a>
                   </div>
                 </div>
               </div>
