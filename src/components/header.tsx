@@ -41,7 +41,7 @@ export function Header() {
   };
 
   return (
-    <div className="absolute inset-x-0 top-3 md:top-4 z-50 flex justify-end md:justify-center px-3 md:px-4">
+    <div className="fixed inset-x-0 top-3 md:top-4 z-50 flex justify-end md:justify-center px-3 md:px-4">
       {/* Mobile Menu Button - Top Right, Smaller */}
       <button
         type="button"

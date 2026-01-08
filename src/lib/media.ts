@@ -78,8 +78,8 @@ export const MEDIA = {
   // ABOUT PAGE
   // ===========================================================================
   about: {
-    zachProfile: `${IMAGEKIT_BASE_URL}zach-profile.jpg`,
-    classroomRpg: `${IMAGEKIT_BASE_URL}classroom-rpg.jpg`,
+    zachProfile: `${IMAGEKIT_BASE_URL}/zach-profile.webp`,
+    classroomRpg: `${IMAGEKIT_BASE_URL}/classroom-rpg.webp`,
   },
 
   // ===========================================================================
