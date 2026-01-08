@@ -68,7 +68,7 @@ export default function CoursesSection({ sectionIndex }: CoursesSectionProps) {
       {/* 40% black overlay */}
       <div 
         className="absolute inset-0" 
-        style={{ backgroundColor: "rgba(26, 26, 31, 0.4)" }}
+        style={{ backgroundColor: "rgba(26, 26, 31, 0.4)", left: "-103px", top: "-5px" }}
       />
 
       {/* Top horizontal transition element */}

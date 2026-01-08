@@ -82,14 +82,14 @@ export default function CalendarBookingSection({
             spread={30}
             yoyo
           >
-            Agende sua Sessão
+            Schedule a Session
           </ShinyText>
         </h2>
         <p 
           className="text-xl text-center font-amarante"
           style={{ color: theme.neutral.lighter }}
         >
-          Escolha a melhor data e horário para sua aventura
+            Choose the best date and time for your adventure
         </p>
 
         <div className="hidden lg:block">

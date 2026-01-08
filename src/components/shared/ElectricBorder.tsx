@@ -290,7 +290,7 @@ const ElectricBorder: React.FC<ElectricBorderProps> = ({
         <div className="absolute inset-0" style={bgGlowStyle} />
       </div>
 
-      <div className="relative" style={inheritRadius}>
+      <div className="relative h-full" style={inheritRadius}>
         {children}
       </div>
     </div>

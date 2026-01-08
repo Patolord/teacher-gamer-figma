@@ -49,6 +49,7 @@ export default function EletricCard({
       speed={1}
       chaos={0.5}
       thickness={2}
+      className="h-full"
       style={{ borderRadius: 16 }}
     >
       <Card 

@@ -165,7 +165,6 @@ export default function ResearchSection({
 
         {/* Grid de cartas */}
         <div
-          data-animate-stagger
           className="grid gap-8 md:gap-10 grid-cols-1 sm:grid-cols-2 xl:grid-cols-3"
         >
           {articles.map((article, index) => {
