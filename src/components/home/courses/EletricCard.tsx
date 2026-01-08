@@ -1,5 +1,6 @@
 import { ArrowRightIcon } from "lucide-react";
 import Link from "next/link";
+import Image from "next/image";
 import ElectricBorder from "@/components/shared/ElectricBorder";
 import { Button } from "@/components/ui/button";
 import {
@@ -34,6 +35,7 @@ type EletricCardProps = {
   color: string;
   badge?: string;
   href?: string;
+  diceImage?: string;
 };
 
 export default function EletricCard({
@@ -42,6 +44,7 @@ export default function EletricCard({
   color,
   badge: _badge,
   href,
+  diceImage,
 }: EletricCardProps) {
   return (
     <ElectricBorder
@@ -58,9 +61,20 @@ export default function EletricCard({
           color: theme.neutral.lighter
         }}
       >
-        <CardHeader>
+        <CardHeader className="relative pt-8">
+          {diceImage && (
+            <div className="absolute top-3 right-3 w-14 h-14 drop-shadow-lg transition-transform duration-300 hover:scale-110 hover:rotate-12 -z-10 opacity-70">
+              <Image
+                src={diceImage}
+                alt="Dice"
+                width={56}
+                height={56}
+                className="object-contain"
+              />
+            </div>
+          )}
           <CardTitle 
-            className="text-3xl mb-4 font-pirata-one"
+            className="text-3xl mb-4 font-pirata-one pr-12"
             style={{ color: theme.neutral.lighter }}
           >
             {title}
