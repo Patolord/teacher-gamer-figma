@@ -276,9 +276,8 @@ export default function TeachersMapPage() {
                     onMouseEnter={() => setHoveredTeacher(teacher)}
                     onMouseLeave={() => setHoveredTeacher(null)}
                     onClick={() => setSelectedTeacher(teacher)}
-                    style={{ cursor: "pointer" }}
                   >
-                    <g transform="translate(-12, -24)">
+                    <g transform="translate(-12, -24)" style={{ cursor: "pointer" }}>
                       {/* Pulse animation ring */}
                       <circle
                         cx="12"
