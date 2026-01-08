@@ -86,7 +86,7 @@ const Testimonials = ({ sectionIndex }: TestimonialsProps) => {
     },
     {
       id: 6,
-      image: MEDIA.testimonials.testimonial1,
+      image: MEDIA.testimonials.testimonial2,
     },
     {
       id: 7,
@@ -100,7 +100,7 @@ const Testimonials = ({ sectionIndex }: TestimonialsProps) => {
     },
     {
       id: 9,
-      image: MEDIA.testimonials.testimonial1,
+      image: MEDIA.testimonials.testimonial3,
     },
   ];
 

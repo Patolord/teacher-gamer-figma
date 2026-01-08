@@ -63,6 +63,8 @@ export const MEDIA = {
   // ===========================================================================
   testimonials: {
     testimonial1: `${IMAGEKIT_BASE_URL}/testimonial-1.jpg`,
+    testimonial2: `${IMAGEKIT_BASE_URL}/testimonial-2.webp`,
+    testimonial3: `${IMAGEKIT_BASE_URL}/testimonial-3.webp`,
   },
 
   // ===========================================================================
