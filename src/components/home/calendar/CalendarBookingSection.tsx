@@ -73,7 +73,7 @@ export default function CalendarBookingSection({
         className="py-30 px-16 bg-no-repeat bg-backdrop-none space-y-4 relative"
         style={{ zIndex: 20 }}
       >
-        <h2 className="text-3xl text-center font-pirata-one">
+        <h2 className="text-3xl text-center font-pirata-one pb-8">
           <ShinyText
             speed={3}
             delay={1}
@@ -86,7 +86,7 @@ export default function CalendarBookingSection({
           </ShinyText>
         </h2>
         <p 
-          className="text-xl text-center font-amarante"
+          className="text-xl text-center font-amarante pb-8"
           style={{ color: theme.neutral.lighter }}
         >
             Choose the best date and time for your adventure
