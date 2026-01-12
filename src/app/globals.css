@@ -239,6 +239,11 @@ body {
   transition-delay: 500ms;
 }
 
+/* No delay variant - all children animate together */
+[data-animate-stagger="no-delay"].is-visible > * {
+  transition-delay: 0ms;
+}
+
 /* Fade only (no transform) */
 [data-animate="fade"] {
   transform: none;

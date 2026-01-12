@@ -10,6 +10,7 @@ const menu = [
   { title: "About", href: "/about" },
   { title: "Training", href: "/home#courses-section" },
   { title: "Calendar", href: "/home#calendar-section" },
+  { title: "Map", href: "/map" },
   { title: "Media", href: "/media" },
   { title: "Shop", href: "/shop" },
   { title: "FAQ", href: "/faq" },
@@ -40,7 +41,7 @@ export function Header() {
   };
 
   return (
-    <div className="absolute inset-x-0 top-3 md:top-4 z-50 flex justify-end md:justify-center px-3 md:px-4">
+    <div className="fixed inset-x-0 top-3 md:top-4 z-50 flex justify-end md:justify-center px-3 md:px-4">
       {/* Mobile Menu Button - Top Right, Smaller */}
       <button
         type="button"
@@ -57,14 +58,14 @@ export function Header() {
       </button>
 
       {/* Desktop Menu - Centered */}
-      <div className="hidden md:flex h-16 items-center gap-20 px-6 bg-white rounded-full border border-gray-200 shadow-lg">
-        <div className="flex items-center gap-1">
+      <div className="hidden md:flex h-10 items-center px-2 bg-white rounded-full border border-gray-200 shadow-lg">
+        <div className="flex items-center">
           {menu.map(({ title, href }) => (
             <Link
               key={href}
               href={href}
               onClick={(e) => handleNavClick(e, href)}
-              className="hover:bg-gray-100 rounded-full px-4 py-2 text-lg text-gray-800 transition-colors"
+              className="hover:bg-gray-100 rounded-full px-3 py-1 text-sm text-gray-800 transition-colors"
             >
               {title}
             </Link>

@@ -18,6 +18,7 @@ export default function CoursesSection({ sectionIndex }: CoursesSectionProps) {
         "Get an introduction to how RPGs and the multiverse can drive adult readiness through PBL and SEL as we work through the 13 Phases of Character Building.",
       color: "var(--color-accent)",
       href: "/courses/intro-to-multiverse",
+      diceImage: "/dices/dice-blue.webp",
     },
     {
       title: "Level 1 TG Space-Holder Certificate Course",
@@ -26,6 +27,7 @@ export default function CoursesSection({ sectionIndex }: CoursesSectionProps) {
       color: "var(--color-secondary)",
       badge: "BEST VALUE",
       href: "/courses/level-1-space-holder",
+      diceImage: "/dices/dice-purple.webp",
     },
     {
       title: "Level 2 TG World Builder Certificate",
@@ -33,6 +35,7 @@ export default function CoursesSection({ sectionIndex }: CoursesSectionProps) {
         "Build & implement your own campaign world. Uncharted territory: New stories, creatures, magic & tech",
       color: "var(--color-primary-light)",
       href: "/courses/level-2-world-builder",
+      diceImage: "/dices/dice-green.webp",
     },
     {
       title: "Level 3 TG Planes Walker Certificate Course",
@@ -40,6 +43,7 @@ export default function CoursesSection({ sectionIndex }: CoursesSectionProps) {
         "Integrate your own RPGs campaign into your local school system's learning objectives with guidance",
       color: "var(--color-secondary-dark)",
       href: "/courses/level-3-planes-walker",
+      diceImage: "/dices/dice-yellow.webp",
     },
   ];
 
@@ -53,7 +57,7 @@ export default function CoursesSection({ sectionIndex }: CoursesSectionProps) {
       {/* 40% black overlay */}
       <div 
         className="absolute inset-0" 
-        style={{ backgroundColor: "rgba(26, 26, 31, 0.4)" }}
+        style={{ backgroundColor: "rgba(26, 26, 31, 0.4)", left: "-103px", top: "-5px" }}
       />
 
       {/* Top horizontal transition element */}
@@ -97,6 +101,7 @@ export default function CoursesSection({ sectionIndex }: CoursesSectionProps) {
               color={course.color}
               badge={course.badge}
               href={course.href}
+              diceImage={course.diceImage}
             />
           ))}
         </div>

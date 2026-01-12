@@ -1,25 +1,23 @@
+"use client";
+
 import Cal, { getCalApi } from "@calcom/embed-react";
 import { useEffect } from "react";
+import { CAL_CONFIG, getCalUIConfig, getCalConfig } from "./cal-config";
+
 export default function Calendar() {
   useEffect(() => {
     (async () => {
-      const cal = await getCalApi({ namespace: "training-session" });
-      cal("ui", {
-        hideEventTypeDetails: false,
-        layout: "month_view",
-        theme: "dark",
-      });
+      const cal = await getCalApi({ namespace: CAL_CONFIG.username });
+      cal("ui", getCalUIConfig());
     })();
   }, []);
+
   return (
     <Cal
-      namespace="training-session"
-      calLink="up-craft-crew/training-session"
-      style={{
-        width: "100%",
-        height: "100%",
-      }}
-      config={{ layout: "month_view" }}
+      namespace={CAL_CONFIG.username}
+      calLink={CAL_CONFIG.username}
+      style={CAL_CONFIG.styles}
+      config={getCalConfig()}
     />
   );
 }
