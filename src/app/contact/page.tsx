@@ -2,7 +2,12 @@
 
 import {
   ArrowLeftIcon,
+  Facebook,
+  Twitter,
+  Instagram,
   Linkedin,
+  Youtube,
+  Mail,
   MailIcon,
   MapPinIcon,
   MessageSquareIcon,

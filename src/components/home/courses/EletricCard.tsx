@@ -79,19 +79,19 @@ export default function EletricCard({
         <CardFooter className="mt-auto px-6">
           <Button
             variant="outline"
-            className="w-full border-0 rounded-xl py-6 flex items-center justify-center gap-2 font-semibold transition-all duration-300"
+            className="w-full border-2 rounded-xl py-6 flex items-center justify-center gap-2 font-semibold transition-all duration-300"
             style={{
-              backgroundColor: theme.accent.lime,
-              color: theme.neutral.darkBg,
-              boxShadow: `0 4px 20px ${theme.accent.lime}40`
+              borderColor: color,
+              backgroundColor: 'transparent',
+              color: theme.neutral.lighter,
             }}
             onMouseEnter={(e) => {
-              e.currentTarget.style.backgroundColor = theme.accent.limeLight;
-              e.currentTarget.style.boxShadow = `0 4px 24px ${theme.accent.lime}70`;
+              e.currentTarget.style.backgroundColor = `${color}20`;
+              e.currentTarget.style.borderColor = color;
             }}
             onMouseLeave={(e) => {
-              e.currentTarget.style.backgroundColor = theme.accent.lime;
-              e.currentTarget.style.boxShadow = `0 4px 20px ${theme.accent.lime}40`;
+              e.currentTarget.style.backgroundColor = 'transparent';
+              e.currentTarget.style.borderColor = color;
             }}
             asChild
           >

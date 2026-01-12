@@ -370,7 +370,7 @@ const CombinedHeroSection = forwardRef<HTMLElement>((_props, ref) => {
                   e.currentTarget.style.boxShadow = `0 4px 20px ${theme.accent.limeGlow}, 0 0 40px ${theme.highlight.yellowSoft}`;
                 }}
               >
-                SHOP NOW
+                Get the Handbook
               </button>
             </Link>
           </div>
