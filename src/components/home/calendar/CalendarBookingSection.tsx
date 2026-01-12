@@ -59,8 +59,8 @@ export default function CalendarBookingSection({
             Schedule a Session
           </ShinyText>
         </h2>
-        <p
-          className="text-xl text-center font-amarante pb-8"
+        <p 
+          className="text-xl text-center font-amarante"
           style={{ color: "var(--color-lighter)" }}
         >
           Choose the best date and time for your adventure

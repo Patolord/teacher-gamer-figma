@@ -112,8 +112,9 @@ export default function ContactSection({ sectionIndex }: ContactSectionProps) {
             >
               <Twitter className="w-6 h-6 transition-colors text-lighter group-hover:text-background" />
             </a>
+            {/* YouTube */}
             <a
-              href="https://instagram.com"
+              href="https://www.youtube.com/channel/UCuefgI1D0nybe1Vn3Tm1MCg"
               target="_blank"
               rel="noopener noreferrer"
               className="group flex items-center justify-center w-14 h-14 rounded-full backdrop-blur-sm border-2 transition-all duration-300 bg-white/10 border-primary-light hover:bg-accent hover:border-accent"
@@ -130,8 +131,9 @@ export default function ContactSection({ sectionIndex }: ContactSectionProps) {
             >
               <Linkedin className="w-6 h-6 transition-colors text-lighter group-hover:text-background" />
             </a>
+            {/* TikTok */}
             <a
-              href="https://youtube.com"
+              href="https://www.tiktok.com/@teachergamerz"
               target="_blank"
               rel="noopener noreferrer"
               className="group flex items-center justify-center w-14 h-14 rounded-full backdrop-blur-sm border-2 transition-all duration-300 bg-white/10 border-primary-light hover:bg-accent hover:border-accent"
