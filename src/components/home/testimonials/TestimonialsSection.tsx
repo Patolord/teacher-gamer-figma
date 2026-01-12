@@ -6,29 +6,7 @@ import { MEDIA } from "@/lib/media";
 import ShinyText from "@/components/ui/shinytext";
 import "./Testimonials.css";
 
-// Refined Split-Complementary Color Harmony - Magical Fantasy Theme
-const theme = {
-  primary: {
-    base: "#6A4BCF",
-    light: "#B9A7FF",
-    lighter: "#D4C9FF",
-    subtle: "rgba(106, 75, 207, 0.1)",
-    glow: "rgba(106, 75, 207, 0.3)",
-  },
-  accent: {
-    lime: "#DAFF0D",
-    limeLight: "#E5FF4D",
-    limeGlow: "rgba(218, 255, 13, 0.2)",
-  },
-  highlight: {
-    yellow: "#FFD85A",
-    yellowSoft: "rgba(255, 216, 90, 0.2)",
-  },
-  neutral: {
-    darkBg: "#1A1A1F",
-    lighter: "#E5E4E8",
-  },
-};
+// Using global CSS theme variables
 
 type message = {
   id: number;
@@ -119,14 +97,14 @@ const Testimonials = ({ sectionIndex }: TestimonialsProps) => {
         <div 
           className={imageCardClass}
           style={{
-            borderColor: theme.accent.lime,
-            boxShadow: `0 4px 12px ${theme.primary.glow}`,
+            borderColor: "var(--color-accent)",
+            boxShadow: "0 4px 12px var(--color-primary-glow)",
           }}
           onMouseEnter={(e) => {
-            e.currentTarget.style.boxShadow = `0 6px 20px ${theme.accent.limeGlow}, 0 0 30px ${theme.primary.glow}`;
+            e.currentTarget.style.boxShadow = "0 6px 20px var(--color-accent-glow), 0 0 30px var(--color-primary-glow)";
           }}
           onMouseLeave={(e) => {
-            e.currentTarget.style.boxShadow = `0 4px 12px ${theme.primary.glow}`;
+            e.currentTarget.style.boxShadow = "0 4px 12px var(--color-primary-glow)";
           }}
         >
           <Image
@@ -161,31 +139,31 @@ const Testimonials = ({ sectionIndex }: TestimonialsProps) => {
         className={textCardClass}
         style={{
           backgroundColor: 'rgba(0, 0, 0, 0.3)',
-          borderColor: theme.primary.light,
+          borderColor: "var(--color-primary-light)",
           borderWidth: '2px',
-          boxShadow: `0 4px 12px ${theme.primary.glow}`,
+          boxShadow: "0 4px 12px var(--color-primary-glow)",
         }}
         onMouseEnter={(e) => {
           e.currentTarget.style.backgroundColor = 'rgba(0, 0, 0, 0.5)';
-          e.currentTarget.style.borderColor = theme.accent.lime;
-          e.currentTarget.style.boxShadow = `0 6px 20px ${theme.accent.limeGlow}, 0 0 30px ${theme.primary.glow}`;
+          e.currentTarget.style.borderColor = "var(--color-accent)";
+          e.currentTarget.style.boxShadow = "0 6px 20px var(--color-accent-glow), 0 0 30px var(--color-primary-glow)";
         }}
         onMouseLeave={(e) => {
           e.currentTarget.style.backgroundColor = 'rgba(0, 0, 0, 0.3)';
-          e.currentTarget.style.borderColor = theme.primary.light;
-          e.currentTarget.style.boxShadow = `0 4px 12px ${theme.primary.glow}`;
+          e.currentTarget.style.borderColor = "var(--color-primary-light)";
+          e.currentTarget.style.boxShadow = "0 4px 12px var(--color-primary-glow)";
         }}
       >
         <div className="flex flex-col gap-4 h-full">
           <p 
             className="text-[0.95rem] leading-[1.6] m-0 grow whitespace-normal"
-            style={{ color: theme.neutral.lighter }}
+            style={{ color: "var(--color-lighter)" }}
           >
             {displayText}
             {needsTruncation && (
               <span 
                 className="ml-2 font-semibold"
-                style={{ color: theme.accent.lime }}
+                style={{ color: "var(--color-accent)" }}
               >
                 {isExpanded ? "Show less" : "Read more"}
               </span>
@@ -194,7 +172,7 @@ const Testimonials = ({ sectionIndex }: TestimonialsProps) => {
           <div className="flex items-center gap-3">
             <span 
               className="text-sm font-medium"
-              style={{ color: theme.neutral.lighter }}
+              style={{ color: "var(--color-lighter)" }}
             >
               {message.handle}
             </span>
@@ -250,13 +228,13 @@ const Testimonials = ({ sectionIndex }: TestimonialsProps) => {
       <div 
         className="absolute top-0 left-0 right-0 h-px opacity-60 z-10"
         style={{
-          background: `linear-gradient(to right, transparent, ${theme.accent.lime}, ${theme.highlight.yellow}, ${theme.accent.lime}, transparent)`
+          background: "linear-gradient(to right, transparent, var(--color-accent), var(--color-secondary), var(--color-accent), transparent)"
         }}
       />
       <div 
         className="absolute top-0 left-0 right-0 h-24 pointer-events-none z-10"
         style={{
-          background: `linear-gradient(to bottom, ${theme.highlight.yellowSoft}, transparent)`
+          background: "linear-gradient(to bottom, var(--color-secondary-soft), transparent)"
         }}
       />
 
@@ -267,7 +245,7 @@ const Testimonials = ({ sectionIndex }: TestimonialsProps) => {
             <ShinyText
               speed={3}
               delay={1}
-              color={theme.accent.lime}
+              color={"var(--color-accent)"}
               shineColor="#fff"
               spread={30}
               yoyo
@@ -287,13 +265,13 @@ const Testimonials = ({ sectionIndex }: TestimonialsProps) => {
       <div 
         className="absolute bottom-0 left-0 right-0 h-24 pointer-events-none z-10"
         style={{
-          background: `linear-gradient(to top, ${theme.highlight.yellowSoft}, transparent)`
+          background: "linear-gradient(to top, var(--color-secondary-soft), transparent)"
         }}
       />
       <div 
         className="absolute bottom-0 left-0 right-0 h-px opacity-60 z-10"
         style={{
-          background: `linear-gradient(to right, transparent, ${theme.accent.lime}, ${theme.highlight.yellow}, ${theme.accent.lime}, transparent)`
+          background: "linear-gradient(to right, transparent, var(--color-accent), var(--color-secondary), var(--color-accent), transparent)"
         }}
       />
     </section>

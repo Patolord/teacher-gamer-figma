@@ -49,7 +49,7 @@ export default function AboutPage() {
         <div className="container mx-auto px-4 pt-6 pb-2">
           <Link
             href="/home"
-            className="inline-flex items-center gap-2 text-white/80 hover:text-white transition-colors"
+            className="inline-flex items-center gap-2 text-lighter/80 hover:text-accent transition-colors"
           >
             <ArrowLeft className="w-5 h-5" />
             Back to Home
@@ -61,16 +61,16 @@ export default function AboutPage() {
           <div className="max-w-6xl mx-auto space-y-20">
             {/* Page Title */}
             <div className="text-center">
-              <h1 className="text-5xl md:text-7xl font-bold text-white mb-4">
+              <h1 className="text-5xl md:text-7xl font-bold text-lighter mb-4">
                 About
               </h1>
-              <div className="h-1 w-24 bg-gradient-to-r from-transparent via-amber-400 to-transparent mx-auto" />
+              <div className="h-1 w-24 bg-gradient-to-r from-transparent via-accent to-transparent mx-auto" />
             </div>
 
             {/* Zach Reznichek Section */}
             <div className="grid md:grid-cols-2 gap-12 items-start">
               {/* Photo */}
-              <div className="relative aspect-[4/5] rounded-2xl overflow-hidden border-4 border-white/20 shadow-2xl">
+              <div className="relative aspect-[4/5] rounded-2xl overflow-hidden border-4 border-primary-light/20 shadow-2xl">
                 <Image
                   src={MEDIA.about.zachProfile}
                   alt="Zach Reznichek"
@@ -83,15 +83,15 @@ export default function AboutPage() {
               {/* Content */}
               <div className="space-y-6">
                 <div>
-                  <h2 className="text-4xl font-bold text-white mb-2">
+                  <h2 className="text-4xl font-bold text-lighter mb-2">
                     Zach Reznichek
                   </h2>
-                  <p className="text-xl text-white/70 italic">
+                  <p className="text-xl text-lighter/70 italic">
                     MA Education, .b Mindfulness certified
                   </p>
                 </div>
 
-                <div className="space-y-4 text-white/90 leading-relaxed">
+                <div className="space-y-4 text-lighter/90 leading-relaxed">
                   <p>
                     Life-skills innovator, mindfulness coach, teacher-gamer.
                     Zach has figured out how to combine game theory, literary
@@ -120,7 +120,7 @@ export default function AboutPage() {
 
                 <Button
                   size="lg"
-                  className="bg-amber-400 hover:bg-amber-300 text-zinc-900 font-semibold px-8"
+                  className="bg-accent hover:bg-accent-light text-background font-semibold px-8"
                   asChild
                 >
                   <Link href="/contact">More About Zach</Link>
@@ -133,11 +133,11 @@ export default function AboutPage() {
               <div className="grid md:grid-cols-2 gap-12 items-center">
                 {/* Content */}
                 <div className="space-y-6">
-                  <h2 className="text-4xl font-bold text-white leading-tight">
+                  <h2 className="text-4xl font-bold text-lighter leading-tight">
                     Social Emotional Learning through Role-Playing Games
                   </h2>
 
-                  <div className="space-y-4 text-white/90 leading-relaxed">
+                  <div className="space-y-4 text-lighter/90 leading-relaxed">
                     <p>
                       Although millions of people have played role-playing
                       games, to put them into cognitive, psychological, social,
@@ -169,7 +169,7 @@ export default function AboutPage() {
                 </div>
 
                 {/* Image */}
-                <div className="relative aspect-[4/3] rounded-2xl overflow-hidden border-4 border-white/20 shadow-2xl">
+                <div className="relative aspect-[4/3] rounded-2xl overflow-hidden border-4 border-primary-light/20 shadow-2xl">
                   <Image
                     src={MEDIA.about.classroomRpg}
                     alt="Students learning through role-playing games"
@@ -180,8 +180,8 @@ export default function AboutPage() {
               </div>
 
               {/* Additional Content */}
-              <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/20">
-                <p className="text-white/90 leading-relaxed text-lg">
+              <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-primary-light/20">
+                <p className="text-lighter/90 leading-relaxed text-lg">
                   This is teaching role-playing games as a skillset where
                   students can learn to accept, process and move on from defeat
                   and be gracious winners socially. Without telling their
@@ -195,10 +195,10 @@ export default function AboutPage() {
             {/* Values Section */}
             <div className="space-y-8">
               <div className="text-center">
-                <h2 className="text-4xl font-bold text-white mb-4">
+                <h2 className="text-4xl font-bold text-lighter mb-4">
                   Our Core Values
                 </h2>
-                <p className="text-xl text-white/70 max-w-3xl mx-auto">
+                <p className="text-xl text-lighter/70 max-w-3xl mx-auto">
                   The principles that guide our approach to transformative
                   education
                 </p>
@@ -208,17 +208,17 @@ export default function AboutPage() {
                 {values.map(({ icon: Icon, title, description }) => (
                   <div
                     key={title}
-                    className="bg-white/10 backdrop-blur-sm rounded-xl p-8 border border-white/20 hover:bg-white/15 transition-all"
+                    className="bg-white/10 backdrop-blur-sm rounded-xl p-8 border border-primary-light/20 hover:bg-white/15 transition-all"
                   >
                     <div className="flex items-start gap-4">
-                      <div className="w-12 h-12 rounded-full bg-amber-400/30 flex items-center justify-center flex-shrink-0">
-                        <Icon className="w-6 h-6 text-amber-400" />
+                      <div className="w-12 h-12 rounded-full bg-accent/30 flex items-center justify-center flex-shrink-0">
+                        <Icon className="w-6 h-6 text-accent" />
                       </div>
                       <div>
-                        <h3 className="text-xl font-bold text-white mb-2">
+                        <h3 className="text-xl font-bold text-lighter mb-2">
                           {title}
                         </h3>
-                        <p className="text-white/80">{description}</p>
+                        <p className="text-lighter/80">{description}</p>
                       </div>
                     </div>
                   </div>
@@ -227,17 +227,17 @@ export default function AboutPage() {
             </div>
 
             {/* CTA Section */}
-            <div className="bg-gradient-to-br from-amber-400/20 to-amber-500/20 rounded-2xl p-12 border border-amber-400/30 text-center space-y-6">
-              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-amber-400/20 border border-amber-400/30 text-amber-200">
+            <div className="bg-gradient-to-br from-primary-subtle to-accent/5 rounded-2xl p-12 border border-primary-light/30 text-center space-y-6">
+              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-accent/20 border border-accent/30 text-accent">
                 <Award className="w-5 h-5" />
                 <span className="font-semibold">Join Our Community</span>
               </div>
 
-              <h2 className="text-4xl font-bold text-white">
+              <h2 className="text-4xl font-bold text-lighter">
                 Ready to Transform Education?
               </h2>
 
-              <p className="text-xl text-white/80 max-w-2xl mx-auto">
+              <p className="text-xl text-lighter/80 max-w-2xl mx-auto">
                 Discover how role-playing games can revolutionize learning in
                 your classroom or educational setting.
               </p>
@@ -245,7 +245,7 @@ export default function AboutPage() {
               <div className="flex flex-col sm:flex-row gap-4 justify-center pt-4">
                 <Button
                   size="lg"
-                  className="bg-amber-400 hover:bg-amber-300 text-zinc-900 font-semibold px-8"
+                  className="bg-accent hover:bg-accent-light text-background font-semibold px-8"
                   asChild
                 >
                   <Link href="/home#courses-section">Explore Our Courses</Link>
@@ -253,14 +253,14 @@ export default function AboutPage() {
                 <Button
                   size="lg"
                   variant="outline"
-                  className="border-white/30 text-Black hover:bg-white/10 font-semibold px-8"
+                  className="border-primary-light/30 text-lighter hover:bg-white/10 font-semibold px-8"
                   asChild
                 >
                   <Link href="/contact">Get in Touch</Link>
                 </Button>
                 <Button
                   size="lg"
-                  className="bg-amber-400 hover:bg-amber-300 text-zinc-900 font-semibold px-8"
+                  className="bg-accent hover:bg-accent-light text-background font-semibold px-8"
                   asChild
                 >
                   <Link href="/shop">Buy the Book!</Link>

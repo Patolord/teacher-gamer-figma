@@ -5,27 +5,7 @@ import { useEffect, useState } from "react";
 import { MEDIA } from "@/lib/media";
 import ShinyText from "@/components/ui/shinytext";
 
-// Refined Split-Complementary Color Harmony - Magical Fantasy Theme
-const theme = {
-  primary: {
-    base: "#6A4BCF",
-    light: "#B9A7FF",
-    subtle: "rgba(106, 75, 207, 0.1)",
-    glow: "rgba(106, 75, 207, 0.3)",
-  },
-  accent: {
-    lime: "#DAFF0D",
-    limeLight: "#E5FF4D",
-  },
-  highlight: {
-    yellow: "#FFD85A",
-    yellowSoft: "rgba(255, 216, 90, 0.2)",
-  },
-  neutral: {
-    darkBg: "#1A1A1F",
-    lighter: "#E5E4E8",
-  },
-};
+// Using global CSS theme variables
 
 type Props = { sectionIndex?: number };
 
@@ -86,13 +66,13 @@ export default function SubstackSection({ sectionIndex }: Props) {
       <div 
         className="absolute top-0 left-0 right-0 h-px opacity-60 z-10"
         style={{
-          background: `linear-gradient(to right, transparent, ${theme.accent.lime}, ${theme.highlight.yellow}, ${theme.accent.lime}, transparent)`
+          background: "linear-gradient(to right, transparent, var(--color-accent), var(--color-secondary), var(--color-accent), transparent)"
         }}
       />
       <div 
         className="absolute top-0 left-0 right-0 h-24 pointer-events-none z-10"
         style={{
-          background: `linear-gradient(to bottom, ${theme.highlight.yellowSoft}, transparent)`
+          background: "linear-gradient(to bottom, var(--color-secondary-soft), transparent)"
         }}
       />
 
@@ -106,7 +86,7 @@ export default function SubstackSection({ sectionIndex }: Props) {
           <ShinyText
             speed={3}
             delay={1}
-            color={theme.accent.lime}
+            color={"var(--color-accent)"}
             shineColor="#fff"
             spread={30}
             yoyo
@@ -118,7 +98,7 @@ export default function SubstackSection({ sectionIndex }: Props) {
         {loading && (
           <div 
             className="py-8 text-center"
-            style={{ color: theme.accent.lime }}
+            style={{ color: "var(--color-accent)" }}
           >
             Loading latest posts...
           </div>
@@ -144,37 +124,37 @@ export default function SubstackSection({ sectionIndex }: Props) {
                   className="backdrop-blur-sm rounded-lg shadow-lg border-2 p-6 md:p-8 transition-all"
                   style={{
                     backgroundColor: 'rgba(0, 0, 0, 0.3)',
-                    borderColor: `${theme.primary.light}80`,
-                    boxShadow: `0 10px 30px ${theme.primary.glow}`
+                    borderColor: "color-mix(in srgb, var(--color-primary-light) 50%, transparent)",
+                    boxShadow: "0 10px 30px var(--color-primary-glow)"
                   }}
                   onMouseEnter={(e) => {
                     e.currentTarget.style.backgroundColor = 'rgba(0, 0, 0, 0.5)';
-                    e.currentTarget.style.borderColor = theme.accent.lime;
-                    e.currentTarget.style.boxShadow = `0 10px 40px ${theme.accent.limeLight}, 0 0 30px ${theme.primary.glow}`;
+                    e.currentTarget.style.borderColor = "var(--color-accent)";
+                    e.currentTarget.style.boxShadow = "0 10px 40px var(--color-accent-light), 0 0 30px var(--color-primary-glow)";
                   }}
                   onMouseLeave={(e) => {
                     e.currentTarget.style.backgroundColor = 'rgba(0, 0, 0, 0.3)';
-                    e.currentTarget.style.borderColor = `${theme.primary.light}80`;
-                    e.currentTarget.style.boxShadow = `0 10px 30px ${theme.primary.glow}`;
+                    e.currentTarget.style.borderColor = "color-mix(in srgb, var(--color-primary-light) 50%, transparent)";
+                    e.currentTarget.style.boxShadow = "0 10px 30px var(--color-primary-glow)";
                   }}
                 >
                   <h3 
                     className="text-xl pb-4 font-semibold transition-colors px-10"
-                    style={{ color: theme.neutral.lighter }}
+                    style={{ color: "var(--color-lighter)" }}
                   >
                     {post.title}
                   </h3>
 
                   <p 
                     className="pb-6 leading-relaxed px-10"
-                    style={{ color: theme.neutral.lighter }}
+                    style={{ color: "var(--color-lighter)" }}
                   >
                     {post.description}
                   </p>
 
                   <div 
                     className="flex items-center gap-2 transition-colors font-medium px-10"
-                    style={{ color: theme.accent.lime }}
+                    style={{ color: "var(--color-accent)" }}
                   >
                     <span>Read more</span>
                     <svg
@@ -203,13 +183,13 @@ export default function SubstackSection({ sectionIndex }: Props) {
       <div 
         className="absolute bottom-0 left-0 right-0 h-24 pointer-events-none z-10"
         style={{
-          background: `linear-gradient(to top, ${theme.highlight.yellowSoft}, transparent)`
+          background: "linear-gradient(to top, var(--color-secondary-soft), transparent)"
         }}
       />
       <div 
         className="absolute bottom-0 left-0 right-0 h-px opacity-60 z-10"
         style={{
-          background: `linear-gradient(to right, transparent, ${theme.accent.lime}, ${theme.highlight.yellow}, ${theme.accent.lime}, transparent)`
+          background: "linear-gradient(to right, transparent, var(--color-accent), var(--color-secondary), var(--color-accent), transparent)"
         }}
       />
     </section>

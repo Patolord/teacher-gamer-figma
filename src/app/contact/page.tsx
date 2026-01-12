@@ -43,38 +43,6 @@ const contactMethods = [
   },
 ];
 
-const socialLinks = [
-  {
-    svg: "/svg/facebook.svg",
-    name: "Facebook",
-    href: "https://facebook.com",
-    color: "#1877f2",
-  },
-  {
-    svg: "/svg/x.svg",
-    name: "X",
-    href: "https://x.com",
-    color: "#000000",
-  },
-  {
-    svg: "/svg/instagram.svg",
-    name: "Instagram",
-    href: "https://instagram.com",
-    color: "#e4405f",
-  },
-  {
-    Icon: Linkedin,
-    name: "LinkedIn",
-    href: "https://linkedin.com",
-    color: "#0077b5",
-  },
-  {
-    svg: "/svg/youtube.svg",
-    name: "YouTube",
-    href: "https://youtube.com",
-    color: "#ff0000",
-  },
-];
 
 const faqs = [
   {
@@ -161,7 +129,7 @@ export default function ContactPage() {
                 }
               }, 100);
             }}
-            className="inline-flex items-center gap-2 text-white/80 hover:text-white transition-colors"
+            className="inline-flex items-center gap-2 text-lighter/80 hover:text-accent transition-colors"
           >
             <ArrowLeftIcon className="w-5 h-5" />
             Back to Home
@@ -173,18 +141,18 @@ export default function ContactPage() {
           <div className="max-w-6xl mx-auto space-y-16">
             {/* Hero Section */}
             <div className="text-center space-y-6">
-              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-indigo-500/20 border border-indigo-500/30 text-indigo-300">
+              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary-subtle border border-primary-light text-primary-light">
                 <MessageSquareIcon className="w-4 h-4" />
                 <span className="text-sm font-semibold">
                   We're Here to Help
                 </span>
               </div>
 
-              <h1 className="text-4xl md:text-6xl font-bold text-white leading-tight">
+              <h1 className="text-4xl md:text-6xl font-bold text-lighter leading-tight">
                 Get In Touch
               </h1>
 
-              <p className="text-xl text-white/90 leading-relaxed max-w-3xl mx-auto">
+              <p className="text-xl text-lighter/90 leading-relaxed max-w-3xl mx-auto">
                 Have questions about our courses or methodology? Want to bring
                 game-based learning to your school? We'd love to hear from you.
               </p>
@@ -197,16 +165,16 @@ export default function ContactPage() {
                   <a
                     key={title}
                     href={link}
-                    className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20 hover:bg-white/15 transition-all group"
+                    className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-primary-light/20 hover:bg-white/15 transition-all group"
                   >
-                    <div className="w-12 h-12 mb-4 rounded-full bg-indigo-500/20 flex items-center justify-center group-hover:bg-indigo-500/30 transition-colors">
-                      <Icon className="w-6 h-6 text-indigo-300" />
+                    <div className="w-12 h-12 mb-4 rounded-full bg-primary-subtle flex items-center justify-center group-hover:bg-primary-glow transition-colors">
+                      <Icon className="w-6 h-6 text-primary-light" />
                     </div>
-                    <h3 className="text-xl font-bold text-white mb-2">
+                    <h3 className="text-xl font-bold text-lighter mb-2">
                       {title}
                     </h3>
-                    <p className="text-white/60 text-sm mb-2">{description}</p>
-                    <p className="text-white/90">{value}</p>
+                    <p className="text-lighter/60 text-sm mb-2">{description}</p>
+                    <p className="text-lighter/90">{value}</p>
                   </a>
                 ),
               )}
@@ -216,14 +184,14 @@ export default function ContactPage() {
             <div className="grid lg:grid-cols-3 gap-8">
               {/* Contact Form - Takes 2 columns */}
               <div className="lg:col-span-2">
-                <div className="bg-white/10 backdrop-blur-sm rounded-xl p-8 border border-white/20">
-                  <h2 className="text-2xl font-bold text-white mb-6">
+                <div className="bg-white/10 backdrop-blur-sm rounded-xl p-8 border border-primary-light/20">
+                  <h2 className="text-2xl font-bold text-lighter mb-6">
                     Send Us a Message
                   </h2>
 
                   {submitStatus === "success" && (
-                    <div className="mb-6 p-4 bg-amber-400/20 border border-amber-400/30 rounded-lg">
-                      <p className="text-amber-300 font-semibold">
+                    <div className="mb-6 p-4 bg-accent/20 border border-accent/30 rounded-lg">
+                      <p className="text-accent font-semibold">
                         ✓ Message sent successfully! We'll get back to you soon.
                       </p>
                     </div>
@@ -234,7 +202,7 @@ export default function ContactPage() {
                       <div>
                         <label
                           htmlFor="name"
-                          className="block text-white mb-2 font-medium"
+                          className="block text-lighter mb-2 font-medium"
                         >
                           Your Name *
                         </label>
@@ -245,14 +213,14 @@ export default function ContactPage() {
                           value={formData.name}
                           onChange={handleChange}
                           required
-                          className="w-full px-4 py-3 rounded-lg bg-white/5 border border-white/30 text-white placeholder-white/40 focus:outline-none focus:border-indigo-400 transition"
+                          className="w-full px-4 py-3 rounded-lg bg-white/5 border border-primary-light/30 text-lighter placeholder-lighter/40 focus:outline-none focus:border-accent transition"
                           placeholder="John Doe"
                         />
                       </div>
                       <div>
                         <label
                           htmlFor="email"
-                          className="block text-white mb-2 font-medium"
+                          className="block text-lighter mb-2 font-medium"
                         >
                           Your Email *
                         </label>
@@ -263,7 +231,7 @@ export default function ContactPage() {
                           value={formData.email}
                           onChange={handleChange}
                           required
-                          className="w-full px-4 py-3 rounded-lg bg-white/5 border border-white/30 text-white placeholder-white/40 focus:outline-none focus:border-indigo-400 transition"
+                          className="w-full px-4 py-3 rounded-lg bg-white/5 border border-primary-light/30 text-lighter placeholder-lighter/40 focus:outline-none focus:border-accent transition"
                           placeholder="john@example.com"
                         />
                       </div>
@@ -272,7 +240,7 @@ export default function ContactPage() {
                     <div>
                       <label
                         htmlFor="subject"
-                        className="block text-white mb-2 font-medium"
+                        className="block text-lighter mb-2 font-medium"
                       >
                         Subject *
                       </label>
@@ -283,7 +251,7 @@ export default function ContactPage() {
                         value={formData.subject}
                         onChange={handleChange}
                         required
-                        className="w-full px-4 py-3 rounded-lg bg-white/5 border border-white/30 text-white placeholder-white/40 focus:outline-none focus:border-indigo-400 transition"
+                        className="w-full px-4 py-3 rounded-lg bg-white/5 border border-primary-light/30 text-lighter placeholder-lighter/40 focus:outline-none focus:border-accent transition"
                         placeholder="How can we help you?"
                       />
                     </div>
@@ -291,7 +259,7 @@ export default function ContactPage() {
                     <div>
                       <label
                         htmlFor="message"
-                        className="block text-white mb-2 font-medium"
+                        className="block text-lighter mb-2 font-medium"
                       >
                         Your Message *
                       </label>
@@ -302,7 +270,7 @@ export default function ContactPage() {
                         onChange={handleChange}
                         required
                         rows={6}
-                        className="w-full px-4 py-3 rounded-lg bg-white/5 border border-white/30 text-white placeholder-white/40 focus:outline-none focus:border-indigo-400 transition resize-none"
+                        className="w-full px-4 py-3 rounded-lg bg-white/5 border border-primary-light/30 text-lighter placeholder-lighter/40 focus:outline-none focus:border-accent transition resize-none"
                         placeholder="Tell us more about your inquiry..."
                       />
                     </div>
@@ -311,7 +279,7 @@ export default function ContactPage() {
                       type="submit"
                       size="lg"
                       disabled={isSubmitting}
-                      className="w-full text-lg font-bold bg-indigo-600 hover:bg-indigo-700 text-white py-6"
+                      className="w-full text-lg font-bold bg-accent hover:bg-accent-light text-background py-6"
                     >
                       {isSubmitting ? (
                         "Sending..."
@@ -329,61 +297,76 @@ export default function ContactPage() {
               {/* Sidebar - Social & FAQ */}
               <div className="space-y-8">
                 {/* Social Media */}
-                <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20">
-                  <h3 className="text-xl font-bold text-white mb-4">
+                <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-primary-light/20">
+                  <h3 className="text-xl font-bold mb-6 text-lighter">
                     Connect With Us
                   </h3>
-                  <div className="space-y-3">
-                    {socialLinks.map(({ svg, Icon, name, href, color }) => (
-                      <a
-                        key={name}
-                        href={href}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="flex items-center gap-3 p-3 rounded-lg bg-white/5 hover:bg-white/10 transition-all group"
-                      >
-                        <div
-                          className="w-10 h-10 rounded-full flex items-center justify-center"
-                          style={{ backgroundColor: `${color}20` }}
-                        >
-                          {Icon ? (
-                            <Icon
-                              className="w-5 h-5 group-hover:scale-110 transition-transform"
-                              style={{ color }}
-                            />
-                          ) : (
-                            <span
-                              className="block w-5 h-5 group-hover:scale-110 transition-transform"
-                              style={{
-                                backgroundColor: color,
-                                maskImage: `url(${svg})`,
-                                WebkitMaskImage: `url(${svg})`,
-                                maskSize: "contain",
-                                WebkitMaskSize: "contain",
-                                maskRepeat: "no-repeat",
-                                WebkitMaskRepeat: "no-repeat",
-                                maskPosition: "center",
-                                WebkitMaskPosition: "center",
-                              }}
-                            />
-                          )}
-                        </div>
-                        <span className="text-white font-medium">{name}</span>
-                      </a>
-                    ))}
+                  <div className="flex items-center justify-center gap-4 flex-wrap">
+                    <a
+                      href="https://facebook.com"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="group flex items-center justify-center w-12 h-12 rounded-full backdrop-blur-sm border-2 border-primary-light transition-all duration-300 bg-white/10 hover:bg-accent hover:border-accent"
+                      aria-label="Facebook"
+                    >
+                      <Facebook className="w-5 h-5 transition-colors text-lighter group-hover:text-background" />
+                    </a>
+                    <a
+                      href="https://twitter.com"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="group flex items-center justify-center w-12 h-12 rounded-full backdrop-blur-sm border-2 border-primary-light transition-all duration-300 bg-white/10 hover:bg-accent hover:border-accent"
+                      aria-label="Twitter"
+                    >
+                      <Twitter className="w-5 h-5 transition-colors text-lighter group-hover:text-background" />
+                    </a>
+                    <a
+                      href="https://instagram.com"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="group flex items-center justify-center w-12 h-12 rounded-full backdrop-blur-sm border-2 border-primary-light transition-all duration-300 bg-white/10 hover:bg-accent hover:border-accent"
+                      aria-label="Instagram"
+                    >
+                      <Instagram className="w-5 h-5 transition-colors text-lighter group-hover:text-background" />
+                    </a>
+                    <a
+                      href="https://linkedin.com"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="group flex items-center justify-center w-12 h-12 rounded-full backdrop-blur-sm border-2 border-primary-light transition-all duration-300 bg-white/10 hover:bg-accent hover:border-accent"
+                      aria-label="LinkedIn"
+                    >
+                      <Linkedin className="w-5 h-5 transition-colors text-lighter group-hover:text-background" />
+                    </a>
+                    <a
+                      href="https://youtube.com"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="group flex items-center justify-center w-12 h-12 rounded-full backdrop-blur-sm border-2 border-primary-light transition-all duration-300 bg-white/10 hover:bg-accent hover:border-accent"
+                      aria-label="YouTube"
+                    >
+                      <Youtube className="w-5 h-5 transition-colors text-lighter group-hover:text-background" />
+                    </a>
+                    <a
+                      href="mailto:contact@example.com"
+                      className="group flex items-center justify-center w-12 h-12 rounded-full backdrop-blur-sm border-2 border-primary-light transition-all duration-300 bg-white/10 hover:bg-accent hover:border-accent"
+                      aria-label="Email"
+                    >
+                      <Mail className="w-5 h-5 transition-colors text-lighter group-hover:text-background" />
+                    </a>
                   </div>
                 </div>
 
                 {/* Quick Info */}
-                <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20">
-                  <h3 className="text-xl font-bold text-white mb-4">
+                <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-primary-light/20">
+                  <h3 className="text-xl font-bold text-lighter mb-4">
                     Office Hours
                   </h3>
-                  <div className="space-y-2 text-white/80">
+                  <div className="space-y-2 text-lighter/80">
                     <p>Monday - Friday: 9:00 AM - 5:00 PM</p>
                     <p>Saturday: 10:00 AM - 2:00 PM</p>
                     <p>Sunday: Closed</p>
-                    <p className="text-white/60 text-sm mt-4">
+                    <p className="text-lighter/60 text-sm mt-4">
                       * All times in EST
                     </p>
                   </div>
@@ -393,36 +376,36 @@ export default function ContactPage() {
 
             {/* FAQ Section */}
             <div className="space-y-6">
-              <h2 className="text-3xl font-bold text-white text-center">
+              <h2 className="text-3xl font-bold text-lighter text-center">
                 Frequently Asked Questions
               </h2>
               <div className="grid md:grid-cols-2 gap-6">
                 {faqs.map(({ question, answer }) => (
                   <div
                     key={question}
-                    className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20"
+                    className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-primary-light/20"
                   >
-                    <h3 className="text-lg font-bold text-white mb-3">
+                    <h3 className="text-lg font-bold text-lighter mb-3">
                       {question}
                     </h3>
-                    <p className="text-white/80">{answer}</p>
+                    <p className="text-lighter/80">{answer}</p>
                   </div>
                 ))}
               </div>
             </div>
 
             {/* CTA Section */}
-            <div className="bg-gradient-to-br from-indigo-500/20 to-transparent rounded-xl p-8 border border-indigo-500/30 text-center space-y-6">
-              <h2 className="text-3xl font-bold text-white">
+            <div className="bg-gradient-to-br from-primary-subtle to-transparent rounded-xl p-8 border border-primary-light/30 text-center space-y-6">
+              <h2 className="text-3xl font-bold text-lighter">
                 Ready to Transform Your Teaching?
               </h2>
-              <p className="text-xl text-white/80 max-w-2xl mx-auto">
+              <p className="text-xl text-lighter/80 max-w-2xl mx-auto">
                 Explore our courses and start your journey into game-based
                 learning today.
               </p>
               <Button
                 size="lg"
-                className="text-lg font-bold bg-amber-400 hover:bg-amber-300 text-zinc-900 px-12 py-6"
+                className="text-lg font-bold bg-accent hover:bg-accent-light text-background px-12 py-6"
                 asChild
               >
                 <Link href="/home">View Our Courses</Link>

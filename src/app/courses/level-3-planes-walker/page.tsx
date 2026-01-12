@@ -82,13 +82,12 @@ export default function Level3PlanesWalkerPage() {
             <div className="space-y-6">
               <div className="flex gap-3 flex-wrap">
                 <div
-                  className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#b8411f]/20 border border-[#b8411f]/30"
-                  style={{ color: "#b8411f" }}
+                  className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-secondary-dark/20 border border-secondary-dark/30 text-secondary-dark"
                 >
                   <GraduationCap className="w-4 h-4" />
                   <span className="text-sm font-semibold">Master Level</span>
                 </div>
-                <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#b8411f]/10 border border-[#b8411f]/20 text-white">
+                <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-secondary-dark/10 border border-secondary-dark/20 text-white">
                   <Award className="w-4 h-4" />
                   <span className="text-sm font-semibold">
                     Master Certification
@@ -108,24 +107,24 @@ export default function Level3PlanesWalkerPage() {
               {/* Course Stats */}
               <div className="flex flex-wrap gap-6 pt-4">
                 <div className="flex items-center gap-2 text-white/80">
-                  <Clock className="w-5 h-5" style={{ color: "#b8411f" }} />
+                  <Clock className="w-5 h-5 text-secondary-dark" />
                   <span>16-20 weeks</span>
                 </div>
                 <div className="flex items-center gap-2 text-white/80">
-                  <Users className="w-5 h-5" style={{ color: "#b8411f" }} />
+                  <Users className="w-5 h-5 text-secondary-dark" />
                   <span>Mentored implementation</span>
                 </div>
                 <div className="flex items-center gap-2 text-white/80">
-                  <Award className="w-5 h-5" style={{ color: "#b8411f" }} />
+                  <Award className="w-5 h-5 text-secondary-dark" />
                   <span>Master Certification</span>
                 </div>
               </div>
             </div>
 
             {/* Prerequisites */}
-            <div className="bg-[#b8411f]/10 backdrop-blur-sm rounded-xl p-6 border border-[#b8411f]/30">
+            <div className="bg-secondary-dark/10 backdrop-blur-sm rounded-xl p-6 border border-secondary-dark/30">
               <p className="text-white/90">
-                <strong style={{ color: "#b8411f" }}>Prerequisite:</strong>{" "}
+                <strong className="text-secondary-dark">Prerequisite:</strong>{" "}
                 Level 2 TG World Builder Certificate and at least one year of
                 campaign experience
               </p>
@@ -142,8 +141,7 @@ export default function Level3PlanesWalkerPage() {
                 </div>
                 <Button
                   size="lg"
-                  className="w-full md:w-auto text-lg font-bold text-white px-12 py-6"
-                  style={{ backgroundColor: "#b8411f" }}
+                  className="w-full md:w-auto text-lg font-bold text-white px-12 py-6 bg-secondary-dark"
                 >
                   Enroll Now
                 </Button>
@@ -161,8 +159,8 @@ export default function Level3PlanesWalkerPage() {
                     key={title}
                     className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20"
                   >
-                    <div className="w-12 h-12 mb-4 rounded-full flex items-center justify-center bg-[#b8411f]/20">
-                      <Icon className="w-6 h-6" style={{ color: "#b8411f" }} />
+                    <div className="w-12 h-12 mb-4 rounded-full flex items-center justify-center bg-secondary-dark/20">
+                      <Icon className="w-6 h-6 text-secondary-dark" />
                     </div>
                     <h3 className="text-xl font-bold text-white mb-2">
                       {title}
@@ -181,8 +179,7 @@ export default function Level3PlanesWalkerPage() {
                   {courseFeatures.map((feature) => (
                     <li key={feature} className="flex items-start gap-3">
                       <CheckCircle
-                        className="w-5 h-5 mt-0.5 shrink-0"
-                        style={{ color: "#b8411f" }}
+                        className="w-5 h-5 mt-0.5 shrink-0 text-secondary-dark"
                       />
                       <span className="text-white/90">{feature}</span>
                     </li>
@@ -241,8 +238,7 @@ export default function Level3PlanesWalkerPage() {
                     <div className="flex items-center justify-between">
                       <div>
                         <p
-                          className="text-sm font-semibold mb-1"
-                          style={{ color: "#b8411f" }}
+                          className="text-sm font-semibold mb-1 text-secondary-dark"
                         >
                           {module.module}
                         </p>
@@ -260,7 +256,7 @@ export default function Level3PlanesWalkerPage() {
             </div>
 
             {/* Final CTA */}
-            <div className="bg-gradient-to-br from-[#b8411f]/20 to-transparent rounded-xl p-8 border border-[#b8411f]/30 text-center space-y-6">
+            <div className="bg-gradient-to-br from-secondary-dark/20 to-transparent rounded-xl p-8 border border-secondary-dark/30 text-center space-y-6">
               <h2 className="text-3xl font-bold text-white">
                 Ready to Become a Master Teacher Gamer?
               </h2>
@@ -270,8 +266,7 @@ export default function Level3PlanesWalkerPage() {
               </p>
               <Button
                 size="lg"
-                className="text-lg font-bold text-white px-12 py-6"
-                style={{ backgroundColor: "#b8411f" }}
+                className="text-lg font-bold text-white px-12 py-6 bg-secondary-dark"
               >
                 Enroll in Level 3 Certification
               </Button>

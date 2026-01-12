@@ -11,7 +11,7 @@ const floatingTextStyle = `
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%) scale(0.9);
-  color: #ffffff;
+  color: var(--color-lighter);
   font-size: clamp(2rem, 5vw, 4rem);
   font-weight: bold;
   text-align: center;

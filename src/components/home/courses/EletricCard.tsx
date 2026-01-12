@@ -11,23 +11,6 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 
-// Refined Split-Complementary Color Harmony - Magical Fantasy Theme
-const theme = {
-  primary: {
-    base: "#6A4BCF",
-    subtle: "rgba(106, 75, 207, 0.1)",
-  },
-  accent: {
-    lime: "#DAFF0D",
-    limeLight: "#E5FF4D",
-  },
-  neutral: {
-    darkBg: "#1A1A1F",
-    lighter: "#E5E4E8",
-    medium: "#6B6780",
-  },
-};
-
 type EletricCardProps = {
   title: string;
   description: string;
@@ -51,39 +34,23 @@ export default function EletricCard({
       thickness={2}
       style={{ borderRadius: 16 }}
     >
-      <Card 
-        className="border-0 h-full min-h-[400px] bg-black/50 backdrop-blur-sm flex flex-col rounded-2xl overflow-hidden"
-        style={{
-          color: theme.neutral.lighter
-        }}
-      >
+      <Card className="border-0 h-full min-h-[400px] bg-black/50 backdrop-blur-sm flex flex-col rounded-2xl overflow-hidden text-lighter">
         <CardHeader>
-          <CardTitle 
-            className="text-3xl mb-4 font-pirata-one"
-            style={{ color: theme.neutral.lighter }}
-          >
+          <CardTitle className="text-3xl mb-4 font-pirata-one text-lighter">
             {title}
           </CardTitle>
-          <CardDescription 
-            className="font-light text-base"
-            style={{ color: theme.neutral.lighter }}
-          >
+          <CardDescription className="font-light text-base text-lighter">
             {description}
           </CardDescription>
         </CardHeader>
-        <CardContent 
-          className="font-light text-base"
-          style={{ color: theme.neutral.medium }}
-        >
+        <CardContent className="font-light text-base text-medium">
         </CardContent>
         <CardFooter className="mt-auto px-6">
           <Button
             variant="outline"
-            className="w-full border-2 rounded-xl py-6 flex items-center justify-center gap-2 font-semibold transition-all duration-300"
+            className="w-full border-2 rounded-xl py-6 flex items-center justify-center gap-2 font-semibold transition-all duration-300 bg-transparent text-lighter hover:bg-opacity-20"
             style={{
               borderColor: color,
-              backgroundColor: 'transparent',
-              color: theme.neutral.lighter,
             }}
             onMouseEnter={(e) => {
               e.currentTarget.style.backgroundColor = `${color}20`;

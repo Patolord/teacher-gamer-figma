@@ -2,25 +2,7 @@ import Link from "next/link";
 import { MEDIA } from "@/lib/media";
 import ShinyText from "@/components/ui/shinytext";
 
-// Refined Split-Complementary Color Harmony - Magical Fantasy Theme
-const theme = {
-  primary: {
-    base: "#6A4BCF",
-    light: "#B9A7FF",
-    glow: "rgba(106, 75, 207, 0.3)",
-  },
-  accent: {
-    lime: "#DAFF0D",
-    limeLight: "#E5FF4D",
-  },
-  highlight: {
-    yellow: "#FFD85A",
-    yellowSoft: "rgba(255, 216, 90, 0.2)",
-  },
-  neutral: {
-    lighter: "#E5E4E8",
-  },
-};
+// Using global CSS theme variables
 
 interface ResearchSectionProps {
   sectionIndex?: number;
@@ -115,25 +97,25 @@ export default function ResearchSection({
       <div 
         className="absolute top-0 left-0 right-0 h-px opacity-60 z-10"
         style={{
-          background: `linear-gradient(to right, transparent, ${theme.accent.lime}, ${theme.highlight.yellow}, ${theme.accent.lime}, transparent)`
+          background: "linear-gradient(to right, transparent, var(--color-accent), var(--color-secondary), var(--color-accent), transparent)"
         }}
       />
       <div 
         className="absolute top-0 left-0 right-0 h-24 pointer-events-none z-10"
         style={{
-          background: `linear-gradient(to bottom, ${theme.highlight.yellowSoft}, transparent)`
+          background: "linear-gradient(to bottom, var(--color-secondary-soft), transparent)"
         }}
       />
       <div 
         className="absolute bottom-0 left-0 right-0 h-24 pointer-events-none z-10"
         style={{
-          background: `linear-gradient(to top, ${theme.highlight.yellowSoft}, transparent)`
+          background: "linear-gradient(to top, var(--color-secondary-soft), transparent)"
         }}
       />
       <div 
         className="absolute bottom-0 left-0 right-0 h-px opacity-60 z-10"
         style={{
-          background: `linear-gradient(to right, transparent, ${theme.accent.lime}, ${theme.highlight.yellow}, ${theme.accent.lime}, transparent)`
+          background: "linear-gradient(to right, transparent, var(--color-accent), var(--color-secondary), var(--color-accent), transparent)"
         }}
       />
 
@@ -147,7 +129,7 @@ export default function ResearchSection({
             <ShinyText
               speed={3}
               delay={1}
-              color={theme.accent.lime}
+              color={"var(--color-accent)"}
               shineColor="#fff"
               spread={30}
               yoyo
@@ -157,7 +139,7 @@ export default function ResearchSection({
           </h2>
           <p 
             className="text-base md:text-lg mt-4 max-w-3xl mx-auto"
-            style={{ color: theme.neutral.lighter }}
+            style={{ color: "var(--color-lighter)" }}
           >
             Evidence-based research supporting the Teacher-Gamer methodology
           </p>
@@ -212,8 +194,8 @@ export default function ResearchSection({
                       className="mt-3 border-2 rounded px-2 mb-6 py-1 flex flex-col gap-1 text-xs cursor-pointer mx-1 backdrop-blur-sm"
                       style={{
                         backgroundColor: 'rgba(0, 0, 0, 0.5)',
-                        borderColor: theme.accent.lime,
-                        color: theme.neutral.lighter
+                        borderColor: "var(--color-accent)",
+                        color: "var(--color-lighter)"
                       }}
                     >
                       <div className="flex justify-between gap-2">
@@ -222,14 +204,14 @@ export default function ResearchSection({
                         </span>
                         <span 
                           className="italic truncate cursor-pointer"
-                          style={{ color: theme.accent.lime }}
+                          style={{ color: "var(--color-accent)" }}
                         >
                           {article.journal}
                         </span>
                       </div>
                       <div 
                         className="flex justify-between gap-2 text-sm"
-                        style={{ color: theme.accent.lime }}
+                        style={{ color: "var(--color-accent)" }}
                       >
                         <span>{article.year}</span>
                         <span className="truncate cursor-pointer">

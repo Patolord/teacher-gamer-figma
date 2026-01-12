@@ -229,7 +229,7 @@ export default function FAQPage() {
         <div className="container mx-auto px-4 pt-6 pb-2">
           <Link
             href="/home"
-            className="inline-flex items-center gap-2 text-white/80 hover:text-white transition-colors"
+            className="inline-flex items-center gap-2 text-lighter/80 hover:text-lighter transition-colors"
           >
             <ArrowLeftIcon className="w-5 h-5" />
             Back to Home
@@ -241,24 +241,24 @@ export default function FAQPage() {
           <div className="max-w-6xl mx-auto space-y-16">
             {/* Hero Section */}
             <div className="text-center space-y-6">
-              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-amber-400/20 border border-amber-400/30 text-amber-300">
+              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-accent/20 border border-amber-400/30 text-amber-300">
                 <HelpCircleIcon className="w-4 h-4" />
                 <span className="text-sm font-semibold">
                   Frequently Asked Questions
                 </span>
               </div>
 
-              <h1 className="text-4xl md:text-6xl font-bold text-white leading-tight">
+              <h1 className="text-4xl md:text-6xl font-bold text-lighter leading-tight">
                 How Can We Help You?
               </h1>
 
-              <p className="text-xl text-white/90 leading-relaxed max-w-3xl mx-auto">
+              <p className="text-xl text-lighter/90 leading-relaxed max-w-3xl mx-auto">
                 Find answers to common questions about our courses, products,
                 and game-based learning methodology. Can't find what you're
                 looking for?{" "}
                 <Link
                   href="/contact"
-                  className="text-amber-400 hover:text-amber-300 underline"
+                  className="text-accent hover:text-amber-300 underline"
                 >
                   Contact us
                 </Link>
@@ -268,21 +268,21 @@ export default function FAQPage() {
 
             {/* Quick Stats */}
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-              <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20 text-center">
-                <div className="text-3xl font-bold text-white mb-2">500+</div>
-                <div className="text-white/70 text-sm">Educators Trained</div>
+              <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-primary-light/20 text-center">
+                <div className="text-3xl font-bold text-lighter mb-2">500+</div>
+                <div className="text-lighter/70 text-sm">Educators Trained</div>
               </div>
-              <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20 text-center">
-                <div className="text-3xl font-bold text-white mb-2">10K+</div>
-                <div className="text-white/70 text-sm">Students Reached</div>
+              <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-primary-light/20 text-center">
+                <div className="text-3xl font-bold text-lighter mb-2">10K+</div>
+                <div className="text-lighter/70 text-sm">Students Reached</div>
               </div>
-              <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20 text-center">
-                <div className="text-3xl font-bold text-white mb-2">95%</div>
-                <div className="text-white/70 text-sm">Satisfaction Rate</div>
+              <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-primary-light/20 text-center">
+                <div className="text-3xl font-bold text-lighter mb-2">95%</div>
+                <div className="text-lighter/70 text-sm">Satisfaction Rate</div>
               </div>
-              <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20 text-center">
-                <div className="text-3xl font-bold text-white mb-2">24/7</div>
-                <div className="text-white/70 text-sm">Support Access</div>
+              <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-primary-light/20 text-center">
+                <div className="text-3xl font-bold text-lighter mb-2">24/7</div>
+                <div className="text-lighter/70 text-sm">Support Access</div>
               </div>
             </div>
 
@@ -292,10 +292,10 @@ export default function FAQPage() {
                 <div key={category.title} className="space-y-4">
                   {/* Category Header */}
                   <div className="flex items-center gap-3">
-                    <div className="w-12 h-12 rounded-full bg-amber-400/20 flex items-center justify-center">
-                      <category.icon className="w-6 h-6 text-amber-400" />
+                    <div className="w-12 h-12 rounded-full bg-accent/20 flex items-center justify-center">
+                      <category.icon className="w-6 h-6 text-accent" />
                     </div>
-                    <h2 className="text-3xl font-bold text-white">
+                    <h2 className="text-3xl font-bold text-lighter">
                       {category.title}
                     </h2>
                   </div>
@@ -305,7 +305,7 @@ export default function FAQPage() {
                     {category.faqs.map((faq) => (
                       <div
                         key={faq.question}
-                        className="bg-white/10 backdrop-blur-sm rounded-xl border border-white/20 overflow-hidden transition-all"
+                        className="bg-white/10 backdrop-blur-sm rounded-xl border border-primary-light/20 overflow-hidden transition-all"
                       >
                         <button
                           type="button"
@@ -314,11 +314,11 @@ export default function FAQPage() {
                           }
                           className="w-full flex items-center justify-between p-6 text-left hover:bg-white/5 transition-colors"
                         >
-                          <span className="text-lg font-semibold text-white pr-4">
+                          <span className="text-lg font-semibold text-lighter pr-4">
                             {faq.question}
                           </span>
                           <ChevronDownIcon
-                            className={`w-6 h-6 text-amber-400 flex-shrink-0 transition-transform ${
+                            className={`w-6 h-6 text-accent flex-shrink-0 transition-transform ${
                               isOpen(category.title, faq.question)
                                 ? "rotate-180"
                                 : ""
@@ -332,7 +332,7 @@ export default function FAQPage() {
                               : "max-h-0 opacity-0"
                           }`}
                         >
-                          <div className="px-6 pb-6 pt-0 text-white/80 leading-relaxed">
+                          <div className="px-6 pb-6 pt-0 text-lighter/80 leading-relaxed">
                             {faq.answer}
                           </div>
                         </div>
@@ -345,10 +345,10 @@ export default function FAQPage() {
 
             {/* Still Have Questions? */}
             <div className="bg-gradient-to-br from-amber-400/20 to-transparent rounded-xl p-8 md:p-12 border border-amber-400/30 text-center space-y-6">
-              <h2 className="text-3xl md:text-4xl font-bold text-white">
+              <h2 className="text-3xl md:text-4xl font-bold text-lighter">
                 Still Have Questions?
               </h2>
-              <p className="text-xl text-white/80 max-w-2xl mx-auto">
+              <p className="text-xl text-lighter/80 max-w-2xl mx-auto">
                 Can't find the answer you're looking for? Our support team is
                 here to help. Reach out and we'll get back to you as soon as
                 possible.
@@ -356,7 +356,7 @@ export default function FAQPage() {
               <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
                 <Button
                   size="lg"
-                  className="text-lg font-bold bg-amber-400 hover:bg-amber-300 text-zinc-900 px-8 py-6"
+                  className="text-lg font-bold bg-accent hover:bg-accent-light text-background px-8 py-6"
                   asChild
                 >
                   <Link href="/contact">Contact Support</Link>
@@ -364,7 +364,7 @@ export default function FAQPage() {
                 <Button
                   size="lg"
                   variant="outline"
-                  className="text-lg font-bold bg-amber-400 text-zinc-900 px-8 py-6"
+                  className="text-lg font-bold bg-accent text-background px-8 py-6"
                   asChild
                 >
                   <Link href="/home">Browse Courses</Link>
@@ -374,49 +374,49 @@ export default function FAQPage() {
 
             {/* Additional Resources */}
             <div className="grid md:grid-cols-3 gap-6">
-              <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20">
-                <BookOpenIcon className="w-10 h-10 text-amber-400 mb-4" />
-                <h3 className="text-xl font-bold text-white mb-3">
+              <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-primary-light/20">
+                <BookOpenIcon className="w-10 h-10 text-accent mb-4" />
+                <h3 className="text-xl font-bold text-lighter mb-3">
                   Documentation
                 </h3>
-                <p className="text-white/80 mb-4">
+                <p className="text-lighter/80 mb-4">
                   Explore our comprehensive guides and tutorials.
                 </p>
                 <Link
                   href="/home"
-                  className="text-amber-400 hover:text-amber-300 font-semibold"
+                  className="text-accent hover:text-amber-300 font-semibold"
                 >
                   Read Docs →
                 </Link>
               </div>
 
-              <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20">
-                <UsersIcon className="w-10 h-10 text-amber-400 mb-4" />
-                <h3 className="text-xl font-bold text-white mb-3">Community</h3>
-                <p className="text-white/80 mb-4">
+              <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-primary-light/20">
+                <UsersIcon className="w-10 h-10 text-accent mb-4" />
+                <h3 className="text-xl font-bold text-lighter mb-3">Community</h3>
+                <p className="text-lighter/80 mb-4">
                   Join our Discord to connect with other educators.
                 </p>
                 <a
                   href="https://discord.com"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-amber-400 hover:text-amber-300 font-semibold"
+                  className="text-accent hover:text-amber-300 font-semibold"
                 >
                   Join Discord →
                 </a>
               </div>
 
-              <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20">
-                <GraduationCapIcon className="w-10 h-10 text-amber-400 mb-4" />
-                <h3 className="text-xl font-bold text-white mb-3">
+              <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-primary-light/20">
+                <GraduationCapIcon className="w-10 h-10 text-accent mb-4" />
+                <h3 className="text-xl font-bold text-lighter mb-3">
                   Free Trial
                 </h3>
-                <p className="text-white/80 mb-4">
+                <p className="text-lighter/80 mb-4">
                   Try our intro course for free before committing.
                 </p>
                 <Link
                   href="/home"
-                  className="text-amber-400 hover:text-amber-300 font-semibold"
+                  className="text-accent hover:text-amber-300 font-semibold"
                 >
                   Start Free Trial →
                 </Link>

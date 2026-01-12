@@ -4,22 +4,7 @@ import { MEDIA } from "@/lib/media";
 import ShinyText from "@/components/ui/shinytext";
 import EletricCard from "./EletricCard";
 
-// Refined Split-Complementary Color Harmony - Magical Fantasy Theme
-const theme = {
-  primary: {
-    base: "#6A4BCF",
-    light: "#B9A7FF",
-    glow: "rgba(106, 75, 207, 0.3)",
-  },
-  accent: {
-    lime: "#DAFF0D",
-    limeLight: "#E5FF4D",
-  },
-  highlight: {
-    yellow: "#FFD85A",
-    yellowSoft: "rgba(255, 216, 90, 0.2)",
-  },
-};
+// Using global CSS theme variables
 
 interface CoursesSectionProps {
   sectionIndex?: number;
@@ -31,14 +16,14 @@ export default function CoursesSection({ sectionIndex }: CoursesSectionProps) {
       title: "Intro to Multiverse",
       description:
         "Get an introduction to how RPGs and the multiverse can drive adult readiness through PBL and SEL as we work through the 13 Phases of Character Building.",
-      color: "#7df9ff",
+      color: "var(--color-accent)",
       href: "/courses/intro-to-multiverse",
     },
     {
       title: "Level 1 TG Space-Holder Certificate Course",
       description:
         "Learn to move from out-game character development to in-game role-playing and run a pilot to get teacher gamer level one certified.",
-      color: "#ff6b9d",
+      color: "var(--color-secondary)",
       badge: "BEST VALUE",
       href: "/courses/level-1-space-holder",
     },
@@ -46,14 +31,14 @@ export default function CoursesSection({ sectionIndex }: CoursesSectionProps) {
       title: "Level 2 TG World Builder Certificate",
       description:
         "Build & implement your own campaign world. Uncharted territory: New stories, creatures, magic & tech",
-      color: "#489179",
+      color: "var(--color-primary-light)",
       href: "/courses/level-2-world-builder",
     },
     {
       title: "Level 3 TG Planes Walker Certificate Course",
       description:
         "Integrate your own RPGs campaign into your local school system's learning objectives with guidance",
-      color: "#b8411f",
+      color: "var(--color-secondary-dark)",
       href: "/courses/level-3-planes-walker",
     },
   ];
@@ -75,13 +60,13 @@ export default function CoursesSection({ sectionIndex }: CoursesSectionProps) {
       <div 
         className="absolute top-0 left-0 right-0 h-px opacity-60"
         style={{
-          background: `linear-gradient(to right, transparent, ${theme.accent.lime}, ${theme.highlight.yellow}, ${theme.accent.lime}, transparent)`
+          background: "linear-gradient(to right, transparent, var(--color-accent), var(--color-secondary), var(--color-accent), transparent)"
         }}
       />
       <div 
         className="absolute top-0 left-0 right-0 h-24 pointer-events-none"
         style={{
-          background: `linear-gradient(to bottom, ${theme.highlight.yellowSoft}, transparent)`
+          background: "linear-gradient(to bottom, var(--color-secondary-soft), transparent)"
         }}
       />
 
@@ -91,8 +76,8 @@ export default function CoursesSection({ sectionIndex }: CoursesSectionProps) {
             <ShinyText
               speed={3}
               delay={1}
-              color={theme.accent.lime}
-              shineColor="#fff"
+              color="var(--color-accent)"
+              shineColor="var(--color-white)"
               spread={30}
               yoyo
             >
@@ -121,13 +106,13 @@ export default function CoursesSection({ sectionIndex }: CoursesSectionProps) {
       <div 
         className="absolute bottom-0 left-0 right-0 h-24 pointer-events-none"
         style={{
-          background: `linear-gradient(to top, ${theme.highlight.yellowSoft}, transparent)`
+          background: "linear-gradient(to top, var(--color-secondary-soft), transparent)"
         }}
       />
       <div 
         className="absolute bottom-0 left-0 right-0 h-px opacity-60"
         style={{
-          background: `linear-gradient(to right, transparent, ${theme.accent.lime}, ${theme.highlight.yellow}, ${theme.accent.lime}, transparent)`
+          background: "linear-gradient(to right, transparent, var(--color-accent), var(--color-secondary), var(--color-accent), transparent)"
         }}
       />
     </section>

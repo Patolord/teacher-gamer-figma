@@ -74,8 +74,7 @@ export default function IntroToMultiversePage() {
             {/* Header Section */}
             <div className="space-y-6">
               <div
-                className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#7df9ff]/20 border border-[#7df9ff]/30"
-                style={{ color: "#7df9ff" }}
+                className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-accent/20 border border-accent/30 text-accent"
               >
                 <Star className="w-4 h-4" />
                 <span className="text-sm font-semibold">Beginner Level</span>
@@ -94,15 +93,15 @@ export default function IntroToMultiversePage() {
               {/* Course Stats */}
               <div className="flex flex-wrap gap-6 pt-4">
                 <div className="flex items-center gap-2 text-white/80">
-                  <Clock className="w-5 h-5" style={{ color: "#7df9ff" }} />
+                  <Clock className="w-5 h-5 text-accent" />
                   <span>6-8 weeks</span>
                 </div>
                 <div className="flex items-center gap-2 text-white/80">
-                  <Users className="w-5 h-5" style={{ color: "#7df9ff" }} />
+                  <Users className="w-5 h-5 text-accent" />
                   <span>Small group sessions</span>
                 </div>
                 <div className="flex items-center gap-2 text-white/80">
-                  <Book className="w-5 h-5" style={{ color: "#7df9ff" }} />
+                  <Book className="w-5 h-5 text-accent" />
                   <span>Self-paced learning</span>
                 </div>
               </div>
@@ -117,8 +116,7 @@ export default function IntroToMultiversePage() {
                 </div>
                 <Button
                   size="lg"
-                  className="w-full md:w-auto text-lg font-bold text-black px-12 py-6"
-                  style={{ backgroundColor: "#7df9ff" }}
+                  className="w-full md:w-auto text-lg font-bold text-black px-12 py-6 bg-accent"
                 >
                   Enroll Now
                 </Button>
@@ -136,8 +134,8 @@ export default function IntroToMultiversePage() {
                     key={title}
                     className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20"
                   >
-                    <div className="w-12 h-12 mb-4 rounded-full flex items-center justify-center bg-[#7df9ff]/20">
-                      <Icon className="w-6 h-6" style={{ color: "#7df9ff" }} />
+                    <div className="w-12 h-12 mb-4 rounded-full flex items-center justify-center bg-accent/20">
+                      <Icon className="w-6 h-6 text-accent" />
                     </div>
                     <h3 className="text-xl font-bold text-white mb-2">
                       {title}
@@ -156,8 +154,7 @@ export default function IntroToMultiversePage() {
                   {courseFeatures.map((feature) => (
                     <li key={feature} className="flex items-start gap-3">
                       <CheckCircle
-                        className="w-5 h-5 mt-0.5 shrink-0"
-                        style={{ color: "#7df9ff" }}
+                        className="w-5 h-5 mt-0.5 shrink-0 text-accent"
                       />
                       <span className="text-white/90">{feature}</span>
                     </li>
@@ -201,8 +198,7 @@ export default function IntroToMultiversePage() {
                     <div className="flex items-center justify-between">
                       <div>
                         <p
-                          className="text-sm font-semibold mb-1"
-                          style={{ color: "#7df9ff" }}
+                          className="text-sm font-semibold mb-1 text-accent"
                         >
                           {module.module}
                         </p>
@@ -220,7 +216,7 @@ export default function IntroToMultiversePage() {
             </div>
 
             {/* Final CTA */}
-            <div className="bg-gradient-to-br from-[#7df9ff]/20 to-transparent rounded-xl p-8 border border-[#7df9ff]/30 text-center space-y-6">
+            <div className="bg-gradient-to-br from-accent/20 to-transparent rounded-xl p-8 border border-accent/30 text-center space-y-6">
               <h2 className="text-3xl font-bold text-white">
                 Ready to Start Your Journey?
               </h2>
@@ -230,8 +226,7 @@ export default function IntroToMultiversePage() {
               </p>
               <Button
                 size="lg"
-                className="text-lg font-bold text-black px-12 py-6"
-                style={{ backgroundColor: "#7df9ff" }}
+                className="text-lg font-bold text-black px-12 py-6 bg-accent"
               >
                 Enroll in Intro to Multiverse
               </Button>
