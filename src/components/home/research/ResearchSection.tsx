@@ -1,6 +1,8 @@
 import Link from "next/link";
 import { MEDIA } from "@/lib/media";
 import ShinyText from "@/components/ui/shinytext";
+import { Button } from "@/components/ui/button";
+import { ExternalLink } from "lucide-react";
 
 // Using global CSS theme variables
 
@@ -223,6 +225,25 @@ export default function ResearchSection({
               </article>
             );
           })}
+        </div>
+
+        {/* Footer Link */}
+        <div className="mt-16 text-center">
+          <Button
+            asChild
+            variant="outline"
+            size="lg"
+            className="gap-2 text-base md:text-lg border-2 hover:bg-white/10 border-white text-(--color-white) bg-transparent"
+          >
+            <Link
+              href="https://concordia.academia.edu/ZacharyReznichek"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Follow Zach Reznichek on Academia.edu
+              <ExternalLink className="size-5" />
+            </Link>
+          </Button>
         </div>
       </div>
     </section>

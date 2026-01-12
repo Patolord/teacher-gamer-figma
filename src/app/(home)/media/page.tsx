@@ -41,6 +41,50 @@ const podcastEpisodes = [
   },
 ];
 
+// Podcast platforms
+const podcastPlatforms = [
+  {
+    name: "Apple Podcasts",
+    url: "https://podcasts.apple.com/us/podcast/teacher-gamer-revolution-podcast/id1599936351",
+    icon: "https://pbcdn1.podbean.com/fs1/site/images/admin5/apple-podcast.png",
+  },
+  {
+    name: "Podbean App",
+    url: "https://www.podbean.com/pw/pbblog-azivr-7341b3?from=usersite",
+    icon: "https://pbcdn1.podbean.com/fs1/site/images/admin5/podbean-app.png",
+  },
+  {
+    name: "Spotify",
+    url: "https://open.spotify.com/show/6KNqulWYuAG205kEXsYYX1",
+    icon: "https://pbcdn1.podbean.com/fs1/site/images/admin5/spotify.png",
+  },
+  {
+    name: "Amazon Music",
+    url: "https://music.amazon.com/podcasts/dd6a036a-12d5-4e0d-912e-a21204a7b9ee",
+    icon: "https://pbcdn1.podbean.com/fs1/site/images/admin5/AmazonMusic.png",
+  },
+  {
+    name: "iHeartRadio",
+    url: "https://iheart.com/podcast/90514051/",
+    icon: "https://pbcdn1.podbean.com/fs1/site/images/admin5/iHeartRadio.png",
+  },
+  {
+    name: "PlayerFM",
+    url: "https://player.fm/series/3517249",
+    icon: "https://pbcdn1.podbean.com/fs1/site/images/admin5/PlayerFM.png",
+  },
+  {
+    name: "Podchaser",
+    url: "https://www.podchaser.com/podcasts/teacher-gamer-4370797",
+    icon: "https://pbcdn1.podbean.com/fs1/site/images/admin5/Podchaser.webp",
+  },
+  {
+    name: "BoomPlay",
+    url: "https://www.boomplaymusic.com/podcasts/79564",
+    icon: "https://pbcdn1.podbean.com/fs1/site/images/admin5/BoomPlay.png",
+  },
+];
+
 // YouTube videos - Add more videos here
 const moreVideos = [
   {
@@ -254,17 +298,9 @@ export default function MediaPage() {
               Teacher-Gamer methodology.
             </p>
           </div>
-        </div>
-      </section>
 
-      {/* Video Section */}
-      <section className="relative py-16 lg:py-20">
-        {/* Section background */}
-        <div className="absolute inset-0 bg-linear-to-b from-zinc-950/80 to-zinc-900/50" />
-
-        <div className="container mx-auto px-4 relative z-10">
           {/* Video Embed Container */}
-          <div className="max-w-4xl mx-auto">
+          <div className="max-w-4xl mx-auto mt-16 lg:mt-24">
             <div className="relative group">
               {/* Glow effect */}
               <div className="absolute -inset-1 bg-linear-to-r from-primary via-accent to-primary rounded-2xl opacity-30 blur-lg group-hover:opacity-50 transition-opacity duration-500" />
@@ -474,18 +510,44 @@ export default function MediaPage() {
             ))}
           </div>
 
-          {/* Podbean Subscribe Link */}
+          {/* Podcast Platforms */}
           <div className="text-center mt-12">
-            <a
-              href="https://www.podbean.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-6 py-3 bg-linear-to-r from-accent to-accent text-zinc-900 font-semibold rounded-full hover:from-accent-light hover:to-accent-light transition-all duration-300 hover:shadow-[0_4px_24px_rgba(251,191,36,0.4)]"
-            >
-              <Headphones className="w-5 h-5" />
-              Subscribe on Podbean
-              <ExternalLink className="w-4 h-4" />
-            </a>
+            <h3 className="text-xl font-medium text-lighter mb-6">Listen on your favorite platform</h3>
+            <div className="flex flex-wrap items-center justify-center gap-4 md:gap-6">
+              {podcastPlatforms.map((platform) => (
+                <a
+                  key={platform.name}
+                  href={platform.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="transition-transform hover:scale-110 hover:brightness-110"
+                  title={platform.name}
+                >
+                  <div className="relative w-10 h-10 md:w-12 md:h-12 rounded-full overflow-hidden shadow-lg">
+                    <Image
+                      src={platform.icon}
+                      alt={platform.name}
+                      fill
+                      className="object-cover"
+                      sizes="(max-width: 768px) 40px, 48px"
+                    />
+                  </div>
+                </a>
+              ))}
+            </div>
+            
+            <div className="mt-8">
+              <a
+                href="https://www.podbean.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 px-6 py-3 bg-zinc-800/50 hover:bg-zinc-700/50 text-zinc-400 hover:text-lighter font-medium rounded-full transition-all duration-300 border border-zinc-700 hover:border-accent/50"
+              >
+                <Headphones className="w-5 h-5" />
+                View on Podbean
+                <ExternalLink className="w-4 h-4" />
+              </a>
+            </div>
           </div>
         </div>
 

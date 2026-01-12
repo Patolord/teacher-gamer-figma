@@ -2,7 +2,7 @@
 import Link from "next/link";
 import { MEDIA } from "@/lib/media";
 import ShinyText from "@/components/ui/shinytext";
-import { Facebook, Twitter, Instagram, Linkedin, Youtube, Mail, ArrowRight } from "lucide-react";
+import { Facebook, Twitter, Linkedin, Youtube, Mail, ArrowRight, Music } from "lucide-react";
 
 interface ContactSectionProps {
   sectionIndex?: number;
@@ -98,52 +98,52 @@ export default function ContactSection({ sectionIndex }: ContactSectionProps) {
               href="https://facebook.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="group flex items-center justify-center w-14 h-14 rounded-full backdrop-blur-sm border-2 transition-all duration-300 bg-white/10 border-primary-light hover:bg-accent hover:border-accent"
+              className="group flex items-center justify-center w-14 h-14 rounded-full backdrop-blur-sm border-2 transition-all duration-300 bg-white/10 border-primary-light hover:bg-[#1877F2] hover:border-[#1877F2] hover:shadow-[0_0_20px_rgba(24,119,242,0.5)]"
               aria-label="Facebook"
             >
-              <Facebook className="w-6 h-6 transition-colors text-lighter group-hover:text-background" />
+              <Facebook className="w-6 h-6 transition-colors text-lighter group-hover:text-white" />
             </a>
             <a
               href="https://twitter.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="group flex items-center justify-center w-14 h-14 rounded-full backdrop-blur-sm border-2 transition-all duration-300 bg-white/10 border-primary-light hover:bg-accent hover:border-accent"
+              className="group flex items-center justify-center w-14 h-14 rounded-full backdrop-blur-sm border-2 transition-all duration-300 bg-white/10 border-primary-light hover:bg-[#1DA1F2] hover:border-[#1DA1F2] hover:shadow-[0_0_20px_rgba(29,161,242,0.5)]"
               aria-label="Twitter"
             >
-              <Twitter className="w-6 h-6 transition-colors text-lighter group-hover:text-background" />
+              <Twitter className="w-6 h-6 transition-colors text-lighter group-hover:text-white" />
             </a>
             {/* YouTube */}
             <a
               href="https://www.youtube.com/channel/UCuefgI1D0nybe1Vn3Tm1MCg"
               target="_blank"
               rel="noopener noreferrer"
-              className="group flex items-center justify-center w-14 h-14 rounded-full backdrop-blur-sm border-2 transition-all duration-300 bg-white/10 border-primary-light hover:bg-accent hover:border-accent"
-              aria-label="Instagram"
+              className="group flex items-center justify-center w-14 h-14 rounded-full backdrop-blur-sm border-2 transition-all duration-300 bg-white/10 border-primary-light hover:bg-[#FF0000] hover:border-[#FF0000] hover:shadow-[0_0_20px_rgba(255,0,0,0.5)]"
+              aria-label="YouTube"
             >
-              <Instagram className="w-6 h-6 transition-colors text-lighter group-hover:text-background" />
+              <Youtube className="w-6 h-6 transition-colors text-lighter group-hover:text-white" />
             </a>
             <a
               href="https://linkedin.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="group flex items-center justify-center w-14 h-14 rounded-full backdrop-blur-sm border-2 transition-all duration-300 bg-white/10 border-primary-light hover:bg-accent hover:border-accent"
+              className="group flex items-center justify-center w-14 h-14 rounded-full backdrop-blur-sm border-2 transition-all duration-300 bg-white/10 border-primary-light hover:bg-[#0A66C2] hover:border-[#0A66C2] hover:shadow-[0_0_20px_rgba(10,102,194,0.5)]"
               aria-label="LinkedIn"
             >
-              <Linkedin className="w-6 h-6 transition-colors text-lighter group-hover:text-background" />
+              <Linkedin className="w-6 h-6 transition-colors text-lighter group-hover:text-white" />
             </a>
             {/* TikTok */}
             <a
               href="https://www.tiktok.com/@teachergamerz"
               target="_blank"
               rel="noopener noreferrer"
-              className="group flex items-center justify-center w-14 h-14 rounded-full backdrop-blur-sm border-2 transition-all duration-300 bg-white/10 border-primary-light hover:bg-accent hover:border-accent"
-              aria-label="YouTube"
+              className="group flex items-center justify-center w-14 h-14 rounded-full backdrop-blur-sm border-2 transition-all duration-300 bg-white/10 border-primary-light hover:bg-[#FE2C55] hover:border-[#FE2C55] hover:shadow-[0_0_20px_rgba(254,44,85,0.5)]"
+              aria-label="TikTok"
             >
-              <Youtube className="w-6 h-6 transition-colors text-lighter group-hover:text-background" />
+              <Music className="w-6 h-6 transition-colors text-lighter group-hover:text-white" />
             </a>
             <a
               href="mailto:contact@example.com"
-              className="group flex items-center justify-center w-14 h-14 rounded-full backdrop-blur-sm border-2 transition-all duration-300 bg-white/10 border-primary-light hover:bg-accent hover:border-accent"
+              className="group flex items-center justify-center w-14 h-14 rounded-full backdrop-blur-sm border-2 transition-all duration-300 bg-white/10 border-primary-light hover:bg-accent hover:border-accent hover:shadow-[0_0_20px_rgba(218,255,13,0.5)]"
               aria-label="Email"
             >
               <Mail className="w-6 h-6 transition-colors text-lighter group-hover:text-background" />
