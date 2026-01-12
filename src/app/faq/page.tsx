@@ -44,12 +44,12 @@ const faqCategories: FAQCategory[] = [
       {
         question: "What age groups can benefit from game-based learning?",
         answer:
-          "We primarily work with students aged 10 and above, though our methods can be adapted for various age ranges. The key is adjusting complexity and themes to match your students' developmental levels.",
+          "We primarily work with students aged 10 and above, though our methods can be adapted for various age ranges. The key is adjusting complexity and themes to match students' developmental levels.",
       },
       {
         question: "How long does it take to implement game-based learning?",
         answer:
-          "You can start small with single sessions and scale up as you grow comfortable. Most educators begin seeing engagement benefits within their first few sessions, with full implementation taking 1-2 months.",
+          "You can start small with single sessions and scale up as you grow comfortable. Most educators begin seeing engagement benefits within their first few sessions, with full implementation of an introductory course taking 10 weeks.",
       },
     ],
   },
@@ -60,27 +60,27 @@ const faqCategories: FAQCategory[] = [
       {
         question: "How long are the courses?",
         answer:
-          "Course lengths vary from 6-20 weeks depending on the level. Level 1 (Intro to Multiverse) is 6 weeks, Level 2 (Space Holder) is 12 weeks, and Level 3 (World Builder) is 20 weeks. All courses are self-paced with optional cohort-based learning opportunities.",
+          "Course lengths vary from 6–20 weeks depending on the level and how many hours per week. Level 1 is 24 hours over 6 weeks, Level 2 is 48 hours 12 weeks, and Level 3 is 72 hours over 20 weeks. All courses are self-paced with optional cohort-based learning.",
       },
       {
         question: "What's included in each course?",
         answer:
-          "Each course includes video lessons, downloadable resources, templates, community access, and practical assignments. Higher-level courses include one-on-one coaching sessions and advanced game master materials.",
+          "Each course includes online lessons, downloadable resources, templates, community access to Teacher Gamer Whats App Fellowship, and practical assignments. Higher-level courses include one-on-one coaching and advanced materials.",
       },
       {
         question: "Can I access course materials after completion?",
         answer:
-          "Yes! You get lifetime access to all course materials, including future updates and additions. We continuously improve our content based on educator feedback.",
+          "Yes. You get lifetime access to all course materials, including future updates and additions.",
       },
       {
         question: "Are there prerequisites for advanced courses?",
         answer:
-          "We recommend taking courses in order (Level 1 → Level 2 → Level 3) as each builds on previous concepts. However, experienced game masters may skip Level 1 after completing an assessment.",
+          "We recommend taking courses in order, as each builds on previous concepts. Experienced game masters may skip Level 1 after completing an assessment.",
       },
       {
         question: "Do you offer group or school-wide training?",
         answer:
-          "Yes! We offer custom training packages for schools and districts. Contact us to discuss bulk pricing and customized professional development options.",
+          "Yes. We offer custom training packages for schools and districts, including bulk pricing and tailored professional development.",
       },
     ],
   },
@@ -91,27 +91,26 @@ const faqCategories: FAQCategory[] = [
       {
         question: "How much do courses cost?",
         answer:
-          "Level 1 courses start at $299, Level 2 at $599, and Level 3 at $999. We also offer payment plans and bundle discounts when purchasing multiple courses together.",
+          "Level 1 starts at $299, Level 2 at $599, and Level 3 at $999. Payment plans and bundle discounts are available.",
       },
       {
         question: "Do you offer refunds?",
-        answer:
-          "Yes, we offer a 30-day money-back guarantee. If you're not satisfied with your course for any reason, contact us within 30 days of purchase for a full refund.",
+        answer: "Yes. We offer a 30-day money-back guarantee.",
       },
       {
         question: "Are payment plans available?",
         answer:
-          "Yes! We offer 3-month and 6-month payment plans for all courses. Select the payment plan option at checkout to spread your payments over time.",
+          "Yes. We offer 3-month and 6-month payment plans for all courses.",
       },
       {
         question: "Do you offer educator discounts?",
         answer:
-          "Active educators receive a 20% discount on all courses. Verify your educator status during checkout with a valid school email or teaching license.",
+          "Yes. Active educators receive a 20% discount with verification.",
       },
       {
         question: "Can I get reimbursed by my school?",
         answer:
-          "Many schools reimburse professional development expenses. We provide detailed receipts and course descriptions to help with your reimbursement requests.",
+          "Many schools reimburse professional development. We provide detailed receipts and documentation to support reimbursement requests.",
       },
     ],
   },
@@ -122,22 +121,22 @@ const faqCategories: FAQCategory[] = [
       {
         question: "Is there a community for course participants?",
         answer:
-          "Yes! All course participants get access to our private Discord community where you can connect with other educators, share experiences, and get feedback on your game sessions.",
+          "Yes. All participants get access to a private Discord community to connect, share experiences, and receive feedback.",
       },
       {
         question: "How do I get help if I'm stuck?",
         answer:
-          "We offer multiple support channels: community forums, email support, live Q&A sessions (for higher-tier courses), and extensive documentation. Most questions get answered within 24 hours.",
+          "Support is available via community forums, email, live Q&A sessions (for higher-tier courses), and documentation. Most questions are answered within 24 hours.",
       },
       {
         question: "Can I collaborate with other educators?",
         answer:
-          "Absolutely! Our community encourages collaboration. Many educators co-teach sessions, share resources, and develop campaigns together through our platform.",
+          "Yes. Collaboration is encouraged, including co-teaching, sharing resources, and joint campaign creation.",
       },
       {
         question: "Are there networking opportunities?",
         answer:
-          "We host monthly virtual meetups, annual conferences, and regional workshops where educators can network, share best practices, and learn from guest speakers.",
+          "We host monthly virtual meetups, annual conferences, and regional workshops.",
       },
     ],
   },
@@ -148,22 +147,22 @@ const faqCategories: FAQCategory[] = [
       {
         question: "What products do you sell?",
         answer:
-          "We offer game master guides, campaign modules, custom dice sets, character sheets, world-building templates, and classroom posters. All products are designed specifically for educational settings.",
+          "We offer game master guides, campaign modules, dice sets, character sheets, world-building templates, and classroom posters.",
       },
       {
         question: "Do digital products come with physical items?",
         answer:
-          "Some bundles include both digital and physical components. Check individual product descriptions for details. Digital products are available for immediate download after purchase.",
+          "Some bundles include both digital and physical components. Digital products are available immediately after purchase.",
       },
       {
         question: "What's your shipping policy?",
         answer:
-          "We ship physical products within 2-3 business days. Domestic shipping takes 5-7 days, international 10-14 days. Free shipping on orders over $50 in the US.",
+          "Orders ship within 2–3 business days. Domestic shipping takes 5–7 days; international shipping takes 10–14 days. Free US shipping on orders over $50.",
       },
       {
         question: "Can I return physical products?",
         answer:
-          "Physical products can be returned within 30 days if unused and in original condition. Digital products are non-refundable after download, but we're happy to help resolve any issues.",
+          "Physical products can be returned within 30 days if unused and in original condition. Digital products are non-refundable after download.",
       },
     ],
   },
@@ -174,27 +173,27 @@ const faqCategories: FAQCategory[] = [
       {
         question: "What devices are supported?",
         answer:
-          "Our platform works on all modern devices: desktops, laptops, tablets, and smartphones. We recommend a larger screen for the best course viewing experience.",
+          "Our platform works on desktops, laptops, tablets, and smartphones. A larger screen is recommended for courses.",
       },
       {
         question: "Do I need special software?",
         answer:
-          "No special software required! Everything runs in your web browser. For downloading resources, you'll need a PDF reader. Optional: Discord for community access.",
+          "No. Everything runs in your web browser. A PDF reader is needed for downloads. Discord is optional for community access.",
       },
       {
         question: "How do I access my purchases?",
         answer:
-          "After purchase, log into your account and visit 'My Courses' or 'My Downloads' in your dashboard. Course access is instant; downloadable content is available immediately.",
+          'Log into your account and visit "My Courses" or "My Downloads" in your dashboard.',
       },
       {
         question: "Can I share my course access with colleagues?",
         answer:
-          "Course licenses are for individual use. For group access, please contact us about our school/district packages which offer better pricing and administrative features.",
+          "Individual licenses are single-user. Group and school packages are available.",
       },
       {
         question: "Is my data secure?",
         answer:
-          "Yes! We use industry-standard encryption for all data transmission and storage. We never share your information with third parties and comply with all privacy regulations.",
+          "Yes. We use industry-standard encryption and comply with all privacy regulations.",
       },
     ],
   },

@@ -20,7 +20,7 @@ export default function ResearchSection({
       views: "7,228 Views",
       abstract:
         "The idea that when you play role-playing games (RPGs): you submerge yourself 'in-game' to adventure, explore, and problem-solve through experimentation, puts your imagination, sense of self, and morality to the test. This paper explores RPGs as a distinct educational discipline that fosters critical thinking, creativity, and collaborative learning.",
-      link: "https://www.academia.edu/",
+      link: "https://www.academia.edu/50948753/Multiverse_Role_Playing_Games_as_an_Educational_Discipline",
     },
     {
       title: "What is 'Authentic Education'?",
@@ -30,7 +30,7 @@ export default function ResearchSection({
       views: "24,241 Views • Top 4%",
       abstract:
         "The simple response would include that an 'authentic education' is designed to guide students to develop their unique talents and abilities, rather than forcing them to conform to standardized measures. This paper examines the philosophical foundations of authentic education and its implications for modern pedagogy.",
-      link: "https://www.academia.edu/",
+      link: "https://www.academia.edu/47832669/What_is_Authentic_Education",
     },
     {
       title: "Converging Approaches is the Future of Education",
@@ -40,7 +40,7 @@ export default function ResearchSection({
       views: "194 Views",
       abstract:
         "Current education systems were invented over a hundred years ago to meet the needs of the industrial revolution. This paper argues that the future of education lies in converging multiple pedagogical approaches to meet the diverse needs of 21st-century learners, emphasizing personalization, interdisciplinary learning, and real-world application.",
-      link: "https://www.academia.edu/",
+      link: "https://www.academia.edu/109006944/Converging_Approaches_is_the_Future_of_Education",
     },
     {
       title:
@@ -51,7 +51,7 @@ export default function ResearchSection({
       views: "177 Views",
       abstract:
         "By the end of the 20th century, concerns over students' dependency, self-doubt, demotivation, and anxiety had reached critical levels. This paper examines Self-Determination Theory and argues against the overuse of extrinsic motivators in educational settings, advocating for intrinsic motivation through autonomy, competence, and relatedness.",
-      link: "https://www.academia.edu/",
+      link: "https://www.academia.edu/125946814/Self_Determination_Theory_and_the_Case_Against_Extrinsic_Goals_in_Education",
     },
     {
       title: "Start The Writing Journey",
@@ -61,7 +61,7 @@ export default function ResearchSection({
       views: "120 Views",
       abstract:
         "Education is not only about major milestones, like graduations and certifications, but also about the journey of continuous learning and growth. This paper explores pedagogical approaches to help students begin their writing journey with confidence, creativity, and authentic voice.",
-      link: "https://www.academia.edu/",
+      link: "https://www.academia.edu/125946814/Self_Determination_Theory_and_the_Case_Against_Extrinsic_Goals_in_Education",
     },
     {
       title:
@@ -72,7 +72,7 @@ export default function ResearchSection({
       views: "2,625 Views",
       abstract:
         "As a corrupted byproduct of socioeconomic politics, curriculum philosophy is unsuitable to solve educational challenges. This defended thesis examines the decline of contemplative practices in education and the emergence of social constructivism as the dominant educational paradigm, questioning whether authenticity still matters in modern pedagogy.",
-      link: "https://www.academia.edu/",
+      link: "https://www.academia.edu/8662975/As_if_Authenticity_Matters_The_Fall_of_Contemplation_and_The_Rise_of_The_Social_Realm",
     },
   ];
 
@@ -134,20 +134,19 @@ export default function ResearchSection({
               spread={30}
               yoyo
             >
-              Research & Publications
+              My Published Research
             </ShinyText>
           </h2>
           <p 
             className="text-base md:text-lg mt-4 max-w-3xl mx-auto"
             style={{ color: "var(--color-lighter)" }}
           >
-            Evidence-based research supporting the Teacher-Gamer methodology
+            Peer-reviewed papers on <span className="font-medium" style={{ color: theme.accent.lime }}>Academia.edu</span> exploring how role-playing games transform learning
           </p>
         </div>
 
         {/* Grid de cartas */}
         <div
-          data-animate-stagger
           className="grid gap-8 md:gap-10 grid-cols-1 sm:grid-cols-2 xl:grid-cols-3"
         >
           {articles.map((article, index) => {

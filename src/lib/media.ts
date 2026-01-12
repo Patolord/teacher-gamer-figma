@@ -52,6 +52,10 @@ export const MEDIA = {
     bookCover: `${IMAGEKIT_BASE_URL}/book-cover.webp`,
     magicCardBg: `${IMAGEKIT_BASE_URL}/magic-card-bg.webp`,
     magicCardBgAlt: `${IMAGEKIT_BASE_URL}/magic-card-bg-alt.webp`,
+    bookCover1: `${IMAGEKIT_BASE_URL}/book-cover.webp`,
+    bookCover2: `${IMAGEKIT_BASE_URL}/book-cover2.webp`,
+    bookCover3: `${IMAGEKIT_BASE_URL}/book-cover3.webp`,
+    bookCover4: `${IMAGEKIT_BASE_URL}/book-cover4.webp`,
   },
 
   // ===========================================================================
@@ -59,6 +63,8 @@ export const MEDIA = {
   // ===========================================================================
   testimonials: {
     testimonial1: `${IMAGEKIT_BASE_URL}/testimonial-1.jpg`,
+    testimonial2: `${IMAGEKIT_BASE_URL}/testimonial-2.webp`,
+    testimonial3: `${IMAGEKIT_BASE_URL}/testimonial-3.webp`,
   },
 
   // ===========================================================================
@@ -72,8 +78,8 @@ export const MEDIA = {
   // ABOUT PAGE
   // ===========================================================================
   about: {
-    zachProfile: `${IMAGEKIT_BASE_URL}zach-profile.jpg`,
-    classroomRpg: `${IMAGEKIT_BASE_URL}classroom-rpg.jpg`,
+    zachProfile: `${IMAGEKIT_BASE_URL}/zach-profile.webp`,
+    classroomRpg: `${IMAGEKIT_BASE_URL}/classroom-rpg.webp`,
   },
 
   // ===========================================================================

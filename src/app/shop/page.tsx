@@ -278,7 +278,7 @@ export default function ShopPage() {
                 <div className="backdrop-blur-sm rounded-xl overflow-hidden flex flex-col bg-primary-subtle border-2 border-primary-light/25 shadow-[0_10px_30px_var(--color-primary-glow)]">
                   <div className="relative aspect-3/4 w-full">
                     <Image
-                      src={MEDIA.assets.bookCover}
+                      src={MEDIA.assets.bookCover1}
                       alt="Teacher Gamer Handbook (PDF)"
                       fill
                       className="object-cover"
@@ -313,7 +313,7 @@ export default function ShopPage() {
                 <div className="backdrop-blur-sm rounded-xl overflow-hidden flex flex-col bg-primary-subtle border-2 border-primary-light/25 shadow-[0_10px_30px_var(--color-primary-glow)]">
                   <div className="relative aspect-3/4 w-full">
                     <Image
-                      src={MEDIA.assets.bookCover}
+                      src={MEDIA.assets.bookCover2}
                       alt="Teacher Gamer Handbook (Softcover / Hardcover)"
                       fill
                       className="object-cover"
@@ -337,15 +337,12 @@ export default function ShopPage() {
                       onClick={handleCheckout}
                       disabled={isLoading}
                     >
-                      {isLoading ? (
-                        <>
-                          <Loader2 className="w-4 h-4 mr-2 animate-spin" />
-                          Processing...
-                        </>
-                      ) : (
-                        "BUY NOW"
-                      )}
-                    </Button>
+                      <Button
+                        className="w-full font-bold mt-auto transition-all duration-300 bg-shop-accent-lime text-shop-neutral-dark-bg hover:bg-shop-accent-lime-light"
+                      >
+                        BUY NOW
+                      </Button>
+                    </a>
                   </div>
                 </div>
 
@@ -353,7 +350,7 @@ export default function ShopPage() {
                 <div className="backdrop-blur-sm rounded-xl overflow-hidden flex flex-col bg-primary-subtle border-2 border-primary-light/25 shadow-[0_10px_30px_var(--color-primary-glow)]">
                   <div className="relative aspect-3/4 w-full">
                     <Image
-                      src={MEDIA.assets.bookCover}
+                      src={MEDIA.assets.bookCover3}
                       alt="Teacher Gamer Screen (Landscape)"
                       fill
                       className="object-cover"
@@ -377,15 +374,12 @@ export default function ShopPage() {
                       onClick={handleCheckout}
                       disabled={isLoading}
                     >
-                      {isLoading ? (
-                        <>
-                          <Loader2 className="w-4 h-4 mr-2 animate-spin" />
-                          Processing...
-                        </>
-                      ) : (
-                        "BUY NOW"
-                      )}
-                    </Button>
+                      <Button
+                        className="w-full font-bold mt-auto transition-all duration-300 bg-shop-accent-lime text-shop-neutral-dark-bg hover:bg-shop-accent-lime-light"
+                      >
+                        BUY NOW
+                      </Button>
+                    </a>
                   </div>
                 </div>
 
@@ -393,7 +387,7 @@ export default function ShopPage() {
                 <div className="backdrop-blur-sm rounded-xl overflow-hidden flex flex-col bg-primary-subtle border-2 border-primary-light/25 shadow-[0_10px_30px_var(--color-primary-glow)]">
                   <div className="relative aspect-3/4 w-full">
                     <Image
-                      src={MEDIA.assets.bookCover}
+                      src={MEDIA.assets.bookCover4}
                       alt="Teacher Gamer Screen (Portrait)"
                       fill
                       className="object-cover"
@@ -417,15 +411,12 @@ export default function ShopPage() {
                       onClick={handleCheckout}
                       disabled={isLoading}
                     >
-                      {isLoading ? (
-                        <>
-                          <Loader2 className="w-4 h-4 mr-2 animate-spin" />
-                          Processing...
-                        </>
-                      ) : (
-                        "BUY NOW"
-                      )}
-                    </Button>
+                      <Button
+                        className="w-full font-bold mt-auto transition-all duration-300 bg-shop-accent-lime text-shop-neutral-dark-bg hover:bg-shop-accent-lime-light"
+                      >
+                        BUY NOW
+                      </Button>
+                    </a>
                   </div>
                 </div>
               </div>

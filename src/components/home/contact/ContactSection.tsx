@@ -1,8 +1,7 @@
 
-import Link from "next/link";
 import { MEDIA } from "@/lib/media";
 import ShinyText from "@/components/ui/shinytext";
-import { Facebook, Twitter, Instagram, Linkedin, Youtube, Mail, ArrowRight } from "lucide-react";
+import { Facebook, Instagram, Linkedin, Youtube, Podcast, Music2, BookOpen, Mail } from "lucide-react";
 
 interface ContactSectionProps {
   sectionIndex?: number;
@@ -25,7 +24,6 @@ export default function ContactSection({ sectionIndex }: ContactSectionProps) {
 
       <div
         data-section-content
-        data-animate
         className="container mx-auto px-8 py-16 max-w-4xl relative z-10"
       >
         <h2 className="text-6xl font-bold mb-8 text-center max-[1000px]:text-4xl font-aladin">
@@ -94,8 +92,9 @@ export default function ContactSection({ sectionIndex }: ContactSectionProps) {
             Connect With Us
           </h3>
           <div className="flex items-center justify-center gap-6 flex-wrap mb-10">
+            {/* Facebook */}
             <a
-              href="https://facebook.com"
+              href="https://www.facebook.com/groups/587361488726775/"
               target="_blank"
               rel="noopener noreferrer"
               className="group flex items-center justify-center w-14 h-14 rounded-full backdrop-blur-sm border-2 transition-all duration-300 bg-white/10 border-primary-light hover:bg-accent hover:border-accent"
@@ -103,8 +102,9 @@ export default function ContactSection({ sectionIndex }: ContactSectionProps) {
             >
               <Facebook className="w-6 h-6 transition-colors text-lighter group-hover:text-background" />
             </a>
+            {/* Instagram */}
             <a
-              href="https://twitter.com"
+              href="https://www.instagram.com/teachergamerhandbook/"
               target="_blank"
               rel="noopener noreferrer"
               className="group flex items-center justify-center w-14 h-14 rounded-full backdrop-blur-sm border-2 transition-all duration-300 bg-white/10 border-primary-light hover:bg-accent hover:border-accent"
@@ -112,8 +112,9 @@ export default function ContactSection({ sectionIndex }: ContactSectionProps) {
             >
               <Twitter className="w-6 h-6 transition-colors text-lighter group-hover:text-background" />
             </a>
+            {/* YouTube */}
             <a
-              href="https://instagram.com"
+              href="https://www.youtube.com/channel/UCuefgI1D0nybe1Vn3Tm1MCg"
               target="_blank"
               rel="noopener noreferrer"
               className="group flex items-center justify-center w-14 h-14 rounded-full backdrop-blur-sm border-2 transition-all duration-300 bg-white/10 border-primary-light hover:bg-accent hover:border-accent"
@@ -121,8 +122,9 @@ export default function ContactSection({ sectionIndex }: ContactSectionProps) {
             >
               <Instagram className="w-6 h-6 transition-colors text-lighter group-hover:text-background" />
             </a>
+            {/* X (Twitter) */}
             <a
-              href="https://linkedin.com"
+              href="https://x.com/TeacherGamerZ"
               target="_blank"
               rel="noopener noreferrer"
               className="group flex items-center justify-center w-14 h-14 rounded-full backdrop-blur-sm border-2 transition-all duration-300 bg-white/10 border-primary-light hover:bg-accent hover:border-accent"
@@ -130,8 +132,9 @@ export default function ContactSection({ sectionIndex }: ContactSectionProps) {
             >
               <Linkedin className="w-6 h-6 transition-colors text-lighter group-hover:text-background" />
             </a>
+            {/* TikTok */}
             <a
-              href="https://youtube.com"
+              href="https://www.tiktok.com/@teachergamerz"
               target="_blank"
               rel="noopener noreferrer"
               className="group flex items-center justify-center w-14 h-14 rounded-full backdrop-blur-sm border-2 transition-all duration-300 bg-white/10 border-primary-light hover:bg-accent hover:border-accent"
@@ -139,6 +142,7 @@ export default function ContactSection({ sectionIndex }: ContactSectionProps) {
             >
               <Youtube className="w-6 h-6 transition-colors text-lighter group-hover:text-background" />
             </a>
+            {/* Reddit */}
             <a
               href="mailto:contact@example.com"
               className="group flex items-center justify-center w-14 h-14 rounded-full backdrop-blur-sm border-2 transition-all duration-300 bg-white/10 border-primary-light hover:bg-accent hover:border-accent"

@@ -64,7 +64,7 @@ const Testimonials = ({ sectionIndex }: TestimonialsProps) => {
     },
     {
       id: 6,
-      image: MEDIA.testimonials.testimonial1,
+      image: MEDIA.testimonials.testimonial2,
     },
     {
       id: 7,
@@ -78,7 +78,7 @@ const Testimonials = ({ sectionIndex }: TestimonialsProps) => {
     },
     {
       id: 9,
-      image: MEDIA.testimonials.testimonial1,
+      image: MEDIA.testimonials.testimonial3,
     },
   ];
 
@@ -211,7 +211,7 @@ const Testimonials = ({ sectionIndex }: TestimonialsProps) => {
     <section
       id="testimonials-section"
       data-scroll-section={sectionIndex}
-      className="w-full py-40 relative overflow-x-hidden"
+      className="w-full pt-40 relative overflow-x-hidden pb-60"
     >
       {/* Background image */}
       <div
@@ -240,7 +240,7 @@ const Testimonials = ({ sectionIndex }: TestimonialsProps) => {
 
       {/* Content */}
       <div data-section-content className="max-w-7xl mx-auto relative z-10">
-        <div data-animate className="text-center mb-16">
+        <div data-animate className="text-center mb-32">
           <h3 className="text-4xl font-semibold tracking-tight mb-4 text-center inline-block whitespace-nowrap">
             <ShinyText
               speed={3}
