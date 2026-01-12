@@ -134,8 +134,9 @@ export default function ShopPage() {
                     </span>
                   </div>
 
-                  <h1 className="text-4xl md:text-5xl font-bold leading-tight text-lighter">
-                    The Teacher-Gamer Handbook
+                  <h1 className="text-4xl md:text-5xl font-bold leading-tight">
+                    <span className="text-accent">The Teacher-Gamer</span>
+                    <span className="text-lighter"> Handbook</span>
                   </h1>
 
                   <p className="text-xl leading-relaxed text-lighter">
@@ -207,8 +208,9 @@ export default function ShopPage() {
 
                 {/* What's Inside */}
                 <div className="space-y-4">
-                  <h2 className="text-2xl font-bold text-lighter">
-                    What's Inside
+                  <h2 className="text-2xl font-bold">
+                    <span className="text-accent">What's</span>
+                    <span className="text-lighter"> Inside</span>
                   </h2>
                   <ul className="space-y-3">
                     {bookFeatures.map((feature, index) => (
@@ -226,8 +228,9 @@ export default function ShopPage() {
 
             {/* Benefits Section */}
             <div className="mt-20 space-y-8">
-              <h2 className="text-3xl font-bold text-center text-lighter">
-                Why Educators Love Our Resources
+              <h2 className="text-3xl font-bold text-center">
+                <span className="text-lighter">Why Educators Love </span>
+                <span className="text-accent">Our Resources</span>
               </h2>
               <div className="grid md:grid-cols-3 gap-8">
                 {benefits.map(({ icon: Icon, title, description }) => (
@@ -238,7 +241,7 @@ export default function ShopPage() {
                     <div className="w-16 h-16 mx-auto rounded-full flex items-center justify-center bg-accent-glow">
                       <Icon className="w-8 h-8 text-accent" />
                     </div>
-                    <h3 className="text-xl font-bold text-lighter">
+                    <h3 className="text-xl font-bold text-accent">
                       {title}
                     </h3>
                     <p className="text-light">{description}</p>
@@ -268,8 +271,9 @@ export default function ShopPage() {
 
             {/* Products Section */}
             <div className="mt-20 space-y-8">
-              <h2 className="text-3xl font-bold text-center text-lighter">
-                Available Products
+              <h2 className="text-3xl font-bold text-center">
+                <span className="text-accent">Available</span>
+                <span className="text-lighter"> Products</span>
               </h2>
 
               {/* Products Grid */}
@@ -433,8 +437,9 @@ export default function ShopPage() {
 
             {/* CTA Section */}
             <div className="mt-20 text-center space-y-6">
-              <h2 className="text-3xl font-bold text-lighter">
-                Ready to Get Started?
+              <h2 className="text-3xl font-bold">
+                <span className="text-accent">Ready to Get</span>
+                <span className="text-lighter"> Started?</span>
               </h2>
               <p className="text-xl max-w-2xl mx-auto text-lighter">
                 Explore our collection of educational resources designed to transform
