@@ -8,64 +8,11 @@ import {
   Linkedin,
   Youtube,
   Mail,
-  MailIcon,
-  MapPinIcon,
-  MessageSquareIcon,
-  PhoneIcon,
-  SendIcon,
 } from "lucide-react";
 import Link from "next/link";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { MEDIA } from "@/lib/media";
-
-const contactMethods = [
-  {
-    icon: MailIcon,
-    title: "Email Us",
-    description: "Get in touch via email",
-    value: "hello@teachergamer.com",
-    link: "mailto:hello@teachergamer.com",
-  },
-  {
-    icon: PhoneIcon,
-    title: "Call Us",
-    description: "Mon-Fri from 9am to 5pm",
-    value: "+1 (555) 123-4567",
-    link: "tel:+15551234567",
-  },
-  {
-    icon: MapPinIcon,
-    title: "Visit Us",
-    description: "Come say hello",
-    value: "123 Learning St, Education City, EC 12345",
-    link: "#",
-  },
-];
-
-
-const faqs = [
-  {
-    question: "What age groups do you work with?",
-    answer:
-      "We primarily work with students aged 10 and above, though our programs can be adapted for various age ranges depending on the learning objectives.",
-  },
-  {
-    question: "Do I need prior RPG experience?",
-    answer:
-      "Not at all! Our courses are designed for educators at all levels, from complete beginners to experienced game masters.",
-  },
-  {
-    question: "How long are the courses?",
-    answer:
-      "Course lengths vary from 6-20 weeks depending on the level. Each course is self-paced with cohort-based learning opportunities.",
-  },
-  {
-    question: "Can I get a refund?",
-    answer:
-      "Yes, we offer a 30-day money-back guarantee if you're not satisfied with your course.",
-  },
-];
 
 export default function ContactPage() {
   const [formData, setFormData] = useState({
@@ -141,54 +88,21 @@ export default function ContactPage() {
           <div className="max-w-6xl mx-auto space-y-16">
             {/* Hero Section */}
             <div className="text-center space-y-6">
-              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary-subtle border border-primary-light text-primary-light">
-                <MessageSquareIcon className="w-4 h-4" />
-                <span className="text-sm font-semibold">
-                  We're Here to Help
-                </span>
-              </div>
-
-              <h1 className="text-4xl md:text-6xl font-bold text-lighter leading-tight">
+              <h1 className="text-4xl md:text-6xl font-bold text-accent leading-tight">
                 Get In Touch
               </h1>
 
-              <p className="text-xl text-lighter/90 leading-relaxed max-w-3xl mx-auto">
-                Have questions about our courses or methodology? Want to bring
-                game-based learning to your school? We'd love to hear from you.
+              <p className="text-xl text-lighter leading-relaxed max-w-3xl mx-auto">
+                Have questions? We'd love to hear from you. Send us a message and
+                we'll respond as soon as possible.
               </p>
-            </div>
-
-            {/* Contact Methods */}
-            <div className="grid md:grid-cols-3 gap-6">
-              {contactMethods.map(
-                ({ icon: Icon, title, description, value, link }) => (
-                  <a
-                    key={title}
-                    href={link}
-                    className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-primary-light/20 hover:bg-white/15 transition-all group"
-                  >
-                    <div className="w-12 h-12 mb-4 rounded-full bg-primary-subtle flex items-center justify-center group-hover:bg-primary-glow transition-colors">
-                      <Icon className="w-6 h-6 text-primary-light" />
-                    </div>
-                    <h3 className="text-xl font-bold text-lighter mb-2">
-                      {title}
-                    </h3>
-                    <p className="text-lighter/60 text-sm mb-2">{description}</p>
-                    <p className="text-lighter/90">{value}</p>
-                  </a>
-                ),
-              )}
             </div>
 
             {/* Contact Form & Info Grid */}
             <div className="grid lg:grid-cols-3 gap-8">
               {/* Contact Form - Takes 2 columns */}
               <div className="lg:col-span-2">
-                <div className="bg-white/10 backdrop-blur-sm rounded-xl p-8 border border-primary-light/20">
-                  <h2 className="text-2xl font-bold text-lighter mb-6">
-                    Send Us a Message
-                  </h2>
-
+                <div className="backdrop-blur-sm rounded-xl p-8 border-2 bg-white/10 border-primary-light">
                   {submitStatus === "success" && (
                     <div className="mb-6 p-4 bg-accent/20 border border-accent/30 rounded-lg">
                       <p className="text-accent font-semibold">
@@ -198,205 +112,152 @@ export default function ContactPage() {
                   )}
 
                   <form onSubmit={handleSubmit} className="space-y-6">
-                    <div className="grid md:grid-cols-2 gap-6">
-                      <div>
-                        <label
-                          htmlFor="name"
-                          className="block text-lighter mb-2 font-medium"
-                        >
-                          Your Name *
-                        </label>
-                        <input
-                          type="text"
-                          id="name"
-                          name="name"
-                          value={formData.name}
-                          onChange={handleChange}
-                          required
-                          className="w-full px-4 py-3 rounded-lg bg-white/5 border border-primary-light/30 text-lighter placeholder-lighter/40 focus:outline-none focus:border-accent transition"
-                          placeholder="John Doe"
-                        />
-                      </div>
-                      <div>
-                        <label
-                          htmlFor="email"
-                          className="block text-lighter mb-2 font-medium"
-                        >
-                          Your Email *
-                        </label>
-                        <input
-                          type="email"
-                          id="email"
-                          name="email"
-                          value={formData.email}
-                          onChange={handleChange}
-                          required
-                          className="w-full px-4 py-3 rounded-lg bg-white/5 border border-primary-light/30 text-lighter placeholder-lighter/40 focus:outline-none focus:border-accent transition"
-                          placeholder="john@example.com"
-                        />
-                      </div>
-                    </div>
-
                     <div>
-                      <label
-                        htmlFor="subject"
-                        className="block text-lighter mb-2 font-medium"
-                      >
-                        Subject *
-                      </label>
                       <input
                         type="text"
-                        id="subject"
-                        name="subject"
-                        value={formData.subject}
+                        id="name"
+                        name="name"
+                        value={formData.name}
                         onChange={handleChange}
                         required
-                        className="w-full px-4 py-3 rounded-lg bg-white/5 border border-primary-light/30 text-lighter placeholder-lighter/40 focus:outline-none focus:border-accent transition"
-                        placeholder="How can we help you?"
+                        placeholder="Your Name"
+                        className="w-full px-6 py-4 rounded-lg text-lg border-2 backdrop-blur-sm bg-white/10 border-primary-light text-lighter placeholder:text-lighter/50 focus:border-accent focus:outline-none transition-colors"
                       />
                     </div>
-
                     <div>
-                      <label
-                        htmlFor="message"
-                        className="block text-lighter mb-2 font-medium"
-                      >
-                        Your Message *
-                      </label>
+                      <input
+                        type="email"
+                        id="email"
+                        name="email"
+                        value={formData.email}
+                        onChange={handleChange}
+                        required
+                        placeholder="Your Email"
+                        className="w-full px-6 py-4 rounded-lg text-lg border-2 backdrop-blur-sm bg-white/10 border-primary-light text-lighter placeholder:text-lighter/50 focus:border-accent focus:outline-none transition-colors"
+                      />
+                    </div>
+                    <div>
                       <textarea
                         id="message"
                         name="message"
                         value={formData.message}
                         onChange={handleChange}
                         required
-                        rows={6}
-                        className="w-full px-4 py-3 rounded-lg bg-white/5 border border-primary-light/30 text-lighter placeholder-lighter/40 focus:outline-none focus:border-accent transition resize-none"
-                        placeholder="Tell us more about your inquiry..."
+                        rows={5}
+                        placeholder="Your Message"
+                        className="w-full px-6 py-4 rounded-lg text-lg resize-none border-2 backdrop-blur-sm bg-white/10 border-primary-light text-lighter placeholder:text-lighter/50 focus:border-accent focus:outline-none transition-colors"
                       />
                     </div>
-
-                    <Button
+                    <button
                       type="submit"
-                      size="lg"
                       disabled={isSubmitting}
-                      className="w-full text-lg font-bold bg-accent hover:bg-accent-light text-background py-6"
+                      className="w-full px-8 py-4 rounded-full font-bold text-xl transition-all duration-300 bg-accent text-background hover:bg-accent-light shadow-[0_4px_24px_rgba(218,255,13,0.25)] hover:shadow-[0_4px_24px_rgba(218,255,13,0.45)]"
                     >
-                      {isSubmitting ? (
-                        "Sending..."
-                      ) : (
-                        <>
-                          <SendIcon className="w-5 h-5 mr-2" />
-                          Send Message
-                        </>
-                      )}
-                    </Button>
+                      {isSubmitting ? "Sending..." : "Send Message"}
+                    </button>
                   </form>
                 </div>
               </div>
 
-              {/* Sidebar - Social & FAQ */}
+              {/* Sidebar - Social Media */}
               <div className="space-y-8">
                 {/* Social Media */}
                 <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-primary-light/20">
-                  <h3 className="text-xl font-bold mb-6 text-lighter">
+                  <h3 className="text-2xl font-bold mb-6 text-lighter text-center">
                     Connect With Us
                   </h3>
-                  <div className="flex items-center justify-center gap-4 flex-wrap">
+                  <div className="flex items-center justify-center gap-6 flex-wrap">
                     <a
                       href="https://facebook.com"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="group flex items-center justify-center w-12 h-12 rounded-full backdrop-blur-sm border-2 border-primary-light transition-all duration-300 bg-white/10 hover:bg-accent hover:border-accent"
+                      className="group flex items-center justify-center w-14 h-14 rounded-full backdrop-blur-sm border-2 transition-all duration-300 bg-white/10 border-primary-light hover:bg-accent hover:border-accent"
                       aria-label="Facebook"
                     >
-                      <Facebook className="w-5 h-5 transition-colors text-lighter group-hover:text-background" />
+                      <Facebook className="w-6 h-6 transition-colors text-lighter group-hover:text-background" />
                     </a>
                     <a
                       href="https://twitter.com"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="group flex items-center justify-center w-12 h-12 rounded-full backdrop-blur-sm border-2 border-primary-light transition-all duration-300 bg-white/10 hover:bg-accent hover:border-accent"
+                      className="group flex items-center justify-center w-14 h-14 rounded-full backdrop-blur-sm border-2 transition-all duration-300 bg-white/10 border-primary-light hover:bg-accent hover:border-accent"
                       aria-label="Twitter"
                     >
-                      <Twitter className="w-5 h-5 transition-colors text-lighter group-hover:text-background" />
+                      <Twitter className="w-6 h-6 transition-colors text-lighter group-hover:text-background" />
                     </a>
                     <a
-                      href="https://instagram.com"
+                      href="https://www.youtube.com/channel/UCuefgI1D0nybe1Vn3Tm1MCg"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="group flex items-center justify-center w-12 h-12 rounded-full backdrop-blur-sm border-2 border-primary-light transition-all duration-300 bg-white/10 hover:bg-accent hover:border-accent"
+                      className="group flex items-center justify-center w-14 h-14 rounded-full backdrop-blur-sm border-2 transition-all duration-300 bg-white/10 border-primary-light hover:bg-accent hover:border-accent"
                       aria-label="Instagram"
                     >
-                      <Instagram className="w-5 h-5 transition-colors text-lighter group-hover:text-background" />
+                      <Instagram className="w-6 h-6 transition-colors text-lighter group-hover:text-background" />
                     </a>
                     <a
                       href="https://linkedin.com"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="group flex items-center justify-center w-12 h-12 rounded-full backdrop-blur-sm border-2 border-primary-light transition-all duration-300 bg-white/10 hover:bg-accent hover:border-accent"
+                      className="group flex items-center justify-center w-14 h-14 rounded-full backdrop-blur-sm border-2 transition-all duration-300 bg-white/10 border-primary-light hover:bg-accent hover:border-accent"
                       aria-label="LinkedIn"
                     >
-                      <Linkedin className="w-5 h-5 transition-colors text-lighter group-hover:text-background" />
+                      <Linkedin className="w-6 h-6 transition-colors text-lighter group-hover:text-background" />
                     </a>
                     <a
-                      href="https://youtube.com"
+                      href="https://www.tiktok.com/@teachergamerz"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="group flex items-center justify-center w-12 h-12 rounded-full backdrop-blur-sm border-2 border-primary-light transition-all duration-300 bg-white/10 hover:bg-accent hover:border-accent"
+                      className="group flex items-center justify-center w-14 h-14 rounded-full backdrop-blur-sm border-2 transition-all duration-300 bg-white/10 border-primary-light hover:bg-accent hover:border-accent"
                       aria-label="YouTube"
                     >
-                      <Youtube className="w-5 h-5 transition-colors text-lighter group-hover:text-background" />
+                      <Youtube className="w-6 h-6 transition-colors text-lighter group-hover:text-background" />
                     </a>
                     <a
                       href="mailto:contact@example.com"
-                      className="group flex items-center justify-center w-12 h-12 rounded-full backdrop-blur-sm border-2 border-primary-light transition-all duration-300 bg-white/10 hover:bg-accent hover:border-accent"
+                      className="group flex items-center justify-center w-14 h-14 rounded-full backdrop-blur-sm border-2 transition-all duration-300 bg-white/10 border-primary-light hover:bg-accent hover:border-accent"
                       aria-label="Email"
                     >
-                      <Mail className="w-5 h-5 transition-colors text-lighter group-hover:text-background" />
+                      <Mail className="w-6 h-6 transition-colors text-lighter group-hover:text-background" />
                     </a>
                   </div>
-                </div>
 
-                {/* Quick Info */}
-                <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-primary-light/20">
-                  <h3 className="text-xl font-bold text-lighter mb-4">
-                    Office Hours
-                  </h3>
-                  <div className="space-y-2 text-lighter/80">
-                    <p>Monday - Friday: 9:00 AM - 5:00 PM</p>
-                    <p>Saturday: 10:00 AM - 2:00 PM</p>
-                    <p>Sunday: Closed</p>
-                    <p className="text-lighter/60 text-sm mt-4">
-                      * All times in EST
-                    </p>
+                  {/* CTA to Donate via PayPal */}
+                  <div className="text-center mt-8">
+                    <a
+                      href="https://www.paypal.com/paypalme/teachergamer"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 px-6 py-3 font-bold rounded-full transition-all hover:gap-3 bg-accent text-background hover:bg-accent-light shadow-[0_4px_24px_rgba(218,255,13,0.25)] hover:shadow-[0_4px_24px_rgba(218,255,13,0.45)]"
+                    >
+                      Support the Project
+                    </a>
                   </div>
                 </div>
               </div>
             </div>
 
-            {/* FAQ Section */}
-            <div className="space-y-6">
-              <h2 className="text-3xl font-bold text-lighter text-center">
-                Frequently Asked Questions
-              </h2>
-              <div className="grid md:grid-cols-2 gap-6">
-                {faqs.map(({ question, answer }) => (
-                  <div
-                    key={question}
-                    className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-primary-light/20"
-                  >
-                    <h3 className="text-lg font-bold text-lighter mb-3">
-                      {question}
-                    </h3>
-                    <p className="text-lighter/80">{answer}</p>
-                  </div>
-                ))}
+            {/* FAQ Button */}
+            <div className="text-center">
+              <div className="bg-white/10 backdrop-blur-sm rounded-xl p-8 border border-primary-light/20 inline-block">
+                <h2 className="text-2xl font-bold text-accent mb-4">
+                  Have More Questions?
+                </h2>
+                <p className="text-lighter/80 mb-6 max-w-md">
+                  Check out our comprehensive FAQ page for answers to common questions.
+                </p>
+                <Button
+                  size="lg"
+                  className="text-lg font-bold bg-accent hover:bg-accent-light text-background px-12 py-4 shadow-[0_4px_24px_rgba(218,255,13,0.25)] hover:shadow-[0_4px_24px_rgba(218,255,13,0.45)]"
+                  asChild
+                >
+                  <Link href="/faq">View FAQ</Link>
+                </Button>
               </div>
             </div>
 
             {/* CTA Section */}
-            <div className="bg-gradient-to-br from-primary-subtle to-transparent rounded-xl p-8 border border-primary-light/30 text-center space-y-6">
-              <h2 className="text-3xl font-bold text-lighter">
+            <div className="bg-linear-to-br from-accent/20 to-transparent rounded-xl p-8 border border-accent/30 text-center space-y-6">
+              <h2 className="text-3xl font-bold text-accent">
                 Ready to Transform Your Teaching?
               </h2>
               <p className="text-xl text-lighter/80 max-w-2xl mx-auto">
