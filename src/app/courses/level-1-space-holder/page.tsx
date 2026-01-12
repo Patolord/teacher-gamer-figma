@@ -83,13 +83,12 @@ export default function Level1SpaceHolderPage() {
             <div className="space-y-6">
               <div className="flex gap-3 flex-wrap">
                 <div
-                  className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#ff6b9d]/20 border border-[#ff6b9d]/30"
-                  style={{ color: "#ff6b9d" }}
+                  className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-secondary/20 border border-secondary/30 text-secondary"
                 >
                   <Star className="w-4 h-4" />
                   <span className="text-sm font-semibold">BEST VALUE</span>
                 </div>
-                <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#ff6b9d]/10 border border-[#ff6b9d]/20 text-white">
+                <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-secondary/10 border border-secondary/20 text-white">
                   <Award className="w-4 h-4" />
                   <span className="text-sm font-semibold">
                     Certification Course
@@ -110,15 +109,15 @@ export default function Level1SpaceHolderPage() {
               {/* Course Stats */}
               <div className="flex flex-wrap gap-6 pt-4">
                 <div className="flex items-center gap-2 text-white/80">
-                  <Clock className="w-5 h-5" style={{ color: "#ff6b9d" }} />
+                  <Clock className="w-5 h-5 text-secondary" />
                   <span>10-12 weeks</span>
                 </div>
                 <div className="flex items-center gap-2 text-white/80">
-                  <Users className="w-5 h-5" style={{ color: "#ff6b9d" }} />
+                  <Users className="w-5 h-5 text-secondary" />
                   <span>Cohort-based learning</span>
                 </div>
                 <div className="flex items-center gap-2 text-white/80">
-                  <Award className="w-5 h-5" style={{ color: "#ff6b9d" }} />
+                  <Award className="w-5 h-5 text-secondary" />
                   <span>Level 1 Certification</span>
                 </div>
               </div>
@@ -133,8 +132,7 @@ export default function Level1SpaceHolderPage() {
                 </div>
                 <Button
                   size="lg"
-                  className="w-full md:w-auto text-lg font-bold text-white px-12 py-6"
-                  style={{ backgroundColor: "#ff6b9d" }}
+                  className="w-full md:w-auto text-lg font-bold text-white px-12 py-6 bg-secondary"
                 >
                   Enroll Now
                 </Button>
@@ -152,8 +150,8 @@ export default function Level1SpaceHolderPage() {
                     key={title}
                     className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20"
                   >
-                    <div className="w-12 h-12 mb-4 rounded-full flex items-center justify-center bg-[#ff6b9d]/20">
-                      <Icon className="w-6 h-6" style={{ color: "#ff6b9d" }} />
+                    <div className="w-12 h-12 mb-4 rounded-full flex items-center justify-center bg-secondary/20">
+                      <Icon className="w-6 h-6 text-secondary" />
                     </div>
                     <h3 className="text-xl font-bold text-white mb-2">
                       {title}
@@ -172,8 +170,7 @@ export default function Level1SpaceHolderPage() {
                   {courseFeatures.map((feature) => (
                     <li key={feature} className="flex items-start gap-3">
                       <CheckCircle
-                        className="w-5 h-5 mt-0.5 shrink-0"
-                        style={{ color: "#ff6b9d" }}
+                        className="w-5 h-5 mt-0.5 shrink-0 text-secondary"
                       />
                       <span className="text-white/90">{feature}</span>
                     </li>
@@ -222,8 +219,7 @@ export default function Level1SpaceHolderPage() {
                     <div className="flex items-center justify-between">
                       <div>
                         <p
-                          className="text-sm font-semibold mb-1"
-                          style={{ color: "#ff6b9d" }}
+                          className="text-sm font-semibold mb-1 text-secondary"
                         >
                           {module.module}
                         </p>
@@ -241,7 +237,7 @@ export default function Level1SpaceHolderPage() {
             </div>
 
             {/* Final CTA */}
-            <div className="bg-gradient-to-br from-[#ff6b9d]/20 to-transparent rounded-xl p-8 border border-[#ff6b9d]/30 text-center space-y-6">
+            <div className="bg-gradient-to-br from-secondary/20 to-transparent rounded-xl p-8 border border-secondary/30 text-center space-y-6">
               <h2 className="text-3xl font-bold text-white">
                 Ready to Get Certified?
               </h2>
@@ -251,8 +247,7 @@ export default function Level1SpaceHolderPage() {
               </p>
               <Button
                 size="lg"
-                className="text-lg font-bold text-white px-12 py-6"
-                style={{ backgroundColor: "#ff6b9d" }}
+                className="text-lg font-bold text-white px-12 py-6 bg-secondary"
               >
                 Enroll in Level 1 Certification
               </Button>

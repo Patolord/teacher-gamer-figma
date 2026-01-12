@@ -83,13 +83,12 @@ export default function Level2WorldBuilderPage() {
             <div className="space-y-6">
               <div className="flex gap-3 flex-wrap">
                 <div
-                  className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#489179]/20 border border-[#489179]/30"
-                  style={{ color: "#489179" }}
+                  className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary-light/20 border border-primary-light/30 text-primary-light"
                 >
                   <Sparkles className="w-4 h-4" />
                   <span className="text-sm font-semibold">Advanced Level</span>
                 </div>
-                <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#489179]/10 border border-[#489179]/20 text-white">
+                <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary-light/10 border border-primary-light/20 text-white">
                   <Award className="w-4 h-4" />
                   <span className="text-sm font-semibold">
                     Certification Course
@@ -109,24 +108,24 @@ export default function Level2WorldBuilderPage() {
               {/* Course Stats */}
               <div className="flex flex-wrap gap-6 pt-4">
                 <div className="flex items-center gap-2 text-white/80">
-                  <Clock className="w-5 h-5" style={{ color: "#489179" }} />
+                  <Clock className="w-5 h-5 text-primary-light" />
                   <span>14-16 weeks</span>
                 </div>
                 <div className="flex items-center gap-2 text-white/80">
-                  <Users className="w-5 h-5" style={{ color: "#489179" }} />
+                  <Users className="w-5 h-5 text-primary-light" />
                   <span>Cohort-based learning</span>
                 </div>
                 <div className="flex items-center gap-2 text-white/80">
-                  <Award className="w-5 h-5" style={{ color: "#489179" }} />
+                  <Award className="w-5 h-5 text-primary-light" />
                   <span>Level 2 Certification</span>
                 </div>
               </div>
             </div>
 
             {/* Prerequisites */}
-            <div className="bg-[#489179]/10 backdrop-blur-sm rounded-xl p-6 border border-[#489179]/30">
+            <div className="bg-primary-light/10 backdrop-blur-sm rounded-xl p-6 border border-primary-light/30">
               <p className="text-white/90">
-                <strong style={{ color: "#489179" }}>Prerequisite:</strong>{" "}
+                <strong className="text-primary-light">Prerequisite:</strong>{" "}
                 Level 1 TG Space-Holder Certificate or equivalent experience
               </p>
             </div>
@@ -142,8 +141,7 @@ export default function Level2WorldBuilderPage() {
                 </div>
                 <Button
                   size="lg"
-                  className="w-full md:w-auto text-lg font-bold text-white px-12 py-6"
-                  style={{ backgroundColor: "#489179" }}
+                  className="w-full md:w-auto text-lg font-bold text-white px-12 py-6 bg-primary-light"
                 >
                   Enroll Now
                 </Button>
@@ -161,8 +159,8 @@ export default function Level2WorldBuilderPage() {
                     key={title}
                     className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20"
                   >
-                    <div className="w-12 h-12 mb-4 rounded-full flex items-center justify-center bg-[#489179]/20">
-                      <Icon className="w-6 h-6" style={{ color: "#489179" }} />
+                    <div className="w-12 h-12 mb-4 rounded-full flex items-center justify-center bg-primary-light/20">
+                      <Icon className="w-6 h-6 text-primary-light" />
                     </div>
                     <h3 className="text-xl font-bold text-white mb-2">
                       {title}
@@ -181,8 +179,7 @@ export default function Level2WorldBuilderPage() {
                   {courseFeatures.map((feature) => (
                     <li key={feature} className="flex items-start gap-3">
                       <CheckCircle
-                        className="w-5 h-5 mt-0.5 shrink-0"
-                        style={{ color: "#489179" }}
+                        className="w-5 h-5 mt-0.5 shrink-0 text-primary-light"
                       />
                       <span className="text-white/90">{feature}</span>
                     </li>
@@ -236,8 +233,7 @@ export default function Level2WorldBuilderPage() {
                     <div className="flex items-center justify-between">
                       <div>
                         <p
-                          className="text-sm font-semibold mb-1"
-                          style={{ color: "#489179" }}
+                          className="text-sm font-semibold mb-1 text-primary-light"
                         >
                           {module.module}
                         </p>
@@ -255,7 +251,7 @@ export default function Level2WorldBuilderPage() {
             </div>
 
             {/* Final CTA */}
-            <div className="bg-gradient-to-br from-[#489179]/20 to-transparent rounded-xl p-8 border border-[#489179]/30 text-center space-y-6">
+            <div className="bg-gradient-to-br from-primary-light/20 to-transparent rounded-xl p-8 border border-primary-light/30 text-center space-y-6">
               <h2 className="text-3xl font-bold text-white">
                 Ready to Build Your World?
               </h2>
@@ -265,8 +261,7 @@ export default function Level2WorldBuilderPage() {
               </p>
               <Button
                 size="lg"
-                className="text-lg font-bold text-white px-12 py-6"
-                style={{ backgroundColor: "#489179" }}
+                className="text-lg font-bold text-white px-12 py-6 bg-primary-light"
               >
                 Enroll in Level 2 Certification
               </Button>

@@ -5,20 +5,7 @@ import ShinyText from "@/components/ui/shinytext";
 import Calendar from "./Calendar";
 import CalendarModal from "./CalendarModal";
 
-// Refined Split-Complementary Color Harmony - Magical Fantasy Theme
-const theme = {
-  accent: {
-    lime: "#DAFF0D",
-    limeLight: "#E5FF4D",
-  },
-  highlight: {
-    yellow: "#FFD85A",
-    yellowSoft: "rgba(255, 216, 90, 0.2)",
-  },
-  neutral: {
-    lighter: "#E5E4E8",
-  },
-};
+// Using global CSS theme variables
 
 interface CalendarBookingSectionProps {
   sectionIndex?: number;
@@ -44,13 +31,13 @@ export default function CalendarBookingSection({
       <div
         className="absolute top-0 left-0 right-0 h-px opacity-60 z-20"
         style={{
-          background: `linear-gradient(to right, transparent, ${theme.accent.lime}, ${theme.highlight.yellow}, ${theme.accent.lime}, transparent)`,
+          background: "linear-gradient(to right, transparent, var(--color-accent), var(--color-secondary), var(--color-accent), transparent)"
         }}
       />
       <div
         className="absolute top-0 left-0 right-0 h-24 pointer-events-none z-20"
         style={{
-          background: `linear-gradient(to bottom, ${theme.highlight.yellowSoft}, transparent)`,
+          background: "linear-gradient(to bottom, var(--color-secondary-soft), transparent)"
         }}
       />
 
@@ -64,7 +51,7 @@ export default function CalendarBookingSection({
           <ShinyText
             speed={3}
             delay={1}
-            color={theme.accent.lime}
+            color={"var(--color-accent)"}
             shineColor="#fff"
             spread={30}
             yoyo
@@ -72,9 +59,9 @@ export default function CalendarBookingSection({
             Schedule a Session
           </ShinyText>
         </h2>
-        <p
-          className="text-xl text-center font-amarante pb-8"
-          style={{ color: theme.neutral.lighter }}
+        <p 
+          className="text-xl text-center font-amarante"
+          style={{ color: "var(--color-lighter)" }}
         >
           Choose the best date and time for your adventure
         </p>
@@ -91,13 +78,13 @@ export default function CalendarBookingSection({
       <div
         className="absolute bottom-0 left-0 right-0 h-24 pointer-events-none z-20"
         style={{
-          background: `linear-gradient(to top, ${theme.highlight.yellowSoft}, transparent)`,
+          background: "linear-gradient(to top, var(--color-secondary-soft), transparent)"
         }}
       />
       <div
         className="absolute bottom-0 left-0 right-0 h-px opacity-60 z-20"
         style={{
-          background: `linear-gradient(to right, transparent, ${theme.accent.lime}, ${theme.highlight.yellow}, ${theme.accent.lime}, transparent)`,
+          background: "linear-gradient(to right, transparent, var(--color-accent), var(--color-secondary), var(--color-accent), transparent)"
         }}
       />
     </section>

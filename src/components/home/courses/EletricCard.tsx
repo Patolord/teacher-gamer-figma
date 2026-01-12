@@ -12,23 +12,6 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 
-// Refined Split-Complementary Color Harmony - Magical Fantasy Theme
-const theme = {
-  primary: {
-    base: "#6A4BCF",
-    subtle: "rgba(106, 75, 207, 0.1)",
-  },
-  accent: {
-    lime: "#DAFF0D",
-    limeLight: "#E5FF4D",
-  },
-  neutral: {
-    darkBg: "#1A1A1F",
-    lighter: "#E5E4E8",
-    medium: "#6B6780",
-  },
-};
-
 type EletricCardProps = {
   title: string;
   description: string;
@@ -55,12 +38,7 @@ export default function EletricCard({
       className="h-full"
       style={{ borderRadius: 16 }}
     >
-      <Card 
-        className="border-0 h-full min-h-[400px] bg-black/50 backdrop-blur-sm flex flex-col rounded-2xl overflow-hidden"
-        style={{
-          color: theme.neutral.lighter
-        }}
-      >
+      <Card className="border-0 h-full min-h-[400px] bg-black/50 backdrop-blur-sm flex flex-col rounded-2xl overflow-hidden text-lighter">
         <CardHeader className="relative pt-8">
           {diceImage && (
             <div className="absolute top-3 right-3 w-14 h-14 drop-shadow-lg transition-transform duration-300 hover:scale-110 hover:rotate-12 -z-10 opacity-70">
@@ -73,40 +51,29 @@ export default function EletricCard({
               />
             </div>
           )}
-          <CardTitle 
-            className="text-3xl mb-4 font-pirata-one pr-12"
-            style={{ color: theme.neutral.lighter }}
-          >
+          <CardTitle className="text-3xl mb-4 font-pirata-one pr-12 text-lighter">
             {title}
           </CardTitle>
-          <CardDescription 
-            className="font-light text-base"
-            style={{ color: theme.neutral.lighter }}
-          >
+          <CardDescription className="font-light text-base text-lighter">
             {description}
           </CardDescription>
         </CardHeader>
-        <CardContent 
-          className="font-light text-base"
-          style={{ color: theme.neutral.medium }}
-        >
+        <CardContent className="font-light text-base text-medium">
         </CardContent>
         <CardFooter className="mt-auto px-6">
           <Button
             variant="outline"
-            className="w-full border-0 rounded-xl py-6 flex items-center justify-center gap-2 font-semibold transition-all duration-300"
+            className="w-full border-2 rounded-xl py-6 flex items-center justify-center gap-2 font-semibold transition-all duration-300 bg-transparent text-lighter hover:bg-opacity-20"
             style={{
-              backgroundColor: theme.accent.lime,
-              color: theme.neutral.darkBg,
-              boxShadow: `0 4px 20px ${theme.accent.lime}40`
+              borderColor: color,
             }}
             onMouseEnter={(e) => {
-              e.currentTarget.style.backgroundColor = theme.accent.limeLight;
-              e.currentTarget.style.boxShadow = `0 4px 24px ${theme.accent.lime}70`;
+              e.currentTarget.style.backgroundColor = `${color}20`;
+              e.currentTarget.style.borderColor = color;
             }}
             onMouseLeave={(e) => {
-              e.currentTarget.style.backgroundColor = theme.accent.lime;
-              e.currentTarget.style.boxShadow = `0 4px 20px ${theme.accent.lime}40`;
+              e.currentTarget.style.backgroundColor = 'transparent';
+              e.currentTarget.style.borderColor = color;
             }}
             asChild
           >

@@ -34,7 +34,7 @@ export default function CancelPage() {
           <div className="pt-4 space-y-3">
             <Button
               size="lg"
-              className="w-full bg-[#00D9FF] hover:bg-[#00B8D4] text-black font-bold"
+              className="w-full bg-accent hover:bg-accent-dark text-background font-bold"
               asChild
             >
               <Link href="/shop">Try Again</Link>

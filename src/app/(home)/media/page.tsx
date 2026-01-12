@@ -17,32 +17,27 @@ const podcastEpisodes = [
     title: "The Power of Game-Based Learning",
     description:
       "Exploring how tabletop RPGs transform education and build critical thinking skills in young minds.",
-    embedId: "pb-fudp4-17a3ee4",
+    embedId: "pb-fudp4-17a3ee4", // Replace with your actual Podbean embed ID
     duration: "45 min",
     date: "Dec 2024",
-    link: "https://teachergamer.podbean.com/",
   },
   {
     id: "episode-2",
-    title:
-      "TGPC - Ep 2 - (part 1 of the) Teacher-Gamer Revolution 2021 MeetUp with Aaron Vanek and Mark Hoge",
+    title: "Building Confidence Through Role-Play",
     description:
-      "We talk about the past, present and future of RPGs with a thematic focus on Challenges and Accomplishments. Joining us Aaron Vanek, Mark Hoge and Peter Jung - three professional Teacher-Gamers who develop RPGs with great care to heighten empathy, expand social emotional life-skills and champion neural diversity in their thriving communities and beyond.",
-    embedId: "pb-9wkvj-1166d8e",
-    duration: "60 min",
-    date: "Dec 29, 2021",
-    link: "https://teachergamer.podbean.com/e/tgpc-ep-2-part-1-of-the-teacher-gamer-revolution-2021-meetup-with-aaron-vanek-and-mark-hoge/",
+      "How imaginative play helps children develop social skills and self-expression.",
+    embedId: "pb-fudp4-17a3ee4", // Replace with your actual Podbean embed ID
+    duration: "38 min",
+    date: "Nov 2024",
   },
   {
     id: "episode-3",
-    title:
-      "TGPC - ep 1 - Jesse Driver - International Teacher-Gamer at Green School Bali",
+    title: "The Teacher-Gamer Methodology",
     description:
-      "Our opening episode highlights different styles of teacher-gaming. We talk 'Make Play', Mantic Games, cheap materials, MS hobby & craft time, TT vs digital culture, mini-war gaming, homebrewing.",
-    embedId: "pb-3sjs3-1152d97",
-    duration: "45 min",
-    date: "Dec 12, 2021",
-    link: "https://teachergamer.podbean.com/e/tgpc-episode-1-jesse-driver-international-teacher-gamer-at-green-school-bali/",
+      "An in-depth look at our unique approach to combining teaching with gaming.",
+    embedId: "pb-fudp4-17a3ee4", // Replace with your actual Podbean embed ID
+    duration: "52 min",
+    date: "Oct 2024",
   },
 ];
 
@@ -233,23 +228,23 @@ export default function MediaPage() {
 
   return (
     <div className="min-h-screen bg-linear-to-b from-zinc-950 via-zinc-900 to-zinc-950">
-      {/* Hero & Video Section */}
-      <section className="relative pt-20 pb-16 lg:pt-32 lg:pb-20 overflow-hidden">
+      {/* Hero Section */}
+      <section className="relative pt-12 pb-8 lg:pt-30 lg:pb-12 overflow-hidden">
         {/* Animated background pattern */}
         <div className="absolute inset-0">
-          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,var(--tw-gradient-stops))] from-amber-900/20 via-transparent to-transparent" />
+          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,var(--tw-gradient-stops))] from-primary/20 via-transparent to-transparent" />
         </div>
 
         {/* Glowing orbs */}
-        <div className="absolute top-20 left-1/4 w-96 h-96 bg-amber-500/10 rounded-full blur-[128px] animate-pulse" />
+        <div className="absolute top-20 left-1/4 w-96 h-96 bg-accent/10 rounded-full blur-[128px] animate-pulse" />
         <div
-          className="absolute bottom-20 right-1/4 w-80 h-80 bg-amber-400/10 rounded-full blur-[100px] animate-pulse"
+          className="absolute bottom-20 right-1/4 w-80 h-80 bg-accent/10 rounded-full blur-[100px] animate-pulse"
           style={{ animationDelay: "1s" }}
         />
 
         <div className="container mx-auto px-4 relative z-10">
-          <div className="text-center max-w-4xl mx-auto mb-12">
-            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 bg-[linear-gradient(135deg,#fff_0%,#fbbf24_25%,#f59e0b_50%,#fff_100%)] bg-size-[300%_300%] bg-clip-text text-transparent animate-[gradientShift_8s_ease-in-out_infinite]">
+          <div className="text-center max-w-4xl mx-auto">
+            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 bg-linear-to-r from-lighter via-accent to-lighter bg-clip-text text-transparent">
               Podcasts & Gallery
             </h1>
 
@@ -259,13 +254,22 @@ export default function MediaPage() {
               Teacher-Gamer methodology.
             </p>
           </div>
+        </div>
+      </section>
+
+      {/* Video Section */}
+      <section className="relative py-16 lg:py-20">
+        {/* Section background */}
+        <div className="absolute inset-0 bg-linear-to-b from-zinc-950/80 to-zinc-900/50" />
+
+        <div className="container mx-auto px-4 relative z-10">
           {/* Video Embed Container */}
           <div className="max-w-4xl mx-auto">
             <div className="relative group">
               {/* Glow effect */}
-              <div className="absolute -inset-1 bg-linear-to-r from-amber-600 via-amber-400 to-amber-600 rounded-2xl opacity-30 blur-lg group-hover:opacity-50 transition-opacity duration-500" />
+              <div className="absolute -inset-1 bg-linear-to-r from-primary via-accent to-primary rounded-2xl opacity-30 blur-lg group-hover:opacity-50 transition-opacity duration-500" />
 
-              <div className="relative bg-zinc-900/90 backdrop-blur-sm border border-amber-500/30 rounded-2xl overflow-hidden">
+              <div className="relative bg-zinc-900/90 backdrop-blur-sm border border-accent/30 rounded-2xl overflow-hidden">
                 {/* Video Container - 16:9 aspect ratio */}
                 <div className="aspect-video w-full  flex items-center justify-center">
                   {/* Replace this iframe src with your actual video embed URL (YouTube, Vimeo, etc.) */}
@@ -287,14 +291,14 @@ export default function MediaPage() {
           {/* More Videos Grid */}
           {moreVideos.length > 0 && (
             <div className="mt-16">
-              <h3 className="text-2xl font-semibold text-white text-center mb-8">
+              <h3 className="text-2xl font-semibold text-lighter text-center mb-8">
                 More Videos
               </h3>
               <div className="grid md:grid-cols-2 gap-6">
                 {moreVideos.slice(0, 2).map((video) => (
                   <div
                     key={video.id}
-                    className="group relative bg-zinc-900/60 backdrop-blur-sm border border-zinc-800 hover:border-amber-500/40 rounded-xl overflow-hidden transition-all duration-300"
+                    className="group relative bg-zinc-900/60 backdrop-blur-sm border border-zinc-800 hover:border-accent/40 rounded-xl overflow-hidden transition-all duration-300"
                   >
                     <div className="aspect-video w-full">
                       <iframe
@@ -310,7 +314,7 @@ export default function MediaPage() {
                       />
                     </div>
                     <div className="p-4">
-                      <p className="text-white font-medium text-sm line-clamp-2">
+                      <p className="text-lighter font-medium text-sm line-clamp-2">
                         {video.title}
                       </p>
                     </div>
@@ -323,7 +327,7 @@ export default function MediaPage() {
                     href="https://www.youtube.com/@TeacherGamer"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 px-6 py-3 bg-linear-to-r from-red-500 to-red-500 text-zinc-900 font-semibold rounded-full hover:from-amber-300 hover:to-amber-300 transition-all duration-300 hover:shadow-[0_4px_24px_rgba(251,191,36,0.4)]"
+                    className="inline-flex items-center gap-2 px-6 py-3 bg-linear-to-r from-red-500 to-red-500 text-zinc-900 font-semibold rounded-full hover:from-accent-light hover:to-accent-light transition-all duration-300 hover:shadow-[0_4px_24px_rgba(251,191,36,0.4)]"
                   >
                     Subscribe on Youtube
                     <ExternalLink className="w-4 h-4" />
@@ -333,7 +337,7 @@ export default function MediaPage() {
                 {moreVideos.slice(2).map((video) => (
                   <div
                     key={video.id}
-                    className="group relative bg-zinc-900/60 backdrop-blur-sm border border-zinc-800 hover:border-amber-500/40 rounded-xl overflow-hidden transition-all duration-300"
+                    className="group relative bg-zinc-900/60 backdrop-blur-sm border border-zinc-800 hover:border-accent/40 rounded-xl overflow-hidden transition-all duration-300"
                   >
                     <div className="aspect-video w-full">
                       <iframe
@@ -349,7 +353,7 @@ export default function MediaPage() {
                       />
                     </div>
                     <div className="p-4">
-                      <p className="text-white font-medium text-sm line-clamp-2">
+                      <p className="text-lighter font-medium text-sm line-clamp-2">
                         {video.title}
                       </p>
                     </div>
@@ -361,8 +365,8 @@ export default function MediaPage() {
         </div>
 
         {/* Section transitions */}
-        <div className="absolute bottom-0 left-0 right-0 h-24 bg-linear-to-t from-amber-500/5 to-transparent pointer-events-none" />
-        <div className="absolute bottom-0 left-0 right-0 h-px bg-linear-to-r from-transparent via-amber-500/50 to-transparent" />
+        <div className="absolute bottom-0 left-0 right-0 h-24 bg-linear-to-t from-accent/5 to-transparent pointer-events-none" />
+        <div className="absolute bottom-0 left-0 right-0 h-px bg-linear-to-r from-transparent via-accent/50 to-transparent" />
       </section>
 
       {/* Podcast Section */}
@@ -371,32 +375,32 @@ export default function MediaPage() {
         <div className="absolute inset-0 bg-linear-to-b from-zinc-900/50 to-zinc-950/80" />
 
         {/* Decorative elements */}
-        <div className="absolute top-0 left-0 right-0 h-24 bg-linear-to-b from-amber-500/5 to-transparent pointer-events-none" />
+        <div className="absolute top-0 left-0 right-0 h-24 bg-linear-to-b from-accent/5 to-transparent pointer-events-none" />
 
         <div className="container mx-auto px-4 relative z-10">
           <div className="flex items-center justify-center gap-4 mb-12">
-            <div className="h-px flex-1 max-w-32 bg-linear-to-r from-transparent to-amber-500/50" />
+            <div className="h-px flex-1 max-w-32 bg-linear-to-r from-transparent to-accent/50" />
             <div className="flex items-center gap-3">
-              <Volume2 className="w-6 h-6 text-amber-400" />
-              <h2 className="text-3xl md:text-4xl font-semibold text-white">
+              <Volume2 className="w-6 h-6 text-accent" />
+              <h2 className="text-3xl md:text-4xl font-semibold text-lighter">
                 Latest{" "}
-                <span className="text-amber-400">Teacher Gamer Podcast</span>{" "}
+                <span className="bg-linear-to-r from-accent to-secondary bg-clip-text text-transparent">Teacher Gamer Podcast</span>{" "}
                 Episodes
               </h2>
             </div>
-            <div className="h-px flex-1 max-w-32 bg-linear-to-l from-transparent to-amber-500/50" />
+            <div className="h-px flex-1 max-w-32 bg-linear-to-l from-transparent to-accent/50" />
           </div>
 
           {/* Featured Episode */}
           <div className="max-w-4xl mx-auto mb-16">
             <div className="relative group">
               {/* Glow effect */}
-              <div className="absolute -inset-1 bg-linear-to-r from-amber-600 via-amber-400 to-amber-600 rounded-2xl opacity-30 blur-lg group-hover:opacity-50 transition-opacity duration-500" />
+              <div className="absolute -inset-1 bg-linear-to-r from-primary via-accent to-primary rounded-2xl opacity-30 blur-lg group-hover:opacity-50 transition-opacity duration-500" />
 
-              <div className="relative bg-zinc-900/90 backdrop-blur-sm border border-amber-500/30 rounded-2xl overflow-hidden">
+              <div className="relative bg-zinc-900/90 backdrop-blur-sm border border-accent/30 rounded-2xl overflow-hidden">
                 <div className="p-6 md:p-8">
                   <div className="flex items-center gap-2 mb-4">
-                    <span className="px-3 py-1 text-xs font-semibold bg-amber-500 text-zinc-900 rounded-full uppercase tracking-wider">
+                    <span className="px-3 py-1 text-xs font-semibold bg-accent text-zinc-900 rounded-full uppercase tracking-wider">
                       Featured
                     </span>
                     <span className="text-zinc-500 text-sm">
@@ -404,7 +408,7 @@ export default function MediaPage() {
                     </span>
                   </div>
 
-                  <h3 className="text-2xl md:text-3xl font-bold text-white mb-3">
+                  <h3 className="text-2xl md:text-3xl font-bold text-lighter mb-3">
                     {podcastEpisodes[0].title}
                   </h3>
                   <p className="text-zinc-400 mb-6 text-lg">
@@ -439,158 +443,73 @@ export default function MediaPage() {
             {podcastEpisodes.slice(1).map((episode) => (
               <div
                 key={episode.id}
-                className="group relative bg-zinc-900/60 backdrop-blur-sm border border-zinc-800 hover:border-amber-500/40 rounded-xl overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_8px_32px_rgba(251,191,36,0.15)]"
+                className="group relative bg-zinc-900/60 backdrop-blur-sm border border-zinc-800 hover:border-accent/40 rounded-xl overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_8px_32px_rgba(251,191,36,0.15)]"
               >
                 <div className="p-6">
                   <div className="flex items-center justify-between mb-4">
                     <span className="text-zinc-500 text-sm">
                       {episode.date}
                     </span>
-                    <span className="text-amber-400 text-sm font-medium">
+                    <span className="text-accent text-sm font-medium">
                       {episode.duration}
                     </span>
                   </div>
 
-                  <h4 className="text-xl font-semibold text-white mb-2 group-hover:text-amber-300 transition-colors">
+                  <h4 className="text-xl font-semibold text-lighter mb-2 group-hover:text-accent-light transition-colors">
                     {episode.title}
                   </h4>
                   <p className="text-zinc-400 text-sm mb-4 line-clamp-2">
                     {episode.description}
                   </p>
 
-                  <a
-                    href={episode.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center gap-2 text-amber-400 hover:text-amber-300 font-medium transition-colors"
+                  <button
+                    type="button"
+                    className="flex items-center gap-2 text-accent hover:text-accent-light font-medium transition-colors"
                   >
                     <Play className="w-4 h-4 fill-current" />
                     <span>Listen Now</span>
-                    <ExternalLink className="w-3 h-3" />
-                  </a>
+                  </button>
                 </div>
               </div>
             ))}
           </div>
 
-          {/* Listen On Platforms */}
-          <div className="mt-16 max-w-4xl mx-auto">
-            <h3 className="text-xl font-semibold text-white text-center mb-6">
-              Listen on your favorite platform
-            </h3>
-            <div className="flex flex-wrap justify-center gap-4 md:gap-6">
-              {[
-                {
-                  name: "Apple Podcasts",
-                  url: "https://podcasts.apple.com/us/podcast/teacher-gamer-revolution-podcast/id1599936351",
-                  icon: "https://pbcdn1.podbean.com/fs1/site/images/admin5/apple-podcast.png",
-                },
-                {
-                  name: "Podbean App",
-                  url: "https://www.podbean.com/pw/pbblog-azivr-7341b3?from=usersite",
-                  icon: "https://pbcdn1.podbean.com/fs1/site/images/admin5/podbean-app.png",
-                },
-                {
-                  name: "Spotify",
-                  url: "https://open.spotify.com/show/6KNqulWYuAG205kEXsYYX1",
-                  icon: "https://pbcdn1.podbean.com/fs1/site/images/admin5/spotify.png",
-                },
-                {
-                  name: "Amazon Music",
-                  url: "https://music.amazon.com/podcasts/dd6a036a-12d5-4e0d-912e-a21204a7b9ee",
-                  icon: "https://pbcdn1.podbean.com/fs1/site/images/admin5/AmazonMusic.png",
-                },
-                {
-                  name: "iHeartRadio",
-                  url: "https://iheart.com/podcast/90514051/",
-                  icon: "https://pbcdn1.podbean.com/fs1/site/images/admin5/iHeartRadio.png",
-                },
-                {
-                  name: "PlayerFM",
-                  url: "https://player.fm/series/3517249",
-                  icon: "https://pbcdn1.podbean.com/fs1/site/images/admin5/PlayerFM.png",
-                },
-                {
-                  name: "Podchaser",
-                  url: "https://www.podchaser.com/podcasts/teacher-gamer-4370797",
-                  icon: "https://pbcdn1.podbean.com/fs1/site/images/admin5/Podchaser.webp",
-                },
-                {
-                  name: "BoomPlay",
-                  url: "https://www.boomplaymusic.com/podcasts/79564",
-                  icon: "https://pbcdn1.podbean.com/fs1/site/images/admin5/BoomPlay.png",
-                },
-              ].map((platform) => (
-                <a
-                  key={platform.name}
-                  href={platform.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label={platform.name}
-                  className="group relative"
-                >
-                  <div className="w-14 h-14 md:w-16 md:h-16 rounded-full overflow-hidden border-2 border-zinc-700 group-hover:border-amber-500 transition-all duration-300 group-hover:shadow-[0_0_20px_rgba(251,191,36,0.4)] group-hover:scale-110">
-                    <Image
-                      src={platform.icon}
-                      alt={platform.name}
-                      width={64}
-                      height={64}
-                      className="w-full h-full object-cover"
-                    />
-                  </div>
-                  <span className="absolute -bottom-6 left-1/2 -translate-x-1/2 whitespace-nowrap text-xs text-zinc-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                    {platform.name}
-                  </span>
-                </a>
-              ))}
-            </div>
-          </div>
-
-          {/* Podbean Subscribe & Affiliate Links */}
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mt-16">
+          {/* Podbean Subscribe Link */}
+          <div className="text-center mt-12">
             <a
-              href="https://teachergamer.podbean.com/page/2/"
+              href="https://www.podbean.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-6 py-3 bg-linear-to-r from-amber-400 to-amber-400 text-zinc-900 font-semibold rounded-full hover:from-amber-300 hover:to-amber-300 transition-all duration-300 hover:shadow-[0_4px_24px_rgba(251,191,36,0.4)]"
+              className="inline-flex items-center gap-2 px-6 py-3 bg-linear-to-r from-accent to-accent text-zinc-900 font-semibold rounded-full hover:from-accent-light hover:to-accent-light transition-all duration-300 hover:shadow-[0_4px_24px_rgba(251,191,36,0.4)]"
             >
               <Headphones className="w-5 h-5" />
               Subscribe on Podbean
-              <ExternalLink className="w-4 h-4" />
-            </a>
-            <a
-              href="https://www.podbean.com/teachergamer"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-6 py-3 bg-zinc-800/80 text-zinc-300 hover:text-white border border-zinc-700 hover:border-amber-500/50 font-medium rounded-full transition-all duration-300 hover:shadow-[0_4px_24px_rgba(251,191,36,0.2)]"
-            >
-              🎙️ Start your own podcast
               <ExternalLink className="w-4 h-4" />
             </a>
           </div>
         </div>
 
         {/* Section transitions */}
-        <div className="absolute bottom-0 left-0 right-0 h-24 bg-linear-to-t from-amber-500/5 to-transparent pointer-events-none" />
-        <div className="absolute bottom-0 left-0 right-0 h-px bg-linear-to-r from-transparent via-amber-500/50 to-transparent" />
+        <div className="absolute bottom-0 left-0 right-0 h-24 bg-linear-to-t from-accent/5 to-transparent pointer-events-none" />
+        <div className="absolute bottom-0 left-0 right-0 h-px bg-linear-to-r from-transparent via-accent/50 to-transparent" />
       </section>
 
       {/* Gallery Section */}
       <section className="relative py-20 lg:py-28">
         {/* Decorative background */}
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom,var(--tw-gradient-stops))] from-amber-900/10 via-transparent to-transparent" />
-        <div className="absolute top-0 left-0 right-0 h-24 bg-linear-to-b from-amber-500/5 to-transparent pointer-events-none" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom,var(--tw-gradient-stops))] from-primary/10 via-transparent to-transparent" />
+        <div className="absolute top-0 left-0 right-0 h-24 bg-linear-to-b from-accent/5 to-transparent pointer-events-none" />
 
         <div className="container mx-auto px-4 relative z-10">
           <div className="flex items-center justify-center gap-4 mb-8">
-            <div className="h-px flex-1 max-w-32 bg-linear-to-r from-transparent to-amber-500/50" />
+            <div className="h-px flex-1 max-w-32 bg-linear-to-r from-transparent to-accent/50" />
             <div className="flex items-center gap-3">
-              <ImageIcon className="w-6 h-6 text-amber-400" />
-              <h2 className="text-3xl md:text-4xl font-semibold text-white">
+              <ImageIcon className="w-6 h-6 text-accent" />
+              <h2 className="text-3xl md:text-4xl font-semibold text-lighter">
                 Gallery
               </h2>
             </div>
-            <div className="h-px flex-1 max-w-32 bg-linear-to-l from-transparent to-amber-500/50" />
+            <div className="h-px flex-1 max-w-32 bg-linear-to-l from-transparent to-accent/50" />
           </div>
 
           <p className="text-center text-zinc-400 mb-12 max-w-2xl mx-auto">
@@ -607,8 +526,8 @@ export default function MediaPage() {
                 onClick={() => handleCategoryChange(category)}
                 className={`px-5 py-2.5 rounded-full font-medium text-sm transition-all duration-300 ${
                   selectedCategory === category
-                    ? "bg-amber-500 text-zinc-900 shadow-[0_4px_16px_rgba(251,191,36,0.4)]"
-                    : "bg-zinc-800/80 text-zinc-300 hover:bg-zinc-700 hover:text-white border border-zinc-700 hover:border-zinc-600"
+                    ? "bg-accent text-zinc-900 shadow-[0_4px_16px_rgba(251,191,36,0.4)]"
+                    : "bg-zinc-800/80 text-zinc-300 hover:bg-zinc-700 hover:text-lighter border border-zinc-700 hover:border-zinc-600"
                 }`}
               >
                 {category}
@@ -647,18 +566,18 @@ export default function MediaPage() {
 
                 {/* Category tag */}
                 <div className="absolute top-3 left-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  <span className="px-2 py-1 text-xs font-medium bg-amber-500/90 text-zinc-900 rounded-md">
+                  <span className="px-2 py-1 text-xs font-medium bg-accent/90 text-zinc-900 rounded-md">
                     {item.category}
                   </span>
                 </div>
 
                 {/* Caption */}
                 <div className="absolute bottom-0 left-0 right-0 p-4 translate-y-full group-hover:translate-y-0 transition-transform duration-300">
-                  <p className="text-white font-medium text-sm">{item.alt}</p>
+                  <p className="text-lighter font-medium text-sm">{item.alt}</p>
                 </div>
 
                 {/* Border glow on hover */}
-                <div className="absolute inset-0 rounded-xl border-2 border-transparent group-hover:border-amber-500/50 transition-colors duration-300" />
+                <div className="absolute inset-0 rounded-xl border-2 border-transparent group-hover:border-accent/50 transition-colors duration-300" />
               </button>
             ))}
           </div>
@@ -669,7 +588,7 @@ export default function MediaPage() {
               <button
                 type="button"
                 onClick={loadMore}
-                className="inline-flex items-center gap-2 px-8 py-3 bg-zinc-800/80 text-zinc-300 hover:bg-zinc-700 hover:text-white border border-zinc-700 hover:border-amber-500/50 font-medium rounded-full transition-all duration-300 hover:shadow-[0_4px_24px_rgba(251,191,36,0.2)]"
+                className="inline-flex items-center gap-2 px-8 py-3 bg-zinc-800/80 text-zinc-300 hover:bg-zinc-700 hover:text-lighter border border-zinc-700 hover:border-accent/50 font-medium rounded-full transition-all duration-300 hover:shadow-[0_4px_24px_rgba(251,191,36,0.2)]"
               >
                 Load More
                 <span className="text-zinc-500 text-sm">
@@ -696,7 +615,7 @@ export default function MediaPage() {
         >
           <button
             type="button"
-            className="absolute top-6 right-6 text-white/70 hover:text-white transition-colors text-4xl font-light"
+            className="absolute top-6 right-6 text-lighter/70 hover:text-lighter transition-colors text-4xl font-light"
             onClick={() => setSelectedImage(null)}
             aria-label="Close lightbox"
           >
@@ -714,10 +633,10 @@ export default function MediaPage() {
           </div>
 
           <div className="absolute bottom-8 left-1/2 -translate-x-1/2 text-center">
-            <span className="px-3 py-1 text-xs font-medium bg-amber-500/90 text-zinc-900 rounded-full mr-3">
+            <span className="px-3 py-1 text-xs font-medium bg-accent/90 text-zinc-900 rounded-full mr-3">
               {selectedImage.category}
             </span>
-            <span className="text-white font-medium">{selectedImage.alt}</span>
+            <span className="text-lighter font-medium">{selectedImage.alt}</span>
           </div>
         </div>
       )}

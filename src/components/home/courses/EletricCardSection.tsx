@@ -6,17 +6,17 @@ export function ElectricCardSection() {
     {
       title: "Electric Card 1",
       description: "Electric Card Description 1",
-      color: "#7df9ff",
+      color: "var(--color-accent)",
     },
     {
       title: "Electric Card 2",
       description: "Electric Card Description 2",
-      color: "#ff6b9d",
+      color: "var(--color-secondary)",
     },
     {
       title: "Electric Card 3",
       description: "Electric Card Description 3",
-      color: "#ffd700",
+      color: "var(--color-primary-light)",
     },
   ];
 
