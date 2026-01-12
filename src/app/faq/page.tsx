@@ -240,15 +240,16 @@ export default function FAQPage() {
           <div className="max-w-6xl mx-auto space-y-16">
             {/* Hero Section */}
             <div className="text-center space-y-6">
-              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-accent/20 border border-amber-400/30 text-amber-300">
+              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-accent/20 border border-accent/30 text-accent">
                 <HelpCircleIcon className="w-4 h-4" />
                 <span className="text-sm font-semibold">
                   Frequently Asked Questions
                 </span>
               </div>
 
-              <h1 className="text-4xl md:text-6xl font-bold text-lighter leading-tight">
-                How Can We Help You?
+              <h1 className="text-4xl md:text-6xl font-bold leading-tight">
+                <span className="text-accent">How Can We</span>
+                <span className="text-lighter"> Help You?</span>
               </h1>
 
               <p className="text-xl text-lighter/90 leading-relaxed max-w-3xl mx-auto">
@@ -257,7 +258,7 @@ export default function FAQPage() {
                 looking for?{" "}
                 <Link
                   href="/contact"
-                  className="text-accent hover:text-amber-300 underline"
+                  className="text-accent hover:text-accent-light underline"
                 >
                   Contact us
                 </Link>
@@ -294,7 +295,7 @@ export default function FAQPage() {
                     <div className="w-12 h-12 rounded-full bg-accent/20 flex items-center justify-center">
                       <category.icon className="w-6 h-6 text-accent" />
                     </div>
-                    <h2 className="text-3xl font-bold text-lighter">
+                    <h2 className="text-3xl font-bold text-accent">
                       {category.title}
                     </h2>
                   </div>
@@ -343,9 +344,10 @@ export default function FAQPage() {
             </div>
 
             {/* Still Have Questions? */}
-            <div className="bg-gradient-to-br from-amber-400/20 to-transparent rounded-xl p-8 md:p-12 border border-amber-400/30 text-center space-y-6">
-              <h2 className="text-3xl md:text-4xl font-bold text-lighter">
-                Still Have Questions?
+            <div className="bg-gradient-to-br from-accent/20 to-transparent rounded-xl p-8 md:p-12 border border-accent/30 text-center space-y-6">
+              <h2 className="text-3xl md:text-4xl font-bold">
+                <span className="text-accent">Still Have</span>
+                <span className="text-lighter"> Questions?</span>
               </h2>
               <p className="text-xl text-lighter/80 max-w-2xl mx-auto">
                 Can't find the answer you're looking for? Our support team is
@@ -375,7 +377,7 @@ export default function FAQPage() {
             <div className="grid md:grid-cols-3 gap-6">
               <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-primary-light/20">
                 <BookOpenIcon className="w-10 h-10 text-accent mb-4" />
-                <h3 className="text-xl font-bold text-lighter mb-3">
+                <h3 className="text-xl font-bold text-accent mb-3">
                   Documentation
                 </h3>
                 <p className="text-lighter/80 mb-4">
@@ -383,7 +385,7 @@ export default function FAQPage() {
                 </p>
                 <Link
                   href="/home"
-                  className="text-accent hover:text-amber-300 font-semibold"
+                  className="text-accent hover:text-accent-light font-semibold"
                 >
                   Read Docs →
                 </Link>
@@ -391,7 +393,7 @@ export default function FAQPage() {
 
               <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-primary-light/20">
                 <UsersIcon className="w-10 h-10 text-accent mb-4" />
-                <h3 className="text-xl font-bold text-lighter mb-3">Community</h3>
+                <h3 className="text-xl font-bold text-accent mb-3">Community</h3>
                 <p className="text-lighter/80 mb-4">
                   Join our Discord to connect with other educators.
                 </p>
@@ -399,7 +401,7 @@ export default function FAQPage() {
                   href="https://discord.com"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-accent hover:text-amber-300 font-semibold"
+                  className="text-accent hover:text-accent-light font-semibold"
                 >
                   Join Discord →
                 </a>
@@ -407,7 +409,7 @@ export default function FAQPage() {
 
               <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-primary-light/20">
                 <GraduationCapIcon className="w-10 h-10 text-accent mb-4" />
-                <h3 className="text-xl font-bold text-lighter mb-3">
+                <h3 className="text-xl font-bold text-accent mb-3">
                   Free Trial
                 </h3>
                 <p className="text-lighter/80 mb-4">
@@ -415,7 +417,7 @@ export default function FAQPage() {
                 </p>
                 <Link
                   href="/home"
-                  className="text-accent hover:text-amber-300 font-semibold"
+                  className="text-accent hover:text-accent-light font-semibold"
                 >
                   Start Free Trial →
                 </Link>

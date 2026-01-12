@@ -61,8 +61,9 @@ export default function AboutPage() {
           <div className="max-w-6xl mx-auto space-y-20">
             {/* Page Title */}
             <div className="text-center">
-              <h1 className="text-5xl md:text-7xl font-bold text-lighter mb-4">
-                About
+              <h1 className="text-5xl md:text-7xl font-bold mb-4">
+                <span className="text-lighter">About </span>
+                <span className="text-accent">Teacher-Gamer</span>
               </h1>
               <div className="h-1 w-24 bg-gradient-to-r from-transparent via-accent to-transparent mx-auto" />
             </div>
@@ -83,10 +84,11 @@ export default function AboutPage() {
               {/* Content */}
               <div className="space-y-6">
                 <div>
-                  <h2 className="text-4xl font-bold text-lighter mb-2">
-                    Zach Reznichek
+                  <h2 className="text-4xl font-bold mb-2">
+                    <span className="text-accent">Zach </span>
+                    <span className="text-lighter">Reznichek</span>
                   </h2>
-                  <p className="text-xl text-lighter/70 italic">
+                  <p className="text-xl text-secondary italic">
                     MA Education, .b Mindfulness certified
                   </p>
                 </div>
@@ -133,8 +135,9 @@ export default function AboutPage() {
               <div className="grid md:grid-cols-2 gap-12 items-center">
                 {/* Content */}
                 <div className="space-y-6">
-                  <h2 className="text-4xl font-bold text-lighter leading-tight">
-                    Social Emotional Learning through Role-Playing Games
+                  <h2 className="text-4xl font-bold leading-tight">
+                    <span className="text-accent">Social Emotional Learning</span>
+                    <span className="text-lighter"> through Role-Playing Games</span>
                   </h2>
 
                   <div className="space-y-4 text-lighter/90 leading-relaxed">
@@ -195,10 +198,11 @@ export default function AboutPage() {
             {/* Values Section */}
             <div className="space-y-8">
               <div className="text-center">
-                <h2 className="text-4xl font-bold text-lighter mb-4">
-                  Our Core Values
+                <h2 className="text-4xl font-bold mb-4">
+                  <span className="text-lighter">Our </span>
+                  <span className="text-accent">Core Values</span>
                 </h2>
-                <p className="text-xl text-lighter/70 max-w-3xl mx-auto">
+                <p className="text-xl text-secondary/90 max-w-3xl mx-auto">
                   The principles that guide our approach to transformative
                   education
                 </p>
@@ -215,10 +219,10 @@ export default function AboutPage() {
                         <Icon className="w-6 h-6 text-accent" />
                       </div>
                       <div>
-                        <h3 className="text-xl font-bold text-lighter mb-2">
+                        <h3 className="text-xl font-bold text-accent mb-2">
                           {title}
                         </h3>
-                        <p className="text-lighter/80">{description}</p>
+                        <p className="text-lighter/90">{description}</p>
                       </div>
                     </div>
                   </div>
@@ -233,11 +237,12 @@ export default function AboutPage() {
                 <span className="font-semibold">Join Our Community</span>
               </div>
 
-              <h2 className="text-4xl font-bold text-lighter">
-                Ready to Transform Education?
+              <h2 className="text-4xl font-bold">
+                <span className="text-accent">Ready to Transform</span>
+                <span className="text-lighter"> Education?</span>
               </h2>
 
-              <p className="text-xl text-lighter/80 max-w-2xl mx-auto">
+              <p className="text-xl text-lighter/90 max-w-2xl mx-auto">
                 Discover how role-playing games can revolutionize learning in
                 your classroom or educational setting.
               </p>

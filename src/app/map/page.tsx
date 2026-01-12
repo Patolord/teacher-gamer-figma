@@ -182,7 +182,7 @@ export default function TeachersMapPage() {
         {particles.map((particle, i) => (
           <div
             key={i}
-            className="absolute w-1 h-1 bg-amber-400/30 rounded-full animate-pulse"
+            className="absolute w-1 h-1 bg-accent/30 rounded-full animate-pulse"
             style={{
               left: particle.left,
               top: particle.top,
@@ -199,7 +199,7 @@ export default function TeachersMapPage() {
         <div className="container mx-auto px-4 pt-6 pb-2">
           <Link
             href="/home"
-            className="inline-flex items-center gap-2 text-white/80 hover:text-white transition-colors"
+            className="inline-flex items-center gap-2 text-lighter/80 hover:text-lighter transition-colors"
           >
             <ArrowLeft className="w-5 h-5" />
             Back to Home
@@ -208,12 +208,12 @@ export default function TeachersMapPage() {
 
         {/* Title Section */}
         <div className="container mx-auto px-4 py-6 text-center">
-          <h1 className="text-4xl md:text-6xl font-bold text-white mb-4">
+          <h1 className="text-4xl md:text-6xl font-bold text-lighter mb-4">
             Teacher Gamers
-            <span className="block text-amber-400">Around the World</span>
+            <span className="block text-accent">Around the World</span>
           </h1>
-          <div className="h-1 w-32 bg-gradient-to-r from-transparent via-amber-400 to-transparent mx-auto mb-6" />
-          <p className="text-white/70 text-lg max-w-2xl mx-auto">
+          <div className="h-1 w-32 bg-gradient-to-r from-transparent via-accent to-transparent mx-auto mb-6" />
+          <p className="text-lighter/70 text-lg max-w-2xl mx-auto">
             Discover our global community of educators transforming learning through
             game-based experiences
           </p>
@@ -221,25 +221,25 @@ export default function TeachersMapPage() {
           {/* Stats */}
           <div className="flex justify-center gap-8 mt-8">
             <div className="text-center">
-              <div className="flex items-center justify-center gap-2 text-amber-400 mb-1">
+              <div className="flex items-center justify-center gap-2 text-accent mb-1">
                 <MapPin className="w-5 h-5" />
                 <span className="text-3xl font-bold">{totalTeachers}</span>
               </div>
-              <p className="text-white/60 text-sm">Teachers Worldwide</p>
+              <p className="text-lighter/60 text-sm">Teachers Worldwide</p>
             </div>
             <div className="text-center">
-              <div className="flex items-center justify-center gap-2 text-amber-400 mb-1">
+              <div className="flex items-center justify-center gap-2 text-accent mb-1">
                 <Users className="w-5 h-5" />
                 <span className="text-3xl font-bold">{totalStudents}+</span>
               </div>
-              <p className="text-white/60 text-sm">Students Impacted</p>
+              <p className="text-lighter/60 text-sm">Students Impacted</p>
             </div>
           </div>
         </div>
 
         {/* Map Container */}
         <div className="flex-1 container mx-auto px-4 pb-8">
-          <div className="relative h-[60vh] md:h-[65vh] bg-black/40 backdrop-blur-sm rounded-2xl border border-white/10 overflow-hidden">
+          <div className="relative h-[60vh] md:h-[65vh] bg-background/40 backdrop-blur-sm rounded-2xl border border-lighter/10 overflow-hidden">
             <ComposableMap
               projection="geoMercator"
               projectionConfig={{
@@ -255,12 +255,12 @@ export default function TeachersMapPage() {
                       <Geography
                         key={geo.rsmKey}
                         geography={geo}
-                        fill="#2A2A32"
-                        stroke="#3A3A44"
+                        fill="var(--color-dark)"
+                        stroke="var(--color-medium)"
                         strokeWidth={0.5}
                         style={{
                           default: { outline: "none" },
-                          hover: { fill: "#3A3A44", outline: "none" },
+                          hover: { fill: "var(--color-medium)", outline: "none" },
                           pressed: { outline: "none" },
                         }}
                       />
@@ -284,7 +284,7 @@ export default function TeachersMapPage() {
                         cy="20"
                         r="8"
                         fill="none"
-                        stroke="#F59E0B"
+                        stroke="var(--color-accent)"
                         strokeWidth="2"
                         opacity="0.4"
                         className="animate-ping"
@@ -296,14 +296,14 @@ export default function TeachersMapPage() {
                         fill={
                           hoveredTeacher?.id === teacher.id ||
                           selectedTeacher?.id === teacher.id
-                            ? "#F59E0B"
-                            : "#D97706"
+                            ? "var(--color-accent)"
+                            : "var(--color-accent-dark)"
                         }
-                        stroke="#000"
+                        stroke="var(--color-background)"
                         strokeWidth="1"
                       />
                       {/* Inner circle */}
-                      <circle cx="12" cy="8" r="3" fill="#FFF" />
+                      <circle cx="12" cy="8" r="3" fill="var(--color-white)" />
                     </g>
                   </Marker>
                 ))}
@@ -312,21 +312,21 @@ export default function TeachersMapPage() {
 
             {/* Hover Tooltip */}
             {hoveredTeacher && !selectedTeacher && (
-              <div className="absolute top-4 left-4 bg-black/90 backdrop-blur-sm rounded-lg p-3 border border-amber-400/30 pointer-events-none">
-                <p className="text-amber-400 font-semibold">{hoveredTeacher.name}</p>
-                <p className="text-white/70 text-sm">
+              <div className="absolute top-4 left-4 bg-background/90 backdrop-blur-sm rounded-lg p-3 border border-accent/30 pointer-events-none">
+                <p className="text-accent font-semibold">{hoveredTeacher.name}</p>
+                <p className="text-lighter/70 text-sm">
                   {hoveredTeacher.city}, {hoveredTeacher.country}
                 </p>
               </div>
             )}
 
             {/* Map Legend */}
-            <div className="absolute bottom-4 right-4 bg-black/80 backdrop-blur-sm rounded-lg p-3 border border-white/10">
+            <div className="absolute bottom-4 right-4 bg-background/80 backdrop-blur-sm rounded-lg p-3 border border-lighter/10">
               <div className="flex items-center gap-2">
-                <div className="w-4 h-4 rounded-full bg-amber-500 animate-pulse" />
-                <span className="text-white/70 text-xs">Teacher Location</span>
+                <div className="w-4 h-4 rounded-full bg-accent animate-pulse" />
+                <span className="text-lighter/70 text-xs">Teacher Location</span>
               </div>
-              <p className="text-white/50 text-xs mt-1">Click marker for details</p>
+              <p className="text-lighter/50 text-xs mt-1">Click marker for details</p>
             </div>
           </div>
         </div>
@@ -334,17 +334,17 @@ export default function TeachersMapPage() {
         {/* Selected Teacher Modal */}
         {selectedTeacher && (
           <div
-            className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm"
+            className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-background/60 backdrop-blur-sm"
             onClick={() => setSelectedTeacher(null)}
           >
             <div
-              className="relative bg-gradient-to-br from-zinc-900 to-zinc-800 rounded-2xl p-8 max-w-md w-full border border-amber-400/30 shadow-2xl"
+              className="relative bg-gradient-to-br from-dark to-background rounded-2xl p-8 max-w-md w-full border border-accent/30 shadow-2xl"
               onClick={(e) => e.stopPropagation()}
             >
               {/* Close button */}
               <button
                 onClick={() => setSelectedTeacher(null)}
-                className="absolute top-4 right-4 text-white/60 hover:text-white transition-colors"
+                className="absolute top-4 right-4 text-lighter/60 hover:text-lighter transition-colors"
               >
                 <X className="w-6 h-6" />
               </button>
@@ -352,40 +352,40 @@ export default function TeachersMapPage() {
               {/* Avatar */}
               <div className="flex justify-center mb-6">
                 <div className="relative">
-                  <div className="w-24 h-24 rounded-full overflow-hidden border-4 border-amber-400/50 bg-zinc-700">
+                  <div className="w-24 h-24 rounded-full overflow-hidden border-4 border-accent/50 bg-dark">
                     <img
                       src={selectedTeacher.avatar}
                       alt={selectedTeacher.name}
                       className="w-full h-full object-cover"
                     />
                   </div>
-                  <div className="absolute -bottom-2 -right-2 bg-amber-500 rounded-full p-2">
-                    <MapPin className="w-4 h-4 text-black" />
+                  <div className="absolute -bottom-2 -right-2 bg-accent rounded-full p-2">
+                    <MapPin className="w-4 h-4 text-background" />
                   </div>
                 </div>
               </div>
 
               {/* Teacher Info */}
               <div className="text-center mb-6">
-                <h2 className="text-2xl font-bold text-white mb-1">
+                <h2 className="text-2xl font-bold text-lighter mb-1">
                   {selectedTeacher.name}
                 </h2>
-                <p className="text-amber-400 font-medium">
+                <p className="text-accent font-medium">
                   {selectedTeacher.city}, {selectedTeacher.country}
                 </p>
               </div>
 
               {/* Details */}
               <div className="space-y-4">
-                <div className="bg-white/5 rounded-lg p-4">
-                  <p className="text-white/50 text-sm mb-1">Specialty</p>
-                  <p className="text-white font-medium">{selectedTeacher.specialty}</p>
+                <div className="bg-lighter/5 rounded-lg p-4">
+                  <p className="text-lighter/50 text-sm mb-1">Specialty</p>
+                  <p className="text-lighter font-medium">{selectedTeacher.specialty}</p>
                 </div>
 
-                <div className="bg-white/5 rounded-lg p-4">
-                  <p className="text-white/50 text-sm mb-1">Students Taught</p>
-                  <p className="text-white font-medium flex items-center gap-2">
-                    <Users className="w-4 h-4 text-amber-400" />
+                <div className="bg-lighter/5 rounded-lg p-4">
+                  <p className="text-lighter/50 text-sm mb-1">Students Taught</p>
+                  <p className="text-lighter font-medium flex items-center gap-2">
+                    <Users className="w-4 h-4 text-accent" />
                     {selectedTeacher.students}+ students
                   </p>
                 </div>
@@ -393,7 +393,7 @@ export default function TeachersMapPage() {
 
               {/* CTA */}
               <Button
-                className="w-full mt-6 bg-amber-500 hover:bg-amber-400 text-black font-semibold"
+                className="w-full mt-6 bg-accent hover:bg-accent-light text-background font-semibold"
                 asChild
               >
                 <Link href="/contact">Connect with {selectedTeacher.name.split(" ")[0]}</Link>
@@ -404,16 +404,16 @@ export default function TeachersMapPage() {
 
         {/* Footer CTA */}
         <div className="container mx-auto px-4 pb-8">
-          <div className="bg-gradient-to-r from-amber-500/10 via-amber-400/20 to-amber-500/10 rounded-2xl p-8 border border-amber-400/20 text-center">
-            <h3 className="text-2xl font-bold text-white mb-2">
+          <div className="bg-gradient-to-r from-accent/10 via-accent/20 to-accent/10 rounded-2xl p-8 border border-accent/20 text-center">
+            <h3 className="text-2xl font-bold text-lighter mb-2">
               Want to Join Our Global Network?
             </h3>
-            <p className="text-white/70 mb-6">
+            <p className="text-lighter/70 mb-6">
               Become a certified Teacher Gamer and transform education in your community
             </p>
             <Button
               size="lg"
-              className="bg-amber-500 hover:bg-amber-400 text-black font-semibold"
+              className="bg-accent hover:bg-accent-light text-background font-semibold"
               asChild
             >
               <Link href="/home#courses-section">Explore Certification Courses</Link>
