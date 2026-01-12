@@ -1,7 +1,5 @@
 "use client";
 
-import { getCalApi } from "@calcom/embed-react";
-import { useEffect } from "react";
 import { MEDIA } from "@/lib/media";
 import ShinyText from "@/components/ui/shinytext";
 import Calendar from "./Calendar";
@@ -29,17 +27,6 @@ interface CalendarBookingSectionProps {
 export default function CalendarBookingSection({
   sectionIndex,
 }: CalendarBookingSectionProps) {
-  useEffect(() => {
-    (async () => {
-      const cal = await getCalApi({ namespace: "training-session" });
-      cal("ui", {
-        hideEventTypeDetails: false,
-        layout: "month_view",
-        theme: "dark",
-      });
-    })();
-  }, []);
-
   return (
     <section
       id="calendar-section"
@@ -48,22 +35,22 @@ export default function CalendarBookingSection({
       style={{ backgroundImage: `url('${MEDIA.backgrounds.calendar}')` }}
     >
       {/* 40% black overlay */}
-      <div 
-        className="absolute inset-0" 
+      <div
+        className="absolute inset-0"
         style={{ backgroundColor: "rgba(26, 26, 31, 0.4)" }}
       />
 
       {/* Top horizontal transition element */}
-      <div 
+      <div
         className="absolute top-0 left-0 right-0 h-px opacity-60 z-20"
         style={{
-          background: `linear-gradient(to right, transparent, ${theme.accent.lime}, ${theme.highlight.yellow}, ${theme.accent.lime}, transparent)`
+          background: `linear-gradient(to right, transparent, ${theme.accent.lime}, ${theme.highlight.yellow}, ${theme.accent.lime}, transparent)`,
         }}
       />
-      <div 
+      <div
         className="absolute top-0 left-0 right-0 h-24 pointer-events-none z-20"
         style={{
-          background: `linear-gradient(to bottom, ${theme.highlight.yellowSoft}, transparent)`
+          background: `linear-gradient(to bottom, ${theme.highlight.yellowSoft}, transparent)`,
         }}
       />
 
@@ -85,11 +72,11 @@ export default function CalendarBookingSection({
             Schedule a Session
           </ShinyText>
         </h2>
-        <p 
+        <p
           className="text-xl text-center font-amarante pb-8"
           style={{ color: theme.neutral.lighter }}
         >
-            Choose the best date and time for your adventure
+          Choose the best date and time for your adventure
         </p>
 
         <div className="hidden lg:block">
@@ -101,16 +88,16 @@ export default function CalendarBookingSection({
       </div>
 
       {/* Bottom horizontal transition element */}
-      <div 
+      <div
         className="absolute bottom-0 left-0 right-0 h-24 pointer-events-none z-20"
         style={{
-          background: `linear-gradient(to top, ${theme.highlight.yellowSoft}, transparent)`
+          background: `linear-gradient(to top, ${theme.highlight.yellowSoft}, transparent)`,
         }}
       />
-      <div 
+      <div
         className="absolute bottom-0 left-0 right-0 h-px opacity-60 z-20"
         style={{
-          background: `linear-gradient(to right, transparent, ${theme.accent.lime}, ${theme.highlight.yellow}, ${theme.accent.lime}, transparent)`
+          background: `linear-gradient(to right, transparent, ${theme.accent.lime}, ${theme.highlight.yellow}, ${theme.accent.lime}, transparent)`,
         }}
       />
     </section>
