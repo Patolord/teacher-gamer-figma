@@ -152,14 +152,14 @@ export default function ResearchSection({
               spread={30}
               yoyo
             >
-              Research & Publications
+              My Published Research
             </ShinyText>
           </h2>
           <p 
             className="text-base md:text-lg mt-4 max-w-3xl mx-auto"
             style={{ color: theme.neutral.lighter }}
           >
-            Evidence-based research supporting the Teacher-Gamer methodology
+            Peer-reviewed papers on <span className="font-medium" style={{ color: theme.accent.lime }}>Academia.edu</span> exploring how role-playing games transform learning
           </p>
         </div>
 
