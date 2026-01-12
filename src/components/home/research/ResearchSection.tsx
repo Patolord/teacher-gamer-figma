@@ -158,7 +158,7 @@ export default function ResearchSection({
             return (
               <article
                 key={article.title}
-                className="relative mx-auto w-full max-w-xs aspect-[2/3] group cursor-pointer"
+                className="relative mx-auto w-full max-w-xs aspect-[2/3] group cursor-pointer text-gray-900"
               >
                 <Link
                   href={article.link}
