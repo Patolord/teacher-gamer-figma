@@ -141,7 +141,7 @@ export default function ResearchSection({
             className="text-base md:text-lg mt-4 max-w-3xl mx-auto"
             style={{ color: "var(--color-lighter)" }}
           >
-            Peer-reviewed papers on <span className="font-medium" style={{ color: theme.accent.lime }}>Academia.edu</span> exploring how role-playing games transform learning
+            Peer-reviewed papers on <span className="font-medium" style={{ color: "var(--color-accent)" }}>Academia.edu</span> exploring how role-playing games transform learning
           </p>
         </div>
 
