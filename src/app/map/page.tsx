@@ -169,16 +169,109 @@ export default function TeachersMapPage() {
   const totalStudents = teacherLocations.reduce((acc, t) => acc + t.students, 0);
 
   return (
-    <main className="relative min-h-screen overflow-hidden">
+    <main className="relative min-h-screen overflow-hidden text-lighter">
       {/* Background */}
       <div
-        className="fixed inset-0 bg-cover bg-center"
+        className="fixed inset-0 bg-cover bg-center -z-20"
         style={{ backgroundImage: `url('${MEDIA.backgrounds.courses}')` }}
       />
-      <div className="fixed inset-0 bg-gradient-to-b from-black/85 via-black/75 to-black/90" />
+      <div className="fixed inset-0 bg-gradient-to-b from-black/85 via-black/75 to-black/90 -z-10" />
 
-      {/* Animated background particles */}
-      <div className="fixed inset-0 overflow-hidden pointer-events-none">
+      {/* Full Screen Map Layer */}
+      <div className="fixed inset-0 z-0">
+        <ComposableMap
+          projection="geoMercator"
+          projectionConfig={{
+            scale: 140,
+            center: [0, 20],
+          }}
+          style={{ width: "100%", height: "100%" }}
+        >
+          <ZoomableGroup>
+            <Geographies geography={geoUrl}>
+              {({ geographies }) =>
+                geographies.map((geo) => (
+                  <Geography
+                    key={geo.rsmKey}
+                    geography={geo}
+                    fill="var(--color-dark)"
+                    stroke="var(--color-medium)"
+                    strokeWidth={0.5}
+                    style={{
+                      default: { outline: "none", opacity: 0.8 },
+                      hover: { fill: "var(--color-medium)", outline: "none", opacity: 1 },
+                      pressed: { outline: "none" },
+                    }}
+                  />
+                ))
+              }
+            </Geographies>
+
+            {/* Teacher Markers */}
+            {teacherLocations.map((teacher) => (
+              <Marker
+                key={teacher.id}
+                coordinates={teacher.coordinates}
+                onMouseEnter={() => setHoveredTeacher(teacher)}
+                onMouseLeave={() => setHoveredTeacher(null)}
+                onClick={() => setSelectedTeacher(teacher)}
+              >
+                <g transform="translate(-12, -24)" style={{ cursor: "pointer" }}>
+                  {/* Pulse animation ring */}
+                  <circle
+                    cx="12"
+                    cy="20"
+                    r="8"
+                    fill="none"
+                    stroke="var(--color-accent)"
+                    strokeWidth="2"
+                    opacity="0.4"
+                    className="animate-ping"
+                    style={{ transformOrigin: "12px 20px" }}
+                  />
+                  {/* Main pin */}
+                  <path
+                    d="M12 0C7.58 0 4 3.58 4 8c0 5.5 8 16 8 16s8-10.5 8-16c0-4.42-3.58-8-8-8z"
+                    fill={
+                      hoveredTeacher?.id === teacher.id ||
+                      selectedTeacher?.id === teacher.id
+                        ? "var(--color-accent)"
+                        : "var(--color-accent-dark)"
+                    }
+                    stroke="var(--color-background)"
+                    strokeWidth="1"
+                  />
+                  {/* Inner circle */}
+                  <circle cx="12" cy="8" r="3" fill="var(--color-white)" />
+                </g>
+              </Marker>
+            ))}
+          </ZoomableGroup>
+        </ComposableMap>
+
+        {/* Hover Tooltip (positioned absolute relative to screen) */}
+        {hoveredTeacher && !selectedTeacher && (
+          <div className="absolute top-24 right-4 md:right-8 bg-background/90 backdrop-blur-sm rounded-lg p-4 border border-accent/30 pointer-events-none z-50 max-w-xs shadow-xl animate-in fade-in zoom-in-95 duration-200">
+            <p className="text-accent font-semibold text-lg">{hoveredTeacher.name}</p>
+            <p className="text-lighter/90">
+              {hoveredTeacher.city}, {hoveredTeacher.country}
+            </p>
+            <p className="text-lighter/60 text-sm mt-1">{hoveredTeacher.specialty}</p>
+          </div>
+        )}
+
+        {/* Map Legend */}
+        <div className="absolute bottom-4 right-4 bg-background/80 backdrop-blur-sm rounded-lg p-3 border border-lighter/10 z-10 hidden md:block">
+          <div className="flex items-center gap-2">
+            <div className="w-4 h-4 rounded-full bg-accent animate-pulse" />
+            <span className="text-lighter/70 text-xs">Teacher Location</span>
+          </div>
+          <p className="text-lighter/50 text-xs mt-1">Click marker for details</p>
+        </div>
+      </div>
+
+      {/* Animated background particles (on top of map for depth) */}
+      <div className="fixed inset-0 overflow-hidden pointer-events-none z-1">
         {particles.map((particle, i) => (
           <div
             key={i}
@@ -193,235 +286,135 @@ export default function TeachersMapPage() {
         ))}
       </div>
 
-      {/* Content */}
-      <div className="relative z-10 min-h-screen flex flex-col">
-        {/* Header */}
-        <div className="container mx-auto px-4 pt-6 pb-2">
+      {/* Floating UI Layer */}
+      <div className="fixed inset-0 pointer-events-none z-10 p-4 md:p-6">
+        {/* Header - Top Left */}
+        <div className="absolute top-4 left-4 md:top-6 md:left-6 pointer-events-auto">
           <Link
             href="/home"
-            className="inline-flex items-center gap-2 text-lighter/80 hover:text-lighter transition-colors"
+            className="inline-flex items-center gap-2 text-lighter/80 hover:text-lighter transition-colors bg-background/20 backdrop-blur-sm px-4 py-2 rounded-full border border-white/5 hover:bg-background/40"
           >
             <ArrowLeft className="w-5 h-5" />
             Back to Home
           </Link>
         </div>
 
-        {/* Title Section */}
-        <div className="container mx-auto px-4 py-6 text-center">
-          <h1 className="text-4xl md:text-6xl font-bold text-lighter mb-4">
-            Teacher Gamers
-            <span className="block text-accent">Around the World</span>
-          </h1>
-          <div className="h-1 w-32 bg-gradient-to-r from-transparent via-accent to-transparent mx-auto mb-6" />
-          <p className="text-lighter/70 text-lg max-w-2xl mx-auto">
-            Discover our global community of educators transforming learning through
-            game-based experiences
-          </p>
-
-          {/* Stats */}
-          <div className="flex justify-center gap-8 mt-8">
-            <div className="text-center">
-              <div className="flex items-center justify-center gap-2 text-accent mb-1">
-                <MapPin className="w-5 h-5" />
-                <span className="text-3xl font-bold">{totalTeachers}</span>
+        {/* Title & Stats - Bottom Left Sidebar Card */}
+        <div className="absolute bottom-24 left-0 w-full max-w-[250px] pointer-events-none px-4 md:bottom-8 md:px-6">
+          <div className="bg-background/80 backdrop-blur-md rounded-2xl p-4 border border-white/10 text-left pointer-events-auto shadow-2xl">
+            <h1 className="text-xl font-bold text-lighter mb-3 leading-tight">
+              Teacher Gamers <span className="block text-accent text-2xl">Worldwide</span>
+            </h1>
+            
+            {/* Stats Grid */}
+            <div className="grid grid-cols-2 gap-3 pt-3 border-t border-white/10">
+              <div>
+                <p className="text-lighter/60 text-[10px] uppercase tracking-wider mb-0.5">Teachers</p>
+                <div className="flex items-center gap-1.5">
+                  <span className="text-xl font-bold text-accent">{totalTeachers}</span>
+                  <MapPin className="w-3.5 h-3.5 text-accent/70" />
+                </div>
               </div>
-              <p className="text-lighter/60 text-sm">Teachers Worldwide</p>
-            </div>
-            <div className="text-center">
-              <div className="flex items-center justify-center gap-2 text-accent mb-1">
-                <Users className="w-5 h-5" />
-                <span className="text-3xl font-bold">{totalStudents}+</span>
+              
+              <div>
+                <p className="text-lighter/60 text-[10px] uppercase tracking-wider mb-0.5">Students</p>
+                <div className="flex items-center gap-1.5">
+                  <span className="text-xl font-bold text-accent">{totalStudents}+</span>
+                  <Users className="w-3.5 h-3.5 text-accent/70" />
+                </div>
               </div>
-              <p className="text-lighter/60 text-sm">Students Impacted</p>
             </div>
           </div>
         </div>
 
-        {/* Map Container */}
-        <div className="flex-1 container mx-auto px-4 pb-8">
-          <div className="relative h-[60vh] md:h-[65vh] bg-background/40 backdrop-blur-sm rounded-2xl border border-lighter/10 overflow-hidden">
-            <ComposableMap
-              projection="geoMercator"
-              projectionConfig={{
-                scale: 130,
-                center: [0, 30],
-              }}
-              style={{ width: "100%", height: "100%" }}
-            >
-              <ZoomableGroup>
-                <Geographies geography={geoUrl}>
-                  {({ geographies }) =>
-                    geographies.map((geo) => (
-                      <Geography
-                        key={geo.rsmKey}
-                        geography={geo}
-                        fill="var(--color-dark)"
-                        stroke="var(--color-medium)"
-                        strokeWidth={0.5}
-                        style={{
-                          default: { outline: "none" },
-                          hover: { fill: "var(--color-medium)", outline: "none" },
-                          pressed: { outline: "none" },
-                        }}
-                      />
-                    ))
-                  }
-                </Geographies>
-
-                {/* Teacher Markers */}
-                {teacherLocations.map((teacher) => (
-                  <Marker
-                    key={teacher.id}
-                    coordinates={teacher.coordinates}
-                    onMouseEnter={() => setHoveredTeacher(teacher)}
-                    onMouseLeave={() => setHoveredTeacher(null)}
-                    onClick={() => setSelectedTeacher(teacher)}
-                  >
-                    <g transform="translate(-12, -24)" style={{ cursor: "pointer" }}>
-                      {/* Pulse animation ring */}
-                      <circle
-                        cx="12"
-                        cy="20"
-                        r="8"
-                        fill="none"
-                        stroke="var(--color-accent)"
-                        strokeWidth="2"
-                        opacity="0.4"
-                        className="animate-ping"
-                        style={{ transformOrigin: "12px 20px" }}
-                      />
-                      {/* Main pin */}
-                      <path
-                        d="M12 0C7.58 0 4 3.58 4 8c0 5.5 8 16 8 16s8-10.5 8-16c0-4.42-3.58-8-8-8z"
-                        fill={
-                          hoveredTeacher?.id === teacher.id ||
-                          selectedTeacher?.id === teacher.id
-                            ? "var(--color-accent)"
-                            : "var(--color-accent-dark)"
-                        }
-                        stroke="var(--color-background)"
-                        strokeWidth="1"
-                      />
-                      {/* Inner circle */}
-                      <circle cx="12" cy="8" r="3" fill="var(--color-white)" />
-                    </g>
-                  </Marker>
-                ))}
-              </ZoomableGroup>
-            </ComposableMap>
-
-            {/* Hover Tooltip */}
-            {hoveredTeacher && !selectedTeacher && (
-              <div className="absolute top-4 left-4 bg-background/90 backdrop-blur-sm rounded-lg p-3 border border-accent/30 pointer-events-none">
-                <p className="text-accent font-semibold">{hoveredTeacher.name}</p>
-                <p className="text-lighter/70 text-sm">
-                  {hoveredTeacher.city}, {hoveredTeacher.country}
-                </p>
-              </div>
-            )}
-
-            {/* Map Legend */}
-            <div className="absolute bottom-4 right-4 bg-background/80 backdrop-blur-sm rounded-lg p-3 border border-lighter/10">
-              <div className="flex items-center gap-2">
-                <div className="w-4 h-4 rounded-full bg-accent animate-pulse" />
-                <span className="text-lighter/70 text-xs">Teacher Location</span>
-              </div>
-              <p className="text-lighter/50 text-xs mt-1">Click marker for details</p>
-            </div>
-          </div>
-        </div>
-
-        {/* Selected Teacher Modal */}
-        {selectedTeacher && (
-          <div
-            className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-background/60 backdrop-blur-sm"
-            onClick={() => setSelectedTeacher(null)}
-          >
-            <div
-              className="relative bg-gradient-to-br from-dark to-background rounded-2xl p-8 max-w-md w-full border border-accent/30 shadow-2xl"
-              onClick={(e) => e.stopPropagation()}
-            >
-              {/* Close button */}
-              <button
-                onClick={() => setSelectedTeacher(null)}
-                className="absolute top-4 right-4 text-lighter/60 hover:text-lighter transition-colors"
-              >
-                <X className="w-6 h-6" />
-              </button>
-
-              {/* Avatar */}
-              <div className="flex justify-center mb-6">
-                <div className="relative">
-                  <div className="w-24 h-24 rounded-full overflow-hidden border-4 border-accent/50 bg-dark">
-                    <img
-                      src={selectedTeacher.avatar}
-                      alt={selectedTeacher.name}
-                      className="w-full h-full object-cover"
-                    />
-                  </div>
-                  <div className="absolute -bottom-2 -right-2 bg-accent rounded-full p-2">
-                    <MapPin className="w-4 h-4 text-background" />
-                  </div>
-                </div>
-              </div>
-
-              {/* Teacher Info */}
-              <div className="text-center mb-6">
-                <h2 className="text-2xl font-bold text-lighter mb-1">
-                  {selectedTeacher.name}
-                </h2>
-                <p className="text-accent font-medium">
-                  {selectedTeacher.city}, {selectedTeacher.country}
-                </p>
-              </div>
-
-              {/* Details */}
-              <div className="space-y-4">
-                <div className="bg-lighter/5 rounded-lg p-4">
-                  <p className="text-lighter/50 text-sm mb-1">Specialty</p>
-                  <p className="text-lighter font-medium">{selectedTeacher.specialty}</p>
-                </div>
-
-                <div className="bg-lighter/5 rounded-lg p-4">
-                  <p className="text-lighter/50 text-sm mb-1">Students Taught</p>
-                  <p className="text-lighter font-medium flex items-center gap-2">
-                    <Users className="w-4 h-4 text-accent" />
-                    {selectedTeacher.students}+ students
-                  </p>
-                </div>
-              </div>
-
-              {/* CTA */}
-              <Button
-                className="w-full mt-6 bg-accent hover:bg-accent-light text-background font-semibold"
-                asChild
-              >
-                <Link href="/contact">Connect with {selectedTeacher.name.split(" ")[0]}</Link>
-              </Button>
-            </div>
-          </div>
-        )}
-
-        {/* Footer CTA */}
-        <div className="container mx-auto px-4 pb-8">
-          <div className="bg-gradient-to-r from-accent/10 via-accent/20 to-accent/10 rounded-2xl p-8 border border-accent/20 text-center">
-            <h3 className="text-2xl font-bold text-lighter mb-2">
-              Want to Join Our Global Network?
-            </h3>
-            <p className="text-lighter/70 mb-6">
-              Become a certified Teacher Gamer and transform education in your community
-            </p>
-            <Button
-              size="lg"
-              className="bg-accent hover:bg-accent-light text-background font-semibold"
-              asChild
-            >
-              <Link href="/home#courses-section">Explore Certification Courses</Link>
-            </Button>
+        {/* Footer CTA - Bottom Center (Compact) */}
+        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 w-full max-w-md px-4 pointer-events-none">
+          <div className="bg-background/90 backdrop-blur-md rounded-xl p-4 border border-accent/20 shadow-2xl flex items-center justify-between gap-4 pointer-events-auto">
+             <div className="text-left">
+               <h3 className="text-base font-bold text-lighter">Join the Network</h3>
+               <p className="text-xs text-lighter/70">Become a certified Teacher Gamer</p>
+             </div>
+             <Button
+               size="sm"
+               className="bg-accent hover:bg-accent-light text-background font-semibold shrink-0"
+               asChild
+             >
+               <Link href="/home#courses-section">Get Certified</Link>
+             </Button>
           </div>
         </div>
       </div>
+
+      {/* Selected Teacher Modal */}
+      {selectedTeacher && (
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-background/60 backdrop-blur-sm"
+          onClick={() => setSelectedTeacher(null)}
+        >
+          <div
+            className="relative bg-gradient-to-br from-dark to-background rounded-2xl p-8 max-w-md w-full border border-accent/30 shadow-2xl animate-in zoom-in-95 duration-200"
+            onClick={(e) => e.stopPropagation()}
+          >
+            {/* Close button */}
+            <button
+              onClick={() => setSelectedTeacher(null)}
+              className="absolute top-4 right-4 text-lighter/60 hover:text-lighter transition-colors"
+            >
+              <X className="w-6 h-6" />
+            </button>
+
+            {/* Avatar */}
+            <div className="flex justify-center mb-6">
+              <div className="relative">
+                <div className="w-24 h-24 rounded-full overflow-hidden border-4 border-accent/50 bg-dark">
+                  <img
+                    src={selectedTeacher.avatar}
+                    alt={selectedTeacher.name}
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+                <div className="absolute -bottom-2 -right-2 bg-accent rounded-full p-2">
+                  <MapPin className="w-4 h-4 text-background" />
+                </div>
+              </div>
+            </div>
+
+            {/* Teacher Info */}
+            <div className="text-center mb-6">
+              <h2 className="text-2xl font-bold text-lighter mb-1">
+                {selectedTeacher.name}
+              </h2>
+              <p className="text-accent font-medium">
+                {selectedTeacher.city}, {selectedTeacher.country}
+              </p>
+            </div>
+
+            {/* Details */}
+            <div className="space-y-4">
+              <div className="bg-lighter/5 rounded-lg p-4">
+                <p className="text-lighter/50 text-sm mb-1">Specialty</p>
+                <p className="text-lighter font-medium">{selectedTeacher.specialty}</p>
+              </div>
+
+              <div className="bg-lighter/5 rounded-lg p-4">
+                <p className="text-lighter/50 text-sm mb-1">Students Taught</p>
+                <p className="text-lighter font-medium flex items-center gap-2">
+                  <Users className="w-4 h-4 text-accent" />
+                  {selectedTeacher.students}+ students
+                </p>
+              </div>
+            </div>
+
+            {/* CTA */}
+            <Button
+              className="w-full mt-6 bg-accent hover:bg-accent-light text-background font-semibold"
+              asChild
+            >
+              <Link href="/contact">Connect with {selectedTeacher.name.split(" ")[0]}</Link>
+            </Button>
+          </div>
+        </div>
+      )}
     </main>
   );
 }
-
