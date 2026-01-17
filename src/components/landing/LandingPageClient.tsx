@@ -21,18 +21,25 @@ export default function LandingPageClient() {
         preload="auto"
         disablePictureInPicture
         poster={MEDIA.poster.landingFrame}
-        className="absolute inset-0 w-full h-full object-cover"
-        style={{ opacity: 0 }}
+        className="absolute inset-0 w-full h-full object-cover opacity-0"
+        
       />
+      
+      {/* Dark overlay for better text readability */}
+      <div 
+        className="absolute inset-0 bg-black/5 pointer-events-none"
+        
+      />
+      
       <div
         ref={landingSectionRef}
-        className="absolute inset-0"
-        style={{ pointerEvents: "none" }}
+        className="absolute inset-0 pointer-events-none"
+        
       />
       <div
         ref={headerRef}
-        className="absolute inset-0 flex items-center justify-center"
-        style={{ willChange: "transform, opacity" }}
+        className="absolute inset-0 flex items-center justify-center will-change-transform"
+        
       >
         <LandingContent onButtonClick={playAnimation} isLoading={isLoading} />
       </div>

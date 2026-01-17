@@ -21,32 +21,32 @@ export default function LandingContent({
   isLoading = false,
 }: Props) {
   return (
-    <div className="relative z-20 flex flex-col items-center justify-center gap-6 px-4 w-full max-w-4xl mx-auto">
-      <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-center text-white px-2 sm:px-5 leading-tight">
+    <div className="relative z-20 flex flex-col items-center justify-center gap-8 px-4 w-full max-w-5xl mx-auto">
+      <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-center text-white px-2 sm:px-5 leading-tight text-shadow-hero">
         Teacher Gamer Revolution
       </h1>
 
       <ScrambledText
         radius={50}
         duration={1.2}
-        className="pb-30 text-sm sm:text-base px-2"
+        className="pb-30 text-lg sm:text-xl md:text-2xl px-2 text-center text-shadow-subtitle"
         speed={0.5}
         scrambleChars=".:"
       >
-        The future of education is here. Join the Teacher Gamer Revolution and
-        revolutionize the way you learn.
+        The future of education is here, happening on tabletops & in schools everywhere. 
+        Join the community and revolutionize the way we learn.
       </ScrambledText>
 
       <button
         type="button"
         onClick={onButtonClick}
         disabled={isLoading}
-        className="text-lg sm:text-xl md:text-2xl lg:text-3xl py-6 sm:py-8 md:py-10 px-8 sm:px-12 md:px-16 uppercase tracking-wider font-bold flex items-center gap-3 cursor-pointer hover:scale-110 transition-all duration-300 rounded-xl shadow-2xl border-2 border-white/20 bg-gradient-to-r from-amber-400 to-amber-400 hover:from-amber-300 hover:to-amber-300 text-zinc-900 disabled:opacity-75 disabled:cursor-not-allowed disabled:hover:scale-100 active:scale-95"
+        className="text-base sm:text-lg font-semibold py-3 px-8 uppercase tracking-wider flex items-center gap-2 cursor-pointer transition-all duration-300 rounded-lg border-2 border-primary-light bg-transparent text-white btn-3d hover:bg-primary-subtle disabled:opacity-75 disabled:cursor-not-allowed disabled:hover:translate-y-0 active:scale-95"
       >
         {isLoading ? (
-          <Loader2 className="w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 animate-spin" />
+          <Loader2 className="w-5 h-5 animate-spin" />
         ) : (
-          <Swords className="w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8" />
+          <Swords className="w-5 h-5" />
         )}
         <span>{isLoading ? "Loading..." : "Get Started Now"}</span>
       </button>

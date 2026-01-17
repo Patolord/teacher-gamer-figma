@@ -285,3 +285,26 @@ body {
     transition: none;
   }
 }
+
+/* ========================================
+   Landing Page Custom Utilities
+   ======================================== */
+
+/* Text shadow utilities for landing page */
+.text-shadow-hero {
+  text-shadow: 0 4px 20px rgba(0, 0, 0, 0.7), 0 2px 8px rgba(0, 0, 0, 0.5);
+}
+
+.text-shadow-subtitle {
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.7), 0 1px 4px rgba(0, 0, 0, 0.5);
+}
+
+/* 3D Button utilities for landing page */
+.btn-3d {
+  box-shadow: 0 4px 12px rgba(106, 75, 207, 0.3), inset 0 -2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.btn-3d:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(106, 75, 207, 0.4), inset 0 -3px 6px rgba(0, 0, 0, 0.3);
+}
