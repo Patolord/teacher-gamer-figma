@@ -23,6 +23,8 @@ export default function Home() {
           sizes="100vw"
           quality={75}
         />
+        {/* Dark overlay for better text readability */}
+        <div className="absolute inset-0 bg-black/40" />
       </div>
 
       {/* Client component for interactive video and content */}

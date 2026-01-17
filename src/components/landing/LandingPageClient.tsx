@@ -24,6 +24,13 @@ export default function LandingPageClient() {
         className="absolute inset-0 w-full h-full object-cover"
         style={{ opacity: 0 }}
       />
+      
+      {/* Dark overlay for better text readability */}
+      <div 
+        className="absolute inset-0 bg-black/5"
+        style={{ pointerEvents: "none" }}
+      />
+      
       <div
         ref={landingSectionRef}
         className="absolute inset-0"
