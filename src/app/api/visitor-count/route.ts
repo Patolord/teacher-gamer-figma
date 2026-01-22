@@ -28,10 +28,10 @@ export async function POST() {
     const newCount = currentCount + 1;
 
     const edgeConfigId = getEdgeConfigId();
-    const token = process.env.VERCEL_OIDC_TOKEN;
+    const token = process.env.VERCEL_API_TOKEN || process.env.VERCEL_OIDC_TOKEN;
 
     if (edgeConfigId && token) {
-      await fetch(
+      const res = await fetch(
         `https://api.vercel.com/v1/edge-config/${edgeConfigId}/items`,
         {
           method: "PATCH",
@@ -44,6 +44,16 @@ export async function POST() {
           }),
         }
       );
+      
+      if (!res.ok) {
+        const errorText = await res.text();
+        console.error("Edge Config update failed:", res.status, errorText);
+        // Return current count if update failed
+        return NextResponse.json({ count: currentCount });
+      }
+    } else {
+      console.error("Missing edgeConfigId or token", { edgeConfigId: !!edgeConfigId, token: !!token });
+      return NextResponse.json({ count: currentCount });
     }
 
     return NextResponse.json({ count: newCount });
