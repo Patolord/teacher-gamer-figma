@@ -268,7 +268,7 @@ export default function AboutPage() {
                   className="bg-accent hover:bg-accent-light text-background font-semibold px-8"
                   asChild
                 >
-                  <Link href="/shop">Buy the Book!</Link>
+                  <Link href="/shop">Get the Hand Book</Link>
                 </Button>
               </div>
             </div>
