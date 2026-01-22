@@ -1,12 +1,57 @@
 
-import Link from "next/link";
 import { MEDIA } from "@/lib/media";
 import ShinyText from "@/components/ui/shinytext";
-import { Facebook, Twitter, Linkedin, Youtube, Mail, ArrowRight, Music } from "lucide-react";
+import { Facebook, Twitter, Linkedin, Youtube, Mail, Music } from "lucide-react";
 
 interface ContactSectionProps {
   sectionIndex?: number;
 }
+
+const socialLinks = [
+  {
+    name: "Facebook",
+    href: "https://facebook.com",
+    icon: Facebook,
+    hoverBg: "#1877F2",
+    hoverShadow: "rgba(24,119,242,0.5)",
+  },
+  {
+    name: "Twitter / X",
+    href: "https://twitter.com",
+    icon: Twitter,
+    hoverBg: "#1DA1F2",
+    hoverShadow: "rgba(29,161,242,0.5)",
+  },
+  {
+    name: "YouTube",
+    href: "https://www.youtube.com/channel/UCuefgI1D0nybe1Vn3Tm1MCg",
+    icon: Youtube,
+    hoverBg: "#FF0000",
+    hoverShadow: "rgba(255,0,0,0.5)",
+  },
+  {
+    name: "LinkedIn",
+    href: "https://linkedin.com",
+    icon: Linkedin,
+    hoverBg: "#0A66C2",
+    hoverShadow: "rgba(10,102,194,0.5)",
+  },
+  {
+    name: "TikTok",
+    href: "https://www.tiktok.com/@teachergamerz",
+    icon: Music,
+    hoverBg: "#FE2C55",
+    hoverShadow: "rgba(254,44,85,0.5)",
+  },
+  {
+    name: "Email",
+    href: "mailto:contact@example.com",
+    icon: Mail,
+    hoverBg: "var(--color-accent)",
+    hoverShadow: "rgba(218,255,13,0.5)",
+    isEmail: true,
+  },
+];
 
 export default function ContactSection({ sectionIndex }: ContactSectionProps) {
   return (
@@ -40,127 +85,64 @@ export default function ContactSection({ sectionIndex }: ContactSectionProps) {
             Get In Touch
           </ShinyText>
         </h2>
-        <p className="text-xl mb-8 text-center max-w-2xl mx-auto text-lighter">
-          Have questions? We'd love to hear from you. Send us a message and
-          we'll respond as soon as possible.
+        <p className="text-xl mb-4 text-center max-w-2xl mx-auto text-lighter">
+          Have questions or want to connect? Reach out through your preferred social media platform.
+        </p>
+        <p className="text-lg mb-12 text-center max-w-2xl mx-auto text-lighter/80">
+          We're active on all these channels and would love to hear from you!
         </p>
 
-        {/* CTA to Full Contact Page */}
-        <div className="text-center mb-12">
-          <Link
-            href="/contact"
+        {/* Social Media Links with Names */}
+        <div>
+       
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+            {socialLinks.map((social) => {
+              const Icon = social.icon;
+              return (
+                <a
+                  key={social.name}
+                  href={social.href}
+                  target={social.isEmail ? undefined : "_blank"}
+                  rel={social.isEmail ? undefined : "noopener noreferrer"}
+                  className="group flex items-center gap-4 px-5 py-4 rounded-xl backdrop-blur-sm border-2 transition-all duration-300 bg-white/10 border-primary-light hover:border-transparent"
+                  style={{
+                    ["--hover-bg" as string]: social.hoverBg,
+                    ["--hover-shadow" as string]: social.hoverShadow,
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.backgroundColor = social.hoverBg;
+                    e.currentTarget.style.borderColor = social.hoverBg;
+                    e.currentTarget.style.boxShadow = `0 0 20px ${social.hoverShadow}`;
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.backgroundColor = "";
+                    e.currentTarget.style.borderColor = "";
+                    e.currentTarget.style.boxShadow = "";
+                  }}
+                  aria-label={social.name}
+                >
+                  <div className="flex items-center justify-center w-12 h-12 rounded-full bg-white/10 group-hover:bg-white/20 transition-colors">
+                    <Icon className={`w-6 h-6 transition-colors text-lighter ${social.isEmail ? "group-hover:text-background" : "group-hover:text-white"}`} />
+                  </div>
+                  <span className={`font-semibold text-lg transition-colors text-lighter ${social.isEmail ? "group-hover:text-background" : "group-hover:text-white"}`}>
+                    {social.name}
+                  </span>
+                </a>
+              );
+            })}
+          </div>
+        </div>
+
+        {/* CTA to Donate via PayPal */}
+        <div className="text-center mt-12">
+          <a
+            href="https://www.paypal.com/paypalme/teachergamer"
+            target="_blank"
+            rel="noopener noreferrer"
             className="inline-flex items-center gap-2 px-6 py-3 font-bold rounded-full transition-all hover:gap-3 bg-accent text-background hover:bg-accent-light shadow-[0_4px_24px_rgba(218,255,13,0.25)] hover:shadow-[0_4px_24px_rgba(218,255,13,0.45)]"
           >
-            Visit Our Full Contact Page
-            <ArrowRight className="w-5 h-5" />
-          </Link>
-        </div>
-
-        <div className="backdrop-blur-sm rounded-xl p-8 border-2 bg-white/10 border-primary-light">
-          <form className="space-y-6">
-            <div>
-              <input
-                type="text"
-                placeholder="Your Name"
-                className="w-full px-6 py-4 rounded-lg text-lg border-2 backdrop-blur-sm bg-white/10 border-primary-light text-lighter placeholder:text-lighter/50 focus:border-accent focus:outline-none transition-colors"
-              />
-            </div>
-            <div>
-              <input
-                type="email"
-                placeholder="Your Email"
-                className="w-full px-6 py-4 rounded-lg text-lg border-2 backdrop-blur-sm bg-white/10 border-primary-light text-lighter placeholder:text-lighter/50 focus:border-accent focus:outline-none transition-colors"
-              />
-            </div>
-            <div>
-              <textarea
-                placeholder="Your Message"
-                rows={5}
-                className="w-full px-6 py-4 rounded-lg text-lg resize-none border-2 backdrop-blur-sm bg-white/10 border-primary-light text-lighter placeholder:text-lighter/50 focus:border-accent focus:outline-none transition-colors"
-              />
-            </div>
-            <button
-              type="submit"
-              className="w-full px-8 py-4 rounded-full font-bold text-xl transition-all duration-300 bg-accent text-background hover:bg-accent-light shadow-[0_4px_24px_rgba(218,255,13,0.25)] hover:shadow-[0_4px_24px_rgba(218,255,13,0.45)]"
-            >
-              Send Message
-            </button>
-          </form>
-        </div>
-
-        {/* Social Media Links */}
-        <div className="mt-12 text-center">
-          <h3 className="text-2xl font-bold mb-6 font-aladin text-lighter">
-            Connect With Us
-          </h3>
-          <div className="flex items-center justify-center gap-6 flex-wrap mb-10">
-            <a
-              href="https://facebook.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group flex items-center justify-center w-14 h-14 rounded-full backdrop-blur-sm border-2 transition-all duration-300 bg-white/10 border-primary-light hover:bg-[#1877F2] hover:border-[#1877F2] hover:shadow-[0_0_20px_rgba(24,119,242,0.5)]"
-              aria-label="Facebook"
-            >
-              <Facebook className="w-6 h-6 transition-colors text-lighter group-hover:text-white" />
-            </a>
-            <a
-              href="https://twitter.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group flex items-center justify-center w-14 h-14 rounded-full backdrop-blur-sm border-2 transition-all duration-300 bg-white/10 border-primary-light hover:bg-[#1DA1F2] hover:border-[#1DA1F2] hover:shadow-[0_0_20px_rgba(29,161,242,0.5)]"
-              aria-label="Twitter"
-            >
-              <Twitter className="w-6 h-6 transition-colors text-lighter group-hover:text-white" />
-            </a>
-            {/* YouTube */}
-            <a
-              href="https://www.youtube.com/channel/UCuefgI1D0nybe1Vn3Tm1MCg"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group flex items-center justify-center w-14 h-14 rounded-full backdrop-blur-sm border-2 transition-all duration-300 bg-white/10 border-primary-light hover:bg-[#FF0000] hover:border-[#FF0000] hover:shadow-[0_0_20px_rgba(255,0,0,0.5)]"
-              aria-label="YouTube"
-            >
-              <Youtube className="w-6 h-6 transition-colors text-lighter group-hover:text-white" />
-            </a>
-            <a
-              href="https://linkedin.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group flex items-center justify-center w-14 h-14 rounded-full backdrop-blur-sm border-2 transition-all duration-300 bg-white/10 border-primary-light hover:bg-[#0A66C2] hover:border-[#0A66C2] hover:shadow-[0_0_20px_rgba(10,102,194,0.5)]"
-              aria-label="LinkedIn"
-            >
-              <Linkedin className="w-6 h-6 transition-colors text-lighter group-hover:text-white" />
-            </a>
-            {/* TikTok */}
-            <a
-              href="https://www.tiktok.com/@teachergamerz"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group flex items-center justify-center w-14 h-14 rounded-full backdrop-blur-sm border-2 transition-all duration-300 bg-white/10 border-primary-light hover:bg-[#FE2C55] hover:border-[#FE2C55] hover:shadow-[0_0_20px_rgba(254,44,85,0.5)]"
-              aria-label="TikTok"
-            >
-              <Music className="w-6 h-6 transition-colors text-lighter group-hover:text-white" />
-            </a>
-            <a
-              href="mailto:contact@example.com"
-              className="group flex items-center justify-center w-14 h-14 rounded-full backdrop-blur-sm border-2 transition-all duration-300 bg-white/10 border-primary-light hover:bg-accent hover:border-accent hover:shadow-[0_0_20px_rgba(218,255,13,0.5)]"
-              aria-label="Email"
-            >
-              <Mail className="w-6 h-6 transition-colors text-lighter group-hover:text-background" />
-            </a>
-          </div>
-
-          {/* CTA to Donate via PayPal */}
-          <div className="text-center mt-8">
-            <a
-              href="https://www.paypal.com/paypalme/teachergamer"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-6 py-3 font-bold rounded-full transition-all hover:gap-3 bg-accent text-background hover:bg-accent-light shadow-[0_4px_24px_rgba(218,255,13,0.25)] hover:shadow-[0_4px_24px_rgba(218,255,13,0.45)]"
-            >
-              Support the Project
-            </a>
-          </div>
+            Support the Project
+          </a>
         </div>
       </div>
 

@@ -4,6 +4,7 @@ import {
   ArrowLeft,
   Book,
   CheckCircle,
+  ExternalLink,
   Loader2,
   ShoppingCart,
   Star,
@@ -165,27 +166,24 @@ export default function ShopPage() {
                 </div>
 
                 <div className="flex flex-col gap-4">
-                  {/* Buy Button */}
+                  {/* Buy Now Button - External Link */}
                   <Button
+                    asChild
                     size="lg"
                     className="w-full text-lg font-bold py-6 transition-all duration-300 bg-accent text-background hover:bg-accent-light shadow-[0_4px_20px_var(--color-accent-glow),0_0_40px_var(--color-secondary-soft)] hover:shadow-[0_6px_30px_rgba(218,255,13,0.45),0_0_50px_rgba(255,216,90,0.25)]"
-                    onClick={handleCheckout}
-                    disabled={isLoading}
                   >
-                    {isLoading ? (
-                      <>
-                        <Loader2 className="w-5 h-5 mr-2 animate-spin" />
-                        Processing...
-                      </>
-                    ) : (
-                      <>
-                        <ShoppingCart className="w-5 h-5 mr-2" />
-                        Buy Now
-                      </>
-                    )}
+                    <a
+                      href="https://www.drivethrurpg.com/pt/product/354223/teacher-gamer-handbook"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <ShoppingCart className="w-5 h-5 mr-2" />
+                      Buy Now
+                      <ExternalLink className="w-4 h-4 ml-2" />
+                    </a>
                   </Button>
 
-                  {/* Buy the PDF Button */}
+                  {/* Buy the PDF Button - Triggers Checkout */}
                   <Button
                     size="lg"
                     className="w-full text-lg font-bold py-6 transition-all duration-300 bg-primary text-white hover:bg-primary-light shadow-[0_4px_20px_var(--color-primary-glow)] hover:shadow-[0_6px_30px_var(--color-primary-glow)]"
@@ -313,11 +311,11 @@ export default function ShopPage() {
                   </div>
                 </div>
 
-                {/* Product 2: Teacher Gamer Handbook (Softcover / Hardcover) */}
+                {/* Product 2: Teacher Gamer Handbook (Softcover / Hardcover) - External Link */}
                 <div className="backdrop-blur-sm rounded-xl overflow-hidden flex flex-col bg-primary-subtle border-2 border-primary-light/25 shadow-[0_10px_30px_var(--color-primary-glow)]">
                   <div className="relative aspect-3/4 w-full">
                     <Image
-                      src={MEDIA.assets.bookCover}
+                      src={MEDIA.assets.bookCover2}
                       alt="Teacher Gamer Handbook (Softcover / Hardcover)"
                       fill
                       className="object-cover"
@@ -337,27 +335,26 @@ export default function ShopPage() {
                       </p>
                     </div>
                     <Button
+                      asChild
                       className="w-full font-bold mt-auto transition-all duration-300 bg-accent text-background hover:bg-accent-light"
-                      onClick={handleCheckout}
-                      disabled={isLoading}
                     >
-                      {isLoading ? (
-                        <>
-                          <Loader2 className="w-4 h-4 mr-2 animate-spin" />
-                          Processing...
-                        </>
-                      ) : (
-                        "BUY NOW"
-                      )}
+                      <a
+                        href="https://www.drivethrurpg.com/pt/product/354223/teacher-gamer-handbook"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        BUY NOW
+                        <ExternalLink className="w-4 h-4 ml-2" />
+                      </a>
                     </Button>
                   </div>
                 </div>
 
-                {/* Product 3: Teacher Gamer Screen (Landscape) */}
+                {/* Product 3: Teacher Gamer Screen (Landscape) - External Link */}
                 <div className="backdrop-blur-sm rounded-xl overflow-hidden flex flex-col bg-primary-subtle border-2 border-primary-light/25 shadow-[0_10px_30px_var(--color-primary-glow)]">
                   <div className="relative aspect-3/4 w-full">
                     <Image
-                      src={MEDIA.assets.bookCover}
+                      src={MEDIA.assets.bookCover3}
                       alt="Teacher Gamer Screen (Landscape)"
                       fill
                       className="object-cover"
@@ -377,27 +374,26 @@ export default function ShopPage() {
                       </p>
                     </div>
                     <Button
+                      asChild
                       className="w-full font-bold mt-auto transition-all duration-300 bg-accent text-background hover:bg-accent-light"
-                      onClick={handleCheckout}
-                      disabled={isLoading}
                     >
-                      {isLoading ? (
-                        <>
-                          <Loader2 className="w-4 h-4 mr-2 animate-spin" />
-                          Processing...
-                        </>
-                      ) : (
-                        "BUY NOW"
-                      )}
+                      <a
+                        href="https://www.drivethrurpg.com/pt/product/364211/teacher-gamer-screen-landscape"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        BUY NOW
+                        <ExternalLink className="w-4 h-4 ml-2" />
+                      </a>
                     </Button>
                   </div>
                 </div>
 
-                {/* Product 4: Teacher Gamer Screen (Portrait) */}
+                {/* Product 4: Teacher Gamer Screen (Portrait) - External Link */}
                 <div className="backdrop-blur-sm rounded-xl overflow-hidden flex flex-col bg-primary-subtle border-2 border-primary-light/25 shadow-[0_10px_30px_var(--color-primary-glow)]">
                   <div className="relative aspect-3/4 w-full">
                     <Image
-                      src={MEDIA.assets.bookCover}
+                      src={MEDIA.assets.bookCover4}
                       alt="Teacher Gamer Screen (Portrait)"
                       fill
                       className="object-cover"
@@ -417,18 +413,17 @@ export default function ShopPage() {
                       </p>
                     </div>
                     <Button
+                      asChild
                       className="w-full font-bold mt-auto transition-all duration-300 bg-accent text-background hover:bg-accent-light"
-                      onClick={handleCheckout}
-                      disabled={isLoading}
                     >
-                      {isLoading ? (
-                        <>
-                          <Loader2 className="w-4 h-4 mr-2 animate-spin" />
-                          Processing...
-                        </>
-                      ) : (
-                        "BUY NOW"
-                      )}
+                      <a
+                        href="https://www.drivethrurpg.com/product/364214/TeacherGamer-Screen-portrait"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        BUY NOW
+                        <ExternalLink className="w-4 h-4 ml-2" />
+                      </a>
                     </Button>
                   </div>
                 </div>
