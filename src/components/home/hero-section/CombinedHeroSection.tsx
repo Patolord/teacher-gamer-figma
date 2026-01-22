@@ -12,23 +12,23 @@ import ShinyText from "@/components/ui/shinytext";
 // Using global CSS theme variables
 
 const features = [
-  { icon: Shield, label: "Safe & Inclusive" },
-  { icon: Users, label: "Small Groups" },
-  { icon: Star, label: "Trained Game Masters" },
+  { icon: Shield, label: "Proven Method" },
+  { icon: Users, label: "For All Classrooms" },
+  { icon: Star, label: "Expert-Led Training" },
 ];
 
 const stats = [
   {
     emoji: "🎲",
     value: "500+",
-    label: "Adventures Led",
+    label: "Teachers Trained",
     position: "-bottom-6 -left-6",
     accentColor: "var(--color-primary)",
   },
   {
     emoji: "⭐",
     value: "4.9/5",
-    label: "Parent Rating",
+    label: "Educator Rating",
     position: "-top-4 -right-4",
     accentColor: "var(--color-accent)",
   },
@@ -78,14 +78,14 @@ const CombinedHeroSection = forwardRef<HTMLElement>((_props, ref) => {
                 spread={30}
                 yoyo
               >
-                A Safe Space for Kids to{" "}
+                Transform Your Classroom with{" "}
                 <span 
                   className="bg-clip-text text-transparent"
                   style={{ 
                     backgroundImage: "linear-gradient(135deg, var(--color-accent) 0%, var(--color-secondary) 50%, var(--color-accent) 100%)"
                   }}
                 >
-                  Play & Learn
+                  Educational RPGs
                 </span>
               </ShinyText>
             </h1>
@@ -94,10 +94,10 @@ const CombinedHeroSection = forwardRef<HTMLElement>((_props, ref) => {
               className="text-lg md:text-xl leading-relaxed max-w-xl"
               style={{ color: "var(--color-lighter)" }}
             >
-              Where education meets adventure in a secure, monitored
-              environment. Our platform creates a nurturing space where children
-              can explore, create, and grow through game-based learning—all
-              while parents and teachers have complete peace of mind.
+              Learn the Teacher-Gamer method and bring role-playing games into
+              your classroom. Engage students, build social-emotional skills,
+              and create meaningful learning experiences through collaborative
+              storytelling and purposeful play.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4">

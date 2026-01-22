@@ -26,16 +26,24 @@ export default function LandingContent({
         Teacher Gamer Revolution
       </h1>
 
-      <ScrambledText
-        radius={50}
-        duration={1.2}
-        className="pb-30 text-lg sm:text-xl md:text-2xl px-2 text-center text-shadow-subtitle"
-        speed={0.5}
-        scrambleChars=".:"
-      >
-        The future of education is here, happening on tabletops & in schools everywhere. 
-        Join the community and revolutionize the way we learn.
-      </ScrambledText>
+      <div className="pb-30 text-lg sm:text-xl md:text-2xl px-2 text-center text-shadow-subtitle flex flex-col gap-2">
+        <ScrambledText
+          radius={50}
+          duration={1.2}
+          speed={0.5}
+          scrambleChars=".:"
+        >
+          Transform your classroom with educational RPGs.
+        </ScrambledText>
+        <ScrambledText
+          radius={50}
+          duration={1.2}
+          speed={0.5}
+          scrambleChars=".:"
+        >
+          Learn the method that engages students and builds social-emotional skills.
+        </ScrambledText>
+      </div>
 
       <button
         type="button"
