@@ -50,7 +50,7 @@ const podcastPlatforms = [
   },
   {
     name: "Podbean App",
-    url: "https://www.podbean.com/pw/pbblog-azivr-7341b3?from=usersite",
+    url: "https://teachergamer.podbean.com/page/2/",
     icon: "https://pbcdn1.podbean.com/fs1/site/images/admin5/podbean-app.png",
   },
   {
@@ -360,7 +360,7 @@ export default function MediaPage() {
                 {/* Youtube Channel Subscribe Link - In Grid */}
                 <div className="md:col-span-2 flex items-center justify-center py-8">
                   <a
-                    href="https://www.youtube.com/@TeacherGamer"
+                    href="https://www.youtube.com/@zachrez6562"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-flex items-center gap-2 px-6 py-3 bg-linear-to-r from-red-500 to-red-500 text-zinc-900 font-semibold rounded-full hover:from-accent-light hover:to-accent-light transition-all duration-300 hover:shadow-[0_4px_24px_rgba(251,191,36,0.4)]"
@@ -538,7 +538,7 @@ export default function MediaPage() {
             
             <div className="mt-8">
               <a
-                href="https://www.podbean.com"
+                href="https://teachergamer.podbean.com/page/2/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 px-6 py-3 bg-zinc-800/50 hover:bg-zinc-700/50 text-zinc-400 hover:text-lighter font-medium rounded-full transition-all duration-300 border border-zinc-700 hover:border-accent/50"
