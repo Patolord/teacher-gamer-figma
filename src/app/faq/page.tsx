@@ -398,7 +398,7 @@ export default function FAQPage() {
                   Join our Discord to connect with other educators.
                 </p>
                 <a
-                  href="https://discord.com"
+                  href="https://discord.gg/d22JUxa7Be"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-accent hover:text-accent-light font-semibold"
