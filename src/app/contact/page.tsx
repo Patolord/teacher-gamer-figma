@@ -7,7 +7,6 @@ import {
   Instagram,
   Linkedin,
   Youtube,
-  Mail,
 } from "lucide-react";
 
 function DiscordIcon({ className }: { className?: string }) {
@@ -123,7 +122,7 @@ export default function ContactPage() {
                       <Facebook className="w-6 h-6 transition-colors text-lighter group-hover:text-background" />
                     </a>
                     <a
-                      href="https://discord.gg/d22JUxa7Be"
+                      href="https://x.com/TeacherGamerZ"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="group flex items-center justify-center w-14 h-14 rounded-full backdrop-blur-sm border-2 transition-all duration-300 bg-white/10 border-primary-light hover:bg-accent hover:border-accent"
@@ -157,13 +156,6 @@ export default function ContactPage() {
                       aria-label="LinkedIn"
                     >
                       <Linkedin className="w-6 h-6 transition-colors text-lighter group-hover:text-background" />
-                    </a>
-                    <a
-                      href="mailto:contact@example.com"
-                      className="group flex items-center justify-center w-14 h-14 rounded-full backdrop-blur-sm border-2 transition-all duration-300 bg-white/10 border-primary-light hover:bg-accent hover:border-accent"
-                      aria-label="Email"
-                    >
-                      <Mail className="w-6 h-6 transition-colors text-lighter group-hover:text-background" />
                     </a>
                   </div>
 
