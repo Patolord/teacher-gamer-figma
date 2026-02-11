@@ -1,7 +1,7 @@
 
 import { MEDIA } from "@/lib/media";
 import ShinyText from "@/components/ui/shinytext";
-import { Facebook, Twitter, Linkedin, Youtube, Mail, Music, Instagram } from "lucide-react";
+import { Facebook, Twitter, Linkedin, Youtube, Music, Instagram } from "lucide-react";
 
 function DiscordIcon({ className }: { className?: string }) {
   return (
@@ -25,7 +25,7 @@ const socialLinks = [
   },
   {
     name: "Twitter / X",
-    href: "https://discord.gg/d22JUxa7Be",
+    href: "https://x.com/TeacherGamerZ",
     icon: Twitter,
     hoverBg: "#1DA1F2",
     hoverShadow: "rgba(29,161,242,0.5)",
@@ -64,14 +64,6 @@ const socialLinks = [
     icon: Music,
     hoverBg: "#FE2C55",
     hoverShadow: "rgba(254,44,85,0.5)",
-  },
-  {
-    name: "Email",
-    href: "mailto:contact@example.com",
-    icon: Mail,
-    hoverBg: "var(--color-accent)",
-    hoverShadow: "rgba(218,255,13,0.5)",
-    isEmail: true,
   },
 ];
 
