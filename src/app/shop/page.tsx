@@ -151,13 +151,10 @@ export default function ShopPage() {
                 <div className="backdrop-blur-sm rounded-xl p-6 bg-primary-subtle border-2 border-primary-light/25 shadow-[0_10px_30px_var(--color-primary-glow)]">
                   <div className="flex items-baseline gap-3 flex-wrap">
                     <span className="text-4xl font-bold text-lighter">
-                      $39.99 USD
+                      $29.99 CAD
                     </span>
                     <span className="text-lg line-through text-light">
-                      $59.99 USD
-                    </span>
-                    <span className="px-3 py-1 text-sm font-semibold rounded-full bg-accent text-background">
-                      33% OFF
+                      $36.99 USD
                     </span>
                   </div>
                   <p className="mt-2 text-lighter">
@@ -166,41 +163,50 @@ export default function ShopPage() {
                 </div>
 
                 <div className="flex flex-col gap-4">
-                  {/* Buy Now Button - External Link */}
+                  {/* Buy the PDF Button - Triggers Checkout (Primary CTA) */}
+                  <div className="relative">
+                    <div className="absolute -inset-1 rounded-2xl bg-gradient-to-r from-accent via-accent-light to-accent opacity-75 blur-sm animate-pulse" />
+                    <div className="absolute -top-3 -right-2 z-10 px-3 py-1 text-sm font-extrabold rounded-full bg-accent text-background shadow-[0_2px_10px_var(--color-accent-glow)] animate-bounce">
+                      19% OFF
+                    </div>
+                    <Button
+                      size="lg"
+                      className="relative w-full text-xl font-extrabold py-7 transition-all duration-300 bg-accent text-background hover:bg-accent-light shadow-[0_4px_20px_var(--color-accent-glow),0_0_40px_var(--color-secondary-soft)] hover:shadow-[0_6px_30px_rgba(218,255,13,0.45),0_0_50px_rgba(255,216,90,0.25)] hover:scale-[1.02]"
+                      onClick={handleCheckout}
+                      disabled={isLoading}
+                    >
+                      {isLoading ? (
+                        <>
+                          <Loader2 className="w-5 h-5 mr-2 animate-spin" />
+                          Processing...
+                        </>
+                      ) : (
+                        <>
+                          <ShoppingCart className="w-5 h-5 mr-2" />
+                          Get The PDF — Instant Download
+                        </>
+                      )}
+                    </Button>
+                  </div>
+                  <p className="text-center text-sm text-accent/80 font-medium -mt-1">
+                    Save 19% vs Physical Book — $29.99 CAD via Stripe — Instant Download
+                  </p>
+
+                  {/* Buy Physical Book - External Link (Secondary) */}
                   <Button
                     asChild
                     size="lg"
-                    className="w-full text-lg font-bold py-6 transition-all duration-300 bg-accent text-background hover:bg-accent-light shadow-[0_4px_20px_var(--color-accent-glow),0_0_40px_var(--color-secondary-soft)] hover:shadow-[0_6px_30px_rgba(218,255,13,0.45),0_0_50px_rgba(255,216,90,0.25)]"
+                    className="w-full text-base font-bold py-5 transition-all duration-300 bg-primary/60 text-lighter border border-primary-light/40 hover:bg-primary hover:text-white shadow-[0_4px_15px_var(--color-primary-glow)] hover:shadow-[0_6px_25px_var(--color-primary-glow)]"
                   >
                     <a
                       href="https://www.drivethrurpg.com/pt/product/354223/teacher-gamer-handbook"
                       target="_blank"
                       rel="noopener noreferrer"
                     >
-                      <ShoppingCart className="w-5 h-5 mr-2" />
+                      <Book className="w-4 h-4 mr-2" />
                       Buy Physical Book
                       <ExternalLink className="w-4 h-4 ml-2" />
                     </a>
-                  </Button>
-
-                  {/* Buy the PDF Button - Triggers Checkout */}
-                  <Button
-                    size="lg"
-                    className="w-full text-lg font-bold py-6 transition-all duration-300 bg-primary text-white hover:bg-primary-light shadow-[0_4px_20px_var(--color-primary-glow)] hover:shadow-[0_6px_30px_var(--color-primary-glow)]"
-                    onClick={handleCheckout}
-                    disabled={isLoading}
-                  >
-                    {isLoading ? (
-                      <>
-                        <Loader2 className="w-5 h-5 mr-2 animate-spin" />
-                        Processing...
-                      </>
-                    ) : (
-                      <>
-                        <ShoppingCart className="w-5 h-5 mr-2" />
-                        Get The PDF
-                      </>
-                    )}
                   </Button>
                 </div>
 
@@ -391,7 +397,7 @@ export default function ShopPage() {
                       Teacher Gamer Handbook (PDF)
                     </h3>
                     <p className="text-2xl font-bold text-center mb-4 text-lighter">
-                      $29.99 USD
+                      $29.99 CAD
                     </p>
                     <Button
                       className="w-full font-bold mt-auto transition-all duration-300 bg-accent text-background hover:bg-accent-light"
