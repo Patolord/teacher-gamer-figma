@@ -22,22 +22,24 @@ const podcastEpisodes = [
     date: "Dec 2024",
   },
   {
-    id: "episode-2",
-    title: "Building Confidence Through Role-Play",
+    id: "episode-1",
+    title: "TGPC - ep 1 - Jesse Driver - International Teacher-Gamer at Green School Bali",
     description:
-      "How imaginative play helps children develop social skills and self-expression.",
-    embedId: "pb-fudp4-17a3ee4", // Replace with your actual Podbean embed ID
-    duration: "38 min",
-    date: "Nov 2024",
+      "Our opening episode highlights different styles of teacher-gaming. We talk \"Make Play\", Mantic Games, cheap materials, MS hobby & craft time, TT vs digital culture, mini-war gaming, homebrewing.",
+    embedId: "pb-fudp4-17a3ee4",
+    duration: "",
+    date: "Dec 2021",
+    url: "https://teachergamer.podbean.com/e/tgpc-episode-1-jesse-driver-international-teacher-gamer-at-green-school-bali/",
   },
   {
-    id: "episode-3",
-    title: "The Teacher-Gamer Methodology",
+    id: "episode-8",
+    title: "TGPC - E08 - Zach Reads the Teacher-Gamer Handbook Intro with Testimonials",
     description:
-      "An in-depth look at our unique approach to combining teaching with gaming.",
-    embedId: "pb-fudp4-17a3ee4", // Replace with your actual Podbean embed ID
-    duration: "52 min",
-    date: "Oct 2024",
+      "Kicking the season off with a sneak peek of the Teacher-Gamer Handbook audio book. Deep dive into using RPGs in schools as project based (PBL) and social emotional learning (SEL) through Zach's 36 life-skills methodology.",
+    embedId: "pb-fudp4-17a3ee4",
+    duration: "",
+    date: "Mar 2025",
+    url: "https://teachergamer.podbean.com/e/tgpc-e08-s03-zach-reznichek-reads-the-teacher-gamer-handbook-zach-reads-the-tghb-intro-with-testimonials-about-teacher-gamer-training/",
   },
 ];
 
@@ -498,13 +500,15 @@ export default function MediaPage() {
                     {episode.description}
                   </p>
 
-                  <button
-                    type="button"
+                  <a
+                    href={episode.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="flex items-center gap-2 text-accent hover:text-accent-light font-medium transition-colors"
                   >
                     <Play className="w-4 h-4 fill-current" />
                     <span>Listen Now</span>
-                  </button>
+                  </a>
                 </div>
               </div>
             ))}

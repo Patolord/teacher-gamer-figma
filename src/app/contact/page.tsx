@@ -149,7 +149,7 @@ export default function ContactPage() {
                       <Instagram className="w-6 h-6 transition-colors text-lighter group-hover:text-background" />
                     </a>
                     <a
-                      href="https://www.linkedin.com/company/the-distinct-self/"
+                      href="https://www.linkedin.com/company/2591103"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="group flex items-center justify-center w-14 h-14 rounded-full backdrop-blur-sm border-2 transition-all duration-300 bg-white/10 border-primary-light hover:bg-accent hover:border-accent"

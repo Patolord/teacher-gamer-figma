@@ -46,7 +46,7 @@ const socialLinks = [
   },
   {
     name: "LinkedIn",
-    href: "https://www.linkedin.com/company/the-distinct-self/",
+    href: "https://www.linkedin.com/company/2591103",
     icon: Linkedin,
     hoverBg: "#0A66C2",
     hoverShadow: "rgba(10,102,194,0.5)",
@@ -116,8 +116,8 @@ export default function ContactSection({ sectionIndex }: ContactSectionProps) {
                 <a
                   key={social.name}
                   href={social.href}
-                  target={social.isEmail ? undefined : "_blank"}
-                  rel={social.isEmail ? undefined : "noopener noreferrer"}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="group flex items-center gap-4 px-5 py-4 rounded-xl backdrop-blur-sm border-2 transition-all duration-300 bg-white/10 border-primary-light hover:border-transparent"
                   style={{
                     ["--hover-bg" as string]: social.hoverBg,
@@ -136,9 +136,9 @@ export default function ContactSection({ sectionIndex }: ContactSectionProps) {
                   aria-label={social.name}
                 >
                   <div className="flex items-center justify-center w-12 h-12 rounded-full bg-white/10 group-hover:bg-white/20 transition-colors">
-                    <Icon className={`w-6 h-6 transition-colors text-lighter ${social.isEmail ? "group-hover:text-background" : "group-hover:text-white"}`} />
+                    <Icon className="w-6 h-6 transition-colors text-lighter group-hover:text-white" />
                   </div>
-                  <span className={`font-semibold text-lg transition-colors text-lighter ${social.isEmail ? "group-hover:text-background" : "group-hover:text-white"}`}>
+                  <span className="font-semibold text-lg transition-colors text-lighter group-hover:text-white">
                     {social.name}
                   </span>
                 </a>
