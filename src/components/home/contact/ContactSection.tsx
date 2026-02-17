@@ -46,7 +46,7 @@ const socialLinks = [
   },
   {
     name: "LinkedIn",
-    href: "https://www.linkedin.com/company/the-distinct-self/",
+    href: "https://www.linkedin.com/company/2591103",
     icon: Linkedin,
     hoverBg: "#0A66C2",
     hoverShadow: "rgba(10,102,194,0.5)",
