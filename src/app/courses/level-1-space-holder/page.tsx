@@ -6,12 +6,18 @@ import {
   Book,
   CheckCircle,
   Clock,
+  Gift,
+  Quote,
+  Sparkles,
   Star,
   Users,
 } from "lucide-react";
 import Link from "next/link";
+import { useEffect } from "react";
+import { getCalApi } from "@calcom/embed-react";
 import { Button } from "@/components/ui/button";
 import { MEDIA } from "@/lib/media";
+import { CAL_CONFIG, getCalUIConfig, getCalConfig } from "@/components/home/calendar/cal-config";
 
 const courseFeatures = [
   "Master out-game character development techniques",
@@ -42,7 +48,20 @@ const whatYouWillLearn = [
   },
 ];
 
+const calProps = {
+  "data-cal-namespace": CAL_CONFIG.username,
+  "data-cal-link": CAL_CONFIG.username,
+  "data-cal-config": JSON.stringify(getCalConfig()),
+};
+
 export default function Level1SpaceHolderPage() {
+  useEffect(() => {
+    (async () => {
+      const cal = await getCalApi({ namespace: CAL_CONFIG.username });
+      cal("ui", getCalUIConfig());
+    })();
+  }, []);
+
   return (
     <main className="relative min-h-screen">
       {/* Background */}
@@ -123,19 +142,138 @@ export default function Level1SpaceHolderPage() {
               </div>
             </div>
 
-            {/* CTA Section */}
-            <div className="bg-white/10 backdrop-blur-sm rounded-xl p-8 border border-white/20">
-              <div className="flex flex-col md:flex-row items-center justify-between gap-6">
-                <div>
-                  <p className="text-3xl font-bold text-white mb-2">$599</p>
-                  <p className="text-white/70">Includes certification exam</p>
+            {/* Testimonials */}
+            <div className="space-y-6">
+              <h2 className="text-2xl font-bold text-white flex items-center gap-3">
+                <Quote className="w-6 h-6 text-secondary" />
+                What Certified Educators Are Saying
+              </h2>
+              <div className="grid md:grid-cols-2 gap-6">
+                <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-secondary/20">
+                  <div className="flex gap-1 mb-3">
+                    {[...Array(5)].map((_, i) => (
+                      <Star key={i} className="w-4 h-4 text-secondary fill-secondary" />
+                    ))}
+                  </div>
+                  <p className="text-white/90 italic mb-4 leading-relaxed">
+                    "The Space-Holder certification gave me the confidence to run my first full RPG session. The behavior management strategies alone were worth the investment. My pilot went smoother than I could have imagined."
+                  </p>
+                  <p className="text-secondary font-semibold text-sm">
+                    — Marcus T., High School English Teacher
+                  </p>
                 </div>
-                <Button
-                  size="lg"
-                  className="w-full md:w-auto text-lg font-bold text-white px-12 py-6 bg-secondary"
-                >
-                  Enroll Now
-                </Button>
+                <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-secondary/20">
+                  <div className="flex gap-1 mb-3">
+                    {[...Array(5)].map((_, i) => (
+                      <Star key={i} className="w-4 h-4 text-secondary fill-secondary" />
+                    ))}
+                  </div>
+                  <p className="text-white/90 italic mb-4 leading-relaxed">
+                    "Going from character development theory to actually facilitating in-game role-playing was a huge leap — but this course held my hand the whole way. The cohort-based format meant I always had peers to learn from and share ideas with."
+                  </p>
+                  <p className="text-secondary font-semibold text-sm">
+                    — Angela P., Special Education Coordinator
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            {/* Pricing Section */}
+            <div className="space-y-6">
+              {/* Individual Price */}
+              <div className="bg-white/10 backdrop-blur-sm rounded-xl p-8 border border-white/20">
+                <div className="flex flex-col md:flex-row items-center justify-between gap-6">
+                  <div>
+                    <p className="text-sm font-semibold text-white/50 uppercase tracking-wider mb-1">
+                      Level 1 Space-Holder
+                    </p>
+                    <p className="text-3xl font-bold text-white mb-1">$599</p>
+                    <p className="text-white/70">Includes certification exam</p>
+                  </div>
+                  <Button
+                    size="lg"
+                    className="w-full md:w-auto text-lg font-bold text-white px-12 py-6 bg-secondary"
+                    {...calProps}
+                  >
+                    Enroll Now
+                  </Button>
+                </div>
+              </div>
+
+              {/* Bundle Deal */}
+              <div className="relative bg-white/10 backdrop-blur-sm rounded-xl p-8 border-2 border-secondary/50 overflow-hidden">
+                <div className="absolute -top-px -right-px">
+                  <div className="bg-secondary text-white text-xs font-extrabold px-4 py-1.5 rounded-bl-xl flex items-center gap-1.5">
+                    <Sparkles className="w-3.5 h-3.5" />
+                    SAVE 15%
+                  </div>
+                </div>
+
+                <div className="flex items-center gap-2 mb-5">
+                  <Gift className="w-5 h-5 text-secondary" />
+                  <h3 className="text-lg font-bold text-secondary">
+                    Bundle & Save
+                  </h3>
+                </div>
+
+                <div className="space-y-4">
+                  <div className="flex items-center gap-3 flex-wrap">
+                    <span className="px-3 py-1 rounded-full bg-secondary/15 border border-secondary/30 text-secondary text-sm font-semibold">
+                      Level 1 Space-Holder
+                    </span>
+                    <span className="text-white/40 text-lg">+</span>
+                    <span className="px-3 py-1.5 rounded-full bg-white/10 border border-white/30 text-white text-sm font-semibold">
+                      Any Additional Course
+                    </span>
+                  </div>
+
+                  <p className="text-white/80 text-sm leading-relaxed">
+                    Combine this course with <strong className="text-white">any other course</strong> and get <strong className="text-secondary">15% off</strong> the total. Choose your path:
+                  </p>
+
+                  <div className="space-y-2">
+                    <div className="flex items-center justify-between bg-white/5 rounded-lg px-4 py-3 border border-white/10">
+                      <div className="flex items-center gap-2">
+                        <span className="w-2 h-2 rounded-full bg-accent" />
+                        <span className="text-white/80 text-sm">+ Intro to Multiverse</span>
+                      </div>
+                      <div className="flex items-center gap-2">
+                        <span className="text-white/40 text-sm line-through">$898</span>
+                        <span className="text-secondary font-bold">$763</span>
+                      </div>
+                    </div>
+                    <div className="flex items-center justify-between bg-white/5 rounded-lg px-4 py-3 border border-white/10">
+                      <div className="flex items-center gap-2">
+                        <span className="w-2 h-2 rounded-full bg-primary-light" />
+                        <span className="text-white/80 text-sm">+ Level 2 World Builder</span>
+                      </div>
+                      <div className="flex items-center gap-2">
+                        <span className="text-white/40 text-sm line-through">$1,498</span>
+                        <span className="text-secondary font-bold">$1,273</span>
+                      </div>
+                    </div>
+                    <div className="flex items-center justify-between bg-white/5 rounded-lg px-4 py-3 border border-white/10">
+                      <div className="flex items-center gap-2">
+                        <span className="w-2 h-2 rounded-full bg-secondary-dark" />
+                        <span className="text-white/80 text-sm">+ Level 3 Planes Walker</span>
+                      </div>
+                      <div className="flex items-center gap-2">
+                        <span className="text-white/40 text-sm line-through">$1,898</span>
+                        <span className="text-secondary font-bold">$1,613</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="pt-2">
+                    <Button
+                      size="lg"
+                      className="w-full md:w-auto text-lg font-bold text-white px-10 py-6 bg-secondary"
+                      {...calProps}
+                    >
+                      Build Your Bundle
+                    </Button>
+                  </div>
+                </div>
               </div>
             </div>
 
@@ -248,6 +386,7 @@ export default function Level1SpaceHolderPage() {
               <Button
                 size="lg"
                 className="text-lg font-bold text-white px-12 py-6 bg-secondary"
+                {...calProps}
               >
                 Enroll in Level 1 Certification
               </Button>

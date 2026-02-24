@@ -5,12 +5,19 @@ import {
   Award,
   CheckCircle,
   Clock,
+  Gift,
   GraduationCap,
+  Quote,
+  Sparkles,
+  Star,
   Users,
 } from "lucide-react";
 import Link from "next/link";
+import { useEffect } from "react";
+import { getCalApi } from "@calcom/embed-react";
 import { Button } from "@/components/ui/button";
 import { MEDIA } from "@/lib/media";
+import { CAL_CONFIG, getCalUIConfig, getCalConfig } from "@/components/home/calendar/cal-config";
 
 const courseFeatures = [
   "Align RPG campaigns with district learning standards",
@@ -41,7 +48,20 @@ const whatYouWillLearn = [
   },
 ];
 
+const calProps = {
+  "data-cal-namespace": CAL_CONFIG.username,
+  "data-cal-link": CAL_CONFIG.username,
+  "data-cal-config": JSON.stringify(getCalConfig()),
+};
+
 export default function Level3PlanesWalkerPage() {
+  useEffect(() => {
+    (async () => {
+      const cal = await getCalApi({ namespace: CAL_CONFIG.username });
+      cal("ui", getCalUIConfig());
+    })();
+  }, []);
+
   return (
     <main className="relative min-h-screen">
       {/* Background */}
@@ -121,6 +141,42 @@ export default function Level3PlanesWalkerPage() {
               </div>
             </div>
 
+            {/* Testimonials */}
+            <div className="space-y-6">
+              <h2 className="text-2xl font-bold text-white flex items-center gap-3">
+                <Quote className="w-6 h-6 text-secondary-dark" />
+                What Master Educators Are Saying
+              </h2>
+              <div className="grid md:grid-cols-2 gap-6">
+                <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-secondary-dark/20">
+                  <div className="flex gap-1 mb-3">
+                    {[...Array(5)].map((_, i) => (
+                      <Star key={i} className="w-4 h-4 text-secondary-dark fill-secondary-dark" />
+                    ))}
+                  </div>
+                  <p className="text-white/90 italic mb-4 leading-relaxed">
+                    "The Planes Walker course gave me the tools to present RPG-based learning to my school board with confidence. Within a semester, we had three classrooms running campaigns aligned to our district's literacy and SEL standards."
+                  </p>
+                  <p className="text-secondary-dark font-semibold text-sm">
+                    — Dr. Linda W., Curriculum Director
+                  </p>
+                </div>
+                <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-secondary-dark/20">
+                  <div className="flex gap-1 mb-3">
+                    {[...Array(5)].map((_, i) => (
+                      <Star key={i} className="w-4 h-4 text-secondary-dark fill-secondary-dark" />
+                    ))}
+                  </div>
+                  <p className="text-white/90 italic mb-4 leading-relaxed">
+                    "The 1-on-1 mentorship was a game-changer. I now mentor two other teachers in my district who are starting their own RPG programs. Seeing this movement grow from one classroom to an entire school has been the highlight of my career."
+                  </p>
+                  <p className="text-secondary-dark font-semibold text-sm">
+                    — Kevin O., Master Teacher Gamer
+                  </p>
+                </div>
+              </div>
+            </div>
+
             {/* Prerequisites */}
             <div className="bg-secondary-dark/10 backdrop-blur-sm rounded-xl p-6 border border-secondary-dark/30">
               <p className="text-white/90">
@@ -130,21 +186,102 @@ export default function Level3PlanesWalkerPage() {
               </p>
             </div>
 
-            {/* CTA Section */}
-            <div className="bg-white/10 backdrop-blur-sm rounded-xl p-8 border border-white/20">
-              <div className="flex flex-col md:flex-row items-center justify-between gap-6">
-                <div>
-                  <p className="text-3xl font-bold text-white mb-2">$1,299</p>
-                  <p className="text-white/70">
-                    Includes 1-on-1 mentorship & consultation
-                  </p>
+            {/* Pricing Section */}
+            <div className="space-y-6">
+              {/* Individual Price */}
+              <div className="bg-white/10 backdrop-blur-sm rounded-xl p-8 border border-white/20">
+                <div className="flex flex-col md:flex-row items-center justify-between gap-6">
+                  <div>
+                    <p className="text-sm font-semibold text-white/50 uppercase tracking-wider mb-1">
+                      Level 3 Planes Walker
+                    </p>
+                    <p className="text-3xl font-bold text-white mb-1">$1,299</p>
+                    <p className="text-white/70">Includes 1-on-1 mentorship & consultation</p>
+                  </div>
+                  <Button
+                    size="lg"
+                    className="w-full md:w-auto text-lg font-bold text-white px-12 py-6 bg-secondary-dark"
+                    {...calProps}
+                  >
+                    Enroll Now
+                  </Button>
                 </div>
-                <Button
-                  size="lg"
-                  className="w-full md:w-auto text-lg font-bold text-white px-12 py-6 bg-secondary-dark"
-                >
-                  Enroll Now
-                </Button>
+              </div>
+
+              {/* Bundle Deal */}
+              <div className="relative bg-white/10 backdrop-blur-sm rounded-xl p-8 border-2 border-secondary-dark/50 overflow-hidden">
+                <div className="absolute -top-px -right-px">
+                  <div className="bg-secondary-dark text-white text-xs font-extrabold px-4 py-1.5 rounded-bl-xl flex items-center gap-1.5">
+                    <Sparkles className="w-3.5 h-3.5" />
+                    SAVE 15%
+                  </div>
+                </div>
+
+                <div className="flex items-center gap-2 mb-5">
+                  <Gift className="w-5 h-5 text-secondary-dark" />
+                  <h3 className="text-lg font-bold text-secondary-dark">
+                    Bundle & Save
+                  </h3>
+                </div>
+
+                <div className="space-y-4">
+                  <div className="flex items-center gap-3 flex-wrap">
+                    <span className="px-3 py-1 rounded-full bg-secondary-dark/15 border border-secondary-dark/30 text-secondary-dark text-sm font-semibold">
+                      Level 3 Planes Walker
+                    </span>
+                    <span className="text-white/40 text-lg">+</span>
+                    <span className="px-3 py-1.5 rounded-full bg-white/10 border border-white/30 text-white text-sm font-semibold">
+                      Any Additional Course
+                    </span>
+                  </div>
+
+                  <p className="text-white/80 text-sm leading-relaxed">
+                    Combine this course with <strong className="text-white">any other course</strong> and get <strong className="text-secondary-dark">15% off</strong> the total. Choose your path:
+                  </p>
+
+                  <div className="space-y-2">
+                    <div className="flex items-center justify-between bg-white/5 rounded-lg px-4 py-3 border border-white/10">
+                      <div className="flex items-center gap-2">
+                        <span className="w-2 h-2 rounded-full bg-accent" />
+                        <span className="text-white/80 text-sm">+ Intro to Multiverse</span>
+                      </div>
+                      <div className="flex items-center gap-2">
+                        <span className="text-white/40 text-sm line-through">$1,598</span>
+                        <span className="text-secondary-dark font-bold">$1,358</span>
+                      </div>
+                    </div>
+                    <div className="flex items-center justify-between bg-white/5 rounded-lg px-4 py-3 border border-white/10">
+                      <div className="flex items-center gap-2">
+                        <span className="w-2 h-2 rounded-full bg-secondary" />
+                        <span className="text-white/80 text-sm">+ Level 1 Space-Holder</span>
+                      </div>
+                      <div className="flex items-center gap-2">
+                        <span className="text-white/40 text-sm line-through">$1,898</span>
+                        <span className="text-secondary-dark font-bold">$1,613</span>
+                      </div>
+                    </div>
+                    <div className="flex items-center justify-between bg-white/5 rounded-lg px-4 py-3 border border-white/10">
+                      <div className="flex items-center gap-2">
+                        <span className="w-2 h-2 rounded-full bg-primary-light" />
+                        <span className="text-white/80 text-sm">+ Level 2 World Builder</span>
+                      </div>
+                      <div className="flex items-center gap-2">
+                        <span className="text-white/40 text-sm line-through">$2,198</span>
+                        <span className="text-secondary-dark font-bold">$1,868</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="pt-2">
+                    <Button
+                      size="lg"
+                      className="w-full md:w-auto text-lg font-bold text-white px-10 py-6 bg-secondary-dark"
+                      {...calProps}
+                    >
+                      Build Your Bundle
+                    </Button>
+                  </div>
+                </div>
               </div>
             </div>
 
@@ -267,6 +404,7 @@ export default function Level3PlanesWalkerPage() {
               <Button
                 size="lg"
                 className="text-lg font-bold text-white px-12 py-6 bg-secondary-dark"
+                {...calProps}
               >
                 Enroll in Level 3 Certification
               </Button>

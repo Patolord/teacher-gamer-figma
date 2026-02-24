@@ -136,7 +136,7 @@ export default function ResearchSection({
               spread={30}
               yoyo
             >
-              My Published Research
+              Teacher-Gamer Published Research
             </ShinyText>
           </h2>
           <p 
