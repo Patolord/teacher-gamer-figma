@@ -123,6 +123,23 @@ export default function ShopPage() {
                     4.9/5 from 200+ Educators
                   </p>
                 </div>
+
+                {/* Benefits */}
+                <div className="grid grid-cols-3 gap-3 max-w-md mx-auto">
+                  {benefits.map(({ icon: Icon, title }) => (
+                    <div
+                      key={title}
+                      className="backdrop-blur-sm rounded-xl p-3 text-center space-y-1.5 bg-primary-subtle border border-primary-light/25"
+                    >
+                      <div className="w-10 h-10 mx-auto rounded-full flex items-center justify-center bg-accent-glow">
+                        <Icon className="w-5 h-5 text-accent" />
+                      </div>
+                      <h3 className="text-xs font-bold text-accent leading-tight">
+                        {title}
+                      </h3>
+                    </div>
+                  ))}
+                </div>
               </div>
 
               {/* Book Details Section */}
@@ -227,30 +244,6 @@ export default function ShopPage() {
                     ))}
                   </ul>
                 </div>
-              </div>
-            </div>
-
-            {/* Benefits Section */}
-            <div className="mt-20 space-y-8">
-              <h2 className="text-3xl font-bold text-center">
-                <span className="text-lighter">Why Educators Love </span>
-                <span className="text-accent">Our Resources</span>
-              </h2>
-              <div className="grid md:grid-cols-3 gap-8">
-                {benefits.map(({ icon: Icon, title, description }) => (
-                  <div
-                    key={title}
-                    className="backdrop-blur-sm rounded-xl p-6 text-center space-y-4 bg-primary-subtle border-2 border-primary-light/25 shadow-[0_10px_30px_var(--color-primary-glow)]"
-                  >
-                    <div className="w-16 h-16 mx-auto rounded-full flex items-center justify-center bg-accent-glow">
-                      <Icon className="w-8 h-8 text-accent" />
-                    </div>
-                    <h3 className="text-xl font-bold text-accent">
-                      {title}
-                    </h3>
-                    <p className="text-light">{description}</p>
-                  </div>
-                ))}
               </div>
             </div>
 

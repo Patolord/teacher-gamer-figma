@@ -10,6 +10,7 @@ const menu = [
   { title: "About", href: "/about" },
   { title: "Training", href: "/home#courses-section" },
   { title: "Calendar", href: "/home#calendar-section" },
+  { title: "Workshops", href: "/workshops" },
   { title: "Map", href: "/map" },
   { title: "Media", href: "/media" },
   { title: "Shop", href: "/shop" },

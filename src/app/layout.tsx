@@ -4,6 +4,7 @@ import localFont from "next/font/local";
 import "./globals.css";
 
 import ConditionalSplashCursor from "@/components/shared/ConditionalSplashCursor";
+import FloatingBookingButton from "@/components/shared/FloatingBookingButton";
 
 // Local fonts - no external requests, fastest option
 const amarante = localFont({
@@ -68,6 +69,7 @@ export default function RootLayout({
         <ImageKitProvider urlEndpoint="https://ik.imagekit.io/TeacherGamer/Site/">
           {children}
 
+          <FloatingBookingButton />
           <ConditionalSplashCursor />
         </ImageKitProvider>
       </body>

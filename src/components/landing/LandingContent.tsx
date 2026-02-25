@@ -33,7 +33,7 @@ export default function LandingContent({
           speed={0.5}
           scrambleChars=".:"
         >
-          Transform your classroom with educational RPGs.
+          The future of education is here, happening on tabletops & in schools everywhere.
         </ScrambledText>
         <ScrambledText
           radius={50}
@@ -41,7 +41,7 @@ export default function LandingContent({
           speed={0.5}
           scrambleChars=".:"
         >
-          Learn the method that engages students and builds social-emotional skills.
+          Join the community and revolutionize the way we learn.
         </ScrambledText>
       </div>
 

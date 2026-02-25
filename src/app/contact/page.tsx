@@ -83,9 +83,10 @@ export default function ContactPage() {
                   </h2>
 
                   <p className="text-lg text-lighter/80 max-w-xl leading-relaxed">
-                    The best way to reach us is through our Discord server. Connect
-                    with other educators, ask questions, share your experiences with
-                    game-based learning, and get direct support from the Teacher Gamer team.
+                    If you want to meet and interact more with other adventurers on
+                    the Teacher-Gamer journey, join us on Discord. Connect with other
+                    educators, ask questions, share your experiences with game-based
+                    learning, and get direct support from the Teacher Gamer team.
                   </p>
 
                   <a
