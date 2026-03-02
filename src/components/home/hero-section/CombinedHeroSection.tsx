@@ -17,22 +17,6 @@ const features = [
   { icon: Star, label: "Expert-Led Training" },
 ];
 
-const stats = [
-  {
-    emoji: "🎲",
-    value: "500+",
-    label: "Teachers Trained",
-    position: "-bottom-6 -left-6",
-    accentColor: "var(--color-primary)",
-  },
-  {
-    emoji: "⭐",
-    value: "4.9/5",
-    label: "Educator Rating",
-    position: "-top-4 -right-4",
-    accentColor: "var(--color-accent)",
-  },
-];
 
 const CombinedHeroSection = forwardRef<HTMLElement>((_props, ref) => {
   return (
@@ -186,40 +170,6 @@ const CombinedHeroSection = forwardRef<HTMLElement>((_props, ref) => {
               />
             </div>
 
-            {stats.map(({ emoji, value, label, position, accentColor }) => (
-              <div
-                key={label}
-                className={`absolute ${position} p-4 rounded-2xl shadow-lg backdrop-blur-sm`}
-                style={{
-                  backgroundColor: "var(--color-white)",
-                  border: `2px solid ${accentColor}40`,
-                  boxShadow: `0 10px 30px var(--color-background), 0 0 20px ${accentColor}30`
-                }}
-              >
-                <div className="flex items-center gap-3">
-                  <div
-                    className="w-12 h-12 rounded-full flex items-center justify-center"
-                    style={{ backgroundColor: `${accentColor}20` }}
-                  >
-                    <span className="text-2xl">{emoji}</span>
-                  </div>
-                  <div>
-                    <p 
-                      className="font-bold"
-                      style={{ color: "var(--color-background)" }}
-                    >
-                      {value}
-                    </p>
-                    <p 
-                      className="text-sm"
-                      style={{ color: "var(--color-medium)" }}
-                    >
-                      {label}
-                    </p>
-                  </div>
-                </div>
-              </div>
-            ))}
           </div>
         </div>
       </div>
